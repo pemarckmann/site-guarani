@@ -1,0 +1,1600 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background-color: #f4f4f4;
+    color: #111;
+
+    font-family: Arial, sans-serif;
+}
+
+img {
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: #111;
+    border-bottom: 3px solid #b30018;
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* CABEÇALHO ESCONDIDO */
+
+.topo.topo-oculto {
+    transform: translateY(-100%);
+}
+
+
+/* SOMBRA QUANDO ESTÁ FLUTUANDO */
+
+.topo.topo-scroll {
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.20);
+}
+
+.topo-conteudo {
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   ESCUDO + NOME
+========================= */
+
+.marca {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.marca img {
+    width: 45px;
+    height: auto;
+}
+
+.marca strong {
+    display: block;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.marca span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+nav {
+    display: flex;
+
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #d71920;
+}
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 40px 0;
+}
+
+
+/* =========================
+   HERO / BANNER
+========================= */
+
+.hero {
+    position: relative;
+
+    height: 450px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: white;
+}
+
+
+/* IMAGEM DO HERO */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("../assets/campeao.jpg");
+    background-size: cover;
+    background-position: center;
+
+    filter:
+        grayscale(65%)
+        brightness(55%);
+
+    transform: scale(1.01);
+
+    z-index: 0;
+}
+
+
+/* DEGRADÊ */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.10)
+        );
+
+    z-index: 1;
+}
+
+
+/* TEXTO DO HERO */
+
+.hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-tag {
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.hero h1 {
+    margin: 0 0 20px;
+
+    color: white;
+
+    font-size: 34px;
+    line-height: 1.3;
+}
+
+.hero h1 strong {
+    color: white;
+}
+
+.hero p {
+    margin: 0 0 20px;
+
+    color: white;
+
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* BOTÃO */
+
+.hero-botao {
+    display: inline-block;
+
+    padding: 13px 20px;
+
+    background-color: #b30018;
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.hero-botao:hover {
+    background-color: #d0001b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   PRÓXIMO JOGO
+========================= */
+
+.proximo-jogo {
+    padding: 40px 0;
+
+    background-color: #f4f4f4;
+}
+
+
+/* CARD */
+
+.jogo-card {
+    display: grid;
+
+    grid-template-columns:
+        190px
+        minmax(0, 1fr)
+        180px;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   COMPETIÇÃO
+========================= */
+
+.jogo-titulo {
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: #111;
+    color: white;
+}
+
+.logo-competicao {
+    width: 115px;
+    height: auto;
+
+    margin: 0 auto 18px;
+
+    align-self: center;
+
+    object-fit: contain;
+}
+
+.jogo-titulo span {
+    margin-bottom: 6px;
+
+    color: #e31b36;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.jogo-titulo strong {
+    font-size: 16px;
+}
+
+.jogo-titulo small {
+    margin-top: 3px;
+
+    color: #ddd;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   TIMES
+========================= */
+
+.jogo-times {
+    min-width: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 38px;
+
+    padding: 48px 28px 30px;
+}
+
+.time {
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    text-align: center;
+}
+
+.time img {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 0 10px;
+
+    object-fit: contain;
+}
+
+.time strong {
+    display: block;
+
+    max-width: 150px;
+
+    font-size: 15px;
+    line-height: 1.2;
+
+    white-space: normal;
+
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+
+/* X */
+
+.versus {
+    width: 46px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    margin-top: 0;
+
+    color: #666;
+
+    font-size: 34px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   DATA E LOCAL
+========================= */
+
+.jogo-info {
+    min-width: 0;
+
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #fafafa;
+
+    border-left: 1px solid #eee;
+}
+
+.jogo-info strong {
+    margin-bottom: 8px;
+
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+.jogo-info .data-jogo {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #b30018;
+
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.jogo-info > span {
+    margin-top: 3px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+
+/* SOBRE O JOGO */
+
+.detalhes-jogo {
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-top: 12px;
+
+    color: #b30018;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    transition: color 0.2s;
+}
+
+.detalhes-jogo:hover {
+    color: #e00020;
+}
+
+
+/* =========================
+   ÚLTIMAS NOTÍCIAS
+========================= */
+
+.noticias {
+    padding: 50px 0 70px;
+
+    background-color: #f4f4f4;
+}
+
+
+/* TOPO */
+
+.noticias-topo {
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.secao-tag {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #b30018;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.noticias-topo h2,
+.secao-simples h2 {
+    margin: 0;
+
+    color: #111;
+
+    font-size: 30px;
+}
+
+.ver-todas {
+    color: #b30018;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.ver-todas:hover {
+    color: #e00020;
+}
+
+
+/* =========================
+   GRID DAS NOTÍCIAS
+========================= */
+
+.noticias-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(280px, 1fr);
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.noticia-card {
+    overflow: hidden;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.noticia-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================
+   NOTÍCIA PRINCIPAL
+========================= */
+
+.noticia-principal {
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto;
+
+    height: 100%;
+}
+
+.noticia-principal > img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    background-color: #111;
+}
+
+
+/* =========================
+   COLUNA LATERAL
+========================= */
+
+.noticias-laterais {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.noticia-menor {
+    flex: 1;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto;
+}
+
+.noticia-menor > img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    background-color: #111;
+}
+
+
+/* Preencher totalmente a imagem */
+
+.noticia-card.preencher > img {
+    object-fit: cover;
+}
+
+
+/* =========================
+   TEXTO DAS NOTÍCIAS
+========================= */
+
+.noticia-conteudo {
+    padding: 20px;
+}
+
+.noticia-meta {
+    color: #b30018;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.noticia-conteudo h3 {
+    margin: 8px 0 0;
+
+    color: #111;
+
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.noticia-principal .noticia-conteudo h3 {
+    font-size: 24px;
+}
+
+.noticia-conteudo p {
+    margin: 10px 0 0;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.noticia-menor .noticia-conteudo {
+    padding: 15px;
+}
+
+.noticia-menor .noticia-conteudo h3 {
+    font-size: 15px;
+}
+
+
+/* =========================
+   NOTÍCIA HORIZONTAL
+========================= */
+
+.noticia-horizontal {
+    grid-column: 1 / -1;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(280px, 1fr);
+
+    align-items: stretch;
+}
+
+.noticia-horizontal-imagem {
+    min-height: 280px;
+
+    overflow: hidden;
+
+    background-color: #111;
+}
+
+.noticia-horizontal-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.noticia-horizontal .noticia-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 35px;
+}
+
+.noticia-horizontal .noticia-conteudo h3 {
+    margin-top: 10px;
+
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.noticia-horizontal .noticia-conteudo p {
+    max-width: 420px;
+}
+
+
+/* =========================
+   SEÇÕES SIMPLES
+========================= */
+
+.secao-simples {
+    padding: 40px 0 60px;
+}
+
+.secao-simples p {
+    max-width: 700px;
+
+    margin-top: 12px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ELENCO
+========================= */
+
+.elenco {
+    padding: 60px 0;
+
+    background-color: #f4f4f4;
+}
+
+.elenco-card {
+    display: grid;
+
+    grid-template-columns:
+        1.6fr
+        1fr;
+
+    overflow: hidden;
+
+    background-color: #181818;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 6px 22px
+        rgba(0, 0, 0, 0.15);
+}
+
+.elenco-imagem {
+    min-height: 420px;
+
+    overflow: hidden;
+}
+
+.elenco-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 50%;
+}
+
+.elenco-conteudo {
+    padding: 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: white;
+}
+
+.elenco-conteudo .secao-tag {
+    color: #e31b36;
+}
+
+.elenco-conteudo h2 {
+    margin: 5px 0 15px;
+
+    color: white;
+
+    font-size: 32px;
+}
+
+.elenco-conteudo p {
+    margin: 0 0 25px;
+
+    color: #bbb;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* BOTÃO */
+
+.elenco-botao {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 13px 20px;
+
+    background-color: #b30018;
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.elenco-botao:hover {
+    background-color: #d0001b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   O CLUBE
+========================= */
+
+.clube {
+    padding: 80px 0;
+}
+
+.clube-card {
+    display: grid;
+
+    grid-template-columns:
+        320px
+        1fr;
+
+    overflow: hidden;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.10);
+}
+
+.clube-escudo {
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #111;
+}
+
+.clube-escudo img {
+    width: 135px;
+    height: auto;
+}
+
+.clube-conteudo {
+    padding: 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clube-conteudo h2 {
+    margin: 5px 0 15px;
+
+    font-size: 32px;
+}
+
+.clube-descricao {
+    max-width: 650px;
+
+    margin: 0 0 30px;
+
+    color: #666;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* INFORMAÇÕES */
+
+.clube-infos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.clube-info {
+    padding-left: 15px;
+
+    border-left: 3px solid #b30018;
+}
+
+.clube-info strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 15px;
+}
+
+.clube-info span {
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+/* BOTÃO */
+
+.clube-botao {
+    display: inline-block;
+
+    width: fit-content;
+
+    color: #b30018;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.clube-botao:hover {
+    color: #e00020;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.rodape {
+    margin-top: 30px;
+
+    background-color: #111;
+    color: white;
+
+    border-top: 3px solid #b30018;
+}
+
+.rodape-conteudo {
+    padding: 45px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr;
+
+    gap: 50px;
+}
+
+
+/* MARCA */
+
+.rodape-marca {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.rodape-marca img {
+    width: 60px;
+    height: auto;
+}
+
+.rodape-marca strong {
+    display: block;
+
+    color: white;
+
+    font-size: 17px;
+}
+
+.rodape-marca span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* NAVEGAÇÃO */
+
+.rodape-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.rodape-links > strong,
+.rodape-redes > strong {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+.rodape-links a {
+    width: fit-content;
+
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        color 0.2s,
+        transform 0.2s;
+}
+
+.rodape-links a:hover {
+    color: white;
+
+    transform: translateX(3px);
+}
+
+
+/* REDES SOCIAIS */
+
+.rodape-redes {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.rede-social {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition:
+        color 0.2s,
+        transform 0.2s;
+}
+
+.rede-social img {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+.rede-social:hover {
+    color: white;
+
+    transform: translateX(3px);
+}
+
+
+/* PARTE FINAL */
+
+.rodape-final {
+    border-top: 1px solid #2b2b2b;
+}
+
+.rodape-final p {
+    margin: 0;
+
+    padding: 18px 0;
+
+    color: #777;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width: 900px) {
+
+    nav {
+        gap: 16px;
+    }
+
+
+    /* JOGO */
+
+    .jogo-card {
+        grid-template-columns:
+            170px
+            minmax(0, 1fr)
+            170px;
+    }
+
+    .jogo-titulo {
+        padding: 20px;
+    }
+
+    .logo-competicao {
+        width: 100px;
+    }
+
+    .jogo-times {
+        gap: 14px;
+
+        padding: 50px 10px 30px;
+    }
+
+    .time {
+        width: 110px;
+    }
+
+    .time img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .versus {
+        width: 32px;
+        height: 65px;
+
+        font-size: 25px;
+    }
+
+    .jogo-info {
+        padding: 18px;
+    }
+
+
+    /* NOTÍCIAS */
+
+    .noticias-grid {
+        grid-template-columns:
+            minmax(0, 1.4fr)
+            minmax(240px, 1fr);
+    }
+
+
+    /* RODAPÉ */
+
+    .rodape-conteudo {
+        grid-template-columns:
+            1.3fr
+            1fr
+            1fr;
+
+        gap: 30px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* TOPO */
+
+    .topo-conteudo {
+        height: auto;
+
+        padding: 15px 0;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    /* JOGO */
+
+    .jogo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .jogo-titulo {
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .jogo-times {
+        padding: 30px 10px;
+
+        gap: 10px;
+    }
+
+    .time {
+        width: 105px;
+    }
+
+    .time img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .versus {
+        width: 28px;
+        height: 55px;
+
+        margin-top: 0;
+
+        font-size: 22px;
+    }
+
+    .jogo-info {
+        padding: 25px;
+
+        align-items: center;
+
+        border-left: none;
+        border-top: 1px solid #eee;
+
+        text-align: center;
+    }
+
+
+    /* NOTÍCIAS */
+
+    .noticias-topo {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .noticias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .noticia-principal {
+        display: block;
+
+        height: auto;
+    }
+
+    .noticia-principal > img {
+        width: 100%;
+        height: auto;
+
+        max-height: 520px;
+
+        object-fit: contain;
+    }
+
+    .noticias-laterais {
+        height: auto;
+    }
+
+    .noticia-menor {
+        display: block;
+    }
+
+    .noticia-menor > img {
+        width: 100%;
+        height: auto;
+
+        max-height: 320px;
+
+        object-fit: contain;
+    }
+
+
+    /* NOTÍCIA HORIZONTAL */
+
+    .noticia-horizontal {
+        grid-column: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+    .noticia-horizontal-imagem {
+        min-height: 0;
+    }
+
+    .noticia-horizontal-imagem img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+    .noticia-horizontal .noticia-conteudo {
+        padding: 20px;
+    }
+
+
+    /* ELENCO */
+
+    .elenco-card {
+        grid-template-columns: 1fr;
+    }
+
+    .elenco-imagem {
+        min-height: 280px;
+    }
+
+    .elenco-conteudo {
+        padding: 30px 25px;
+    }
+
+    .elenco-conteudo h2 {
+        font-size: 26px;
+    }
+
+
+    /* O CLUBE */
+
+    .clube-card {
+        grid-template-columns: 1fr;
+    }
+
+    .clube-escudo {
+        min-height: 250px;
+    }
+
+    .clube-escudo img {
+        width: 120px;
+    }
+
+    .clube-conteudo {
+        padding: 30px 25px;
+    }
+
+    .clube-conteudo h2 {
+        font-size: 26px;
+    }
+
+    .clube-infos {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    /* RODAPÉ */
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 35px 0;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .container {
+        width: 92%;
+    }
+
+    main {
+        width: 94%;
+    }
+
+
+    /* TOPO */
+
+    .marca strong {
+        font-size: 16px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 360px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+
+    /* JOGO */
+
+    .jogo-times {
+        gap: 5px;
+
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .time {
+        width: 95px;
+    }
+
+    .time img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .time strong {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .versus {
+        width: 26px;
+        height: 50px;
+
+        font-size: 19px;
+    }
+
+
+    /* NOTÍCIAS */
+
+    .noticias-topo h2,
+    .secao-simples h2 {
+        font-size: 24px;
+    }
+
+    .noticia-conteudo {
+        padding: 15px;
+    }
+
+    .noticia-principal .noticia-conteudo h3 {
+        font-size: 20px;
+    }
+
+    .noticia-horizontal .noticia-conteudo h3 {
+        font-size: 20px;
+    }
+
+
+    /* ELENCO */
+
+    .elenco-conteudo {
+        padding: 25px 20px;
+    }
+
+
+    /* CLUBE */
+
+    .clube-conteudo {
+        padding: 25px 20px;
+    }
+
+
+    /* RODAPÉ */
+
+    .rodape-marca img {
+        width: 52px;
+    }
+
+    .rodape-marca strong {
+        font-size: 15px;
+    }
+
+    .rede-social img {
+        width: 28px;
+        height: 28px;
+    }
+
+}
