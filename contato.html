@@ -52,6 +52,10 @@
           <a href="contato.html" class="nav-ativo" aria-current="page">
             Contato
           </a>
+
+          <a href="contato.html?assunto=socio#form-contato" class="nav-socio">
+            Seja Sócio
+          </a>
         </nav>
       </div>
     </header>
@@ -182,6 +186,8 @@
               <h2>Qual é a sua dúvida?</h2>
 
               <p>Preencha os campos abaixo e envie sua mensagem.</p>
+
+              <p class="form-obrigatorios">* Campos obrigatórios</p>
             </div>
 
             <!-- FORMULÁRIO -->
@@ -190,12 +196,16 @@
               <!-- ASSUNTO -->
 
               <div class="campo campo-completo">
-                <label for="assunto"> Assunto </label>
+                <label for="assunto">
+                  Assunto <span class="campo-obrigatorio">*</span>
+                </label>
 
                 <select id="assunto" name="assunto" required>
                   <option value="">Selecione</option>
 
                   <option value="informacoes">Informações gerais</option>
+
+                  <option value="socio">Quero ser sócio</option>
 
                   <option value="futebol">Futebol</option>
 
@@ -215,7 +225,9 @@
                 <!-- NOME -->
 
                 <div class="campo">
-                  <label for="nome"> Nome completo </label>
+                  <label for="nome">
+                    Nome completo <span class="campo-obrigatorio">*</span>
+                  </label>
 
                   <input
                     type="text"
@@ -229,7 +241,9 @@
                 <!-- E-MAIL -->
 
                 <div class="campo">
-                  <label for="email"> E-mail </label>
+                  <label for="email">
+                    E-mail <span class="campo-obrigatorio">*</span>
+                  </label>
 
                   <input
                     type="email"
@@ -243,7 +257,9 @@
                 <!-- TELEFONE -->
 
                 <div class="campo campo-completo">
-                  <label for="telefone"> Telefone </label>
+                  <label for="telefone">
+  Telefone <span class="campo-opcional">(opcional)</span>
+</label>
 
                   <input
                     type="tel"
@@ -256,7 +272,9 @@
                 <!-- MENSAGEM -->
 
                 <div class="campo campo-completo">
-                  <label for="mensagem"> Mensagem </label>
+                  <label for="mensagem">
+                    Mensagem <span class="campo-obrigatorio">*</span>
+                  </label>
 
                   <textarea
                     id="mensagem"
@@ -303,19 +321,21 @@
         <div class="rodape-links">
           <strong> Navegação </strong>
 
-          <a href="index.html"> Início </a>
+          <a href="#top"> Início </a>
 
-          <a href="index.html#noticias"> Notícias </a>
+          <a href="#noticias"> Notícias </a>
 
-          <a href="index.html#jogos"> Jogos </a>
+          <a href="#jogos"> Jogos </a>
 
-          <a href="index.html#elenco"> Elenco </a>
+          <a href="#elenco"> Elenco </a>
 
           <a href="clube.html"> O Clube </a>
 
-          <a href="index.html#patrocinadores"> Patrocinadores </a>
-
           <a href="contato.html"> Contato </a>
+
+          <a href="contato.html?assunto=socio#form-contato"> Seja Sócio </a>
+
+          <a href="#patrocinadores"> Patrocinadores </a>
         </div>
 
         <!-- REDES SOCIAIS -->

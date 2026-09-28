@@ -1,5 +1,21 @@
 const topo = document.querySelector(".topo");
 const formContato = document.querySelector("#form-contato");
+const assuntoContato = document.querySelector("#assunto");
+
+
+/* =====================================================
+   ASSUNTO DO FORMULÁRIO
+===================================================== */
+
+if (assuntoContato) {
+  const parametros = new URLSearchParams(window.location.search);
+  const assunto = parametros.get("assunto");
+
+  if (assunto) {
+    assuntoContato.value = assunto;
+  }
+}
+
 
 /* =====================================================
    FORMULÁRIO DE CONTATO

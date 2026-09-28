@@ -2,6 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
@@ -23,17 +24,24 @@
 
     <header class="topo">
       <div class="container topo-conteudo">
+        <!-- MARCA -->
+
         <div class="marca">
           <img src="assets/escudo.png" alt="Escudo do Esporte Clube Guarani" />
 
           <div>
             <strong>Esporte Clube Guarani</strong>
+
             <span>Venâncio Aires • RS</span>
           </div>
         </div>
 
+        <!-- MENU -->
+
         <nav aria-label="Menu principal">
-          <a href="#top" class="nav-ativo" aria-current="page"> Início </a>
+          <a href="index.html" class="nav-ativo" aria-current="page">
+            Início
+          </a>
 
           <a href="#noticias"> Notícias </a>
 
@@ -44,6 +52,10 @@
           <a href="clube.html"> O Clube </a>
 
           <a href="contato.html"> Contato </a>
+
+          <a href="contato.html?assunto=socio#form-contato" class="nav-socio">
+            Seja Sócio
+          </a>
         </nav>
       </div>
     </header>
@@ -54,8 +66,8 @@
 
     <main>
       <!-- =================================================
-             HERO
-        ================================================== -->
+           HERO
+      ================================================== -->
 
       <section class="hero" aria-label="Apresentação do Esporte Clube Guarani">
         <div class="container hero-conteudo">
@@ -74,8 +86,8 @@
       </section>
 
       <!-- =================================================
-             PRÓXIMO JOGO
-        ================================================== -->
+           PRÓXIMO JOGO
+      ================================================== -->
 
       <section class="proximo-jogo" id="jogos">
         <div class="container">
@@ -99,6 +111,8 @@
             <!-- CONFRONTO -->
 
             <div class="jogo-times">
+              <!-- GUARANI -->
+
               <div class="time">
                 <img src="assets/escudo.png" alt="Escudo do Guarani" />
 
@@ -106,6 +120,8 @@
               </div>
 
               <div class="versus" aria-label="contra">X</div>
+
+              <!-- UNIÃO FREDERIQUENSE -->
 
               <div class="time">
                 <img
@@ -144,11 +160,13 @@
       </section>
 
       <!-- =================================================
-             NOTÍCIAS
-        ================================================== -->
+           NOTÍCIAS
+      ================================================== -->
 
       <section class="noticias" id="noticias">
         <div class="container">
+          <!-- CABEÇALHO -->
+
           <div class="noticias-topo">
             <div>
               <span class="secao-tag"> FIQUE POR DENTRO </span>
@@ -158,6 +176,8 @@
 
             <a href="#" class="ver-todas"> Ver todas → </a>
           </div>
+
+          <!-- GRID -->
 
           <div class="noticias-grid">
             <!-- PRINCIPAL -->
@@ -184,7 +204,7 @@
               </div>
             </article>
 
-            <!-- LATERAIS -->
+            <!-- NOTÍCIAS LATERAIS -->
 
             <div class="noticias-laterais">
               <article class="noticia-card noticia-menor">
@@ -245,12 +265,14 @@
       </section>
 
       <!-- =================================================
-             ELENCO
-        ================================================== -->
+           ELENCO
+      ================================================== -->
 
       <section class="elenco" id="elenco">
         <div class="container">
           <div class="elenco-card">
+            <!-- IMAGEM -->
+
             <div class="elenco-imagem">
               <img
                 src="assets/elenco.jpg"
@@ -258,6 +280,8 @@
                 loading="lazy"
               />
             </div>
+
+            <!-- CONTEÚDO -->
 
             <div class="elenco-conteudo">
               <span class="secao-tag"> TIME ÍNDIO </span>
@@ -276,12 +300,14 @@
       </section>
 
       <!-- =================================================
-             O CLUBE
-        ================================================== -->
+           O CLUBE
+      ================================================== -->
 
       <section class="clube" id="clube">
         <div class="container">
           <div class="clube-card">
+            <!-- ESCUDO -->
+
             <div class="clube-escudo">
               <img
                 src="assets/escudo.png"
@@ -289,6 +315,8 @@
                 loading="lazy"
               />
             </div>
+
+            <!-- CONTEÚDO -->
 
             <div class="clube-conteudo">
               <span class="secao-tag"> NOSSA HISTÓRIA </span>
@@ -300,20 +328,25 @@
                 em Venâncio Aires.
               </p>
 
+              <!-- INFORMAÇÕES -->
+
               <div class="clube-infos">
                 <div class="clube-info">
-                  <strong>Venâncio Aires</strong>
-                  <span>Rio Grande do Sul</span>
+                  <strong> Venâncio Aires </strong>
+
+                  <span> Rio Grande do Sul </span>
                 </div>
 
                 <div class="clube-info">
-                  <strong>Edmundo Feix</strong>
-                  <span>Nossa casa</span>
+                  <strong> Edmundo Feix </strong>
+
+                  <span> Nossa casa </span>
                 </div>
 
                 <div class="clube-info">
-                  <strong>Time Índio</strong>
-                  <span>Nossa identidade</span>
+                  <strong> Time Índio </strong>
+
+                  <span> Nossa identidade </span>
                 </div>
               </div>
 
@@ -332,63 +365,109 @@
 
     <section class="patrocinadores" id="patrocinadores">
       <div class="container">
+        <!-- CABEÇALHO -->
+
         <div class="patrocinadores-topo">
           <span class="secao-tag"> QUEM APOIA O TIME ÍNDIO </span>
 
           <h2>Patrocinadores</h2>
         </div>
 
+        <!-- PATROCINADORES MASTER -->
+
         <div class="patrocinadores-grupo">
           <h3 class="patrocinadores-grupo-titulo">PATROCINADORES MASTER</h3>
 
           <div class="patrocinadores-master-grid">
-            <div class="patrocinador-master-logo">
+            <!-- SIMPAY -->
+
+            <a
+              href="https://somossimpay.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="patrocinador-master-logo patrocinador-link"
+              aria-label="Visitar o site da Simpay"
+            >
               <img
                 src="assets/patrocinador-simpay.png"
                 alt="Simpay"
                 loading="lazy"
               />
-            </div>
+            </a>
 
-            <div class="patrocinador-master-logo">
+            <!-- ALM ENGENHARIA -->
+
+            <a
+              href="https://www.almengenharia.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="patrocinador-master-logo patrocinador-link"
+              aria-label="Visitar o site da ALM Engenharia"
+            >
               <img
                 src="assets/patrocinador-alm.png"
                 alt="ALM Engenharia"
                 loading="lazy"
               />
-            </div>
+            </a>
           </div>
         </div>
 
         <div class="patrocinadores-divisor"></div>
 
+        <!-- DEMAIS PATROCINADORES -->
+
         <div class="patrocinadores-grupo">
           <h3 class="patrocinadores-grupo-titulo">PATROCINADORES</h3>
 
           <div class="patrocinadores-grid">
-            <div class="patrocinador-logo">
+            <!-- SBE SPORTS -->
+
+            <a
+              href="https://sbesportes.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="patrocinador-logo patrocinador-link"
+              aria-label="Visitar o site da SBE Sports"
+            >
               <img
                 src="assets/patrocinador-sbe.png"
                 alt="SBE Sports"
                 loading="lazy"
               />
-            </div>
+            </a>
 
-            <div class="patrocinador-logo">
+            <!-- LEHMEN VEÍCULOS -->
+
+            <a
+              href="https://www.lehmenveiculos.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="patrocinador-logo patrocinador-link"
+              aria-label="Visitar o site da Lehmen Veículos"
+            >
               <img
                 src="assets/patrocinador-lehmen.png"
                 alt="Lehmen Veículos"
                 loading="lazy"
               />
-            </div>
+            </a>
 
-            <div class="patrocinador-logo">
+            <!-- UNISC -->
+
+            <a
+              href="https://www.unisc.br/pt/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="patrocinador-logo patrocinador-link"
+              aria-label="Visitar o site da UNISC"
+            >
               <img
                 src="assets/patrocinador-unisc.png"
                 alt="UNISC - Universidade de Santa Cruz do Sul"
                 loading="lazy"
               />
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -400,6 +479,8 @@
 
     <footer class="rodape">
       <div class="container rodape-conteudo">
+        <!-- MARCA -->
+
         <div class="rodape-marca">
           <img
             src="assets/escudo.png"
@@ -408,10 +489,13 @@
           />
 
           <div>
-            <strong>Esporte Clube Guarani</strong>
-            <span>Venâncio Aires • RS</span>
+            <strong> Esporte Clube Guarani </strong>
+
+            <span> Venâncio Aires • RS </span>
           </div>
         </div>
+
+        <!-- NAVEGAÇÃO -->
 
         <div class="rodape-links">
           <strong> Navegação </strong>
@@ -426,13 +510,19 @@
 
           <a href="clube.html"> O Clube </a>
 
+          <a href="#patrocinadores"> Patrocinadores </a>
+
           <a href="contato.html"> Contato </a>
 
-          <a href="#patrocinadores"> Patrocinadores </a>
+          <a href="contato.html?assunto=socio#form-contato"> Seja Sócio </a>
         </div>
+
+        <!-- REDES SOCIAIS -->
 
         <div class="rodape-redes">
           <strong> Siga o Time Índio </strong>
+
+          <!-- INSTAGRAM -->
 
           <a
             href="https://www.instagram.com/ecguaranirs/"
@@ -445,6 +535,8 @@
             <span> Instagram </span>
           </a>
 
+          <!-- FACEBOOK -->
+
           <a
             href="https://www.facebook.com/guaranirs"
             target="_blank"
@@ -455,6 +547,8 @@
 
             <span> Facebook </span>
           </a>
+
+          <!-- X -->
 
           <a
             href="https://x.com/GuaraniRS"
@@ -468,6 +562,8 @@
           </a>
         </div>
       </div>
+
+      <!-- RODAPÉ FINAL -->
 
       <div class="rodape-final">
         <div class="container">

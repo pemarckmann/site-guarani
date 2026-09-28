@@ -41,6 +41,7 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+
 /* =====================================================
    TOPO
 ===================================================== */
@@ -78,6 +79,7 @@ a:focus-visible {
   justify-content: space-between;
 }
 
+
 /* =====================================================
    MARCA
 ===================================================== */
@@ -112,12 +114,14 @@ a:focus-visible {
   font-size: 12px;
 }
 
+
 /* =====================================================
    MENU
 ===================================================== */
 
 nav {
   display: flex;
+  align-items: center;
 
   gap: 25px;
 }
@@ -130,7 +134,12 @@ nav a {
   font-size: 14px;
   font-weight: bold;
 
-  transition: color 0.2s;
+  white-space: nowrap;
+
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 nav a:hover {
@@ -141,6 +150,49 @@ nav a:hover {
 nav a[aria-current="page"] {
   color: #e31b36;
 }
+
+
+/* =====================================================
+   BOTÃO SEJA SÓCIO
+===================================================== */
+
+.nav-socio {
+  margin-left: 5px;
+
+  padding: 10px 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #b30018;
+  color: white !important;
+
+  border-radius: 4px;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.nav-socio:hover {
+  background-color: #d0001b;
+  color: white !important;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 12px
+    rgba(179, 0, 24, 0.25);
+}
+
+.nav-socio:active {
+  transform: translateY(0);
+}
+
 
 /* =====================================================
    CONTEÚDO PRINCIPAL DA HOME
@@ -154,6 +206,7 @@ main {
 
   padding: 40px 0 80px;
 }
+
 
 /* =====================================================
    HERO DA HOME
@@ -196,7 +249,12 @@ main {
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.1));
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.1)
+    );
 
   z-index: 1;
 }
@@ -263,6 +321,7 @@ main {
   transform: translateY(-2px);
 }
 
+
 /* =====================================================
    PRÓXIMO JOGO
 ===================================================== */
@@ -287,8 +346,11 @@ main {
 
   overflow: hidden;
 
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.12);
 }
+
 
 /* =====================================================
    COMPETIÇÃO
@@ -337,6 +399,7 @@ main {
 
   font-size: 12px;
 }
+
 
 /* =====================================================
    TIMES
@@ -400,6 +463,7 @@ main {
   font-weight: bold;
 }
 
+
 /* =====================================================
    INFORMAÇÕES DO JOGO
 ===================================================== */
@@ -462,6 +526,7 @@ main {
   color: #e00020;
 }
 
+
 /* =====================================================
    NOTÍCIAS
 ===================================================== */
@@ -514,6 +579,7 @@ main {
   color: #e00020;
 }
 
+
 /* =====================================================
    GRID DE NOTÍCIAS
 ===================================================== */
@@ -537,7 +603,9 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 15px
+    rgba(0, 0, 0, 0.08);
 
   transition:
     transform 0.2s,
@@ -547,8 +615,11 @@ main {
 .noticia-card:hover {
   transform: translateY(-4px);
 
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.13);
+  box-shadow:
+    0 8px 22px
+    rgba(0, 0, 0, 0.13);
 }
+
 
 /* PRINCIPAL */
 
@@ -572,6 +643,7 @@ main {
 
   background-color: #111;
 }
+
 
 /* LATERAIS */
 
@@ -604,6 +676,7 @@ main {
 
   background-color: #111;
 }
+
 
 /* TEXTO */
 
@@ -648,6 +721,7 @@ main {
   font-size: 15px;
 }
 
+
 /* =====================================================
    NOTÍCIA HORIZONTAL
 ===================================================== */
@@ -691,6 +765,7 @@ main {
   font-size: 24px;
 }
 
+
 /* =====================================================
    ELENCO
 ===================================================== */
@@ -712,7 +787,9 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 6px 22px
+    rgba(0, 0, 0, 0.15);
 }
 
 .elenco-imagem {
@@ -765,6 +842,7 @@ main {
   border-radius: 4px;
 }
 
+
 /* =====================================================
    O CLUBE - HOME
 ===================================================== */
@@ -784,7 +862,9 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 5px 20px
+    rgba(0, 0, 0, 0.1);
 }
 
 .clube-escudo {
@@ -863,6 +943,7 @@ main {
   font-weight: bold;
 }
 
+
 /* =====================================================
    PATROCINADORES
 ===================================================== */
@@ -900,6 +981,9 @@ main {
   letter-spacing: 1.5px;
 }
 
+
+/* MASTER */
+
 .patrocinadores-master-grid {
   max-width: 820px;
 
@@ -926,6 +1010,9 @@ main {
   object-fit: contain;
 }
 
+
+/* DIVISOR */
+
 .patrocinadores-divisor {
   height: 1px;
 
@@ -933,6 +1020,9 @@ main {
 
   background-color: #303030;
 }
+
+
+/* DEMAIS PATROCINADORES */
 
 .patrocinadores-grid {
   max-width: 900px;
@@ -959,6 +1049,44 @@ main {
 
   object-fit: contain;
 }
+
+
+/* =====================================================
+   LINKS / ANIMAÇÃO DOS PATROCINADORES
+===================================================== */
+
+.patrocinador-link {
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.patrocinador-link img {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.patrocinador-link:hover {
+  transform: translateY(-5px);
+}
+
+.patrocinador-link:hover img {
+  transform: scale(1.03);
+
+  opacity: 0.82;
+}
+
+.patrocinador-link:focus-visible {
+  outline: 2px solid #e31b36;
+  outline-offset: 6px;
+
+  border-radius: 4px;
+}
+
 
 /* =====================================================
    RODAPÉ
@@ -1069,13 +1197,29 @@ main {
   font-size: 11px;
 }
 
+
 /* =====================================================
    HOME - TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
+
+  .marca strong {
+    font-size: 16px;
+  }
+
   nav {
-    gap: 16px;
+    gap: 11px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .nav-socio {
+    margin-left: 0;
+
+    padding: 9px 12px;
   }
 
   .jogo-card {
@@ -1112,13 +1256,16 @@ main {
       minmax(0, 1.4fr)
       minmax(240px, 1fr);
   }
+
 }
+
 
 /* =====================================================
    HOME - CELULAR
 ===================================================== */
 
 @media (max-width: 700px) {
+
   section {
     scroll-margin-top: 150px;
   }
@@ -1134,10 +1281,20 @@ main {
   }
 
   nav {
-    gap: 12px;
+    gap: 10px 12px;
 
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .nav-socio {
+    margin-left: 0;
+
+    padding: 9px 13px;
   }
 
   .hero {
@@ -1219,13 +1376,16 @@ main {
 
     gap: 30px;
   }
+
 }
+
 
 /* =====================================================
    HOME - CELULAR PEQUENO
 ===================================================== */
 
 @media (max-width: 450px) {
+
   .container {
     width: 92%;
   }
@@ -1250,7 +1410,9 @@ main {
 
     gap: 25px;
   }
+
 }
+
 
 /* =====================================================
    =====================================================
@@ -1267,6 +1429,7 @@ main {
 
   background-color: #f4f4f4;
 }
+
 
 /* =====================================================
    HERO DO CLUBE
@@ -1290,7 +1453,11 @@ main {
   inset: 0;
 
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.25)),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.88),
+      rgba(0, 0, 0, 0.25)
+    ),
     url("../assets/campeao.jpg");
 
   background-size: cover;
@@ -1323,6 +1490,7 @@ main {
   font-size: 18px;
   line-height: 1.6;
 }
+
 
 /* =====================================================
    TÍTULOS DAS SEÇÕES
@@ -1360,6 +1528,7 @@ main {
 .titulo-secao-claro > p {
   color: #aaa;
 }
+
 
 /* =====================================================
    HISTÓRIA
@@ -1417,7 +1586,9 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 7px 25px
+    rgba(0, 0, 0, 0.15);
 }
 
 .historia-destaque img {
@@ -1441,6 +1612,7 @@ main {
 
   text-transform: uppercase;
 }
+
 
 /* =====================================================
    LINHA DO TEMPO
@@ -1497,6 +1669,7 @@ main {
   line-height: 1.6;
 }
 
+
 /* =====================================================
    ESTÁDIO
 ===================================================== */
@@ -1516,7 +1689,9 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 6px 22px
+    rgba(0, 0, 0, 0.1);
 }
 
 .estadio-imagem {
@@ -1577,6 +1752,7 @@ main {
   font-size: 12px;
 }
 
+
 /* =====================================================
    TÍTULOS E CONQUISTAS
 ===================================================== */
@@ -1617,7 +1793,8 @@ main {
 .titulos-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 }
@@ -1647,7 +1824,9 @@ main {
 .titulo-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.18);
 }
 
 .titulo-tipo {
@@ -1716,6 +1895,7 @@ main {
   line-height: 1.5;
 }
 
+
 /* =====================================================
    INSTITUCIONAL
 ===================================================== */
@@ -1729,7 +1909,8 @@ main {
 .institucional-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 
@@ -1764,6 +1945,7 @@ main {
   font-size: 15px;
   line-height: 1.7;
 }
+
 
 /* =====================================================
    DIRETORIA
@@ -1808,6 +1990,7 @@ main {
   font-size: 14px;
   line-height: 1.4;
 }
+
 
 /* =====================================================
    HINO
@@ -1861,6 +2044,7 @@ main {
   color: white;
 }
 
+
 /* =====================================================
    LETRA DO HINO
 ===================================================== */
@@ -1905,11 +2089,13 @@ main {
   margin-bottom: 0;
 }
 
+
 /* =====================================================
    CLUBE - TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
+
   .clube-pagina-hero h1 {
     font-size: 40px;
   }
@@ -1919,23 +2105,29 @@ main {
   }
 
   .timeline {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .estadio-card {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns:
+      1.2fr 1fr;
   }
 
   .diretoria-lista > div {
-    grid-template-columns: 150px 1fr;
+    grid-template-columns:
+      150px 1fr;
   }
+
 }
+
 
 /* =====================================================
    CLUBE - CELULAR
 ===================================================== */
 
 @media (max-width: 700px) {
+
   .clube-pagina-hero {
     min-height: 350px;
   }
@@ -1997,13 +2189,16 @@ main {
   .clube-institucional {
     padding-bottom: 70px;
   }
+
 }
+
 
 /* =====================================================
    CLUBE - CELULAR PEQUENO
 ===================================================== */
 
 @media (max-width: 450px) {
+
   .clube-pagina-hero h1 {
     font-size: 28px;
   }
@@ -2039,13 +2234,16 @@ main {
   .institucional-card {
     padding: 30px 25px;
   }
+
 }
+
 
 /* =====================================================
    =====================================================
    PÁGINA DE CONTATO
    =====================================================
 ===================================================== */
+
 
 /* =====================================================
    MAIN
@@ -2060,6 +2258,11 @@ main {
 
   background-color: #f4f4f4;
 }
+
+#form-contato {
+  scroll-margin-top: 120px;
+}
+
 
 /* =====================================================
    HERO DO CONTATO
@@ -2098,6 +2301,7 @@ main {
   line-height: 1.7;
 }
 
+
 /* =====================================================
    INFORMAÇÕES DE CONTATO
 ===================================================== */
@@ -2115,10 +2319,12 @@ main {
 
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 }
+
 
 /* =====================================================
    CARDS DE INFORMAÇÕES
@@ -2134,7 +2340,9 @@ main {
   border-top: 3px solid #b30018;
   border-radius: 8px;
 
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.08);
 }
 
 .contato-info-card h2 {
@@ -2167,6 +2375,27 @@ main {
   margin-top: 18px !important;
 }
 
+
+/* TELEFONE */
+
+.contato-telefone {
+  width: fit-content;
+
+  color: #222;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contato-telefone:hover {
+  color: #b30018;
+}
+
+
+/* E-MAIL */
+
 .contato-email {
   width: fit-content;
 
@@ -2184,20 +2413,32 @@ main {
   text-decoration: underline;
 }
 
-.contato-telefone {
-  width: fit-content;
 
-  color: #222;
+/* =====================================================
+   CAMPOS OBRIGATÓRIOS
+===================================================== */
 
-  text-decoration: none;
+.campo-obrigatorio {
+  color: #b30018;
 
-  font-size: 14px;
   font-weight: bold;
 }
 
-.contato-telefone:hover {
-  color: #b30018;
+.form-obrigatorios {
+  margin: 8px 0 0;
+
+  color: #888;
+
+  font-size: 12px;
 }
+
+.campo-opcional {
+  color: #888;
+
+  font-size: 11px;
+  font-weight: normal;
+}
+
 
 /* =====================================================
    MAPA / LOCALIZAÇÃO
@@ -2221,8 +2462,11 @@ main {
 
   border-radius: 8px;
 
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.08);
 }
+
 
 /* =====================================================
    INFORMAÇÕES DA LOCALIZAÇÃO
@@ -2277,6 +2521,7 @@ main {
   transform: translateX(3px);
 }
 
+
 /* =====================================================
    GOOGLE MAPS
 ===================================================== */
@@ -2296,6 +2541,7 @@ main {
 
   border: 0;
 }
+
 
 /* =====================================================
    ÁREA DO FORMULÁRIO
@@ -2318,8 +2564,11 @@ main {
 
   border-radius: 10px;
 
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 7px 25px
+    rgba(0, 0, 0, 0.1);
 }
+
 
 /* =====================================================
    CABEÇALHO DO FORMULÁRIO
@@ -2347,6 +2596,7 @@ main {
   line-height: 1.6;
 }
 
+
 /* =====================================================
    GRID DO FORMULÁRIO
 ===================================================== */
@@ -2354,7 +2604,8 @@ main {
 .pagina-contato .form-grid {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 22px;
 }
@@ -2370,6 +2621,7 @@ main {
   grid-column: 1 / -1;
 }
 
+
 /* =====================================================
    LABELS
 ===================================================== */
@@ -2382,6 +2634,7 @@ main {
   font-size: 13px;
   font-weight: bold;
 }
+
 
 /* =====================================================
    INPUTS / SELECT / TEXTAREA
@@ -2443,8 +2696,11 @@ main {
 
   outline: none;
 
-  box-shadow: 0 0 0 3px rgba(179, 0, 24, 0.1);
+  box-shadow:
+    0 0 0 3px
+    rgba(179, 0, 24, 0.1);
 }
+
 
 /* =====================================================
    BOTÃO ENVIAR
@@ -2482,7 +2738,9 @@ main {
 
   transform: translateY(-2px);
 
-  box-shadow: 0 5px 14px rgba(179, 0, 24, 0.22);
+  box-shadow:
+    0 5px 14px
+    rgba(179, 0, 24, 0.22);
 }
 
 .contato-botao:active {
@@ -2490,16 +2748,20 @@ main {
 }
 
 .contato-botao:focus-visible {
-  outline: 3px solid rgba(179, 0, 24, 0.25);
+  outline:
+    3px solid
+    rgba(179, 0, 24, 0.25);
 
   outline-offset: 3px;
 }
+
 
 /* =====================================================
    CONTATO - TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
+
   .contato-hero {
     padding: 65px 0 55px;
   }
@@ -2509,7 +2771,8 @@ main {
   }
 
   .contato-info-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
   .contato-mapa {
@@ -2525,13 +2788,16 @@ main {
   .contato-formulario-card {
     padding: 45px 40px;
   }
+
 }
+
 
 /* =====================================================
    CONTATO - CELULAR
 ===================================================== */
 
 @media (max-width: 700px) {
+
   .contato-hero {
     padding: 55px 0 50px;
   }
@@ -2543,6 +2809,7 @@ main {
   .contato-hero p {
     font-size: 14px;
   }
+
 
   /* INFORMAÇÕES */
 
@@ -2560,10 +2827,11 @@ main {
     padding: 27px 25px;
   }
 
+
   /* LOCALIZAÇÃO */
 
   .contato-mapa {
-    width: 90%;
+    width: 100%;
 
     grid-template-columns: 1fr;
   }
@@ -2582,6 +2850,7 @@ main {
   .contato-mapa-frame iframe {
     min-height: 280px;
   }
+
 
   /* FORMULÁRIO */
 
@@ -2610,13 +2879,16 @@ main {
   .contato-botao {
     width: 100%;
   }
+
 }
+
 
 /* =====================================================
    CONTATO - CELULAR PEQUENO
 ===================================================== */
 
 @media (max-width: 450px) {
+
   .contato-hero h1 {
     font-size: 27px;
   }
@@ -2645,13 +2917,16 @@ main {
   .contato-formulario-topo h2 {
     font-size: 24px;
   }
+
 }
+
 
 /* =====================================================
    ACESSIBILIDADE
 ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -2663,4 +2938,5 @@ main {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+
 }
