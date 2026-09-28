@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Entre em contato com o Esporte Clube Guarani de Venâncio Aires."
+    />
+
+    <meta name="theme-color" content="#111111" />
+
+    <title>Contato | Esporte Clube Guarani</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body id="top">
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <!-- MARCA -->
+
+        <div class="marca">
+          <img src="assets/escudo.png" alt="Escudo do Esporte Clube Guarani" />
+
+          <div>
+            <strong> Esporte Clube Guarani </strong>
+
+            <span> Venâncio Aires • RS </span>
+          </div>
+        </div>
+
+        <!-- MENU -->
+
+        <nav aria-label="Menu principal">
+          <a href="index.html"> Início </a>
+
+          <a href="index.html#noticias"> Notícias </a>
+
+          <a href="index.html#jogos"> Jogos </a>
+
+          <a href="index.html#elenco"> Elenco </a>
+
+          <a href="clube.html"> O Clube </a>
+
+          <a href="contato.html" class="nav-ativo" aria-current="page">
+            Contato
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="pagina-contato">
+      <!-- =================================================
+           HERO
+      ================================================== -->
+
+      <section class="contato-hero">
+        <div class="container">
+          <span class="secao-tag"> FALE COM O TIME ÍNDIO </span>
+
+          <h1>Entre em Contato</h1>
+
+          <p>
+            Entre em contato com o Esporte Clube Guarani. Nossa equipe
+            responderá assim que possível.
+          </p>
+        </div>
+      </section>
+
+      <!-- =================================================
+           INFORMAÇÕES DE CONTATO
+      ================================================== -->
+
+      <section class="contato-informacoes">
+        <div class="container">
+          <!-- =================================================
+               CARDS
+          ================================================== -->
+
+          <div class="contato-info-grid">
+            <!-- ATENDIMENTO -->
+
+            <article class="contato-info-card">
+              <span class="secao-tag"> ATENDIMENTO </span>
+
+              <h2>Horários</h2>
+
+              <p>Segunda a sexta-feira</p>
+
+              <strong> 08h às 12h • 13h às 18h </strong>
+
+              <p class="contato-info-secundaria">Sábado</p>
+
+              <strong> 08h às 12h </strong>
+            </article>
+
+            <!-- TELEFONE -->
+
+            <article class="contato-info-card">
+              <span class="secao-tag"> CONTATO </span>
+
+              <h2>Canais de atendimento</h2>
+
+              <p>Telefone</p>
+
+              <a href="tel:+555137419207" class="contato-telefone">
+                (51) 3741-9207
+              </a>
+
+              <p class="contato-info-secundaria">E-mail</p>
+
+              <a href="mailto:contato@guaranirs.com.br" class="contato-email">
+                contato@guaranirs.com.br
+              </a>
+            </article>
+          </div>
+
+          <!-- =================================================
+               LOCALIZAÇÃO / MAPA
+          ================================================== -->
+
+          <div class="contato-mapa">
+            <!-- INFORMAÇÕES -->
+
+            <div class="contato-mapa-info">
+              <span class="secao-tag"> LOCALIZAÇÃO </span>
+
+              <h2>Estádio Edmundo Feix</h2>
+
+              <p>Rua Jacob Becker, 730</p>
+
+              <p>Centro • Venâncio Aires - RS</p>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Estadio+Edmundo+Feix+Venancio+Aires+RS"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contato-mapa-link"
+              >
+                Ver no Google Maps →
+              </a>
+            </div>
+
+            <!-- MAPA -->
+
+            <div class="contato-mapa-frame">
+              <iframe
+                src="https://www.google.com/maps?q=Estadio+Edmundo+Feix+Venancio+Aires+RS&output=embed"
+                title="Localização do Estádio Edmundo Feix"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+           FORMULÁRIO
+      ================================================== -->
+
+      <section class="contato-formulario">
+        <div class="container">
+          <div class="contato-formulario-card">
+            <!-- CABEÇALHO -->
+
+            <div class="contato-formulario-topo">
+              <span class="secao-tag"> FALE CONOSCO </span>
+
+              <h2>Qual é a sua dúvida?</h2>
+
+              <p>Preencha os campos abaixo e envie sua mensagem.</p>
+            </div>
+
+            <!-- FORMULÁRIO -->
+
+            <form id="form-contato">
+              <!-- ASSUNTO -->
+
+              <div class="campo campo-completo">
+                <label for="assunto"> Assunto </label>
+
+                <select id="assunto" name="assunto" required>
+                  <option value="">Selecione</option>
+
+                  <option value="informacoes">Informações gerais</option>
+
+                  <option value="futebol">Futebol</option>
+
+                  <option value="base">Categorias de base</option>
+
+                  <option value="imprensa">Imprensa e comunicação</option>
+
+                  <option value="marketing">Marketing e patrocínios</option>
+
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <!-- GRID -->
+
+              <div class="form-grid">
+                <!-- NOME -->
+
+                <div class="campo">
+                  <label for="nome"> Nome completo </label>
+
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <!-- E-MAIL -->
+
+                <div class="campo">
+                  <label for="email"> E-mail </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <!-- TELEFONE -->
+
+                <div class="campo campo-completo">
+                  <label for="telefone"> Telefone </label>
+
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    autocomplete="tel"
+                  />
+                </div>
+
+                <!-- MENSAGEM -->
+
+                <div class="campo campo-completo">
+                  <label for="mensagem"> Mensagem </label>
+
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows="7"
+                    maxlength="1000"
+                    placeholder="Digite sua mensagem"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- BOTÃO -->
+
+              <button type="submit" class="contato-botao">
+                Enviar mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <!-- MARCA -->
+
+        <div class="rodape-marca">
+          <img src="assets/escudo.png" alt="Escudo do Esporte Clube Guarani" />
+
+          <div>
+            <strong> Esporte Clube Guarani </strong>
+
+            <span> Venâncio Aires • RS </span>
+          </div>
+        </div>
+
+        <!-- NAVEGAÇÃO -->
+
+        <div class="rodape-links">
+          <strong> Navegação </strong>
+
+          <a href="index.html"> Início </a>
+
+          <a href="index.html#noticias"> Notícias </a>
+
+          <a href="index.html#jogos"> Jogos </a>
+
+          <a href="index.html#elenco"> Elenco </a>
+
+          <a href="clube.html"> O Clube </a>
+
+          <a href="index.html#patrocinadores"> Patrocinadores </a>
+
+          <a href="contato.html"> Contato </a>
+        </div>
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="rodape-redes">
+          <strong> Siga o Time Índio </strong>
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://www.instagram.com/ecguaranirs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img src="assets/instagram.png" alt="" />
+
+            <span> Instagram </span>
+          </a>
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://www.facebook.com/guaranirs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img src="assets/facebook.png" alt="" />
+
+            <span> Facebook </span>
+          </a>
+
+          <!-- X -->
+
+          <a
+            href="https://x.com/GuaraniRS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img src="assets/x.png" alt="" />
+
+            <span> X </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- =================================================
+           RODAPÉ FINAL
+      ================================================== -->
+
+      <div class="rodape-final">
+        <div class="container">
+          <p>© 2026 Esporte Clube Guarani • Venâncio Aires - RS</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

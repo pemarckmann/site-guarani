@@ -1,143 +1,114 @@
 const topo = document.querySelector(".topo");
+const formContato = document.querySelector("#form-contato");
 
+/* =====================================================
+   FORMULÁRIO DE CONTATO
+===================================================== */
+
+if (formContato) {
+  formContato.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    alert("O formulário de contato estará disponível em breve.");
+  });
+}
+
+/* =====================================================
+   CABEÇALHO INTELIGENTE
+===================================================== */
 
 if (topo) {
+  let ultimaPosicao = window.scrollY;
+  let aguardandoFrame = false;
 
-    let ultimaPosicao = window.scrollY;
-
-    let aguardandoFrame = false;
-
-
-    /*
+  /*
        Evita que pequenos movimentos do scroll
        façam o cabeçalho aparecer e desaparecer.
     */
 
-    const tolerancia = 5;
+  const tolerancia = 5;
 
-
-    /*
+  /*
        Até esta distância do início da página,
        o cabeçalho permanece sempre visível.
     */
 
-    const inicioScroll = 100;
+  const inicioScroll = 100;
 
+  function controlarTopo() {
+    const posicaoAtual = window.scrollY;
 
-
-    function controlarTopo() {
-
-        const posicaoAtual = window.scrollY;
-
-
-        /* =========================
+    /* =========================
            PERTO DO TOPO
         ========================== */
 
-        if (posicaoAtual <= inicioScroll) {
+    if (posicaoAtual <= inicioScroll) {
+      topo.classList.remove("topo-oculto");
+      topo.classList.remove("topo-scroll");
 
-            topo.classList.remove("topo-oculto");
+      ultimaPosicao = posicaoAtual;
+      aguardandoFrame = false;
 
-            topo.classList.remove("topo-scroll");
+      return;
+    }
 
-
-            ultimaPosicao = posicaoAtual;
-
-            aguardandoFrame = false;
-
-
-            return;
-        }
-
-
-
-        /* =========================
+    /* =========================
            CABEÇALHO FLUTUANDO
         ========================== */
 
-        topo.classList.add("topo-scroll");
+    topo.classList.add("topo-scroll");
 
-
-
-        /* =========================
+    /* =========================
            DIFERENÇA DO SCROLL
         ========================== */
 
-        const diferenca =
-            posicaoAtual - ultimaPosicao;
+    const diferenca = posicaoAtual - ultimaPosicao;
 
-
-
-        /* =========================
+    /* =========================
            IGNORA MOVIMENTOS PEQUENOS
         ========================== */
 
-        if (Math.abs(diferenca) < tolerancia) {
+    if (Math.abs(diferenca) < tolerancia) {
+      aguardandoFrame = false;
 
-            aguardandoFrame = false;
+      return;
+    }
 
-            return;
-        }
-
-
-
-        /* =========================
+    /* =========================
            DESCENDO
         ========================== */
 
-        if (diferenca > 0) {
-
-            topo.classList.add("topo-oculto");
-
-        }
-
-
-        /* =========================
-           SUBINDO
-        ========================== */
-
-        else {
-
-            topo.classList.remove("topo-oculto");
-
-        }
-
-
-
-        ultimaPosicao = posicaoAtual;
-
-        aguardandoFrame = false;
-
-    }
-
-
+    if (diferenca > 0) {
+      topo.classList.add("topo-oculto");
+    } else {
 
     /* =========================
+           SUBINDO
+        ========================== */
+      topo.classList.remove("topo-oculto");
+    }
+
+    ultimaPosicao = posicaoAtual;
+    aguardandoFrame = false;
+  }
+
+  /* =========================
        EVENTO DE SCROLL
     ========================== */
 
-    window.addEventListener(
+  window.addEventListener(
+    "scroll",
 
-        "scroll",
+    () => {
+      if (!aguardandoFrame) {
+        window.requestAnimationFrame(controlarTopo);
 
-        () => {
+        aguardandoFrame = true;
+      }
+    },
 
-            if (!aguardandoFrame) {
-
-                window.requestAnimationFrame(
-                    controlarTopo
-                );
-
-                aguardandoFrame = true;
-
-            }
-
-        },
-
-        {
-            passive: true
-        }
-
-    );
-
+    {
+      passive: true,
+    },
+  );
 }

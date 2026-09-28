@@ -276,7 +276,10 @@ main {
 .jogo-card {
   display: grid;
 
-  grid-template-columns: 190px minmax(0, 1fr) 180px;
+  grid-template-columns:
+    190px
+    minmax(0, 1fr)
+    180px;
 
   background-color: white;
 
@@ -518,7 +521,9 @@ main {
 .noticias-grid {
   display: grid;
 
-  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  grid-template-columns:
+    minmax(0, 1.6fr)
+    minmax(280px, 1fr);
 
   gap: 20px;
 
@@ -550,7 +555,9 @@ main {
 .noticia-principal {
   display: grid;
 
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows:
+    minmax(0, 1fr)
+    auto;
 
   height: 100%;
 }
@@ -582,7 +589,9 @@ main {
 
   display: grid;
 
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows:
+    minmax(0, 1fr)
+    auto;
 }
 
 .noticia-menor > img {
@@ -648,7 +657,9 @@ main {
 
   display: grid;
 
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(280px, 1fr);
 }
 
 .noticia-horizontal-imagem {
@@ -1068,7 +1079,10 @@ main {
   }
 
   .jogo-card {
-    grid-template-columns: 170px minmax(0, 1fr) 170px;
+    grid-template-columns:
+      170px
+      minmax(0, 1fr)
+      170px;
   }
 
   .jogo-times {
@@ -1094,7 +1108,9 @@ main {
   }
 
   .noticias-grid {
-    grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr);
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(240px, 1fr);
   }
 }
 
@@ -1358,7 +1374,9 @@ main {
 .historia-grid {
   display: grid;
 
-  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.65fr);
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(280px, 0.65fr);
 
   gap: 85px;
 
@@ -1381,6 +1399,7 @@ main {
 
 .historia-texto .destaque-vermelho {
   color: #b30018;
+
   font-weight: bold;
 }
 
@@ -1759,7 +1778,9 @@ main {
 
   display: grid;
 
-  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns:
+    minmax(180px, 0.9fr)
+    minmax(0, 1.1fr);
 
   gap: 20px;
 
@@ -2017,6 +2038,612 @@ main {
 
   .institucional-card {
     padding: 30px 25px;
+  }
+}
+
+/* =====================================================
+   =====================================================
+   PÁGINA DE CONTATO
+   =====================================================
+===================================================== */
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.pagina-contato {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: #f4f4f4;
+}
+
+/* =====================================================
+   HERO DO CONTATO
+===================================================== */
+
+.contato-hero {
+  padding: 75px 0 65px;
+
+  background-color: #181818;
+  color: white;
+
+  border-bottom: 3px solid #b30018;
+}
+
+.contato-hero .secao-tag {
+  color: #e31b36;
+}
+
+.contato-hero h1 {
+  margin: 7px 0 15px;
+
+  color: white;
+
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.contato-hero p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #bbb;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   INFORMAÇÕES DE CONTATO
+===================================================== */
+
+.contato-informacoes {
+  padding: 70px 0 35px;
+
+  background-color: #f4f4f4;
+}
+
+.contato-info-grid {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* =====================================================
+   CARDS DE INFORMAÇÕES
+===================================================== */
+
+.contato-info-card {
+  min-height: 170px;
+
+  padding: 32px;
+
+  background-color: white;
+
+  border-top: 3px solid #b30018;
+  border-radius: 8px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.contato-info-card h2 {
+  margin: 5px 0 20px;
+
+  color: #111;
+
+  font-size: 23px;
+}
+
+.contato-info-card p {
+  margin: 0 0 8px;
+
+  color: #666;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contato-info-card strong {
+  display: block;
+
+  color: #222;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contato-info-secundaria {
+  margin-top: 18px !important;
+}
+
+.contato-email {
+  width: fit-content;
+
+  color: #b30018;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contato-email:hover {
+  color: #e00020;
+
+  text-decoration: underline;
+}
+
+.contato-telefone {
+  width: fit-content;
+
+  color: #222;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contato-telefone:hover {
+  color: #b30018;
+}
+
+/* =====================================================
+   MAPA / LOCALIZAÇÃO
+===================================================== */
+
+.contato-mapa {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 25px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    0.75fr
+    1.6fr;
+
+  overflow: hidden;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================================
+   INFORMAÇÕES DA LOCALIZAÇÃO
+===================================================== */
+
+.contato-mapa-info {
+  padding: 38px 35px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contato-mapa-info h2 {
+  margin: 5px 0 20px;
+
+  color: #111;
+
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.contato-mapa-info p {
+  margin: 0 0 8px;
+
+  color: #666;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contato-mapa-link {
+  width: fit-content;
+
+  margin-top: 20px;
+
+  color: #b30018;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.contato-mapa-link:hover {
+  color: #e00020;
+
+  transform: translateX(3px);
+}
+
+/* =====================================================
+   GOOGLE MAPS
+===================================================== */
+
+.contato-mapa-frame {
+  min-height: 290px;
+
+  border-left: 1px solid #eee;
+}
+
+.contato-mapa-frame iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+
+  border: 0;
+}
+
+/* =====================================================
+   ÁREA DO FORMULÁRIO
+===================================================== */
+
+.contato-formulario {
+  padding: 35px 0 70px;
+
+  background-color: #f4f4f4;
+}
+
+.contato-formulario-card {
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  padding: 50px 55px;
+
+  background-color: white;
+
+  border-radius: 10px;
+
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================================================
+   CABEÇALHO DO FORMULÁRIO
+===================================================== */
+
+.contato-formulario-topo {
+  margin-bottom: 35px;
+}
+
+.contato-formulario-topo h2 {
+  margin: 5px 0 12px;
+
+  color: #111;
+
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.contato-formulario-topo p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   GRID DO FORMULÁRIO
+===================================================== */
+
+.pagina-contato .form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.pagina-contato .campo {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina-contato .campo-completo {
+  grid-column: 1 / -1;
+}
+
+/* =====================================================
+   LABELS
+===================================================== */
+
+.pagina-contato .campo label {
+  margin-bottom: 8px;
+
+  color: #222;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* =====================================================
+   INPUTS / SELECT / TEXTAREA
+===================================================== */
+
+.pagina-contato .campo input,
+.pagina-contato .campo select,
+.pagina-contato .campo textarea {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  background-color: #fafafa;
+  color: #111;
+
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s;
+}
+
+.pagina-contato .campo select {
+  min-height: 48px;
+
+  cursor: pointer;
+}
+
+.pagina-contato .campo textarea {
+  min-height: 170px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+.pagina-contato .campo input::placeholder,
+.pagina-contato .campo textarea::placeholder {
+  color: #999;
+}
+
+.pagina-contato .campo input:hover,
+.pagina-contato .campo select:hover,
+.pagina-contato .campo textarea:hover {
+  border-color: #bbb;
+}
+
+.pagina-contato .campo input:focus,
+.pagina-contato .campo select:focus,
+.pagina-contato .campo textarea:focus {
+  background-color: white;
+
+  border-color: #b30018;
+
+  outline: none;
+
+  box-shadow: 0 0 0 3px rgba(179, 0, 24, 0.1);
+}
+
+/* =====================================================
+   BOTÃO ENVIAR
+===================================================== */
+
+.contato-botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 28px;
+
+  padding: 14px 24px;
+
+  background-color: #b30018;
+  color: white;
+
+  border: 0;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+
+  transition:
+    background-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.contato-botao:hover {
+  background-color: #d0001b;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 14px rgba(179, 0, 24, 0.22);
+}
+
+.contato-botao:active {
+  transform: translateY(0);
+}
+
+.contato-botao:focus-visible {
+  outline: 3px solid rgba(179, 0, 24, 0.25);
+
+  outline-offset: 3px;
+}
+
+/* =====================================================
+   CONTATO - TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+  .contato-hero {
+    padding: 65px 0 55px;
+  }
+
+  .contato-hero h1 {
+    font-size: 36px;
+  }
+
+  .contato-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contato-mapa {
+    grid-template-columns:
+      0.9fr
+      1.4fr;
+  }
+
+  .contato-mapa-info {
+    padding: 32px 28px;
+  }
+
+  .contato-formulario-card {
+    padding: 45px 40px;
+  }
+}
+
+/* =====================================================
+   CONTATO - CELULAR
+===================================================== */
+
+@media (max-width: 700px) {
+  .contato-hero {
+    padding: 55px 0 50px;
+  }
+
+  .contato-hero h1 {
+    font-size: 30px;
+  }
+
+  .contato-hero p {
+    font-size: 14px;
+  }
+
+  /* INFORMAÇÕES */
+
+  .contato-informacoes {
+    padding: 50px 0 25px;
+  }
+
+  .contato-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-info-card {
+    min-height: 0;
+
+    padding: 27px 25px;
+  }
+
+  /* LOCALIZAÇÃO */
+
+  .contato-mapa {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .contato-mapa-info {
+    padding: 28px 25px;
+  }
+
+  .contato-mapa-frame {
+    min-height: 280px;
+
+    border-left: 0;
+    border-top: 1px solid #eee;
+  }
+
+  .contato-mapa-frame iframe {
+    min-height: 280px;
+  }
+
+  /* FORMULÁRIO */
+
+  .contato-formulario {
+    padding: 30px 0 60px;
+  }
+
+  .contato-formulario-card {
+    padding: 35px 25px;
+  }
+
+  .contato-formulario-topo h2 {
+    font-size: 26px;
+  }
+
+  .pagina-contato .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .pagina-contato .campo-completo {
+    grid-column: auto;
+  }
+
+  .contato-botao {
+    width: 100%;
+  }
+}
+
+/* =====================================================
+   CONTATO - CELULAR PEQUENO
+===================================================== */
+
+@media (max-width: 450px) {
+  .contato-hero h1 {
+    font-size: 27px;
+  }
+
+  .contato-info-card h2 {
+    font-size: 21px;
+  }
+
+  .contato-mapa-info h2 {
+    font-size: 22px;
+  }
+
+  .contato-mapa-frame,
+  .contato-mapa-frame iframe {
+    min-height: 240px;
+  }
+
+  .contato-formulario-card {
+    padding: 30px 20px;
+  }
+
+  .contato-formulario-topo {
+    margin-bottom: 28px;
+  }
+
+  .contato-formulario-topo h2 {
+    font-size: 24px;
   }
 }
 
