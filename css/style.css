@@ -21,7 +21,6 @@ body {
 
 img {
   display: block;
-
   max-width: 100%;
 }
 
@@ -184,9 +183,7 @@ nav a[aria-current="page"] {
 
   transform: translateY(-2px);
 
-  box-shadow:
-    0 4px 12px
-    rgba(179, 0, 24, 0.25);
+  box-shadow: 0 4px 12px rgba(179, 0, 24, 0.25);
 }
 
 .nav-socio:active {
@@ -232,7 +229,6 @@ main {
   inset: 0;
 
   background-image: url("../assets/campeao.jpg");
-
   background-size: cover;
   background-position: center;
 
@@ -249,12 +245,11 @@ main {
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.78),
-      rgba(0, 0, 0, 0.1)
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.78),
+    rgba(0, 0, 0, 0.1)
+  );
 
   z-index: 1;
 }
@@ -340,15 +335,13 @@ main {
     minmax(0, 1fr)
     180px;
 
+  overflow: hidden;
+
   background-color: white;
 
   border-radius: 8px;
 
-  overflow: hidden;
-
-  box-shadow:
-    0 5px 20px
-    rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -447,6 +440,17 @@ main {
   line-height: 1.2;
 }
 
+.time-categoria {
+  margin-top: 5px;
+
+  color: #b30018;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
 .versus {
   width: 46px;
   height: 90px;
@@ -528,6 +532,435 @@ main {
 
 
 /* =====================================================
+   DESEMPENHO
+===================================================== */
+
+.desempenho {
+  padding: 20px 0 70px;
+
+  background-color: #f4f4f4;
+}
+
+
+/* =====================================================
+   CABEÇALHO DO DESEMPENHO
+===================================================== */
+
+.desempenho-topo {
+  margin-bottom: 25px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.desempenho-topo h2 {
+  margin: 5px 0 0;
+
+  color: #111;
+
+  font-size: 30px;
+}
+
+
+/* =====================================================
+   SELETOR DE CATEGORIA
+===================================================== */
+
+.desempenho-categoria {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.desempenho-categoria label {
+  color: #777;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+.desempenho-categoria select {
+  min-width: 170px;
+
+  padding: 11px 38px 11px 15px;
+
+  background-color: white;
+  color: #222;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.desempenho-categoria select:hover {
+  border-color: #bbb;
+}
+
+.desempenho-categoria select:focus {
+  border-color: #b30018;
+
+  outline: none;
+
+  box-shadow: 0 0 0 3px rgba(179, 0, 24, 0.1);
+}
+
+
+/* =====================================================
+   GRID DO DESEMPENHO
+===================================================== */
+
+.desempenho-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(380px, 0.9fr);
+
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+
+/* =====================================================
+   PAINÉIS ESPORTIVOS
+===================================================== */
+
+.painel-esportivo {
+  min-width: 0;
+  height: 100%;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.painel-esportivo-topo {
+  min-height: 60px;
+
+  margin-bottom: 22px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.painel-esportivo-topo h3 {
+  margin: 5px 0 0;
+
+  color: #111;
+
+  font-size: 24px;
+}
+
+.painel-link {
+  flex-shrink: 0;
+
+  color: #b30018;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.painel-link:hover {
+  color: #e00020;
+}
+
+
+/* =====================================================
+   ÚLTIMOS JOGOS
+===================================================== */
+
+.ultimos-jogos-lista {
+  overflow: hidden;
+
+  border: 1px solid #eee;
+  border-radius: 7px;
+}
+
+.ultimo-jogo {
+  min-height: 125px;
+
+  padding: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    110px
+    minmax(0, 1fr)
+    80px;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.ultimo-jogo + .ultimo-jogo {
+  border-top: 1px solid #eee;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES DO ÚLTIMO JOGO
+===================================================== */
+
+.ultimo-jogo-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.ultimo-jogo-info strong {
+  font-size: 14px;
+}
+
+.ultimo-jogo-info span,
+.ultimo-jogo-info small {
+  color: #777;
+
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   CONFRONTO DO ÚLTIMO JOGO
+===================================================== */
+
+.ultimo-jogo-confronto {
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    100px
+    65px
+    100px;
+
+  gap: 10px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.ultimo-jogo-time {
+  width: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6px;
+
+  text-align: center;
+}
+
+.ultimo-jogo-time img {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+.ultimo-jogo-time span {
+  min-height: 30px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   PLACAR
+===================================================== */
+
+.ultimo-jogo-placar {
+  width: 65px;
+  min-width: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.ultimo-jogo-placar strong {
+  color: #111;
+
+  font-size: 27px;
+}
+
+.ultimo-jogo-placar span {
+  color: #777;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.resultado {
+  width: 80px;
+  min-width: 80px;
+
+  padding: 7px 8px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+.resultado-vitoria {
+  background-color: #e6f6eb;
+  color: #16883d;
+}
+
+.resultado-empate {
+  background-color: #eeeeee;
+  color: #666;
+}
+
+.resultado-derrota {
+  background-color: #fde8ea;
+  color: #b30018;
+}
+
+
+/* =====================================================
+   CLASSIFICAÇÃO
+===================================================== */
+
+.classificacao-cabecalho,
+.classificacao-linha {
+  display: grid;
+
+  grid-template-columns:
+    50px
+    minmax(0, 1fr)
+    45px;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.classificacao-cabecalho {
+  flex-shrink: 0;
+
+  padding: 0 13px 10px;
+
+  color: #888;
+
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.classificacao-cabecalho span:last-child {
+  text-align: right;
+}
+
+.classificacao-lista {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.classificacao-linha {
+  flex: 1 1 0;
+
+  min-height: 45px;
+
+  padding: 9px 13px;
+
+  border-top: 1px solid #eee;
+
+  font-size: 13px;
+}
+
+.classificacao-linha > strong:last-child {
+  text-align: right;
+}
+
+
+/* =====================================================
+   GUARANI NA CLASSIFICAÇÃO
+===================================================== */
+
+.classificacao-guarani {
+  margin: 3px 0;
+
+  background-color: #fff1f3;
+  color: #b30018;
+
+  border: 1px solid #e31b36;
+  border-radius: 5px;
+}
+
+.classificacao-time-guarani {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-weight: bold;
+}
+
+.classificacao-time-guarani img {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
    NOTÍCIAS
 ===================================================== */
 
@@ -603,9 +1036,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 4px 15px
-    rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 
   transition:
     transform 0.2s,
@@ -615,13 +1046,13 @@ main {
 .noticia-card:hover {
   transform: translateY(-4px);
 
-  box-shadow:
-    0 8px 22px
-    rgba(0, 0, 0, 0.13);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.13);
 }
 
 
-/* PRINCIPAL */
+/* =====================================================
+   NOTÍCIA PRINCIPAL
+===================================================== */
 
 .noticia-principal {
   display: grid;
@@ -645,7 +1076,9 @@ main {
 }
 
 
-/* LATERAIS */
+/* =====================================================
+   NOTÍCIAS LATERAIS
+===================================================== */
 
 .noticias-laterais {
   height: 100%;
@@ -678,7 +1111,9 @@ main {
 }
 
 
-/* TEXTO */
+/* =====================================================
+   TEXTO DAS NOTÍCIAS
+===================================================== */
 
 .noticia-conteudo {
   padding: 20px;
@@ -787,9 +1222,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 6px 22px
-    rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
 }
 
 .elenco-imagem {
@@ -840,6 +1273,16 @@ main {
   font-weight: bold;
 
   border-radius: 4px;
+
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.elenco-botao:hover {
+  background-color: #d0001b;
+
+  transform: translateY(-2px);
 }
 
 
@@ -862,9 +1305,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 5px 20px
-    rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .clube-escudo {
@@ -943,6 +1384,10 @@ main {
   font-weight: bold;
 }
 
+.clube-botao:hover {
+  color: #e00020;
+}
+
 
 /* =====================================================
    PATROCINADORES
@@ -982,7 +1427,9 @@ main {
 }
 
 
-/* MASTER */
+/* =====================================================
+   PATROCINADORES MASTER
+===================================================== */
 
 .patrocinadores-master-grid {
   max-width: 820px;
@@ -1011,7 +1458,9 @@ main {
 }
 
 
-/* DIVISOR */
+/* =====================================================
+   DIVISOR DOS PATROCINADORES
+===================================================== */
 
 .patrocinadores-divisor {
   height: 1px;
@@ -1022,7 +1471,9 @@ main {
 }
 
 
-/* DEMAIS PATROCINADORES */
+/* =====================================================
+   DEMAIS PATROCINADORES
+===================================================== */
 
 .patrocinadores-grid {
   max-width: 900px;
@@ -1104,7 +1555,10 @@ main {
 
   display: grid;
 
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr;
 
   gap: 50px;
 }
@@ -1199,11 +1653,10 @@ main {
 
 
 /* =====================================================
-   HOME - TABLET
+   HOME / DESEMPENHO - TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
-
   .marca strong {
     font-size: 16px;
   }
@@ -1251,21 +1704,23 @@ main {
     font-size: 25px;
   }
 
+  .desempenho-grid {
+    grid-template-columns: 1fr;
+  }
+
   .noticias-grid {
     grid-template-columns:
       minmax(0, 1.4fr)
       minmax(240px, 1fr);
   }
-
 }
 
 
 /* =====================================================
-   HOME - CELULAR
+   HOME / DESEMPENHO - CELULAR
 ===================================================== */
 
 @media (max-width: 700px) {
-
   section {
     scroll-margin-top: 150px;
   }
@@ -1305,6 +1760,9 @@ main {
     font-size: 28px;
   }
 
+
+  /* PRÓXIMO JOGO */
+
   .jogo-card {
     grid-template-columns: 1fr;
   }
@@ -1329,6 +1787,70 @@ main {
 
     text-align: center;
   }
+
+
+  /* DESEMPENHO */
+
+  .desempenho {
+    padding-bottom: 55px;
+  }
+
+  .desempenho-topo {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .desempenho-categoria,
+  .desempenho-categoria select {
+    width: 100%;
+  }
+
+  .painel-esportivo {
+    padding: 22px 18px;
+  }
+
+  .painel-esportivo-topo {
+    min-height: 0;
+
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .ultimo-jogo {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .ultimo-jogo-info {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .ultimo-jogo-confronto {
+    grid-template-columns:
+      95px
+      auto
+      95px;
+
+    gap: 12px;
+  }
+
+  .ultimo-jogo-time {
+    width: 95px;
+  }
+
+  .resultado {
+    width: 100px;
+
+    justify-self: center;
+  }
+
+
+  /* NOTÍCIAS */
 
   .noticias-grid {
     grid-template-columns: 1fr;
@@ -1362,6 +1884,9 @@ main {
     height: auto;
   }
 
+
+  /* HOME */
+
   .elenco-card,
   .clube-card {
     grid-template-columns: 1fr;
@@ -1371,12 +1896,14 @@ main {
     grid-template-columns: 1fr;
   }
 
+
+  /* RODAPÉ */
+
   .rodape-conteudo {
     grid-template-columns: 1fr;
 
     gap: 30px;
   }
-
 }
 
 
@@ -1385,7 +1912,6 @@ main {
 ===================================================== */
 
 @media (max-width: 450px) {
-
   .container {
     width: 92%;
   }
@@ -1395,11 +1921,58 @@ main {
   }
 
   nav a {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero {
     height: 360px;
+  }
+
+  .painel-esportivo {
+    padding: 20px 15px;
+  }
+
+  .ultimo-jogo-confronto {
+    grid-template-columns:
+      82px
+      auto
+      82px;
+
+    gap: 8px;
+  }
+
+  .ultimo-jogo-time {
+    width: 82px;
+  }
+
+  .ultimo-jogo-time img {
+    width: 43px;
+    height: 43px;
+  }
+
+  .ultimo-jogo-placar {
+    min-width: 58px;
+
+    gap: 6px;
+  }
+
+  .ultimo-jogo-placar strong {
+    font-size: 24px;
+  }
+
+  .classificacao-cabecalho,
+  .classificacao-linha {
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      38px;
+
+    gap: 8px;
+  }
+
+  .classificacao-linha {
+    padding-left: 9px;
+    padding-right: 9px;
   }
 
   .patrocinadores-master-grid,
@@ -1410,7 +1983,6 @@ main {
 
     gap: 25px;
   }
-
 }
 
 
@@ -1586,9 +2158,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 7px 25px
-    rgba(0, 0, 0, 0.15);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.15);
 }
 
 .historia-destaque img {
@@ -1681,7 +2251,9 @@ main {
 .estadio-card {
   display: grid;
 
-  grid-template-columns: 1.5fr 0.8fr;
+  grid-template-columns:
+    1.5fr
+    0.8fr;
 
   overflow: hidden;
 
@@ -1689,9 +2261,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 6px 22px
-    rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
 }
 
 .estadio-imagem {
@@ -1793,8 +2363,7 @@ main {
 .titulos-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 }
@@ -1824,9 +2393,7 @@ main {
 .titulo-card:hover {
   transform: translateY(-5px);
 
-  box-shadow:
-    0 8px 24px
-    rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
 .titulo-tipo {
@@ -1909,8 +2476,7 @@ main {
 .institucional-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 
@@ -2095,7 +2661,6 @@ main {
 ===================================================== */
 
 @media (max-width: 900px) {
-
   .clube-pagina-hero h1 {
     font-size: 40px;
   }
@@ -2105,20 +2670,20 @@ main {
   }
 
   .timeline {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .estadio-card {
     grid-template-columns:
-      1.2fr 1fr;
+      1.2fr
+      1fr;
   }
 
   .diretoria-lista > div {
     grid-template-columns:
-      150px 1fr;
+      150px
+      1fr;
   }
-
 }
 
 
@@ -2127,7 +2692,6 @@ main {
 ===================================================== */
 
 @media (max-width: 700px) {
-
   .clube-pagina-hero {
     min-height: 350px;
   }
@@ -2189,7 +2753,6 @@ main {
   .clube-institucional {
     padding-bottom: 70px;
   }
-
 }
 
 
@@ -2198,7 +2761,6 @@ main {
 ===================================================== */
 
 @media (max-width: 450px) {
-
   .clube-pagina-hero h1 {
     font-size: 28px;
   }
@@ -2234,7 +2796,6 @@ main {
   .institucional-card {
     padding: 30px 25px;
   }
-
 }
 
 
@@ -2319,8 +2880,7 @@ main {
 
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 20px;
 }
@@ -2340,9 +2900,7 @@ main {
   border-top: 3px solid #b30018;
   border-radius: 8px;
 
-  box-shadow:
-    0 5px 18px
-    rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
 .contato-info-card h2 {
@@ -2376,7 +2934,9 @@ main {
 }
 
 
-/* TELEFONE */
+/* =====================================================
+   TELEFONE
+===================================================== */
 
 .contato-telefone {
   width: fit-content;
@@ -2394,7 +2954,9 @@ main {
 }
 
 
-/* E-MAIL */
+/* =====================================================
+   E-MAIL
+===================================================== */
 
 .contato-email {
   width: fit-content;
@@ -2462,9 +3024,7 @@ main {
 
   border-radius: 8px;
 
-  box-shadow:
-    0 5px 18px
-    rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -2564,9 +3124,7 @@ main {
 
   border-radius: 10px;
 
-  box-shadow:
-    0 7px 25px
-    rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -2604,8 +3162,7 @@ main {
 .pagina-contato .form-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 22px;
 }
@@ -2696,9 +3253,7 @@ main {
 
   outline: none;
 
-  box-shadow:
-    0 0 0 3px
-    rgba(179, 0, 24, 0.1);
+  box-shadow: 0 0 0 3px rgba(179, 0, 24, 0.1);
 }
 
 
@@ -2738,9 +3293,7 @@ main {
 
   transform: translateY(-2px);
 
-  box-shadow:
-    0 5px 14px
-    rgba(179, 0, 24, 0.22);
+  box-shadow: 0 5px 14px rgba(179, 0, 24, 0.22);
 }
 
 .contato-botao:active {
@@ -2748,9 +3301,7 @@ main {
 }
 
 .contato-botao:focus-visible {
-  outline:
-    3px solid
-    rgba(179, 0, 24, 0.25);
+  outline: 3px solid rgba(179, 0, 24, 0.25);
 
   outline-offset: 3px;
 }
@@ -2761,7 +3312,6 @@ main {
 ===================================================== */
 
 @media (max-width: 900px) {
-
   .contato-hero {
     padding: 65px 0 55px;
   }
@@ -2771,8 +3321,7 @@ main {
   }
 
   .contato-info-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contato-mapa {
@@ -2788,7 +3337,6 @@ main {
   .contato-formulario-card {
     padding: 45px 40px;
   }
-
 }
 
 
@@ -2797,7 +3345,6 @@ main {
 ===================================================== */
 
 @media (max-width: 700px) {
-
   .contato-hero {
     padding: 55px 0 50px;
   }
@@ -2879,7 +3426,6 @@ main {
   .contato-botao {
     width: 100%;
   }
-
 }
 
 
@@ -2888,7 +3434,6 @@ main {
 ===================================================== */
 
 @media (max-width: 450px) {
-
   .contato-hero h1 {
     font-size: 27px;
   }
@@ -2917,7 +3462,6 @@ main {
   .contato-formulario-topo h2 {
     font-size: 24px;
   }
-
 }
 
 
@@ -2926,7 +3470,6 @@ main {
 ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -2938,5 +3481,4 @@ main {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-
 }
