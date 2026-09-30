@@ -21,16 +21,13 @@
 
   <body id="top">
     <!-- =====================================================
-         TOPO
+         CABEÇALHO
     ====================================================== -->
 
     <header class="topo">
       <div class="container topo-conteudo">
         <div class="marca">
-          <img
-            src="assets/escudo.png"
-            alt="Escudo do Esporte Clube Guarani"
-          />
+          <img src="assets/escudo.png" alt="Escudo do Esporte Clube Guarani" />
 
           <div>
             <strong>Esporte Clube Guarani</strong>
@@ -38,29 +35,35 @@
           </div>
         </div>
 
-        <nav aria-label="Menu principal">
-          <a
-            href="index.html"
-            class="nav-ativo"
-            aria-current="page"
-          >
+        <!-- BOTÃO MOBILE -->
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav
+          id="menu-principal"
+          class="menu-principal"
+          aria-label="Menu principal"
+        >
+          <a href="index.html" class="nav-ativo" aria-current="page">
             Início
           </a>
 
           <a href="#noticias">Notícias</a>
-
           <a href="#jogos">Jogos</a>
-
           <a href="#elenco">Elenco</a>
-
           <a href="clube.html">O Clube</a>
-
           <a href="contato.html">Contato</a>
 
-          <a
-            href="contato.html?assunto=socio#form-contato"
-            class="nav-socio"
-          >
+          <a href="contato.html?assunto=socio#form-contato" class="nav-socio">
             Seja Sócio
           </a>
         </nav>
@@ -76,10 +79,7 @@
            HERO
       ================================================== -->
 
-      <section
-        class="hero"
-        aria-label="Apresentação do Esporte Clube Guarani"
-      >
+      <section class="hero" aria-label="Apresentação do Esporte Clube Guarani">
         <div class="container hero-conteudo">
           <span class="hero-tag">O Time Índio</span>
 
@@ -91,12 +91,7 @@
 
           <p>Paixão, tradição e futebol em Venâncio Aires.</p>
 
-          <a
-            href="clube.html"
-            class="hero-botao"
-          >
-            Conheça o clube
-          </a>
+          <a href="clube.html" class="hero-botao"> Conheça o clube </a>
         </div>
       </section>
 
@@ -104,10 +99,7 @@
            PRÓXIMO JOGO
       ================================================== -->
 
-      <section
-        class="proximo-jogo"
-        id="jogos"
-      >
+      <section class="proximo-jogo" id="jogos">
         <div class="container">
           <div class="jogo-card">
             <!-- COMPETIÇÃO -->
@@ -130,30 +122,17 @@
 
             <div class="jogo-times">
               <div class="time">
-                <img
-                  src="assets/escudo.png"
-                  alt="Escudo do Guarani"
-                />
+                <img src="assets/escudo.png" alt="Escudo do Guarani" />
 
                 <strong>Guarani</strong>
 
-                <span class="time-categoria">
-                  Sub-17
-                </span>
+                <span class="time-categoria"> Sub-17 </span>
               </div>
 
-              <div
-                class="versus"
-                aria-label="contra"
-              >
-                X
-              </div>
+              <div class="versus" aria-label="contra">X</div>
 
               <div class="time">
-                <img
-                  src="assets/osoriense.png"
-                  alt="Escudo do Osoriense"
-                />
+                <img src="assets/osoriense.png" alt="Escudo do Osoriense" />
 
                 <strong>Osoriense</strong>
               </div>
@@ -165,9 +144,7 @@
               <strong>
                 Sábado
 
-                <span class="data-jogo">
-                  03/10 • 15:00
-                </span>
+                <span class="data-jogo"> 03/10 • 15:00 </span>
               </strong>
 
               <span>Estádio Edmundo Feix</span>
@@ -197,31 +174,21 @@
 
           <div class="desempenho-topo">
             <div>
-              <span class="secao-tag">
-                TEMPORADA 2026
-              </span>
+              <span class="secao-tag"> TEMPORADA 2026 </span>
 
-              <h2>
-                Últimos jogos e classificação
-              </h2>
+              <h2>Últimos jogos e classificação</h2>
             </div>
 
             <div class="desempenho-categoria">
-              <label for="categoria-desempenho">
-                Categoria
-              </label>
+              <label for="categoria-desempenho"> Categoria </label>
 
               <select
                 id="categoria-desempenho"
                 aria-label="Selecionar categoria"
               >
-                <option value="profissional">
-                  Profissional
-                </option>
+                <option value="profissional">Profissional</option>
 
-                <option value="sub17">
-                  Sub-17
-                </option>
+                <option value="sub17">Sub-17</option>
               </select>
             </div>
           </div>
@@ -238,10 +205,7 @@
             <article class="painel-esportivo">
               <div class="painel-esportivo-topo">
                 <div>
-                  <span
-                    class="secao-tag"
-                    id="categoria-jogos"
-                  >
+                  <span class="secao-tag" id="categoria-jogos">
                     PROFISSIONAL
                   </span>
 
@@ -259,10 +223,7 @@
                 </a>
               </div>
 
-              <div
-                class="ultimos-jogos-lista"
-                id="ultimos-jogos-lista"
-              >
+              <div class="ultimos-jogos-lista" id="ultimos-jogos-lista">
                 <!-- JOGO 1 -->
 
                 <div class="ultimo-jogo">
@@ -276,10 +237,7 @@
 
                   <div class="ultimo-jogo-confronto">
                     <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/escudo.png"
-                        alt="Escudo do Guarani"
-                      />
+                      <img src="assets/escudo.png" alt="Escudo do Guarani" />
 
                       <span>Guarani</span>
                     </div>
@@ -302,9 +260,7 @@
                     </div>
                   </div>
 
-                  <span class="resultado resultado-vitoria">
-                    Vitória
-                  </span>
+                  <span class="resultado resultado-vitoria"> Vitória </span>
                 </div>
 
                 <!-- JOGO 2 -->
@@ -337,18 +293,13 @@
                     </div>
 
                     <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/escudo.png"
-                        alt="Escudo do Guarani"
-                      />
+                      <img src="assets/escudo.png" alt="Escudo do Guarani" />
 
                       <span>Guarani</span>
                     </div>
                   </div>
 
-                  <span class="resultado resultado-derrota">
-                    Derrota
-                  </span>
+                  <span class="resultado resultado-derrota"> Derrota </span>
                 </div>
 
                 <!-- JOGO 3 -->
@@ -364,10 +315,7 @@
 
                   <div class="ultimo-jogo-confronto">
                     <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/escudo.png"
-                        alt="Escudo do Guarani"
-                      />
+                      <img src="assets/escudo.png" alt="Escudo do Guarani" />
 
                       <span>Guarani</span>
                     </div>
@@ -390,9 +338,7 @@
                     </div>
                   </div>
 
-                  <span class="resultado resultado-empate">
-                    Empate
-                  </span>
+                  <span class="resultado resultado-empate"> Empate </span>
                 </div>
               </div>
             </article>
@@ -404,16 +350,11 @@
             <article class="painel-esportivo">
               <div class="painel-esportivo-topo">
                 <div>
-                  <span
-                    class="secao-tag"
-                    id="competicao-classificacao"
-                  >
+                  <span class="secao-tag" id="competicao-classificacao">
                     GAUCHÃO SÉRIE A2
                   </span>
 
-                  <h3>
-                    Classificação
-                  </h3>
+                  <h3>Classificação</h3>
                 </div>
 
                 <a
@@ -435,10 +376,7 @@
                 <span>PTS</span>
               </div>
 
-              <div
-                class="classificacao-lista"
-                id="classificacao-lista"
-              >
+              <div class="classificacao-lista" id="classificacao-lista">
                 <div class="classificacao-linha">
                   <strong>7º</strong>
 
@@ -467,10 +405,7 @@
                   <strong>10º</strong>
 
                   <div class="classificacao-time-guarani">
-                    <img
-                      src="assets/escudo.png"
-                      alt=""
-                    />
+                    <img src="assets/escudo.png" alt="" />
 
                     <span>Guarani</span>
                   </div>
@@ -503,28 +438,16 @@
            NOTÍCIAS
       ================================================== -->
 
-      <section
-        class="noticias"
-        id="noticias"
-      >
+      <section class="noticias" id="noticias">
         <div class="container">
           <div class="noticias-topo">
             <div>
-              <span class="secao-tag">
-                FIQUE POR DENTRO
-              </span>
+              <span class="secao-tag"> FIQUE POR DENTRO </span>
 
-              <h2>
-                Últimas Notícias
-              </h2>
+              <h2>Últimas Notícias</h2>
             </div>
 
-            <a
-              href="#"
-              class="ver-todas"
-            >
-              Ver todas →
-            </a>
+            <a href="#" class="ver-todas"> Ver todas → </a>
           </div>
 
           <div class="noticias-grid">
@@ -538,9 +461,7 @@
               />
 
               <div class="noticia-conteudo">
-                <span class="noticia-meta">
-                  FUTEBOL • 26/09/2026
-                </span>
+                <span class="noticia-meta"> FUTEBOL • 26/09/2026 </span>
 
                 <h3>
                   Índio recebe o União Frederiquense neste domingo no Edmundo
@@ -565,9 +486,7 @@
                 />
 
                 <div class="noticia-conteudo">
-                  <span class="noticia-meta">
-                    CLUBE • 25/09/2026
-                  </span>
+                  <span class="noticia-meta"> CLUBE • 25/09/2026 </span>
 
                   <h3>
                     Guarani anuncia novo reforço para a sequência da temporada
@@ -583,13 +502,9 @@
                 />
 
                 <div class="noticia-conteudo">
-                  <span class="noticia-meta">
-                    FUTEBOL • 24/09/2026
-                  </span>
+                  <span class="noticia-meta"> FUTEBOL • 24/09/2026 </span>
 
-                  <h3>
-                    Guarani é superado pelo Passo Fundo fora de casa
-                  </h3>
+                  <h3>Guarani é superado pelo Passo Fundo fora de casa</h3>
                 </div>
               </article>
             </div>
@@ -606,13 +521,9 @@
               </div>
 
               <div class="noticia-conteudo">
-                <span class="noticia-meta">
-                  HISTÓRIA • 07/12/2025
-                </span>
+                <span class="noticia-meta"> HISTÓRIA • 07/12/2025 </span>
 
-                <h3>
-                  Guarani conquista de forma invicta o Gauchão Série B
-                </h3>
+                <h3>Guarani conquista de forma invicta o Gauchão Série B</h3>
 
                 <p>
                   Time Índio encerrou a campanha sem derrotas e levantou a taça
@@ -628,10 +539,7 @@
            ELENCO
       ================================================== -->
 
-      <section
-        class="elenco"
-        id="elenco"
-      >
+      <section class="elenco" id="elenco">
         <div class="container">
           <div class="elenco-card">
             <div class="elenco-imagem">
@@ -643,25 +551,16 @@
             </div>
 
             <div class="elenco-conteudo">
-              <span class="secao-tag">
-                TIME ÍNDIO
-              </span>
+              <span class="secao-tag"> TIME ÍNDIO </span>
 
-              <h2>
-                Nosso Elenco
-              </h2>
+              <h2>Nosso Elenco</h2>
 
               <p>
                 Conheça os atletas e a comissão técnica que representam o
                 Esporte Clube Guarani na temporada.
               </p>
 
-              <a
-                href="#"
-                class="elenco-botao"
-              >
-                Ver elenco completo →
-              </a>
+              <a href="#" class="elenco-botao"> Ver elenco completo → </a>
             </div>
           </div>
         </div>
@@ -671,10 +570,7 @@
            O CLUBE
       ================================================== -->
 
-      <section
-        class="clube"
-        id="clube"
-      >
+      <section class="clube" id="clube">
         <div class="container">
           <div class="clube-card">
             <div class="clube-escudo">
@@ -686,13 +582,9 @@
             </div>
 
             <div class="clube-conteudo">
-              <span class="secao-tag">
-                NOSSA HISTÓRIA
-              </span>
+              <span class="secao-tag"> NOSSA HISTÓRIA </span>
 
-              <h2>
-                Esporte Clube Guarani
-              </h2>
+              <h2>Esporte Clube Guarani</h2>
 
               <p class="clube-descricao">
                 Futebol, tradição e paixão fazem parte da história do Time Índio
@@ -719,10 +611,7 @@
                 </div>
               </div>
 
-              <a
-                href="clube.html"
-                class="clube-botao"
-              >
+              <a href="clube.html" class="clube-botao">
                 Conheça nossa história →
               </a>
             </div>
@@ -735,27 +624,18 @@
          PATROCINADORES
     ====================================================== -->
 
-    <section
-      class="patrocinadores"
-      id="patrocinadores"
-    >
+    <section class="patrocinadores" id="patrocinadores">
       <div class="container">
         <div class="patrocinadores-topo">
-          <span class="secao-tag">
-            QUEM APOIA O TIME ÍNDIO
-          </span>
+          <span class="secao-tag"> QUEM APOIA O TIME ÍNDIO </span>
 
-          <h2>
-            Patrocinadores
-          </h2>
+          <h2>Patrocinadores</h2>
         </div>
 
         <!-- MASTER -->
 
         <div class="patrocinadores-grupo">
-          <h3 class="patrocinadores-grupo-titulo">
-            PATROCINADORES MASTER
-          </h3>
+          <h3 class="patrocinadores-grupo-titulo">PATROCINADORES MASTER</h3>
 
           <div class="patrocinadores-master-grid">
             <a
@@ -793,9 +673,7 @@
         <!-- DEMAIS -->
 
         <div class="patrocinadores-grupo">
-          <h3 class="patrocinadores-grupo-titulo">
-            PATROCINADORES
-          </h3>
+          <h3 class="patrocinadores-grupo-titulo">PATROCINADORES</h3>
 
           <div class="patrocinadores-grid">
             <a
@@ -881,9 +759,7 @@
 
           <a href="contato.html">Contato</a>
 
-          <a href="contato.html?assunto=socio#form-contato">
-            Seja Sócio
-          </a>
+          <a href="contato.html?assunto=socio#form-contato"> Seja Sócio </a>
         </div>
 
         <div class="rodape-redes">
@@ -895,10 +771,7 @@
             rel="noopener noreferrer"
             class="rede-social"
           >
-            <img
-              src="assets/instagram.png"
-              alt=""
-            />
+            <img src="assets/instagram.png" alt="" />
 
             <span>Instagram</span>
           </a>
@@ -909,10 +782,7 @@
             rel="noopener noreferrer"
             class="rede-social"
           >
-            <img
-              src="assets/facebook.png"
-              alt=""
-            />
+            <img src="assets/facebook.png" alt="" />
 
             <span>Facebook</span>
           </a>
@@ -923,10 +793,7 @@
             rel="noopener noreferrer"
             class="rede-social"
           >
-            <img
-              src="assets/x.png"
-              alt=""
-            />
+            <img src="assets/x.png" alt="" />
 
             <span>X</span>
           </a>
@@ -935,9 +802,7 @@
 
       <div class="rodape-final">
         <div class="container">
-          <p>
-            © 2026 Esporte Clube Guarani • Venâncio Aires - RS
-          </p>
+          <p>© 2026 Esporte Clube Guarani • Venâncio Aires - RS</p>
         </div>
       </div>
     </footer>

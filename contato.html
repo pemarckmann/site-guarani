@@ -25,42 +25,52 @@
     ====================================================== -->
 
     <header class="topo">
-      <div class="container topo-conteudo">
-        <!-- MARCA -->
+  <div class="container topo-conteudo">
+    <div class="marca">
+      <img
+        src="assets/escudo.png"
+        alt="Escudo do Esporte Clube Guarani"
+      />
 
-        <div class="marca">
-          <img src="assets/escudo.png" alt="Escudo do Esporte Clube Guarani" />
-
-          <div>
-            <strong> Esporte Clube Guarani </strong>
-
-            <span> Venâncio Aires • RS </span>
-          </div>
-        </div>
-
-        <!-- MENU -->
-
-        <nav aria-label="Menu principal">
-          <a href="index.html"> Início </a>
-
-          <a href="index.html#noticias"> Notícias </a>
-
-          <a href="index.html#jogos"> Jogos </a>
-
-          <a href="index.html#elenco"> Elenco </a>
-
-          <a href="clube.html"> O Clube </a>
-
-          <a href="contato.html" class="nav-ativo" aria-current="page">
-            Contato
-          </a>
-
-          <a href="contato.html?assunto=socio#form-contato" class="nav-socio">
-            Seja Sócio
-          </a>
-        </nav>
+      <div>
+        <strong>Esporte Clube Guarani</strong>
+        <span>Venâncio Aires • RS</span>
       </div>
-    </header>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="menu-principal"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      id="menu-principal"
+      class="menu-principal"
+      aria-label="Menu principal"
+    >
+      <a href="index.html">Início</a>
+      <a href="index.html#noticias">Notícias</a>
+      <a href="index.html#jogos">Jogos</a>
+      <a href="index.html#elenco">Elenco</a>
+      <a href="clube.html">O Clube</a>
+      <a href="contato.html">Contato</a>
+
+      <a
+        href="contato.html?assunto=socio#form-contato"
+        class="nav-socio"
+      >
+        Seja Sócio
+      </a>
+    </nav>
+  </div>
+</header>
 
     <!-- =====================================================
          CONTEÚDO
