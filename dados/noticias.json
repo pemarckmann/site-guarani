@@ -1,0 +1,82 @@
+[
+  {
+    "id": "guarani-uniao",
+    "demonstrativa": true,
+    "paragrafos": [
+      "O domingo será de futebol em Venâncio Aires. O Guarani recebe o União Frederiquense no Estádio Edmundo Feix, em partida marcada para as 15h, pela 15ª rodada do Gauchão Série A2.",
+      "Jogar em casa é uma oportunidade de aproximar o time de sua torcida. Nas arquibancadas, as cores vermelha e preta e o incentivo ao Índio fazem parte do encontro entre o clube e a comunidade.",
+      "Para quem acompanha a temporada, a partida representa mais um capítulo da caminhada do Guarani na competição estadual. A torcida é convidada a apoiar o time e viver o futebol no Edmundo Feix."
+    ],
+    "imagem": {
+      "src": "assets/otimizadas/noticia-principal.webp",
+      "largura": 1350,
+      "altura": 1688,
+      "alt": "Guarani enfrenta o União Frederiquense",
+      "foco": "50% 5%"
+    },
+    "categoria": "FUTEBOL",
+    "data": "2026-09-26",
+    "titulo": "Índio recebe o União Frederiquense neste domingo no Edmundo Feix",
+    "resumo": "Guarani entra em campo às 15h pela 15ª rodada do Gauchão Série A2."
+  },
+  {
+    "id": "novo-reforco",
+    "demonstrativa": true,
+    "paragrafos": [
+      "O Guarani apresenta um novo reforço para a sequência da temporada. A chegada amplia as opções do elenco e marca mais uma etapa da preparação para os compromissos do Time Índio.",
+      "Vestir a camisa rubro-negra significa fazer parte da história do clube e representar Venâncio Aires dentro de campo. Para quem chega, começa também a construção de uma relação com a torcida e com os companheiros de equipe.",
+      "A torcida dá as boas-vindas ao novo integrante do grupo e segue acompanhando a caminhada do Guarani. Este anúncio e sua imagem são fictícios, usados apenas para demonstrar uma notícia de contratação."
+    ],
+    "imagem": {
+      "src": "assets/otimizadas/noticia2.webp",
+      "largura": 1350,
+      "altura": 1688,
+      "alt": "Arte demonstrativa de anúncio de um reforço do Guarani",
+      "foco": "50% 15%"
+    },
+    "categoria": "CLUBE",
+    "data": "2026-09-25",
+    "titulo": "Guarani anuncia novo reforço para a sequência da temporada",
+    "resumo": "Uma nova chegada ao elenco para os próximos desafios do Time Índio."
+  },
+  {
+    "id": "passo-fundo",
+    "demonstrativa": true,
+    "paragrafos": [
+      "O Guarani foi superado pelo Passo Fundo em compromisso fora de casa. O resultado encerra mais uma rodada da temporada e passa a fazer parte do percurso do Time Índio na competição.",
+      "Depois de uma partida, olhar para o desempenho coletivo ajuda a reconhecer o que funcionou e o que precisa melhorar. A continuidade de um campeonato exige trabalho, concentração e a capacidade de buscar uma resposta nos jogos seguintes.",
+      "O apoio da torcida acompanha o Guarani também nos momentos difíceis. A caminhada continua, com as atenções voltadas aos próximos desafios e ao compromisso de representar a camisa rubro-negra."
+    ],
+    "imagem": {
+      "src": "assets/otimizadas/noticia3.webp",
+      "largura": 1350,
+      "altura": 1688,
+      "alt": "Arte do confronto entre Guarani e Passo Fundo",
+      "foco": "50% 32%"
+    },
+    "categoria": "FUTEBOL",
+    "data": "2026-09-24",
+    "titulo": "Guarani é superado pelo Passo Fundo fora de casa",
+    "resumo": "Time Índio volta suas atenções para a continuidade da competição."
+  },
+  {
+    "id": "titulo-serie-b",
+    "demonstrativa": true,
+    "paragrafos": [
+      "O Guarani encerrou sua campanha no Gauchão Série B sem derrotas e levantou a taça da competição estadual. O título invicto marca uma temporada de celebração para o clube e para sua torcida.",
+      "Uma conquista reúne o trabalho de quem entra em campo, de quem prepara a equipe e de quem sustenta o clube no dia a dia. A fotografia do elenco campeão registra esse momento coletivo e passa a integrar a memória do Time Índio.",
+      "Para Venâncio Aires, a taça também é motivo de orgulho. A campanha aproxima diferentes gerações de torcedores e acrescenta mais um capítulo à história do Esporte Clube Guarani."
+    ],
+    "imagem": {
+      "src": "assets/noticia4.jpg",
+      "largura": 1280,
+      "altura": 853,
+      "alt": "Elenco do Guarani campeão invicto do Gauchão Série B",
+      "foco": "50% 50%"
+    },
+    "categoria": "HISTÓRIA",
+    "data": "2025-12-07",
+    "titulo": "Guarani conquista de forma invicta o Gauchão Série B",
+    "resumo": "Uma campanha sem derrotas e uma conquista para a memória rubro-negra."
+  }
+]

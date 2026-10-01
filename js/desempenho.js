@@ -37,230 +37,9 @@ const linkVerTodosJogos =
     "#link-ver-todos-jogos",
   );
 
-
-/* =====================================================
-   DADOS DE EXEMPLO — SUBSTITUIR PELA API QUANDO DISPONÍVEL
-===================================================== */
-
-const dadosDesempenho = {
-  /* ===================================================
-     PROFISSIONAL
-  =================================================== */
-
-  profissional: {
-    categoria: "PROFISSIONAL",
-
-    competicao: "GAUCHÃO SÉRIE A2",
-
-    urlCompeticao:
-      "https://fgf.com.br/competicoes/profissional/24/2026/4218",
-
-    jogos: [
-      {
-        data: "27/09",
-        competicao: "Gauchão Série A2",
-        estadio: "Edmundo Feix",
-
-        mandante: "Guarani",
-        mandanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        mandanteGols: 3,
-
-        visitante:
-          "União Frederiquense",
-        visitanteEscudo:
-          "assets/otimizadas/uniao-frederiquense.webp",
-        visitanteGols: 1,
-
-      },
-
-      {
-        data: "23/09",
-        competicao: "Gauchão Série A2",
-        estadio: "Vermelhão da Serra",
-
-        mandante: "Passo Fundo",
-        mandanteEscudo:
-          "assets/otimizadas/passo-fundo.webp",
-        mandanteGols: 2,
-
-        visitante: "Guarani",
-        visitanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        visitanteGols: 1,
-
-      },
-
-      {
-        data: "19/09",
-        competicao: "Gauchão Série A2",
-        estadio: "Edmundo Feix",
-
-        mandante: "Guarani",
-        mandanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        mandanteGols: 1,
-
-        visitante: "Santa Cruz",
-        visitanteEscudo:
-          "assets/otimizadas/santa-cruz.webp",
-        visitanteGols: 1,
-
-      },
-    ],
-
-    classificacao: [
-      {
-        posicao: "7º",
-        clube:
-          "União Frederiquense",
-        pontos: 24,
-      },
-
-      {
-        posicao: "8º",
-        clube:
-          "Brasil de Farroupilha",
-        pontos: 24,
-      },
-
-      {
-        posicao: "9º",
-        clube: "Aimoré",
-        pontos: 21,
-      },
-
-      {
-        posicao: "10º",
-        clube: "Guarani",
-        pontos: 18,
-        guarani: true,
-      },
-
-      {
-        posicao: "11º",
-        clube: "Pelotas",
-        pontos: 16,
-      },
-
-      {
-        posicao: "12º",
-        clube: "Bagé",
-        pontos: 15,
-      },
-    ],
-  },
+const tituloJogos = document.querySelector("#titulo-jogos");
 
 
-  /* ===================================================
-     SUB-17
-  =================================================== */
-
-  sub17: {
-    categoria: "SUB-17",
-
-    competicao:
-      "GAUCHÃO SUB-17 A2 • GRUPO C",
-
-    urlCompeticao:
-      "https://fgf.com.br/competicoes/amador/602/2026/4195",
-
-    jogos: [
-      {
-        data: "26/09",
-        competicao:
-          "Gauchão Sub-17 A2",
-        estadio: "Edmundo Feix",
-
-        mandante: "Guarani",
-        mandanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        mandanteGols: 1,
-
-        visitante: "Pinheiros",
-        visitanteEscudo:
-          "assets/otimizadas/pinheiros.webp",
-        visitanteGols: 2,
-
-      },
-
-      {
-        data: "11/09",
-        competicao:
-          "Gauchão Sub-17 A2",
-        estadio: "Arena Cruzeiro",
-
-        mandante: "Cerâmica",
-        mandanteEscudo:
-          "assets/otimizadas/ceramica.webp",
-        mandanteGols: 0,
-
-        visitante: "Guarani",
-        visitanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        visitanteGols: 2,
-
-      },
-
-      {
-        data: "22/08",
-        competicao:
-          "Gauchão Sub-17 A2",
-        estadio: "Edmundo Feix",
-
-        mandante: "Guarani",
-        mandanteEscudo:
-          "assets/otimizadas/escudo.webp",
-        mandanteGols: 1,
-
-        visitante: "Soledade FC",
-        visitanteEscudo:
-          "assets/otimizadas/soledade.webp",
-        visitanteGols: 0,
-
-      },
-    ],
-
-    classificacao: [
-      {
-        posicao: "1º",
-        clube: "Guarany",
-        pontos: 15,
-      },
-
-      {
-        posicao: "2º",
-        clube: "Guarani",
-        pontos: 13,
-        guarani: true,
-      },
-
-      {
-        posicao: "3º",
-        clube: "Pinheiros",
-        pontos: 11,
-      },
-
-      {
-        posicao: "4º",
-        clube: "Soledade FC",
-        pontos: 9,
-      },
-
-      {
-        posicao: "5º",
-        clube: "Tamoio",
-        pontos: 5,
-      },
-
-      {
-        posicao: "6º",
-        clube: "Pelotas",
-        pontos: 4,
-      },
-    ],
-  },
-};
 
 
 /* =====================================================
@@ -279,14 +58,40 @@ function escaparHTML(valor) {
   return String(valor).replace(/[&<>"']/g, (caractere) => entidades[caractere]);
 }
 
+function jogoValido(jogo) {
+  if (!jogo || !idValido(jogo.id) || !dataISOValida(jogo.data) ||
+      ![jogo.competicao, jogo.estadio, jogo.mandante, jogo.visitante].every(textoValido) ||
+      ![jogo.mandanteEscudo, jogo.visitanteEscudo].every(urlDadosValida) ||
+      jogo.mandante === jogo.visitante ||
+      ![jogo.mandante, jogo.visitante].includes("Guarani")) return false;
+  if (jogo.status === "agendado") {
+    return jogo.mandanteGols === null && jogo.visitanteGols === null;
+  }
+  return jogo.status === "encerrado" &&
+    [jogo.mandanteGols, jogo.visitanteGols].every(gols => Number.isInteger(gols) && gols >= 0);
+}
+
+function classificacaoValida(time) {
+  return textoValido(time.clube) && typeof time.posicao === "string" &&
+    /^[1-9]\d*º$/.test(time.posicao) && Number.isInteger(time.pontos) &&
+    (time.guarani === undefined || typeof time.guarani === "boolean");
+}
+
 function criarJogo(jogo) {
-  const saldo = jogo.mandante === "Guarani"
-    ? jogo.mandanteGols - jogo.visitanteGols
-    : jogo.visitanteGols - jogo.mandanteGols;
-  const resultado = saldo > 0 ? "Vitória" : saldo < 0 ? "Derrota" : "Empate";
-  const classeResultado = saldo > 0
-    ? "resultado-vitoria"
-    : saldo < 0 ? "resultado-derrota" : "resultado-empate";
+  if (!jogoValido(jogo)) return "";
+  const agendado = jogo.status === "agendado";
+  let resultado = "Agendado";
+  let classeResultado = "resultado-agendado";
+  if (!agendado) {
+    const saldo = jogo.mandante === "Guarani"
+      ? jogo.mandanteGols - jogo.visitanteGols
+      : jogo.visitanteGols - jogo.mandanteGols;
+    resultado = saldo > 0 ? "Vitória" : saldo < 0 ? "Derrota" : "Empate";
+    classeResultado = saldo > 0
+      ? "resultado-vitoria"
+      : saldo < 0 ? "resultado-derrota" : "resultado-empate";
+  }
+  const dataCurta = `${jogo.data.slice(8, 10)}/${jogo.data.slice(5, 7)}`;
 
   return `
     <div class="ultimo-jogo">
@@ -294,7 +99,7 @@ function criarJogo(jogo) {
       <div class="ultimo-jogo-info">
 
         <strong>
-          ${escaparHTML(jogo.data)}
+          <time datetime="${escaparHTML(jogo.data)}">${dataCurta}</time>
         </strong>
 
         <span>
@@ -329,7 +134,7 @@ function criarJogo(jogo) {
         <div class="ultimo-jogo-placar">
 
           <strong>
-            ${escaparHTML(jogo.mandanteGols)}
+            ${agendado ? "—" : escaparHTML(jogo.mandanteGols)}
           </strong>
 
           <span>
@@ -337,7 +142,7 @@ function criarJogo(jogo) {
           </span>
 
           <strong>
-            ${escaparHTML(jogo.visitanteGols)}
+            ${agendado ? "—" : escaparHTML(jogo.visitanteGols)}
           </strong>
 
         </div>
@@ -461,6 +266,11 @@ function atualizarDesempenho(dados) {
   competicaoClassificacao.textContent =
     dados.competicao;
 
+  if (tituloJogos) {
+    tituloJogos.textContent = dados.jogos.some(jogo => jogo.status === "agendado")
+      ? "Jogos" : "Últimos jogos";
+  }
+
 
   /* ===============================================
      JOGOS
@@ -469,7 +279,7 @@ function atualizarDesempenho(dados) {
   listaUltimosJogos.innerHTML =
     dados.jogos
       .map(criarJogo)
-      .join("");
+      .join("") || '<p class="desempenho-aviso">Nenhum jogo disponível no momento.</p>';
 
 
   /* ===============================================
@@ -479,7 +289,7 @@ function atualizarDesempenho(dados) {
   listaClassificacao.innerHTML =
     dados.classificacao
       .map(criarLinhaClassificacao)
-      .join("");
+      .join("") || '<p class="desempenho-aviso">Classificação indisponível no momento.</p>';
 
 
   /* ===============================================
@@ -509,29 +319,55 @@ if (
   listaUltimosJogos &&
   listaClassificacao
 ) {
-  /*
-    Garante que os dados exibidos correspondam
-    ao valor atual da combobox.
-  */
+  function mostrarEstadoDesempenho(mensagem) {
+    [listaUltimosJogos, listaClassificacao].forEach(lista => {
+      const estado = document.createElement("p");
+      estado.className = "desempenho-aviso";
+      estado.setAttribute("role", "status");
+      estado.textContent = mensagem;
+      lista.replaceChildren(estado);
+    });
+  }
 
-  atualizarDesempenho(
-    dadosDesempenho[seletorCategoria.value],
-  );
+  async function carregarDesempenho() {
+    mostrarEstadoDesempenho("Carregando dados…");
+    try {
+      const origem = await carregarDados(fontesDados.desempenho);
+      if (!origem || typeof origem !== "object" || Array.isArray(origem)) {
+        throw new Error("Formato de desempenho invalido.");
+      }
+      const dados = {};
+      [...seletorCategoria.options].forEach(opcao => {
+        const categoria = origem[opcao.value];
+        opcao.disabled = !categoria ||
+          ![categoria.categoria, categoria.competicao].every(textoValido) ||
+          !urlDadosValida(categoria.urlCompeticao) ||
+          !Array.isArray(categoria.jogos) || !Array.isArray(categoria.classificacao);
+        if (opcao.disabled) {
+          console.warn(`Categoria inválida ignorada: ${opcao.value}.`);
+          return;
+        }
+        dados[opcao.value] = {
+          ...categoria,
+          jogos: registrosValidos(categoria.jogos, jogoValido, "Jogos")
+            .sort((a, b) => b.data.localeCompare(a.data)).slice(0, 3),
+          classificacao: registrosValidos(categoria.classificacao, classificacaoValida, "Classificação", "clube"),
+        };
+      });
+      const disponiveis = Object.keys(dados);
+      if (!disponiveis.length) throw new Error("Nenhuma categoria válida disponível.");
+      if (!dados[seletorCategoria.value]) seletorCategoria.value = disponiveis[0];
 
-  seletorCategoria.disabled = false;
+      atualizarDesempenho(dados[seletorCategoria.value]);
+      seletorCategoria.disabled = false;
+      seletorCategoria.addEventListener("change", () => {
+        atualizarDesempenho(dados[seletorCategoria.value]);
+      });
+    } catch (erro) {
+      mostrarEstadoDesempenho(mensagemFalhaDados());
+      console.error(erro);
+    }
+  }
 
-
-  /*
-    Troca o conteúdo quando o usuário
-    muda de categoria.
-  */
-
-  seletorCategoria.addEventListener(
-    "change",
-    () => {
-      atualizarDesempenho(
-        dadosDesempenho[seletorCategoria.value],
-      );
-    },
-  );
+  carregarDesempenho();
 }

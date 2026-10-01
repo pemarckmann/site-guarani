@@ -1,0 +1,160 @@
+{
+  "profissional": {
+    "categoria": "PROFISSIONAL",
+    "competicao": "GAUCHÃO SÉRIE A2",
+    "urlCompeticao": "https://fgf.com.br/competicoes/profissional/24/2026/4218",
+    "jogos": [
+      {
+        "data": "2026-09-27",
+        "competicao": "Gauchão Série A2",
+        "estadio": "Edmundo Feix",
+        "mandante": "Guarani",
+        "mandanteEscudo": "assets/otimizadas/escudo.webp",
+        "mandanteGols": 3,
+        "visitante": "União Frederiquense",
+        "visitanteEscudo": "assets/otimizadas/uniao-frederiquense.webp",
+        "visitanteGols": 1,
+        "id": "profissional-2026-09-27-uniao-frederiquense",
+        "status": "encerrado"
+      },
+      {
+        "data": "2026-09-23",
+        "competicao": "Gauchão Série A2",
+        "estadio": "Vermelhão da Serra",
+        "mandante": "Passo Fundo",
+        "mandanteEscudo": "assets/otimizadas/passo-fundo.webp",
+        "mandanteGols": 2,
+        "visitante": "Guarani",
+        "visitanteEscudo": "assets/otimizadas/escudo.webp",
+        "visitanteGols": 1,
+        "id": "profissional-2026-09-23-passo-fundo",
+        "status": "encerrado"
+      },
+      {
+        "data": "2026-09-19",
+        "competicao": "Gauchão Série A2",
+        "estadio": "Edmundo Feix",
+        "mandante": "Guarani",
+        "mandanteEscudo": "assets/otimizadas/escudo.webp",
+        "mandanteGols": 1,
+        "visitante": "Santa Cruz",
+        "visitanteEscudo": "assets/otimizadas/santa-cruz.webp",
+        "visitanteGols": 1,
+        "id": "profissional-2026-09-19-santa-cruz",
+        "status": "encerrado"
+      }
+    ],
+    "classificacao": [
+      {
+        "posicao": "7º",
+        "clube": "União Frederiquense",
+        "pontos": 24
+      },
+      {
+        "posicao": "8º",
+        "clube": "Brasil de Farroupilha",
+        "pontos": 24
+      },
+      {
+        "posicao": "9º",
+        "clube": "Aimoré",
+        "pontos": 21
+      },
+      {
+        "posicao": "10º",
+        "clube": "Guarani",
+        "pontos": 18,
+        "guarani": true
+      },
+      {
+        "posicao": "11º",
+        "clube": "Pelotas",
+        "pontos": 16
+      },
+      {
+        "posicao": "12º",
+        "clube": "Bagé",
+        "pontos": 15
+      }
+    ]
+  },
+  "sub17": {
+    "categoria": "SUB-17",
+    "competicao": "GAUCHÃO SUB-17 A2 • GRUPO C",
+    "urlCompeticao": "https://fgf.com.br/competicoes/amador/602/2026/4195",
+    "jogos": [
+      {
+        "data": "2026-09-26",
+        "competicao": "Gauchão Sub-17 A2",
+        "estadio": "Edmundo Feix",
+        "mandante": "Guarani",
+        "mandanteEscudo": "assets/otimizadas/escudo.webp",
+        "mandanteGols": 1,
+        "visitante": "Pinheiros",
+        "visitanteEscudo": "assets/otimizadas/pinheiros.webp",
+        "visitanteGols": 2,
+        "id": "sub17-2026-09-26-pinheiros",
+        "status": "encerrado"
+      },
+      {
+        "data": "2026-09-11",
+        "competicao": "Gauchão Sub-17 A2",
+        "estadio": "Arena Cruzeiro",
+        "mandante": "Cerâmica",
+        "mandanteEscudo": "assets/otimizadas/ceramica.webp",
+        "mandanteGols": 0,
+        "visitante": "Guarani",
+        "visitanteEscudo": "assets/otimizadas/escudo.webp",
+        "visitanteGols": 2,
+        "id": "sub17-2026-09-11-ceramica",
+        "status": "encerrado"
+      },
+      {
+        "data": "2026-08-22",
+        "competicao": "Gauchão Sub-17 A2",
+        "estadio": "Edmundo Feix",
+        "mandante": "Guarani",
+        "mandanteEscudo": "assets/otimizadas/escudo.webp",
+        "mandanteGols": 1,
+        "visitante": "Soledade FC",
+        "visitanteEscudo": "assets/otimizadas/soledade.webp",
+        "visitanteGols": 0,
+        "id": "sub17-2026-08-22-soledade-fc",
+        "status": "encerrado"
+      }
+    ],
+    "classificacao": [
+      {
+        "posicao": "1º",
+        "clube": "Guarany",
+        "pontos": 15
+      },
+      {
+        "posicao": "2º",
+        "clube": "Guarani",
+        "pontos": 13,
+        "guarani": true
+      },
+      {
+        "posicao": "3º",
+        "clube": "Pinheiros",
+        "pontos": 11
+      },
+      {
+        "posicao": "4º",
+        "clube": "Soledade FC",
+        "pontos": 9
+      },
+      {
+        "posicao": "5º",
+        "clube": "Tamoio",
+        "pontos": 5
+      },
+      {
+        "posicao": "6º",
+        "clube": "Pelotas",
+        "pontos": 4
+      }
+    ]
+  }
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Leia as notícias do Esporte Clube Guarani de Venâncio Aires."
+    />
+
+    <meta name="theme-color" content="#111111" />
+
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
+
+    <title>Notícia | Esporte Clube Guarani</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="css/sem-js.css" />
+    </noscript>
+    <script src="js/script.js" defer></script>
+    <script src="js/dados.js" defer></script>
+    <script src="js/noticias.js" defer></script>
+  </head>
+
+  <body id="top">
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <div class="marca">
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img
+              src="assets/otimizadas/escudo.webp"
+              width="320"
+              height="480"
+              alt="Escudo do Esporte Clube Guarani"
+            />
+          </a>
+
+          <div>
+            <strong>Esporte Clube Guarani</strong>
+            <span>Venâncio Aires • RS</span>
+          </div>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav
+          id="menu-principal"
+          class="menu-principal"
+          aria-label="Menu principal"
+        >
+          <a href="index.html">Início</a>
+          <a href="noticias.html" aria-current="page">Notícias</a>
+          <a href="index.html#jogos" class="nav-em-breve"> Jogos </a>
+          <a href="index.html#elenco" class="nav-em-breve"> Elenco </a>
+          <a href="clube.html">O Clube</a>
+          <a href="contato.html">Contato</a>
+
+          <a href="socio.html" class="nav-socio"> Seja Sócio </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="pagina-noticia">
+      <div class="container noticia-pagina">
+        <a class="noticia-voltar" href="noticias.html">← Todas as notícias</a>
+        <article id="noticia-completa"></article>
+        <noscript>
+          <h1>Notícias do Guarani</h1>
+          <p class="noticias-estado">Ative o JavaScript para ler esta notícia ou acompanhe o
+            <a href="https://www.instagram.com/ecguaranirs/" target="_blank" rel="noopener noreferrer">Instagram do Guarani</a>.
+          </p>
+        </noscript>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <!-- MARCA -->
+
+        <div class="rodape-marca">
+          <img
+            src="assets/otimizadas/escudo.webp"
+            width="320"
+            height="480"
+            alt="Escudo do Esporte Clube Guarani"
+          />
+
+          <div>
+            <strong> Esporte Clube Guarani </strong>
+
+            <span> Venâncio Aires • RS </span>
+          </div>
+        </div>
+
+        <!-- NAVEGAÇÃO -->
+
+        <div class="rodape-links">
+          <strong> Navegação </strong>
+
+          <a href="index.html"> Início </a>
+
+          <a href="noticias.html">Notícias</a>
+
+          <a href="index.html#jogos">
+            Jogos
+            <span class="link-status">· seção em desenvolvimento</span>
+          </a>
+
+          <a href="index.html#elenco">
+            Elenco
+            <span class="link-status">· seção em desenvolvimento</span>
+          </a>
+
+          <a href="clube.html"> O Clube </a>
+
+          <a href="contato.html"> Contato </a>
+
+          <a href="socio.html"> Seja Sócio </a>
+
+        </div>
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="rodape-redes">
+          <strong> Siga o Time Índio </strong>
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://www.instagram.com/ecguaranirs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/instagram.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> Instagram </span>
+          </a>
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://www.facebook.com/guaranirs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/facebook.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> Facebook </span>
+          </a>
+
+          <!-- X -->
+
+          <a
+            href="https://x.com/GuaraniRS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/x.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> X </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- =================================================
+           RODAPÉ FINAL
+      ================================================== -->
+
+      <div class="rodape-final">
+        <div class="container">
+          <p>© 2026 Esporte Clube Guarani • Venâncio Aires - RS</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
