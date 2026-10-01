@@ -1,11 +1,12 @@
-# Dados de exemplo do site
+# Dados do site
 
 Edite o conteúdo nestes arquivos JSON, sem alterar os scripts de apresentação:
 
 - `noticias.json`: lista de notícias usada na Home, na lista e na leitura completa.
-- `desempenho.json`: jogos e classificação das categorias `profissional` e `sub17`.
+- `desempenho.json`: jogos e classificação gerados pelo scraper, separados por categoria.
 
-Os dados atuais são demonstrativos. Eles ainda não representam uma integração com a AWS.
+As notícias atuais são demonstrativas. O desempenho é lido do arquivo produzido pelo
+scraper; sua coleta e publicação ainda não estão integradas à AWS.
 
 ## Notícias
 
@@ -25,18 +26,82 @@ notícias válidas. A categoria e a página ficam na URL e são mantidas ao volt
 ## Desempenho
 
 Cada categoria contém `categoria`, `competicao`, `urlCompeticao`, `jogos` e `classificacao`.
+As chaves atuais são `profissional`, `sub17`, `sub15` e `feminino-sub15`. O seletor é
+montado a partir do JSON: novas categorias válidas aparecem sem editar HTML ou JavaScript.
+Use chaves em minúsculas, com letras, números e hífens, e `categoria` como nome de exibição.
+
+Metadados opcionais da categoria: `temporada`, `grupo`, `faseClassificacao`, `fonte` e
+`atualizadoEm` (data e hora ISO 8601 com fuso, como `2026-10-01T16:55:04Z`). A atualização
+é exibida no horário de Brasília. A fase da classificação é independente da fase dos jogos:
+uma tabela classificatória pode permanecer disponível durante o mata-mata.
+`logoCompeticao` é opcional e contém `src`, `largura` e `altura`. Ele permite indicar
+o logo usado no destaque da próxima partida. Sem esse campo, o site usa o logo local
+cadastrado para Gauchão Série A2, Gauchão Sub-17 A2, Gauchão Sub-15 ou Gauchão Feminino
+Sub-15. Competições sem logo cadastrado exibem só o nome.
+Os logos são obtidos da [página oficial de marcas da FGF](https://fgf.com.br/marcas/).
+`assets/competicoes/` guarda os arquivos oficiais baixados e as cópias WebP sem perda para
+exibição, preservando cores, transparência, proporções e resolução. A biblioteca também
+inclui Série B, outras categorias de base, Copa FGF, Recopa, Gauchão Feminino e festivais.
+Consulte o [catálogo de marcas](../assets/competicoes/README.md) para os arquivos,
+variantes e edições específicas disponíveis. O logo Sub-17 A2
+continua usando o arquivo já existente em `assets/otimizadas/`.
 Cada jogo tem um `id` único e estável, uma `data` no formato `YYYY-MM-DD` e um `status`:
 
 - `encerrado`: os dois placares são números inteiros maiores ou iguais a zero.
-- `agendado`: `mandanteGols` e `visitanteGols` são `null`; o site exibe “Agendado”, sem calcular resultado.
+- `agendado`: `mandanteGols` e `visitanteGols` são `null`; a partida pode aparecer no destaque da próxima partida, mas não em “Últimos jogos”.
 
 O ID identifica o jogo e deve permanecer igual mesmo se a data for alterada.
-Na tela, a data aparece como `DD/MM`. O site ordena os jogos pela data e mostra os três
-mais recentes de cada categoria. Registros inválidos são ignorados sem afetar os válidos.
+Na tela, a data aparece como `DD/MM`. Campos opcionais do jogo: `hora` (`HH:mm` ou `null`),
+`rodada`, `fase` e `urlFonte`. “Últimos jogos” mostra até três partidas encerradas por
+categoria, ordenadas da mais recente para a mais antiga. Jogos agendados ficam fora dessa lista.
+Em confrontos de ida e volta, o scraper pode fornecer `partida` e `totalPartidas`
+(por exemplo, `1` e `2`). Esses números são exibidos como “Partida 1 de 2”. Sem eles,
+o site identifica pares em oitavas, quartas, semifinais e final quando há exatamente dois
+jogos entre os mesmos clubes, na mesma competição, fase e ano, com mandos invertidos.
+A ordem cronológica define a primeira e a segunda partida. Se só uma partida estiver
+disponível ou o confronto for ambíguo, nenhum número é deduzido.
+O destaque da próxima partida usa o primeiro jogo agendado entre todas as categorias,
+independentemente da categoria selecionada. O scraper deve atualizar o status ao encerrar
+uma partida; o site não transforma um jogo agendado em encerrado apenas pela data.
+Registros inválidos são ignorados sem afetar os válidos.
 Nas partidas encerradas, o site calcula vitória, empate ou derrota a partir dos placares.
+Uma disputa por pênaltis usa `decisao: "penaltis"`, `mandantePenaltis` e
+`visitantePenaltis`. O placar do jogo deve estar empatado, e os pênaltis precisam ser
+inteiros não negativos e diferentes entre si. O site mantém o placar normal e mostra
+separadamente os pênaltis e o vencedor da decisão.
 Linhas de classificação têm clube, posição ordinal (por exemplo `1º`) e pontos inteiros.
+O campo `guarani: true` destaca o clube. A Home exibe até seis linhas consecutivas ao redor
+do Guarani, em ordem de posição. O trecho se ajusta quando o clube está perto do início ou
+do fim da tabela; sem o Guarani, aparecem os primeiros seis clubes. O aviso de resumo
+informa o total de clubes, e “Tabela completa” abre a aba Classificação da página Jogos
+na categoria selecionada.
+A identificação da fonte e a data de atualização aparecem discretamente abaixo dos painéis.
+Estatísticas adicionais do scraper, como jogos, vitórias e saldo de gols, permanecem no
+JSON, mas não são colunas desse resumo. Escudos podem usar caminhos locais ou URLs HTTP(S).
+O cadastro `escudosLocais` em `js/desempenho.js` dá prioridade aos escudos escolhidos
+pelo clube em `assets/otimizadas/`, incluindo Guarani e Osoriense. Para adicionar
+outro, cadastre o nome do clube sem acentos e em minúsculas, com o caminho da imagem.
+Se o arquivo local não carregar, o site tenta o caminho recebido no JSON, depois a
+URL original da FGF (`mandanteEscudoFonte`, `visitanteEscudoFonte` ou `escudoFonte`).
+Se nenhuma imagem carregar, aparecem as iniciais do clube.
+
+No scraper, o cadastro equivalente fica em `config.json`, no campo `escudos`.
+As imagens preferidas ficam em `escudos-locais/assets/otimizadas/` e também entram
+no pacote da Lambda. Ao substituir um escudo do site, atualize essa cópia no scraper
+para que as próximas exportações e a Lambda usem a mesma versão.
 
 ## Testar localmente
+
+A página `jogos.html` usa o mesmo `desempenho.json` da Home, sem duplicar os dados.
+Ela oferece filtros por categoria e status e paginação de oito partidas. Agendadas
+ficam em ordem cronológica, antes dos resultados; encerradas aparecem da mais recente
+para a mais antiga. Os filtros e a página ficam na URL para compartilhar e voltar.
+O link “Ver todos” da Home abre os resultados da categoria selecionada.
+A aba “Classificação” mostra todos os clubes da tabela fornecida no JSON, com
+pontos, jogos, vitórias, empates, derrotas e saldo de gols. A fase e o grupo
+identificam a tabela, mesmo durante o mata-mata. Estatísticas ausentes aparecem
+como “—”. No celular, a tabela permite rolagem horizontal dentro do próprio quadro.
+A aba selecionada também fica na URL (`aba=classificacao`).
 
 O carregamento usa `fetch`, então abra o site por um servidor HTTP local.
 No terminal, dentro da pasta do projeto, execute:

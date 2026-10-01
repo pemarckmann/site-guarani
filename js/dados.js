@@ -1,4 +1,4 @@
-/* Fontes atuais de exemplo. Quando a API estiver pronta, ajuste estas URLs
+/* Fontes atuais do site. Quando a API estiver pronta, ajuste estas URLs
    para endpoints que devolvam os mesmos formatos JSON. */
 const fontesDados = {
   noticias: "dados/noticias.json",

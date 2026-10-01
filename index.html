@@ -74,12 +74,46 @@
           </a>
 
           <a href="noticias.html">Notícias</a>
-          <a href="index.html#jogos" class="nav-em-breve"> Jogos </a>
+          <a href="jogos.html">Jogos</a>
           <a href="index.html#elenco" class="nav-em-breve"> Elenco </a>
           <a href="clube.html">O Clube</a>
           <a href="contato.html">Contato</a>
 
           <a href="socio.html" class="nav-socio"> Seja Sócio </a>
+
+          <div class="topo-redes" role="group" aria-label="Redes sociais do Guarani">
+            <span class="topo-redes-titulo">Siga o Guarani</span>
+            <a
+              class="topo-rede"
+              href="https://www.instagram.com/ecguaranirs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Guarani (abre em nova aba)"
+              title="Instagram"
+            >
+              <img src="assets/otimizadas/instagram.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+            <a
+              class="topo-rede"
+              href="https://www.facebook.com/guaranirs"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook do Guarani (abre em nova aba)"
+              title="Facebook"
+            >
+              <img src="assets/otimizadas/facebook.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+            <a
+              class="topo-rede"
+              href="https://x.com/GuaraniRS"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X do Guarani (abre em nova aba)"
+              title="X"
+            >
+              <img src="assets/otimizadas/x.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+          </div>
         </nav>
       </div>
     </header>
@@ -115,77 +149,13 @@
 
       <section class="proximo-jogo" id="jogos">
         <div class="container">
-          <div class="jogo-card">
-            <!-- COMPETIÇÃO -->
-
-            <div class="jogo-titulo">
-              <img
-                src="assets/otimizadas/sub17-a2.webp"
-                width="360"
-                height="434"
-                alt="Gauchão Sub-17 A2"
-                class="logo-competicao"
-              />
-
-              <span>PRÓXIMA PARTIDA</span>
-
-              <strong>Gauchão Sub-17 A2</strong>
-
-              <small>Oitavas de final</small>
-            </div>
-
-            <!-- CONFRONTO -->
-
-            <div class="jogo-times">
-              <div class="time">
-                <img
-                  src="assets/otimizadas/escudo.webp"
-                  width="320"
-                  height="480"
-                  alt="Escudo do Guarani"
-                />
-
-                <strong>Guarani</strong>
-
-                <span class="time-categoria"> Sub-17 </span>
-              </div>
-
-              <div class="versus" aria-label="contra">X</div>
-
-              <div class="time">
-                <img
-                  src="assets/otimizadas/osoriense.webp"
-                  width="256"
-                  height="256"
-                  alt="Escudo do Osoriense"
-                />
-
-                <strong>Osoriense</strong>
-              </div>
-            </div>
-
-            <!-- INFORMAÇÕES -->
-
-            <div class="jogo-info">
-              <strong>
-                Sábado
-
-                <span class="data-jogo"> 03/10 • 15:00 </span>
-              </strong>
-
-              <span>Estádio Edmundo Feix</span>
-
-              <span>Venâncio Aires - RS</span>
-
-              <a
-                href="https://fgf.com.br/jogo/guarani-vaxgao-gauchaosub17a2-03-10-2026"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="detalhes-jogo"
-              >
-                Sobre o jogo →
-              </a>
-            </div>
+          <div class="jogo-card" id="proximo-jogo-card" aria-live="polite">
+            <p class="desempenho-aviso proximo-jogo-carregando">Carregando próxima partida…</p>
+            <noscript>
+              <p class="desempenho-aviso">
+                Confira as partidas no <a href="https://fgf.com.br/" target="_blank" rel="noopener noreferrer">site da FGF</a>.
+              </p>
+            </noscript>
           </div>
         </div>
       </section>
@@ -200,7 +170,7 @@
 
           <div class="desempenho-topo">
             <div>
-              <span class="secao-tag"> TEMPORADA 2026 </span>
+              <span class="secao-tag" id="temporada-desempenho"> DESEMPENHO </span>
 
               <h2>Últimos jogos e classificação</h2>
             </div>
@@ -213,9 +183,7 @@
                 disabled
                 aria-label="Selecionar categoria"
               >
-                <option value="profissional">Profissional</option>
-
-                <option value="sub17">Sub-17</option>
+                <option value="">Carregando categorias…</option>
               </select>
             </div>
           </div>
@@ -233,16 +201,14 @@
               <div class="painel-esportivo-topo">
                 <div>
                   <span class="secao-tag" id="categoria-jogos">
-                    PROFISSIONAL
+                    CATEGORIA
                   </span>
 
                   <h3 id="titulo-jogos">Últimos jogos</h3>
                 </div>
 
                 <a
-                  href="https://fgf.com.br/competicoes/profissional/24/2026/4218"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="jogos.html?status=encerrado"
                   class="painel-link"
                   id="link-ver-todos-jogos"
                 >
@@ -252,7 +218,7 @@
 
               <div class="ultimos-jogos-lista" id="ultimos-jogos-lista">
                 <noscript>
-                  <p class="desempenho-aviso">Confira os resultados no link “Ver todos” acima.</p>
+                  <p class="desempenho-aviso">Confira os resultados de todas as categorias no <a href="https://fgf.com.br/" target="_blank" rel="noopener noreferrer">site da FGF</a>.</p>
                 </noscript>
               </div>
             </article>
@@ -265,16 +231,15 @@
               <div class="painel-esportivo-topo">
                 <div>
                   <span class="secao-tag" id="competicao-classificacao">
-                    GAUCHÃO SÉRIE A2
+                    COMPETIÇÃO
                   </span>
 
                   <h3>Classificação</h3>
+                  <p class="classificacao-contexto" id="contexto-classificacao" hidden></p>
                 </div>
 
                 <a
-                  href="https://fgf.com.br/competicoes/profissional/24/2026/4218"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="jogos.html?categoria=profissional&amp;aba=classificacao"
                   class="painel-link"
                   id="link-tabela-completa"
                 >
@@ -292,11 +257,13 @@
 
               <div class="classificacao-lista" id="classificacao-lista">
                 <noscript>
-                  <p class="desempenho-aviso">Confira a classificação no link “Tabela completa” acima.</p>
+                  <p class="desempenho-aviso">Confira as tabelas de todas as categorias no <a href="https://fgf.com.br/" target="_blank" rel="noopener noreferrer">site da FGF</a>.</p>
                 </noscript>
               </div>
+              <p class="classificacao-resumo" id="resumo-classificacao" hidden></p>
             </article>
           </div>
+          <p class="desempenho-fonte" id="fonte-desempenho" hidden></p>
         </div>
       </section>
 
@@ -558,10 +525,7 @@
 
           <a href="noticias.html">Notícias</a>
 
-          <a href="index.html#jogos">
-            Jogos
-            <span class="link-status">· seção em desenvolvimento</span>
-          </a>
+          <a href="jogos.html">Jogos</a>
 
           <a href="index.html#elenco">
             Elenco

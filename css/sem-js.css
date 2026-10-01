@@ -1,5 +1,5 @@
 /* Carregado pelo <noscript>: mantém o menu mobile acessível sem saltos. */
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .topo {
     position: static;
   }
@@ -22,4 +22,9 @@
     transform: none;
     box-shadow: none;
   }
+}
+
+.proximo-jogo-carregando,
+.desempenho-categoria {
+  display: none;
 }

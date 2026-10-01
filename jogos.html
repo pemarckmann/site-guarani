@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Confira a agenda e os resultados dos jogos do Esporte Clube Guarani em todas as categorias."
+    />
+
+    <meta name="theme-color" content="#111111" />
+
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
+
+    <title>Jogos | Esporte Clube Guarani</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jogos.css" />
+    <noscript>
+      <link rel="stylesheet" href="css/sem-js.css" />
+    </noscript>
+    <script src="js/script.js" defer></script>
+    <script src="js/dados.js" defer></script>
+    <script src="js/desempenho.js" defer></script>
+    <script src="js/jogos.js" defer></script>
+  </head>
+
+  <body id="top">
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <div class="marca">
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img
+              src="assets/otimizadas/escudo.webp"
+              width="320"
+              height="480"
+              alt="Escudo do Esporte Clube Guarani"
+            />
+          </a>
+
+          <div>
+            <strong>Esporte Clube Guarani</strong>
+            <span>Venâncio Aires • RS</span>
+          </div>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav
+          id="menu-principal"
+          class="menu-principal"
+          aria-label="Menu principal"
+        >
+          <a href="index.html">Início</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="jogos.html" aria-current="page">Jogos</a>
+          <a href="index.html#elenco" class="nav-em-breve"> Elenco </a>
+          <a href="clube.html">O Clube</a>
+          <a href="contato.html">Contato</a>
+
+          <a href="socio.html" class="nav-socio"> Seja Sócio </a>
+
+          <div class="topo-redes" role="group" aria-label="Redes sociais do Guarani">
+            <span class="topo-redes-titulo">Siga o Guarani</span>
+            <a
+              class="topo-rede"
+              href="https://www.instagram.com/ecguaranirs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Guarani (abre em nova aba)"
+              title="Instagram"
+            >
+              <img src="assets/otimizadas/instagram.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+            <a
+              class="topo-rede"
+              href="https://www.facebook.com/guaranirs"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook do Guarani (abre em nova aba)"
+              title="Facebook"
+            >
+              <img src="assets/otimizadas/facebook.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+            <a
+              class="topo-rede"
+              href="https://x.com/GuaraniRS"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X do Guarani (abre em nova aba)"
+              title="X"
+            >
+              <img src="assets/otimizadas/x.webp" width="96" height="96" alt="" decoding="async" />
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="pagina-noticias pagina-jogos">
+      <section class="noticias-apresentacao" aria-labelledby="jogos-titulo">
+        <div class="container">
+          <span class="secao-tag" id="temporada-desempenho">DENTRO DE CAMPO</span>
+          <h1 id="jogos-titulo">Jogos do Guarani</h1>
+          <p>Confira a agenda e os resultados de todas as categorias do Time &Iacute;ndio.
+            Escolha a categoria para acompanhar os confrontos, os resultados e a classifica&ccedil;&atilde;o completa.</p>
+        </div>
+      </section>
+      <section class="noticias-arquivo" aria-label="Agenda e resultados">
+        <div class="container">
+          <div class="jogos-abas" role="tablist" aria-label="Conteúdo dos jogos" hidden>
+            <button type="button" id="aba-partidas" role="tab" aria-controls="painel-partidas" aria-selected="true">Partidas</button>
+            <button type="button" id="aba-classificacao" role="tab" aria-controls="painel-classificacao" aria-selected="false" tabindex="-1">Classificação</button>
+          </div>
+          <div class="noticias-ferramentas jogos-filtros" id="jogos-filtros">
+            <label for="jogos-categoria">Categoria
+              <select id="jogos-categoria" disabled><option>Carregando...</option></select>
+            </label>
+            <label for="jogos-status" id="jogos-status-filtro">Partidas
+              <select id="jogos-status" disabled>
+                <option value="todos">Todas</option>
+                <option value="agendado">Agendadas</option>
+                <option value="encerrado">Encerradas</option>
+              </select>
+            </label>
+            <p id="jogos-contagem" role="status" aria-live="polite"></p>
+          </div>
+          <div class="jogos-contexto">
+            <h2 id="jogos-competicao"></h2>
+            <a id="jogos-fonte" target="_blank" rel="noopener noreferrer" hidden>Ver na FGF &rarr;</a>
+          </div>
+          <p id="contexto-classificacao" class="jogos-atualizacao" hidden></p>
+          <div id="painel-partidas" role="tabpanel" aria-labelledby="aba-partidas">
+          <div id="jogos-lista" class="jogos-lista" aria-busy="true">
+            <p class="desempenho-aviso" id="jogos-carregando" role="status">Carregando jogos...</p>
+          </div>
+          <nav class="noticias-paginacao" id="jogos-paginacao" aria-label="P&aacute;ginas de jogos" hidden>
+            <button type="button" id="jogos-anterior">Anterior</button>
+            <span id="jogos-pagina"></span>
+            <button type="button" id="jogos-proxima">Pr&oacute;xima</button>
+          </nav>
+          </div>
+          <div id="painel-classificacao" role="tabpanel" aria-labelledby="aba-classificacao" hidden>
+            <div id="jogos-classificacao"></div>
+            <p class="classificacao-legenda">P: pontos · J: jogos · V: vitórias · E: empates · D: derrotas · SG: saldo de gols</p>
+          </div>
+          <p id="fonte-desempenho" class="jogos-atualizacao" hidden></p>
+          <noscript><style>#jogos-filtros, #jogos-carregando { display: none; }</style><p class="desempenho-aviso">Ative o JavaScript para ver os jogos.
+            Os dados tamb&eacute;m est&atilde;o dispon&iacute;veis no
+            <a href="https://fgf.com.br/" target="_blank" rel="noopener noreferrer">site da FGF</a>.</p></noscript>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <!-- MARCA -->
+
+        <div class="rodape-marca">
+          <img
+            src="assets/otimizadas/escudo.webp"
+            width="320"
+            height="480"
+            alt="Escudo do Esporte Clube Guarani"
+          />
+
+          <div>
+            <strong> Esporte Clube Guarani </strong>
+
+            <span> Venâncio Aires • RS </span>
+          </div>
+        </div>
+
+        <!-- NAVEGAÇÃO -->
+
+        <div class="rodape-links">
+          <strong> Navegação </strong>
+
+          <a href="index.html"> Início </a>
+
+          <a href="noticias.html">Notícias</a>
+
+          <a href="jogos.html">Jogos</a>
+
+          <a href="index.html#elenco">
+            Elenco
+            <span class="link-status">· seção em desenvolvimento</span>
+          </a>
+
+          <a href="clube.html"> O Clube </a>
+
+          <a href="contato.html"> Contato </a>
+
+          <a href="socio.html"> Seja Sócio </a>
+
+        </div>
+
+        <!-- REDES SOCIAIS -->
+
+        <div class="rodape-redes">
+          <strong> Siga o Time Índio </strong>
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://www.instagram.com/ecguaranirs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/instagram.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> Instagram </span>
+          </a>
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://www.facebook.com/guaranirs"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/facebook.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> Facebook </span>
+          </a>
+
+          <!-- X -->
+
+          <a
+            href="https://x.com/GuaraniRS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rede-social"
+          >
+            <img
+              src="assets/otimizadas/x.webp"
+              width="96"
+              height="96"
+              alt=""
+            />
+
+            <span> X </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- =================================================
+           RODAPÉ FINAL
+      ================================================== -->
+
+      <div class="rodape-final">
+        <div class="container">
+          <p>© 2026 Esporte Clube Guarani • Venâncio Aires - RS</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

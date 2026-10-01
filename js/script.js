@@ -9,6 +9,7 @@ const assuntoContato = document.querySelector("#assunto");
 
 const botaoMenu = document.querySelector(".menu-toggle");
 const menuPrincipal = document.querySelector(".menu-principal");
+const larguraMenuCompacto = 1200;
 
 
 /* =====================================================
@@ -54,7 +55,7 @@ if (topo && botaoMenu && menuPrincipal) {
     botaoMenu.setAttribute("aria-label", "Abrir menu");
 
     if (
-      window.innerWidth <= 700 &&
+      window.innerWidth <= larguraMenuCompacto &&
       menuPrincipal.contains(document.activeElement)
     ) {
       botaoMenu.focus({ preventScroll: true });
@@ -143,7 +144,7 @@ if (topo && botaoMenu && menuPrincipal) {
   =============================================== */
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 700) {
+    if (window.innerWidth > larguraMenuCompacto) {
       fecharMenu();
     }
   });

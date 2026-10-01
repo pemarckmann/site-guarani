@@ -1,0 +1,856 @@
+[
+  {
+    "id": "gauchao-serie-b",
+    "fonte": "https://fgf.com.br/marcas/SERIE-B.png",
+    "original": "assets/competicoes/originais/gauchao-serie-b.png",
+    "sha256": "f521a2ab7fe881abfada280f2381939f759b4d279d843c1ed57b84a2b37dfbd8",
+    "bytes": 666099,
+    "logo": {
+      "src": "assets/competicoes/gauchao-serie-b.webp",
+      "largura": 3776,
+      "altura": 3634
+    },
+    "nomesCadastrados": [
+      "gauchao serie b"
+    ]
+  },
+  {
+    "id": "gauchao-feminino-sub20",
+    "fonte": "https://fgf.com.br/marcas/FEMININO-SUB-20.png",
+    "original": "assets/competicoes/originais/gauchao-feminino-sub20.png",
+    "sha256": "38de337420179ade1f320728ca341c1b478a4878784231e7cebc27fbffd2cea8",
+    "bytes": 436661,
+    "logo": {
+      "src": "assets/competicoes/gauchao-feminino-sub20.webp",
+      "largura": 2742,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao feminino sub 20"
+    ]
+  },
+  {
+    "id": "gauchao-feminino-sub17",
+    "fonte": "https://fgf.com.br/marcas/FEMININO-SUB-17.png",
+    "original": "assets/competicoes/originais/gauchao-feminino-sub17.png",
+    "sha256": "a12acb35519bfae2cdfd8adb562f52a20021c63b304ffcaab72178c930ff546d",
+    "bytes": 417418,
+    "logo": {
+      "src": "assets/competicoes/gauchao-feminino-sub17.webp",
+      "largura": 2742,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao feminino sub 17"
+    ]
+  },
+  {
+    "id": "gauchao-sub20-a1",
+    "fonte": "https://fgf.com.br/marcas/SUB-20-A1.png",
+    "original": "assets/competicoes/originais/gauchao-sub20-a1.png",
+    "sha256": "b71756381de35b44a35e1749b1ea2828b142d90851c69f8c695d98f044ccff45",
+    "bytes": 967952,
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub20-a1.webp",
+      "largura": 3116,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao sub 20 a1"
+    ]
+  },
+  {
+    "id": "gauchao-sub20-a2",
+    "fonte": "https://fgf.com.br/marcas/SUB-20-A2.png",
+    "original": "assets/competicoes/originais/gauchao-sub20-a2.png",
+    "sha256": "d32803e32ec64ee5c1fe48b7f9f438643026617d0814dbf73afbf321f15e9e9b",
+    "bytes": 973389,
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub20-a2.webp",
+      "largura": 3116,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao sub 20 a2"
+    ]
+  },
+  {
+    "id": "gauchao-sub17-a1",
+    "fonte": "https://fgf.com.br/marcas/SUB-17-A1.png",
+    "original": "assets/competicoes/originais/gauchao-sub17-a1.png",
+    "sha256": "8fc1d7eecb6ac8ce10bf8b41dcdd9b28abd57a30422c597e3199e9ad5ccf7ee1",
+    "bytes": 893605,
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub17-a1.webp",
+      "largura": 3116,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao sub 17 a1"
+    ]
+  },
+  {
+    "id": "gauchao-sub17-a2",
+    "fonte": "https://fgf.com.br/marcas/SUB-17-A2.png",
+    "original": "assets/competicoes/originais/gauchao-sub17-a2.png",
+    "sha256": "29a601bcd79701a67191e54ae6627cef1ad0f1e76bee6b1c3b740d5604d42fa3",
+    "bytes": 901351,
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub17-a2.webp",
+      "largura": 3116,
+      "altura": 3753
+    }
+  },
+  {
+    "id": "gauchao-sub13",
+    "fonte": "https://fgf.com.br/marcas/SUB-13.png",
+    "original": "assets/competicoes/originais/gauchao-sub13.png",
+    "sha256": "253fe39a594745941fc1c6d425cdcd7a3594a56716f52860f4032c0982af0d83",
+    "bytes": 936041,
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub13.webp",
+      "largura": 3116,
+      "altura": 3753
+    },
+    "nomesCadastrados": [
+      "gauchao sub 13"
+    ]
+  },
+  {
+    "id": "gauchao",
+    "fonte": "https://fgf.com.br/marcas/Gauchao25.zip",
+    "original": "assets/competicoes/originais/gauchao.zip",
+    "sha256": "51d8210ccf18f678e26d645e9e70f54a0189726b3e2757dbd7bd3884bf2c21d8",
+    "bytes": 990780,
+    "arquivos": [
+      {
+        "nome": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-B.png",
+        "bytes": 143206
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-BP.png",
+        "bytes": 133710
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-P.png",
+        "bytes": 147505
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-PB.png",
+        "bytes": 142119
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-BRANCO.png",
+        "bytes": 51730
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-COLORIDO.png",
+        "bytes": 54961
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-PRETO.png",
+        "bytes": 54377
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-B.png",
+        "bytes": 118204
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-BP.png",
+        "bytes": 111444
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-P.png",
+        "bytes": 120045
+      },
+      {
+        "nome": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-PB.png",
+        "bytes": 117802
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/gauchao/versao-9.webp",
+      "largura": 2312,
+      "altura": 2262
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-B.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-1.webp",
+        "largura": 4033,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-BP.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-2.webp",
+        "largura": 4033,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-P.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-3.webp",
+        "largura": 4033,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Horizontal/AF-GAUCHAO-LOGO-PB.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-4.webp",
+        "largura": 4033,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-BRANCO.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-5.webp",
+        "largura": 1838,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-COLORIDO.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-6.webp",
+        "largura": 1838,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Simbolo/AF-GAUCHAO-LOGO-PRETO.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-7.webp",
+        "largura": 1838,
+        "altura": 1672
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-B.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-8.webp",
+        "largura": 2312,
+        "altura": 2262
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-BP.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-9.webp",
+        "largura": 2312,
+        "altura": 2262
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-P.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-10.webp",
+        "largura": 2312,
+        "altura": 2262
+      },
+      {
+        "arquivoNoPacote": "Logo Gauchao/Logo-Vertical/AF-GAUCHAO-LOGO-PB.png",
+        "src": "assets/competicoes/variantes/gauchao/versao-11.webp",
+        "largura": 2312,
+        "altura": 2262
+      }
+    ],
+    "edicao": 2025,
+    "nomesCadastrados": [
+      "gauchao 2025"
+    ]
+  },
+  {
+    "id": "copa-fgf",
+    "fonte": "https://fgf.com.br/marcas/COPAFGF.zip",
+    "original": "assets/competicoes/originais/copa-fgf.zip",
+    "sha256": "322115cc55248fb13d80a2bb05a6add4fa301132605037b9403c3e829ccd3947",
+    "bytes": 2852370,
+    "arquivos": [
+      {
+        "nome": "PNG/[COPA-FGF-PROF-RUI]-HORIZONTAL-01.png",
+        "bytes": 911999
+      },
+      {
+        "nome": "PNG/[COPA-FGF-PROF-RUI]-HORIZONTAL-02.png",
+        "bytes": 924733
+      },
+      {
+        "nome": "PNG/[COPA-FGF-PROF-RUI]-VERTICAL-01.png",
+        "bytes": 629385
+      },
+      {
+        "nome": "PNG/[COPA-FGF-PROF-RUI]-VERTICAL-02.png",
+        "bytes": 630377
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/copa-fgf/versao-3.webp",
+      "largura": 2080,
+      "altura": 2722
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "PNG/[COPA-FGF-PROF-RUI]-HORIZONTAL-01.png",
+        "src": "assets/competicoes/variantes/copa-fgf/versao-1.webp",
+        "largura": 5180,
+        "altura": 2381
+      },
+      {
+        "arquivoNoPacote": "PNG/[COPA-FGF-PROF-RUI]-HORIZONTAL-02.png",
+        "src": "assets/competicoes/variantes/copa-fgf/versao-2.webp",
+        "largura": 6310,
+        "altura": 2381
+      },
+      {
+        "arquivoNoPacote": "PNG/[COPA-FGF-PROF-RUI]-VERTICAL-01.png",
+        "src": "assets/competicoes/variantes/copa-fgf/versao-3.webp",
+        "largura": 2080,
+        "altura": 2722
+      },
+      {
+        "arquivoNoPacote": "PNG/[COPA-FGF-PROF-RUI]-VERTICAL-02.png",
+        "src": "assets/competicoes/variantes/copa-fgf/versao-4.webp",
+        "largura": 2457,
+        "altura": 2626
+      }
+    ],
+    "nomesCadastrados": [
+      "copa fgf"
+    ]
+  },
+  {
+    "id": "recopa-gaucha",
+    "fonte": "https://fgf.com.br/marcas/RECOPA-GAUCHA.zip",
+    "original": "assets/competicoes/originais/recopa-gaucha.zip",
+    "sha256": "c869da3e4e680efef078bc4392e3130e57ae51484deb1e64381b705b57774130",
+    "bytes": 1792364,
+    "arquivos": [
+      {
+        "nome": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO-HORIZONTAL.png",
+        "bytes": 400226
+      },
+      {
+        "nome": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO-VERTICAL.png",
+        "bytes": 401152
+      },
+      {
+        "nome": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO.ai",
+        "bytes": 1004152
+      },
+      {
+        "nome": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO.cdr",
+        "bytes": 73763
+      },
+      {
+        "nome": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO.pdf",
+        "bytes": 408814
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/recopa-gaucha/versao-2.webp",
+      "largura": 2962,
+      "altura": 2556
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO-HORIZONTAL.png",
+        "src": "assets/competicoes/variantes/recopa-gaucha/versao-1.webp",
+        "largura": 4380,
+        "altura": 1412
+      },
+      {
+        "arquivoNoPacote": "RECOPA-GA\u0398CHA/RECOPA-GA\u0398CHA_LOGO-VERTICAL.png",
+        "src": "assets/competicoes/variantes/recopa-gaucha/versao-2.webp",
+        "largura": 2962,
+        "altura": 2556
+      }
+    ],
+    "nomesCadastrados": [
+      "recopa",
+      "recopa gaucha"
+    ]
+  },
+  {
+    "id": "gauchao-feminino",
+    "fonte": "https://fgf.com.br/marcas/Gauchao-Feminino.zip",
+    "original": "assets/competicoes/originais/gauchao-feminino.zip",
+    "sha256": "973957adc6c5bdfff2b34d3fc6082ebd99de2afa3c879d53800e9a0157c0a8b7",
+    "bytes": 962053,
+    "arquivos": [
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/3-Logo-Vertical/GauchaoFeminino-Vertical 4.svg",
+        "bytes": 4325
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/3-Logo-Vertical/GauchaoFeminino-Vertical 1.svg",
+        "bytes": 4376
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/AF-GAUCHAO.pdf",
+        "bytes": 291958
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/3-Logo-Vertical/GauchaoFeminino-Vertical 3.svg",
+        "bytes": 3916
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 0@10x.png",
+        "bytes": 83565
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 12@10x.png",
+        "bytes": 71128
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/3-Logo-Vertical/GauchaoFeminino-Vertical 2.svg",
+        "bytes": 4419
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 13@10x.png",
+        "bytes": 9885
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 1@10x.png",
+        "bytes": 38888
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 2@10x.png",
+        "bytes": 28386
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 3@10x.png",
+        "bytes": 35341
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 4@10x.png",
+        "bytes": 6850
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 11@10x.png",
+        "bytes": 33824
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 1@10x.png",
+        "bytes": 80188
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 2@10x.png",
+        "bytes": 36089
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/1-Logo-Horizontal/GauchaoFeminino-Artboard 12.svg",
+        "bytes": 3905
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4@10x.png",
+        "bytes": 74234
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 3.svg",
+        "bytes": 1564
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4_1@10x.png",
+        "bytes": 11797
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 2@10x.png",
+        "bytes": 35239
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 3@10x.png",
+        "bytes": 75559
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 2.svg",
+        "bytes": 1843
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 1@10x.png",
+        "bytes": 81838
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/1-Logo-Horizontal/GauchaoFeminino-Artboard 10.svg",
+        "bytes": 4364
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/1-Logo-Horizontal/GauchaoFeminino-Artboard 13.svg",
+        "bytes": 4314
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 1.svg",
+        "bytes": 4308
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 4@10x.png",
+        "bytes": 12848
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/1-Logo-Horizontal/GauchaoFeminino-Artboard 11.svg",
+        "bytes": 4408
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4_1.svg",
+        "bytes": 4263
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 2.svg",
+        "bytes": 4357
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4.svg",
+        "bytes": 3854
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 4.svg",
+        "bytes": 1749
+      },
+      {
+        "nome": "1-Arquivos Finais do Logo/SVG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 1.svg",
+        "bytes": 1970
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/gauchao-feminino/versao-10.webp",
+      "largura": 1453,
+      "altura": 1507
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 0@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-1.webp",
+        "largura": 2125,
+        "altura": 930
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 12@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-2.webp",
+        "largura": 2125,
+        "altura": 931
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 13@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-3.webp",
+        "largura": 2125,
+        "altura": 930
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 1@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-4.webp",
+        "largura": 996,
+        "altura": 930
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 2@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-5.webp",
+        "largura": 996,
+        "altura": 931
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 3@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-6.webp",
+        "largura": 996,
+        "altura": 931
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/4-Versao-Simbolo/GauchaoFeminino-Simbolo 4@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-7.webp",
+        "largura": 996,
+        "altura": 930
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/1-Logo Horizontal/GauchaoFeminino-Artboard 11@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-8.webp",
+        "largura": 2125,
+        "altura": 931
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 1@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-9.webp",
+        "largura": 1453,
+        "altura": 1508
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 2@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-10.webp",
+        "largura": 1453,
+        "altura": 1507
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-11.webp",
+        "largura": 1790,
+        "altura": 1232
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 4_1@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-12.webp",
+        "largura": 1790,
+        "altura": 1232
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 2@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-13.webp",
+        "largura": 1790,
+        "altura": 1232
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 3@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-14.webp",
+        "largura": 1453,
+        "altura": 1507
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/2-Logo-Horizontal/GauchaoFeminino-Horizontal 1@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-15.webp",
+        "largura": 1790,
+        "altura": 1232
+      },
+      {
+        "arquivoNoPacote": "1-Arquivos Finais do Logo/PNG/3-Logo-Vertical/GauchaoFeminino-Vertical 4@10x.png",
+        "src": "assets/competicoes/variantes/gauchao-feminino/versao-16.webp",
+        "largura": 1453,
+        "altura": 1508
+      }
+    ],
+    "nomesCadastrados": [
+      "gauchao feminino"
+    ]
+  },
+  {
+    "id": "copa-sul-2026",
+    "fonte": "https://fgf.com.br/marcas/COPA%20SUL.zip",
+    "original": "assets/competicoes/originais/copa-sul-2026.zip",
+    "sha256": "2922838c15ecf0459dacdc265870375930d963dd4792d84ca301afa9f4cf15cf",
+    "bytes": 1848456,
+    "arquivos": [
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_HORIZONTAL.png",
+        "bytes": 455048
+      },
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_HORIZONTAL-01.png",
+        "bytes": 311288
+      },
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_HORIZONTAL-02.png",
+        "bytes": 300813
+      },
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_VERTICAL.png",
+        "bytes": 439347
+      },
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_VERTICAL-01.png",
+        "bytes": 190299
+      },
+      {
+        "nome": "color/COPA-SUL-2026_logo_color_VERTICAL-02.png",
+        "bytes": 213007
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/copa-sul-2026/versao-4.webp",
+      "largura": 1740,
+      "altura": 2540
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_HORIZONTAL.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-1.webp",
+        "largura": 2848,
+        "altura": 1528
+      },
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_HORIZONTAL-01.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-2.webp",
+        "largura": 2857,
+        "altura": 981
+      },
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_HORIZONTAL-02.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-3.webp",
+        "largura": 4652,
+        "altura": 840
+      },
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_VERTICAL.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-4.webp",
+        "largura": 1740,
+        "altura": 2540
+      },
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_VERTICAL-01.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-5.webp",
+        "largura": 1212,
+        "altura": 1543
+      },
+      {
+        "arquivoNoPacote": "color/COPA-SUL-2026_logo_color_VERTICAL-02.png",
+        "src": "assets/competicoes/variantes/copa-sul-2026/versao-6.webp",
+        "largura": 2314,
+        "altura": 1369
+      }
+    ],
+    "edicaoNaImagem": 2025,
+    "observacao": "A pagina anuncia Copa Sul 2026, mas o logo do pacote identifica a edicao 2025. Usar apenas para a edicao correta.",
+    "nomesCadastrados": [
+      "copa sul 2025"
+    ]
+  },
+  {
+    "id": "festival-infantil-2",
+    "fonte": "https://fgf.com.br/marcas/2-FESTIVAL.zip",
+    "original": "assets/competicoes/originais/festival-infantil-2.zip",
+    "sha256": "c79bce7f6f5af0e531fb66da06b080b291cf1dd753e76bc2d1a3c9726432d84d",
+    "bytes": 5296754,
+    "arquivos": [
+      {
+        "nome": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-BRANCO.png",
+        "bytes": 669706
+      },
+      {
+        "nome": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-01.png",
+        "bytes": 3472478
+      },
+      {
+        "nome": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-02.png",
+        "bytes": 656964
+      },
+      {
+        "nome": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-PRETO.png",
+        "bytes": 631460
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/festival-infantil-2/versao-3.webp",
+      "largura": 2855,
+      "altura": 3620
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-BRANCO.png",
+        "src": "assets/competicoes/variantes/festival-infantil-2/versao-1.webp",
+        "largura": 2855,
+        "altura": 3620
+      },
+      {
+        "arquivoNoPacote": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-01.png",
+        "src": "assets/competicoes/variantes/festival-infantil-2/versao-2.webp",
+        "largura": 2978,
+        "altura": 3753
+      },
+      {
+        "arquivoNoPacote": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-02.png",
+        "src": "assets/competicoes/variantes/festival-infantil-2/versao-3.webp",
+        "largura": 2855,
+        "altura": 3620
+      },
+      {
+        "arquivoNoPacote": "PNG/2\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-PRETO.png",
+        "src": "assets/competicoes/variantes/festival-infantil-2/versao-4.webp",
+        "largura": 2855,
+        "altura": 3620
+      }
+    ],
+    "edicao": 2,
+    "nomesCadastrados": [
+      "2 festival de futebol infantil"
+    ]
+  },
+  {
+    "id": "festival-infantil-3",
+    "fonte": "https://fgf.com.br/marcas/3-FESTIVAL.zip",
+    "original": "assets/competicoes/originais/festival-infantil-3.zip",
+    "sha256": "e9a3af1a08ae903c672a9f18f821640c4b1a56d84cec6e97097d36b60e96938a",
+    "bytes": 5287627,
+    "arquivos": [
+      {
+        "nome": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-BRANCO.png",
+        "bytes": 669819
+      },
+      {
+        "nome": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-01.png",
+        "bytes": 3461966
+      },
+      {
+        "nome": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-02.png",
+        "bytes": 657663
+      },
+      {
+        "nome": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-PRETO.png",
+        "bytes": 631865
+      }
+    ],
+    "logo": {
+      "src": "assets/competicoes/variantes/festival-infantil-3/versao-3.webp",
+      "largura": 2855,
+      "altura": 3620
+    },
+    "variantes": [
+      {
+        "arquivoNoPacote": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-BRANCO.png",
+        "src": "assets/competicoes/variantes/festival-infantil-3/versao-1.webp",
+        "largura": 2855,
+        "altura": 3620
+      },
+      {
+        "arquivoNoPacote": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-01.png",
+        "src": "assets/competicoes/variantes/festival-infantil-3/versao-2.webp",
+        "largura": 2978,
+        "altura": 3753
+      },
+      {
+        "arquivoNoPacote": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-CORES-02.png",
+        "src": "assets/competicoes/variantes/festival-infantil-3/versao-3.webp",
+        "largura": 2855,
+        "altura": 3620
+      },
+      {
+        "arquivoNoPacote": "PNG/3\u00ba-FESTIVAL-DE-FUTEBOL-INFANTIL-PRETO.png",
+        "src": "assets/competicoes/variantes/festival-infantil-3/versao-4.webp",
+        "largura": 2855,
+        "altura": 3620
+      }
+    ],
+    "edicao": 3,
+    "nomesCadastrados": [
+      "3 festival de futebol infantil"
+    ]
+  },
+  {
+    "id": "fgf",
+    "fonte": "https://fgf.com.br/marcas/logo_FGF.png",
+    "original": "assets/competicoes/originais/fgf.png",
+    "sha256": "337092df25befae5fa7560d7e9c15f61b0373871f311ef2fc35a55fec01af63f",
+    "bytes": 5800995,
+    "logo": {
+      "src": "assets/competicoes/fgf.webp",
+      "largura": 3543,
+      "altura": 4724
+    }
+  },
+  {
+    "id": "gauchao-a2",
+    "fonte": "https://fgf.com.br/marcas/SERIE-A2.png",
+    "original": "assets/competicoes/gauchao-a2.png",
+    "logo": {
+      "src": "assets/competicoes/gauchao-a2.webp",
+      "largura": 3164,
+      "altura": 3634
+    },
+    "sha256": "429320d113c6b78302623c7ee9aa5f57a46eda7057ef8043cd93cb508ffd1e34",
+    "bytes": 893189
+  },
+  {
+    "id": "gauchao-sub15",
+    "fonte": "https://fgf.com.br/marcas/SUB-15.png",
+    "original": "assets/competicoes/gauchao-sub15.png",
+    "logo": {
+      "src": "assets/competicoes/gauchao-sub15.webp",
+      "largura": 3116,
+      "altura": 3753
+    },
+    "sha256": "626b5fd3b9c562dc6b4681691b9a73ba37236b877e240fbe8c1a482c82e966c2",
+    "bytes": 729723
+  },
+  {
+    "id": "gauchao-feminino-sub15",
+    "fonte": "https://fgf.com.br/marcas/FEMININO-SUB-15.png",
+    "original": "assets/competicoes/gauchao-feminino-sub15.png",
+    "logo": {
+      "src": "assets/competicoes/gauchao-feminino-sub15.webp",
+      "largura": 2743,
+      "altura": 3753
+    },
+    "sha256": "66271a74d85cc2a4ea49069e840ad21066f068d82da4f93c6d376ef480f9e313",
+    "bytes": 435412
+  }
+]
