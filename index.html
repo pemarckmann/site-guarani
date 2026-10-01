@@ -19,6 +19,11 @@
     <title>Esporte Clube Guarani | Venâncio Aires</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="css/sem-js.css" />
+    </noscript>
+    <script src="js/script.js" defer></script>
+    <script src="js/desempenho.js" defer></script>
   </head>
 
   <body id="top">
@@ -29,12 +34,14 @@
     <header class="topo">
       <div class="container topo-conteudo">
         <div class="marca">
-          <img
-            src="assets/otimizadas/escudo.webp"
-            width="320"
-            height="480"
-            alt="Escudo do Esporte Clube Guarani"
-          />
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img
+              src="assets/otimizadas/escudo.webp"
+              width="320"
+              height="480"
+              alt="Escudo do Esporte Clube Guarani"
+            />
+          </a>
 
           <div>
             <strong>Esporte Clube Guarani</strong>
@@ -201,6 +208,7 @@
 
               <select
                 id="categoria-desempenho"
+                disabled
                 aria-label="Selecionar categoria"
               >
                 <option value="profissional">Profissional</option>
@@ -241,143 +249,9 @@
               </div>
 
               <div class="ultimos-jogos-lista" id="ultimos-jogos-lista">
-                <!-- JOGO 1 -->
-
-                <div class="ultimo-jogo">
-                  <div class="ultimo-jogo-info">
-                    <strong>27/09</strong>
-
-                    <span>Gauchão Série A2</span>
-
-                    <small>Edmundo Feix</small>
-                  </div>
-
-                  <div class="ultimo-jogo-confronto">
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/escudo.webp"
-                        width="320"
-                        height="480"
-                        alt="Escudo do Guarani"
-                      />
-
-                      <span>Guarani</span>
-                    </div>
-
-                    <div class="ultimo-jogo-placar">
-                      <strong>3</strong>
-
-                      <span>X</span>
-
-                      <strong>1</strong>
-                    </div>
-
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/uniao-frederiquense.webp"
-                        width="193"
-                        height="256"
-                        alt="Escudo do União Frederiquense"
-                      />
-
-                      <span>União Frederiquense</span>
-                    </div>
-                  </div>
-
-                  <span class="resultado resultado-vitoria"> Vitória </span>
-                </div>
-
-                <!-- JOGO 2 -->
-
-                <div class="ultimo-jogo">
-                  <div class="ultimo-jogo-info">
-                    <strong>23/09</strong>
-
-                    <span>Gauchão Série A2</span>
-
-                    <small>Vermelhão da Serra</small>
-                  </div>
-
-                  <div class="ultimo-jogo-confronto">
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/passo-fundo.webp"
-                        width="244"
-                        height="256"
-                        alt="Escudo do Passo Fundo"
-                      />
-
-                      <span>Passo Fundo</span>
-                    </div>
-
-                    <div class="ultimo-jogo-placar">
-                      <strong>2</strong>
-
-                      <span>X</span>
-
-                      <strong>1</strong>
-                    </div>
-
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/escudo.webp"
-                        width="320"
-                        height="480"
-                        alt="Escudo do Guarani"
-                      />
-
-                      <span>Guarani</span>
-                    </div>
-                  </div>
-
-                  <span class="resultado resultado-derrota"> Derrota </span>
-                </div>
-
-                <!-- JOGO 3 -->
-
-                <div class="ultimo-jogo">
-                  <div class="ultimo-jogo-info">
-                    <strong>19/09</strong>
-
-                    <span>Gauchão Série A2</span>
-
-                    <small>Edmundo Feix</small>
-                  </div>
-
-                  <div class="ultimo-jogo-confronto">
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/escudo.webp"
-                        width="320"
-                        height="480"
-                        alt="Escudo do Guarani"
-                      />
-
-                      <span>Guarani</span>
-                    </div>
-
-                    <div class="ultimo-jogo-placar">
-                      <strong>1</strong>
-
-                      <span>X</span>
-
-                      <strong>1</strong>
-                    </div>
-
-                    <div class="ultimo-jogo-time">
-                      <img
-                        src="assets/otimizadas/santa-cruz.webp"
-                        width="215"
-                        height="256"
-                        alt="Escudo do Santa Cruz"
-                      />
-
-                      <span>Santa Cruz</span>
-                    </div>
-                  </div>
-
-                  <span class="resultado resultado-empate"> Empate </span>
-                </div>
+                <noscript>
+                  <p class="desempenho-aviso">Confira os resultados no link “Ver todos” acima.</p>
+                </noscript>
               </div>
             </article>
 
@@ -415,62 +289,9 @@
               </div>
 
               <div class="classificacao-lista" id="classificacao-lista">
-                <div class="classificacao-linha">
-                  <strong>7º</strong>
-
-                  <span>União Frederiquense</span>
-
-                  <strong>24</strong>
-                </div>
-
-                <div class="classificacao-linha">
-                  <strong>8º</strong>
-
-                  <span>Brasil de Farroupilha</span>
-
-                  <strong>24</strong>
-                </div>
-
-                <div class="classificacao-linha">
-                  <strong>9º</strong>
-
-                  <span>Aimoré</span>
-
-                  <strong>21</strong>
-                </div>
-
-                <div class="classificacao-linha classificacao-guarani">
-                  <strong>10º</strong>
-
-                  <div class="classificacao-time-guarani">
-                    <img
-                      src="assets/otimizadas/escudo.webp"
-                      width="320"
-                      height="480"
-                      alt=""
-                    />
-
-                    <span>Guarani</span>
-                  </div>
-
-                  <strong>18</strong>
-                </div>
-
-                <div class="classificacao-linha">
-                  <strong>11º</strong>
-
-                  <span>Pelotas</span>
-
-                  <strong>16</strong>
-                </div>
-
-                <div class="classificacao-linha">
-                  <strong>12º</strong>
-
-                  <span>Bagé</span>
-
-                  <strong>15</strong>
-                </div>
+                <noscript>
+                  <p class="desempenho-aviso">Confira a classificação no link “Tabela completa” acima.</p>
+                </noscript>
               </div>
             </article>
           </div>
@@ -898,6 +719,5 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
   </body>
 </html>

@@ -17,6 +17,10 @@
     <title>Contato | Esporte Clube Guarani</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="css/sem-js.css" />
+    </noscript>
+    <script src="js/script.js" defer></script>
   </head>
 
   <body id="top">
@@ -27,12 +31,14 @@
     <header class="topo">
       <div class="container topo-conteudo">
         <div class="marca">
-          <img
-            src="assets/otimizadas/escudo.webp"
-            width="320"
-            height="480"
-            alt="Escudo do Esporte Clube Guarani"
-          />
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img
+              src="assets/otimizadas/escudo.webp"
+              width="320"
+              height="480"
+              alt="Escudo do Esporte Clube Guarani"
+            />
+          </a>
 
           <div>
             <strong>Esporte Clube Guarani</strong>
@@ -62,7 +68,7 @@
           <a href="index.html#jogos" class="nav-em-breve"> Jogos </a>
           <a href="index.html#elenco" class="nav-em-breve"> Elenco </a>
           <a href="clube.html">O Clube</a>
-          <a href="contato.html">Contato</a>
+          <a href="contato.html" aria-current="page">Contato</a>
 
           <a href="socio.html" class="nav-socio"> Seja Sócio </a>
         </nav>
@@ -335,7 +341,7 @@
         <div class="rodape-links">
           <strong> Navegação </strong>
 
-          <a href="#top"> Início </a>
+          <a href="index.html"> Início </a>
 
           <a href="index.html#noticias">
             Notícias
@@ -358,7 +364,6 @@
 
           <a href="socio.html"> Seja Sócio </a>
 
-          <a href="#patrocinadores"> Patrocinadores </a>
         </div>
 
         <!-- REDES SOCIAIS -->
@@ -433,10 +438,5 @@
       </div>
     </footer>
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
-    <script src="js/script.js"></script>
   </body>
 </html>

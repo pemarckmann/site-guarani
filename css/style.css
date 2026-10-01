@@ -96,6 +96,11 @@ button:focus-visible {
   gap: 12px;
 }
 
+.marca-link {
+  display: block;
+  flex-shrink: 0;
+}
+
 .marca img {
   width: 45px;
   height: auto;
@@ -722,6 +727,15 @@ main {
 /* =====================================================
    ÚLTIMOS JOGOS
 ===================================================== */
+
+/* Alternativa aos dados dinâmicos quando o JavaScript estiver desativado. */
+.desempenho-aviso {
+  margin: 0;
+  padding: 18px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
 
 .ultimos-jogos-lista {
   overflow: hidden;
@@ -1955,43 +1969,12 @@ main {
   background-color: white;
 }
 
-.titulos-categorias {
-  display: flex;
-  flex-direction: column;
-
-  gap: 45px;
-}
-
-.titulos-grupo {
-  width: 100%;
-}
-
-.titulos-grupo-cabecalho {
-  margin-bottom: 18px;
-  padding-bottom: 10px;
-
-  border-bottom: 2px solid #b30018;
-}
-
-.titulos-grupo-cabecalho span {
-  color: #b30018;
-
-  font-size: 12px;
-  font-weight: bold;
-
-  letter-spacing: 1.4px;
-}
-
 .titulos-grid {
   display: grid;
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 20px;
-}
-
-.titulos-grid-unico {
-  grid-template-columns: 1fr;
 }
 
 .titulo-card {
@@ -2019,19 +2002,6 @@ main {
   transform: translateY(-5px);
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-.titulo-tipo {
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: #888;
-
-  font-size: 10px;
-  font-weight: bold;
-
-  letter-spacing: 1px;
 }
 
 .titulo-ano {
@@ -2998,31 +2968,6 @@ main {
     display: flex;
   }
 
-  /* Mantém a navegação disponível quando o JavaScript não carregar. */
-
-  .topo:not(.menu-interativo) {
-    position: static;
-  }
-
-  .topo:not(.menu-interativo) .topo-conteudo {
-    height: auto;
-    flex-wrap: wrap;
-    padding-top: 14px;
-  }
-
-  .topo:not(.menu-interativo) .menu-toggle {
-    display: none;
-  }
-
-  .topo:not(.menu-interativo) .menu-principal {
-    position: static;
-    width: 100%;
-    max-height: none;
-    display: flex;
-    transform: none;
-    box-shadow: none;
-  }
-
   /* LINKS */
 
   .menu-principal a {
@@ -3648,7 +3593,6 @@ main {
   .timeline,
   .estadio-card,
   .titulos-grid,
-  .titulos-grid-unico,
   .institucional-grid {
     grid-template-columns: 1fr;
   }
@@ -3675,10 +3619,6 @@ main {
 
   .estadio-conteudo {
     padding: 30px 25px;
-  }
-
-  .titulos-categorias {
-    gap: 35px;
   }
 
   .titulo-card {
@@ -4559,11 +4499,6 @@ main {
 
   font-size: 11px;
   vertical-align: top;
-}
-
-.legenda-em-breve {
-  color: #777;
-  font-size: 10px;
 }
 
 .link-status {

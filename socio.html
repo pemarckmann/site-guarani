@@ -19,6 +19,10 @@
     <title>Seja Sócio | Esporte Clube Guarani</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="css/sem-js.css" />
+    </noscript>
+    <script src="js/script.js" defer></script>
   </head>
 
   <body id="top">
@@ -29,12 +33,14 @@
     <header class="topo">
       <div class="container topo-conteudo">
         <div class="marca">
-          <img
-            src="assets/otimizadas/escudo.webp"
-            width="320"
-            height="480"
-            alt="Escudo do Esporte Clube Guarani"
-          />
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img
+              src="assets/otimizadas/escudo.webp"
+              width="320"
+              height="480"
+              alt="Escudo do Esporte Clube Guarani"
+            />
+          </a>
 
           <div>
             <strong>Esporte Clube Guarani</strong>
@@ -72,13 +78,7 @@
 
           <a href="contato.html"> Contato </a>
 
-          <!--
-            Por enquanto continua levando ao formulário.
-            Quando a página de sócios estiver oficialmente publicada,
-            podemos trocar o href para "socio.html".
-          -->
-
-          <a href="contato.html?assunto=socio#form-contato" class="nav-socio">
+          <a href="socio.html" class="nav-socio" aria-current="page">
             Seja Sócio
           </a>
         </nav>
@@ -403,7 +403,7 @@
 
           <a href="contato.html"> Contato </a>
 
-          <a href="contato.html?assunto=socio#form-contato"> Seja Sócio </a>
+          <a href="socio.html"> Seja Sócio </a>
         </div>
 
         <!-- REDES SOCIAIS -->
@@ -470,10 +470,5 @@
       </div>
     </footer>
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
-    <script src="js/script.js"></script>
   </body>
 </html>
