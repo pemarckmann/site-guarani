@@ -44,6 +44,30 @@ const contextoClassificacao = document.querySelector("#contexto-classificacao");
 const resumoClassificacao = document.querySelector("#resumo-classificacao");
 const destaqueProximoJogo = document.querySelector("#proximo-jogo-card");
 
+// Versoes pequenas das marcas conhecidas; a origem do JSON continua como alternativa.
+const logosCompeticoesOtimizados = {
+  "https://fgf.com.br/marcas/SERIE-A2.png": {
+    "src": "assets/otimizadas/heroes/gauchao-serie-a2-ee8cc65f1300c4b2.webp",
+    "largura": 320,
+    "altura": 368
+  },
+  "https://fgf.com.br/marcas/SUB-17-A2.png": {
+    "src": "assets/otimizadas/heroes/gauchao-sub-17-a2-grupo-c-0af1bb4d5af9edaa.webp",
+    "largura": 320,
+    "altura": 385
+  },
+  "https://fgf.com.br/marcas/SUB-15.png": {
+    "src": "assets/otimizadas/heroes/gauchao-sub-15-grupo-a-d86311271d5a90f2.webp",
+    "largura": 320,
+    "altura": 385
+  },
+  "https://fgf.com.br/marcas/FEMININO-SUB-15.png": {
+    "src": "assets/otimizadas/heroes/gauchao-feminino-sub-15-grupo-b-ba73eea4fb607af7.webp",
+    "largura": 292,
+    "altura": 400
+  }
+};
+
 const logosCompeticoes = {
   "gauchao serie a2": { src: "assets/competicoes/gauchao-a2.webp", largura: 3164, altura: 3634 },
   "gauchao a2": { src: "assets/competicoes/gauchao-a2.webp", largura: 3164, altura: 3634 },
@@ -434,8 +458,9 @@ function atualizarProximoJogo(categorias) {
     return;
   }
   const { jogo, categoria } = proximo;
-  const logo = logoCompeticaoValido(proximo.logo) ? proximo.logo
+  const logoOriginal = logoCompeticaoValido(proximo.logo) ? proximo.logo
     : logosCompeticoes[normalizarNome(jogo.competicao)];
+  const logo = logosCompeticoesOtimizados[logoOriginal?.fonte || logoOriginal?.src] || logoOriginal;
   const data = new Date(`${jogo.data}T12:00:00Z`);
   const diaSemana = new Intl.DateTimeFormat("pt-BR", { weekday: "long", timeZone: "UTC" }).format(data);
   const dataCurta = `${jogo.data.slice(8, 10)}/${jogo.data.slice(5, 7)}`;
@@ -447,7 +472,7 @@ function atualizarProximoJogo(categorias) {
     </div>`;
   destaqueProximoJogo.innerHTML = `
     <div class="jogo-titulo">
-      ${logoCompeticaoValido(logo) ? `<img src="${escaparHTML(logo.src)}" width="${logo.largura}" height="${logo.altura}" alt="${escaparHTML(jogo.competicao)}" class="logo-competicao" />` : ""}
+      ${logoCompeticaoValido(logo) ? `<img src="${escaparHTML(logo.src)}" width="${logo.largura}" height="${logo.altura}" alt="${escaparHTML(jogo.competicao)}" class="logo-competicao" fetchpriority="high"${logo !== logoOriginal ? ` data-logo-original="${escaparHTML(logoOriginal.src)}"` : ""} />` : ""}
       <span>PRÓXIMA PARTIDA</span>
       <strong>${escaparHTML(jogo.competicao)}</strong>
       ${textoValido(jogo.fase) ? `<small>${escaparHTML(jogo.fase)}</small>` : ""}
@@ -468,8 +493,15 @@ function atualizarProximoJogo(categorias) {
   prepararEscudos(destaqueProximoJogo);
   const imagemLogo = destaqueProximoJogo.querySelector(".logo-competicao");
   if (imagemLogo) {
-    imagemLogo.addEventListener("error", () => imagemLogo.remove(), { once: true });
-    if (imagemLogo.complete && !imagemLogo.naturalWidth) imagemLogo.remove();
+    function tentarLogoOriginal() {
+      const original = imagemLogo.dataset.logoOriginal;
+      if (original) {
+        delete imagemLogo.dataset.logoOriginal;
+        imagemLogo.src = original;
+      } else imagemLogo.remove();
+    }
+    imagemLogo.addEventListener("error", tentarLogoOriginal);
+    if (imagemLogo.complete && !imagemLogo.naturalWidth) tentarLogoOriginal();
   }
 }
 

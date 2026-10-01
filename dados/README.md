@@ -101,6 +101,22 @@ com a categoria identificada no card, independentemente dos filtros da lista.
 Sem partidas agendadas, exibe “Próximas partidas em breve”. Ambos usam os JSONs
 atuais, sem uma segunda fonte de dados.
 
+Notícias e Jogos antecipam o JSON com `preload` no HTML. Ao trocar a URL da fonte
+em `js/dados.js` pela API, atualize também esse link no HTML.
+O carregamento dos JSONs tem limite de 15 segundos; em caso de falha, Notícias e
+Jogos oferecem “Tentar novamente”. Os scripts dessas páginas e `css/heroes.css`
+usam uma versão na URL (`?v=...`) para evitar arquivos antigos em cache. Ao alterar
+esses arquivos, atualize a versão nas duas páginas (o valor atual é parte do SHA-256
+do arquivo), especialmente antes de publicar.
+As notícias podem fornecer `imagem.hero` com `src`, `largura`, `altura` e uma
+variante `mobile` com os mesmos campos. O hero escolhe a versão conforme a tela;
+sem variante, usa `imagem.src`. Os cards e a leitura conservam a imagem original.
+Os arquivos menores ficam em `assets/otimizadas/heroes/`. Ao atualizar uma foto,
+gere suas variantes novamente ou remova `imagem.hero` para usar a nova original.
+Os logos conhecidos da FGF têm cópias pequenas cadastradas em
+`logosCompeticoesOtimizados` no frontend. A correspondência usa a URL de origem,
+e uma falha na cópia pequena tenta o caminho original recebido no JSON.
+
 A página `jogos.html` usa o mesmo `desempenho.json` da Home, sem duplicar os dados.
 Ela oferece filtros por categoria e status e paginação de oito partidas. Agendadas
 ficam em ordem cronológica, antes dos resultados; encerradas aparecem da mais recente

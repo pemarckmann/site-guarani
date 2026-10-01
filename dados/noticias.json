@@ -12,7 +12,17 @@
       "largura": 1350,
       "altura": 1688,
       "alt": "Guarani enfrenta o União Frederiquense",
-      "foco": "50% 5%"
+      "foco": "50% 5%",
+      "hero": {
+        "src": "assets/otimizadas/heroes/noticia-principal-desktop.webp",
+        "largura": 1280,
+        "altura": 1600,
+        "mobile": {
+          "src": "assets/otimizadas/heroes/noticia-principal-mobile.webp",
+          "largura": 640,
+          "altura": 800
+        }
+      }
     },
     "categoria": "FUTEBOL",
     "data": "2026-09-26",
@@ -32,7 +42,17 @@
       "largura": 1350,
       "altura": 1688,
       "alt": "Arte demonstrativa de anúncio de um reforço do Guarani",
-      "foco": "50% 15%"
+      "foco": "50% 15%",
+      "hero": {
+        "src": "assets/otimizadas/heroes/noticia2-desktop.webp",
+        "largura": 1280,
+        "altura": 1600,
+        "mobile": {
+          "src": "assets/otimizadas/heroes/noticia2-mobile.webp",
+          "largura": 640,
+          "altura": 800
+        }
+      }
     },
     "categoria": "CLUBE",
     "data": "2026-09-25",
@@ -52,7 +72,17 @@
       "largura": 1350,
       "altura": 1688,
       "alt": "Arte do confronto entre Guarani e Passo Fundo",
-      "foco": "50% 32%"
+      "foco": "50% 32%",
+      "hero": {
+        "src": "assets/otimizadas/heroes/noticia3-desktop.webp",
+        "largura": 1280,
+        "altura": 1600,
+        "mobile": {
+          "src": "assets/otimizadas/heroes/noticia3-mobile.webp",
+          "largura": 640,
+          "altura": 800
+        }
+      }
     },
     "categoria": "FUTEBOL",
     "data": "2026-09-24",
@@ -72,7 +102,17 @@
       "largura": 1280,
       "altura": 853,
       "alt": "Elenco do Guarani campeão invicto do Gauchão Série B",
-      "foco": "50% 50%"
+      "foco": "50% 50%",
+      "hero": {
+        "src": "assets/otimizadas/heroes/noticia4-desktop.webp",
+        "largura": 1280,
+        "altura": 853,
+        "mobile": {
+          "src": "assets/otimizadas/heroes/noticia4-mobile.webp",
+          "largura": 640,
+          "altura": 427
+        }
+      }
     },
     "categoria": "HISTÓRIA",
     "data": "2025-12-07",

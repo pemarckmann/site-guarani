@@ -55,10 +55,11 @@
     if (voltar && retorno.size) voltar.href = `noticias.html?${retorno}`;
   }
 
-  function imagem(noticia, prioridade = false) {
+  function imagem(noticia, prioridade = false, usarHero = false) {
     const moldura = elemento("div", "noticia-imagem");
     const img = document.createElement("img");
-    img.src = noticia.imagem.src;
+    if (prioridade) img.fetchPriority = "high";
+    if (!usarHero) img.src = noticia.imagem.src;
     img.width = noticia.imagem.largura;
     img.height = noticia.imagem.altura;
     img.alt = noticia.imagem.alt;
@@ -198,11 +199,30 @@
     // As notícias já estão em ordem de data: o destaque mais recente tem prioridade.
     const noticia = noticias.find(item => item.destaque === true) || noticias[0];
     if (!noticia) return;
-    const foto = imagem(noticia, true);
+    const foto = imagem(noticia, true, true);
     const img = foto.querySelector("img");
+    const otimizada = noticia.imagem.hero;
+    if (otimizada && urlDadosValida(otimizada.src) &&
+        [otimizada.largura, otimizada.altura].every(valor => Number.isInteger(valor) && valor > 0)) {
+      img.width = otimizada.largura;
+      img.height = otimizada.altura;
+      const mobile = otimizada.mobile;
+      if (mobile && urlDadosValida(mobile.src) && Number.isInteger(mobile.largura) && mobile.largura > 0) {
+        img.sizes = "100vw";
+        img.srcset = `${mobile.src} ${mobile.largura}w, ${otimizada.src} ${otimizada.largura}w`;
+      }
+      img.src = otimizada.src;
+      img.addEventListener("error", () => {
+        img.removeAttribute("srcset");
+        img.src = noticia.imagem.src;
+        img.addEventListener("error", () => foto.remove(), { once: true });
+      }, { once: true });
+    } else {
+      img.src = noticia.imagem.src;
+      img.addEventListener("error", () => foto.remove(), { once: true });
+    }
     img.fetchPriority = "high";
     if (noticia.imagem.foco) img.style.objectPosition = noticia.imagem.foco;
-    img.addEventListener("error", () => foto.remove(), { once: true });
     const container = elemento("div", "container");
     const conteudo = elemento("div", "noticia-hero-conteudo");
     const tituloPagina = elemento("h1", "", "Notícias do Guarani");
@@ -256,7 +276,7 @@
     if (lista) mostrarArquivo(noticias);
     if (leitura) mostrarLeitura(noticias);
   }).catch(erro => {
-    destino.replaceChildren(elemento("p", "noticias-estado", mensagemFalhaDados()));
+    destino.replaceChildren(criarAvisoFalhaDados());
     console.error(erro);
   });
 })();

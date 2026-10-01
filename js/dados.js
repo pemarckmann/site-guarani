@@ -10,11 +10,32 @@ async function carregarDados(url) {
     throw new Error("Abra o site por um servidor local para carregar os dados JSON.");
   }
 
-  const resposta = await fetch(url);
-  if (!resposta.ok) {
-    throw new Error(`Falha ao carregar ${url}: HTTP ${resposta.status}.`);
+  const controle = new AbortController();
+  const prazo = setTimeout(() => controle.abort(), 15000);
+  try {
+    const resposta = await fetch(url, { signal: controle.signal });
+    if (!resposta.ok) {
+      throw new Error(`Falha ao carregar ${url}: HTTP ${resposta.status}.`);
+    }
+    return await resposta.json();
+  } finally {
+    clearTimeout(prazo);
   }
-  return resposta.json();
+}
+
+function criarAvisoFalhaDados() {
+  const aviso = document.createElement("div");
+  aviso.className = "desempenho-aviso";
+  const mensagem = document.createElement("p");
+  mensagem.setAttribute("role", "status");
+  mensagem.textContent = mensagemFalhaDados();
+  const botao = document.createElement("button");
+  botao.type = "button";
+  botao.className = "dados-tentar-novamente";
+  botao.textContent = "Tentar novamente";
+  botao.addEventListener("click", () => window.location.reload());
+  aviso.append(mensagem, botao);
+  return aviso;
 }
 
 function mensagemFalhaDados() {

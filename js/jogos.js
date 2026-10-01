@@ -154,13 +154,10 @@
       proxima.addEventListener("click", () => mudarPagina(1));
       window.addEventListener("popstate", () => { lerURL(); renderizar(); });
     } catch (erro) {
-      const aviso = document.createElement("p");
-      aviso.className = "desempenho-aviso";
-      aviso.setAttribute("role", "status");
-      aviso.textContent = mensagemFalhaDados();
+      const aviso = criarAvisoFalhaDados();
       lista.replaceChildren(aviso);
       lista.setAttribute("aria-busy", "false");
-      if (destaqueProximoJogo) destaqueProximoJogo.replaceChildren(aviso.cloneNode(true));
+      if (destaqueProximoJogo) destaqueProximoJogo.replaceChildren(criarAvisoFalhaDados());
       console.error(erro);
     }
   }
