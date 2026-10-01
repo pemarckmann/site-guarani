@@ -43,6 +43,8 @@ if (formContato) {
 ===================================================== */
 
 if (topo && botaoMenu && menuPrincipal) {
+  topo.classList.add("menu-interativo");
+
   /* ===============================================
      FUNÇÃO PARA FECHAR O MENU
   =============================================== */
@@ -52,6 +54,13 @@ if (topo && botaoMenu && menuPrincipal) {
 
     botaoMenu.setAttribute("aria-expanded", "false");
     botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+    if (
+      window.innerWidth <= 700 &&
+      menuPrincipal.contains(document.activeElement)
+    ) {
+      botaoMenu.focus({ preventScroll: true });
+    }
   }
 
 
@@ -101,8 +110,12 @@ if (topo && botaoMenu && menuPrincipal) {
   =============================================== */
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (
+      event.key === "Escape" &&
+      topo.classList.contains("menu-aberto")
+    ) {
       fecharMenu();
+      botaoMenu.focus({ preventScroll: true });
     }
   });
 
@@ -161,6 +174,10 @@ if (topo) {
 
   const inicioScroll = 100;
 
+  topo.addEventListener("focusin", () => {
+    topo.classList.remove("topo-oculto");
+  });
+
 
   function controlarTopo() {
     const posicaoAtual = window.scrollY;
@@ -170,7 +187,10 @@ if (topo) {
        MENU MOBILE ABERTO
     =============================================== */
 
-    if (topo.classList.contains("menu-aberto")) {
+    if (
+      topo.classList.contains("menu-aberto") ||
+      topo.contains(document.activeElement)
+    ) {
       topo.classList.remove("topo-oculto");
 
       ultimaPosicao = posicaoAtual;
@@ -331,13 +351,13 @@ const dadosDesempenho = {
 
         mandante: "Guarani",
         mandanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         mandanteGols: 3,
 
         visitante:
           "União Frederiquense",
         visitanteEscudo:
-          "assets/uniao-frederiquense.png",
+          "assets/otimizadas/uniao-frederiquense.webp",
         visitanteGols: 1,
 
         resultado: "Vitória",
@@ -352,12 +372,12 @@ const dadosDesempenho = {
 
         mandante: "Passo Fundo",
         mandanteEscudo:
-          "assets/passo-fundo.png",
+          "assets/otimizadas/passo-fundo.webp",
         mandanteGols: 2,
 
         visitante: "Guarani",
         visitanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         visitanteGols: 1,
 
         resultado: "Derrota",
@@ -372,12 +392,12 @@ const dadosDesempenho = {
 
         mandante: "Guarani",
         mandanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         mandanteGols: 1,
 
         visitante: "Santa Cruz",
         visitanteEscudo:
-          "assets/santa-cruz.png",
+          "assets/otimizadas/santa-cruz.webp",
         visitanteGols: 1,
 
         resultado: "Empate",
@@ -451,12 +471,12 @@ const dadosDesempenho = {
 
         mandante: "Guarani",
         mandanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         mandanteGols: 1,
 
         visitante: "Pinheiros",
         visitanteEscudo:
-          "assets/pinheiros.png",
+          "assets/otimizadas/pinheiros.webp",
         visitanteGols: 2,
 
         resultado: "Derrota",
@@ -472,12 +492,12 @@ const dadosDesempenho = {
 
         mandante: "Cerâmica",
         mandanteEscudo:
-          "assets/ceramica.png",
+          "assets/otimizadas/ceramica.webp",
         mandanteGols: 0,
 
         visitante: "Guarani",
         visitanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         visitanteGols: 2,
 
         resultado: "Vitória",
@@ -493,12 +513,12 @@ const dadosDesempenho = {
 
         mandante: "Guarani",
         mandanteEscudo:
-          "assets/escudo.png",
+          "assets/otimizadas/escudo.webp",
         mandanteGols: 1,
 
         visitante: "Soledade FC",
         visitanteEscudo:
-          "assets/soledade.png",
+          "assets/otimizadas/soledade.webp",
         visitanteGols: 0,
 
         resultado: "Vitória",
@@ -580,6 +600,8 @@ function criarJogo(jogo) {
 
           <img
             src="${jogo.mandanteEscudo}"
+            width="48"
+            height="48"
             alt="Escudo do ${jogo.mandante}"
           />
 
@@ -611,6 +633,8 @@ function criarJogo(jogo) {
 
           <img
             src="${jogo.visitanteEscudo}"
+            width="48"
+            height="48"
             alt="Escudo do ${jogo.visitante}"
           />
 
@@ -657,7 +681,9 @@ function criarLinhaClassificacao(time) {
         <div class="classificacao-time-guarani">
 
           <img
-            src="assets/escudo.png"
+            src="assets/otimizadas/escudo.webp"
+            width="27"
+            height="27"
             alt="Escudo do Guarani"
           />
 
