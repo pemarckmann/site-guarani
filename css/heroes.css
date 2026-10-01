@@ -1,0 +1,65 @@
+/* Destaques das páginas; a identidade rubro-negra acompanha o conteúdo. */
+.noticias-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 400px;
+  padding: 48px 0;
+  background: #241014;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.noticias-hero[hidden] { display: none; }
+.noticias-hero .noticia-imagem { position: absolute; inset: 0; height: 100%; z-index: -2; }
+.noticias-hero .noticia-imagem img { width: 100%; height: 100%; object-fit: cover; }
+.noticias-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8, 8, 8, .95), rgba(12, 8, 8, .8) 48%, rgba(12, 8, 8, .2)); }
+.noticias-hero > .container { width: 100%; }
+.noticias-hero .secao-tag { display: block; color: #ff6b80; margin-bottom: 20px; }
+.noticias-hero h1 { margin: 8px 0 16px; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.15; text-wrap: balance; }
+.noticias-hero p { color: #eee; font-size: 15px; line-height: 1.65; }
+.noticia-hero-conteudo { max-width: 720px; }
+.noticia-hero-conteudo h1 { margin-bottom: 28px; }
+.noticia-hero-conteudo h2 { margin: 0 0 16px; font-size: clamp(23px, 2.5vw, 30px); line-height: 1.2; text-wrap: balance; }
+.noticia-hero-conteudo .noticia-meta { color: #eee; margin-bottom: 16px; }
+.noticias-hero .noticia-meta time { color: #ddd; }
+.noticia-hero-conteudo .noticia-categoria { color: white; background: #b30018; padding: 5px 10px; border-radius: 3px; }
+.noticia-hero-conteudo p { margin-bottom: 24px; }
+.hero-botao { display: inline-flex; padding: 12px 20px; background: #b30018; color: white; border-radius: 4px; font-size: 14px; font-weight: bold; text-decoration: none; }
+.hero-botao:hover { background: #d31330; }
+.hero-botao:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+.cabecalho-jogos { padding: 38px 0 28px; background: linear-gradient(115deg, #111 45%, #351018); color: white; border-bottom: 3px solid #b30018; }
+.cabecalho-jogos > .container > .secao-tag { color: #ff6b80; }
+.cabecalho-jogos h1 { margin: 8px 0 16px; font-size: clamp(28px, 4vw, 38px); line-height: 1.2; }
+.jogos-hero.jogo-card { margin-top: 20px; min-height: 220px; grid-template-columns: 210px minmax(0, 1fr) 235px; background: transparent; color: white; box-shadow: none; border: 0; border-radius: 0; }
+.jogos-hero .jogo-titulo { background: transparent; padding: 24px; }
+.jogos-hero .logo-competicao { max-width: 85px; max-height: 100px; margin-bottom: 12px; }
+.jogos-hero .jogo-titulo span { color: #ff6b80; }
+.jogos-hero .jogo-times { align-items: center; padding: 30px 20px; gap: 20px; }
+.jogos-hero .time { width: 130px; }
+.jogos-hero .time strong { color: white; }
+.jogos-hero .time-categoria { color: #ff6b80; }
+.jogos-hero .versus { color: #bbb; }
+.jogos-hero .jogo-info { background: transparent; border-left-color: #ffffff20; color: #eee; }
+.jogos-hero .jogo-info strong, .jogos-hero .data-jogo { color: white; }
+.jogos-hero .jogo-info > span { color: #ddd; }
+.jogos-hero .detalhes-jogo { color: #ff8b9c; }
+.cabecalho-jogos .jogos-hero .desempenho-aviso { color: #eee; grid-column: 1 / -1; padding: 40px 0; align-self: center; }
+.noticias-arquivo > .container > .noticias-aviso { margin: 0 0 20px; }
+@media (max-width: 1000px) {
+  .jogos-hero.jogo-card { grid-template-columns: 170px minmax(0, 1fr); }
+  .jogos-hero .jogo-info { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #ffffff20; text-align: center; padding: 18px; }
+}
+@media (max-width: 600px) {
+  .noticias-hero { min-height: 360px; padding: 36px 0; }
+  .cabecalho-jogos { padding-top: 30px; }
+  .noticias-hero::before { background: linear-gradient(0deg, rgba(8, 8, 8, .97), rgba(8, 8, 8, .7)); }
+  .jogos-hero.jogo-card { grid-template-columns: minmax(0, 1fr); }
+  .jogos-hero .jogo-titulo { align-items: center; text-align: center; padding: 20px 16px 0; }
+  .jogos-hero .logo-competicao { max-width: 65px; max-height: 70px; }
+  .jogos-hero .jogo-times { padding: 24px 12px; gap: 12px; }
+  .jogos-hero .time { width: 100px; }
+  .jogos-hero .time img { width: 64px; height: 64px; }
+  .jogos-hero .time strong { font-size: 14px; }
+  .jogos-hero .versus { width: 30px; height: 64px; font-size: 26px; }
+}

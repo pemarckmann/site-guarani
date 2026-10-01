@@ -114,6 +114,7 @@
   async function iniciar() {
     try {
       dados = prepararDadosDesempenho(await carregarDados(fontesDados.desempenho));
+      atualizarProximoJogo(dados);
       categoria.replaceChildren(...Object.entries(dados).map(([chave, item]) => {
         const opcao = document.createElement("option");
         opcao.value = chave;
@@ -159,6 +160,7 @@
       aviso.textContent = mensagemFalhaDados();
       lista.replaceChildren(aviso);
       lista.setAttribute("aria-busy", "false");
+      if (destaqueProximoJogo) destaqueProximoJogo.replaceChildren(aviso.cloneNode(true));
       console.error(erro);
     }
   }

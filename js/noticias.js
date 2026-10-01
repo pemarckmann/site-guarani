@@ -32,6 +32,7 @@
     return idValido(noticia.id) && dataISOValida(noticia.data) &&
       [noticia.titulo, noticia.resumo, noticia.categoria].every(textoValido) &&
       (noticia.demonstrativa === undefined || typeof noticia.demonstrativa === "boolean") &&
+      (noticia.destaque === undefined || typeof noticia.destaque === "boolean") &&
       img && typeof img === "object" && urlDadosValida(img.src) && textoValido(img.alt) &&
       Number.isInteger(img.largura) && img.largura > 0 &&
       Number.isInteger(img.altura) && img.altura > 0 &&
@@ -120,6 +121,7 @@
   }
 
   function mostrarArquivo(noticias) {
+    mostrarHero(noticias);
     const aviso = document.querySelector("#noticias-aviso");
     aviso.hidden = !noticias.some(noticia => noticia.demonstrativa);
     const ferramentas = document.querySelector("#noticias-ferramentas");
@@ -188,6 +190,31 @@
     });
     lerURL();
     atualizar();
+  }
+
+  function mostrarHero(noticias) {
+    const hero = document.querySelector("#noticias-hero");
+    if (!hero) return;
+    // As notícias já estão em ordem de data: o destaque mais recente tem prioridade.
+    const noticia = noticias.find(item => item.destaque === true) || noticias[0];
+    if (!noticia) return;
+    const foto = imagem(noticia, true);
+    const img = foto.querySelector("img");
+    img.fetchPriority = "high";
+    if (noticia.imagem.foco) img.style.objectPosition = noticia.imagem.foco;
+    img.addEventListener("error", () => foto.remove(), { once: true });
+    const container = elemento("div", "container");
+    const conteudo = elemento("div", "noticia-hero-conteudo");
+    const tituloPagina = elemento("h1", "", "Notícias do Guarani");
+    tituloPagina.id = "noticias-titulo";
+    const titulo = elemento("h2", "", noticia.titulo);
+    titulo.id = "noticia-hero-titulo";
+    const link = elemento("a", "hero-botao", "Ler notícia");
+    link.href = endereco(noticia);
+    conteudo.append(elemento("span", "secao-tag", "FIQUE POR DENTRO"), tituloPagina, metadados(noticia), titulo, elemento("p", "", noticia.resumo), link);
+    container.append(conteudo);
+    hero.replaceChildren(foto, container);
+    hero.setAttribute("aria-labelledby", tituloPagina.id);
   }
 
   function mostrarLeitura(noticias) {

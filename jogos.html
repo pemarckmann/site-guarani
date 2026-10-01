@@ -17,6 +17,7 @@
     <title>Jogos | Esporte Clube Guarani</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/heroes.css" />
     <link rel="stylesheet" href="css/jogos.css" />
     <noscript>
       <link rel="stylesheet" href="css/sem-js.css" />
@@ -118,12 +119,13 @@
     ====================================================== -->
 
     <main class="pagina-noticias pagina-jogos">
-      <section class="noticias-apresentacao" aria-labelledby="jogos-titulo">
+      <section class="cabecalho-jogos" aria-labelledby="jogos-titulo">
         <div class="container">
           <span class="secao-tag" id="temporada-desempenho">DENTRO DE CAMPO</span>
           <h1 id="jogos-titulo">Jogos do Guarani</h1>
-          <p>Confira a agenda e os resultados de todas as categorias do Time &Iacute;ndio.
-            Escolha a categoria para acompanhar os confrontos, os resultados e a classifica&ccedil;&atilde;o completa.</p>
+          <div id="proximo-jogo-card" class="jogo-card jogos-hero" aria-live="polite">
+            <p class="desempenho-aviso" id="jogos-hero-carregando">Carregando próxima partida…</p>
+          </div>
         </div>
       </section>
       <section class="noticias-arquivo" aria-label="Agenda e resultados">
@@ -165,7 +167,7 @@
             <p class="classificacao-legenda">P: pontos · J: jogos · V: vitórias · E: empates · D: derrotas · SG: saldo de gols</p>
           </div>
           <p id="fonte-desempenho" class="jogos-atualizacao" hidden></p>
-          <noscript><style>#jogos-filtros, #jogos-carregando { display: none; }</style><p class="desempenho-aviso">Ative o JavaScript para ver os jogos.
+          <noscript><style>#jogos-filtros, #jogos-carregando, #proximo-jogo-card { display: none; }</style><p class="desempenho-aviso">Ative o JavaScript para ver os jogos.
             Os dados tamb&eacute;m est&atilde;o dispon&iacute;veis no
             <a href="https://fgf.com.br/" target="_blank" rel="noopener noreferrer">site da FGF</a>.</p></noscript>
         </div>

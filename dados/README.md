@@ -92,6 +92,15 @@ para que as próximas exportações e a Lambda usem a mesma versão.
 
 ## Testar localmente
 
+O hero de Notícias usa a notícia mais recente; `destaque: true` permite escolher
+uma matéria. Se houver mais de um destaque, usa o mais recente. A foto respeita
+`imagem.foco`, e o botão “Ler notícia” abre a matéria completa. Sem notícias válidas,
+o cabeçalho mantém o título e a apresentação da página.
+O hero de Jogos mostra a primeira partida agendada entre todas as categorias,
+com a categoria identificada no card, independentemente dos filtros da lista.
+Sem partidas agendadas, exibe “Próximas partidas em breve”. Ambos usam os JSONs
+atuais, sem uma segunda fonte de dados.
+
 A página `jogos.html` usa o mesmo `desempenho.json` da Home, sem duplicar os dados.
 Ela oferece filtros por categoria e status e paginação de oito partidas. Agendadas
 ficam em ordem cronológica, antes dos resultados; encerradas aparecem da mais recente
