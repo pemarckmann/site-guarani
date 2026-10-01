@@ -261,7 +261,7 @@ main {
   position: absolute;
   inset: 0;
 
-  background-image: url("../assets/hero-campeao-2025.jpg");
+  background-image: url("../assets/hero-campeao-2025.webp");
   background-size: cover;
   background-position: center 45%;
 
@@ -1651,7 +1651,7 @@ main {
       rgba(0, 0, 0, 0.14) 72%,
       rgba(0, 0, 0, 0.04) 100%
     ),
-    url("../assets/clube-comissao.jpg");
+    url("../assets/hero-clube-comissao.webp");
 
   background-size: cover;
   background-position: center 32%;
@@ -3986,7 +3986,7 @@ main {
 
   overflow: hidden;
 
-  background-image: url("../assets/socio-torcida.jpg");
+  background-image: url("../assets/hero-socio-torcida.webp");
   background-size: cover;
   background-position: 44% 30%;
 
