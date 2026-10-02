@@ -324,7 +324,13 @@
 
 @media (max-width: 480px) {
   .atleta-linha {
-    grid-auto-columns: 65%;
+    --largura-card: min(74vw, 300px);
+    grid-auto-columns: var(--largura-card);
+    padding-inline: calc((100% - var(--largura-card)) / 2);
+  }
+
+  .atleta-card {
+    scroll-snap-align: center;
   }
 
   .elenco-grupo-titulo h2 {
@@ -406,5 +412,23 @@
 
   .elenco-home .atleta-conteudo h3 {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .elenco-home .noticias-topo {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .elenco-home .ver-todas {
+    border: 0;
+    padding: 4px 0;
+  }
+
+  .elenco-home .ver-todas:hover {
+    background: transparent;
+    color: #b30018;
+    text-decoration: underline;
   }
 }
