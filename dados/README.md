@@ -4,8 +4,7 @@ Edite o conteúdo nestes arquivos JSON, sem alterar os scripts de apresentação
 
 - `noticias.json`: lista de notícias usada na Home, na lista e na leitura completa.
 - `desempenho.json`: jogos e classificação gerados pelo scraper, separados por categoria.
-- `elenco.json`: relação pública de atletas e comissão técnica, preparada pelo exportador.
-- `elenco-complementos.json`: nomes, setores e outros dados editoriais preservados entre exportações.
+- `elenco.json`: arquivo único para editar atletas, fotos, números e comissão técnica.
 
 As notícias atuais são demonstrativas. O desempenho é lido do arquivo produzido pelo
 scraper; sua coleta e publicação ainda não estão integradas à AWS.
@@ -115,45 +114,36 @@ do dispositivo desativa o avanço automático. As setas aparecem ao passar o mou
 ou navegar pelo teclado; em telas de toque, permanecem visíveis.
 A fonte fica em
 `fontesDados.elenco` (`js/dados.js`) e recebe o envelope público de `dados/elenco.json`.
-Os cards mostram nome e o último número registrado, preparados para receber fotos.
+Os cards mostram nome, foto e número de referência.
 Posição não é deduzida pelo número da camisa. Registros sem setor identificado ficam
 preservados no JSON, mas não aparecem na página nem na contagem do elenco.
 A comissão técnica aparece depois dos atacantes, com nome, cargo e a mesma
 silhueta enquanto não houver foto. A busca inclui cargos, e o filtro permite
 selecionar apenas a comissão.
 
-`dados/elenco-complementos.json` guarda nomes de exibição, setores e ordem fornecidos
-pelo responsável pelo site. Cada complemento é associado pelo registro CBF, com a
-categoria e temporada conferidas pelo exportador. Esses dados são editoriais, não
-posições extraídas automaticamente das súmulas. O exportador os reaplica ao regenerar
-`elenco.json`, preservando a organização após atualizações do scraper. O campo
-`pendentes` registra as identificações ainda incompletas. Mulita foi associado a
-Mateus de Britto Pereira (CBF 805805), conforme o complemento enviado.
-Os complementos também guardam `nome_completo`, `idade`, `posicao` e
-`numero_referencia`, sem substituir o histórico de números das súmulas.
-`foto` pode apontar para um arquivo em `assets/` ou uma URL HTTP(S); quando informado
-no complemento, tem prioridade sobre a foto do scraper e sobrevive à próxima exportação.
-O card prioriza esse número de referência e usa o último registro quando ele falta.
-`atletas_adicionais` permite incluir atletas editoriais sem registro CBF, com um
-`id` estável começando por `editorial-` (Diogo Cruz, por exemplo), sem inventar um
-registro. `comissao_tecnica` guarda os profissionais exibidos na página.
+Edite diretamente `dados/elenco.json`. O site não precisa de exportação nem
+históricos de súmulas para atualizar o elenco. O mesmo arquivo é usado na Home e
+na aba Elenco, e poderá ser servido pela API no futuro.
 
-Para atualizar a partir da saída do scraper, execute na raiz do site:
+Cada item de `atletas` contém:
 
-```powershell
-python scripts/preparar-elenco.py
-```
+- `id`: identificador único e estável; mantenha o existente ao editar nomes ou fotos.
+- `registro_cbf`: registro como texto, ou `null` quando desconhecido.
+- `nome_exibicao`: nome ou apelido em destaque no card.
+- `nome_completo`: nome completo confirmado, ou `null` quando ainda não conhecido.
+- `idade`, `posicao` e `numero`: informações editoriais; campos desconhecidos usam `null`.
+  O número é uma referência e pode mudar entre partidas.
+- `grupo`: `goleiros`, `defensores`, `meio-campistas` ou `atacantes`.
+  Um atleta com `grupo: null` fica guardado, mas não aparece nas fileiras.
+- `ordem`: ordem dentro do grupo, começando em zero.
+- `foto`: caminho público em `assets/` ou URL HTTP(S). Use `null` para a silhueta.
 
-Por padrão, lê `dados/elenco-profissional-2026-parcial.json` e gera `dados/elenco.json`.
-Para outro arquivo, use `--entrada caminho/arquivo.json`. O original é mantido local
-e está no `.gitignore`, pois contém caminhos de PDFs do computador. A versão pública
-preserva os dados usados na página e remove os históricos com esses caminhos.
-O script mantém os registros CBF como identificadores e rejeita duplicatas.
-Complementos com campos inválidos são rejeitados antes de substituir o arquivo público.
-Fotos futuras usam `foto_local` começando por `assets/` ou `foto_original_url` HTTP(S).
-Sem foto ou se ela falhar, o card exibe a silhueta. Nomes completos aparecem quando
-informados no complemento (`nome_completo`) ou confirmados pela fonte
-(`nome_completo_fgf: true` ou `nome_cbf` preenchido).
+`comissao_tecnica` contém nome, cargo e, opcionalmente, `nome_exibicao` e `foto`.
+Os cinco profissionais atuais ficam nesse mesmo arquivo.
+`categoria`, `temporada`, `clube`, `fonte` e `parcial` descrevem o elenco;
+`identificacoes_pendentes` guarda as informações ainda não confirmadas.
+Os dados detalhados de coleta devem ficar no projeto do scraper. Uma integração
+futura precisa preservar os nomes, fotos e demais informações revisadas deste JSON.
 
 ## Heroes e carregamento
 

@@ -9,6 +9,10 @@ Os originais não são carregados pelas páginas. Ao editar uma imagem, gere nov
 a versão usada pelo site; mantenha proporções, transparência e dimensões declaradas
 no HTML ou JSON. WebP é usado para fotos e logos, com PNG no favicon.
 
+`otimizadas/compartilhamento.png` é a imagem de prévia dos links (1200 × 630),
+exportada da arte vetorial em `originais/compartilhamento.svg`. A arte incorpora
+o escudo existente e pode ser editada antes de exportar outra versão em PNG.
+
 Os escudos escolhidos pelo clube continuam em `otimizadas/` e têm prioridade no
 cadastro `escudosLocais` de `js/desempenho.js`. O catálogo de competições foi
 preservado para categorias futuras; não exclua arquivos apenas porque não são

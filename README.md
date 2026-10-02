@@ -34,7 +34,6 @@ HTTP: abrir um HTML diretamente por `file://` não carrega os dados.
 | `assets/coletadas/` | Imagens exportadas pelo scraper, mantendo os caminhos do JSON. |
 | `assets/competicoes/` | Biblioteca de marcas da FGF e variantes reservadas para uso futuro. |
 | `scripts/` | Ferramentas locais de manutenção, sem dependências externas. |
-| `tests/` | Testes do exportador, executados com a biblioteca padrão do Python. |
 
 Cada página carrega seus estilos específicos e os componentes que usa. Evite
 colocar regras de uma página em `style.css` ou duplicar dados no HTML.
@@ -57,17 +56,32 @@ antigo. O segundo verifica referências locais, âncoras, IDs duplicados, versõ
 e sintaxe dos JSONs. Ele não consulta serviços externos nem substitui a conferência
 no navegador.
 
-Para conferir a exportação do elenco e a preservação dos complementos:
-
-```powershell
-python -m unittest discover -s tests
-```
+Edite o elenco diretamente em `dados/elenco.json`: atletas e comissão técnica
+ficam no mesmo arquivo. Não é necessário gerar outro JSON a partir de súmulas.
 
 Antes de publicar, confira as páginas em computador e celular, os filtros, a
 paginação, o menu e a passagem do último para o primeiro integrante no carrossel.
 Também confira as mensagens de erro de carregamento e a navegação sem JavaScript.
 
 ## Limites da primeira versão
+
+As páginas públicas têm metadados Open Graph e Twitter Card no HTML, com título
+e descrição próprios e uma imagem de prévia comum em
+`assets/otimizadas/compartilhamento.png`. Os endereços absolutos usam
+`https://pemarckmann.github.io/site-guarani/`; ao trocar o domínio, atualize os
+metadados e os links `canonical`. A página 404 permanece com `noindex`.
+`noticia.html` usa uma prévia geral, pois a matéria vem do JSON. Ela não fixa
+`canonical` nem `og:url`, preservando o endereço com o identificador da notícia.
+Prévias por matéria exigem HTML gerado na publicação ou resposta do backend com
+os metadados da notícia já presentes, sem depender de JavaScript.
+
+`404.html` é a página para endereços inexistentes no GitHub Pages. Seus links usam
+a base `/site-guarani/` para funcionar também em URLs com subpastas. Em testes
+locais e domínios próprios, o script ajusta a base para `/`. Se publicar em outro
+subdiretório ou precisar funcionar sem JavaScript em um domínio próprio, ajuste
+o `<base>` para a raiz publicada. Na AWS, configure a hospedagem para usar esse
+arquivo como página de erro com status HTTP 404. O servidor simples do Python
+não escolhe essa página automaticamente; abra `/404.html` para testar o visual.
 
 As notícias e os planos de sócio ainda são exemplos. O formulário de contato
 ainda não envia mensagens. O elenco tem complementos editoriais; a fonte de cada

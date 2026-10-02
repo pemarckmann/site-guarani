@@ -1,4 +1,4 @@
-/* A relação pública é preparada a partir da saída do scraper, sem dados inventados. */
+/* Atletas e comissão técnica são editados diretamente em dados/elenco.json. */
 (() => {
   const lista = document.querySelector("#elenco-lista");
   if (!lista) return;
@@ -38,7 +38,7 @@
   }
   function nomeExibicao(atleta) {
     if (textoValido(atleta.nome_exibicao)) return atleta.nome_exibicao;
-    return textoValido(atleta.apelido) ? atleta.apelido : textoValido(atleta.nome_cbf) ? atleta.nome_cbf : atleta.nome;
+    return atleta.nome;
   }
   function card(atleta) {
     const nome = nomeExibicao(atleta);
@@ -75,18 +75,16 @@
     conteudo.append(titulo);
     if (textoValido(atleta.cargo)) conteudo.append(criarElemento("p", "comissao-cargo", atleta.cargo));
     else if (resumoHome) conteudo.append(criarElemento("p", "atleta-setor", textoValido(atleta.posicao) ? atleta.posicao : grupos.find(([chave]) => chave === grupoAtleta(atleta))?.[1]));
-    const nomeCompleto = textoValido(atleta.nome_completo) ? atleta.nome_completo : textoValido(atleta.nome_cbf) ? atleta.nome_cbf
-      : atleta.nome_completo_fgf === true ? atleta.nome : null;
+    const nomeCompleto = textoValido(atleta.nome_completo) ? atleta.nome_completo : null;
     if (nomeCompleto && normalizar(nomeCompleto) !== normalizar(nome))
       conteudo.append(criarElemento("p", "atleta-nome", nomeCompleto));
     if (atleta.identidade_conflitante === true)
       conteudo.append(criarElemento("p", "atleta-nome", "Identificação em conferência"));
-    const temReferencia = Number.isInteger(atleta.numero_referencia) && atleta.numero_referencia > 0;
-    const numeroExibido = temReferencia ? atleta.numero_referencia : atleta.numero_recente;
+    const numeroExibido = atleta.numero;
     if (Number.isInteger(numeroExibido) && numeroExibido > 0) {
       const numero = criarElemento("span", "atleta-numero", numeroExibido);
-      numero.title = temReferencia ? "Número de referência informado para o elenco" : "Último número registrado em súmula";
-      numero.setAttribute("aria-label", `${temReferencia ? "Número de referência" : "Último número registrado"}: ${numeroExibido}`);
+      numero.title = "Número de referência informado para o elenco";
+      numero.setAttribute("aria-label", `Número de referência: ${numeroExibido}`);
       foto.append(numero);
     }
     article.setAttribute("role", "listitem");
@@ -153,7 +151,7 @@
     }
     const termo = normalizar(busca.value);
     const filtrados = atletas.filter(atleta =>
-      (!termo || normalizar([atleta.nome_exibicao, atleta.apelido, atleta.nome, atleta.nome_cbf, atleta.nome_completo, atleta.cargo].filter(textoValido).join(" ")).includes(termo)) &&
+      (!termo || normalizar([atleta.nome_exibicao, atleta.nome, atleta.nome_completo, atleta.cargo].filter(textoValido).join(" ")).includes(termo)) &&
       (!posicao.value || grupoAtleta(atleta) === posicao.value));
     lista.replaceChildren();
     grupos.forEach(([chave, nome]) => {
@@ -179,11 +177,9 @@
     try {
       const dados = await carregarDados(fontesDados.elenco);
       if (!dados || !textoValido(dados.categoria) || !Number.isInteger(dados.temporada) || !Array.isArray(dados.atletas)) throw new Error("Formato inválido do elenco.");
-      const registros = dados.atletas.map(atleta => ({ ...atleta, id: atleta?.registro_cbf || atleta?.id }));
-      atletas = registrosValidos(registros, atleta => textoValido(atleta.nome) && (
-        typeof atleta.registro_cbf === "string" && /^\d+$/.test(atleta.registro_cbf) ||
-        atleta.registro_cbf === null && atleta.fonte_complemento === "editorial" && /^editorial-[a-z0-9-]+$/.test(atleta.id)
-      ), "Elenco", "id")
+      atletas = registrosValidos(dados.atletas, atleta => textoValido(atleta.nome_exibicao) &&
+        textoValido(atleta.id) && /^[a-z0-9-]+$/.test(atleta.id) &&
+        (atleta.registro_cbf === null || typeof atleta.registro_cbf === "string" && /^\d+$/.test(atleta.registro_cbf)), "Elenco", "id")
         .filter(atleta => grupoAtleta(atleta))
         .sort((a, b) => nomeExibicao(a).localeCompare(nomeExibicao(b), "pt-BR", { sensitivity: "base" }));
       const comissao = (Array.isArray(dados.comissao_tecnica) ? dados.comissao_tecnica : [])
@@ -201,7 +197,7 @@
       }
       document.querySelector("#elenco-temporada").textContent = `${dados.categoria.toUpperCase()} • ${dados.temporada}`;
       document.querySelector("#elenco-aviso").hidden = dados.parcial === false;
-      document.querySelector("#elenco-fonte").textContent = `Dados de origem: ${textoValido(dados.fonte) ? dados.fonte : "FGF"}, com complementos editoriais. Números: referência informada para o elenco ou último registro em súmula, sujeitos a mudanças.`;
+      document.querySelector("#elenco-fonte").textContent = `Dados de origem: ${textoValido(dados.fonte) ? dados.fonte : "FGF"}, com informações revisadas pelo responsável pelo site. Números de referência sujeitos a mudanças.`;
       grupos.forEach(([chave, nome]) => {
         if (atletas.some(atleta => grupoAtleta(atleta) === chave)) posicao.add(new Option(nome, chave));
       });

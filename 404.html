@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#111111" />
+    <title>Página não encontrada | Esporte Clube Guarani</title>
+    <!-- A base mantém os links corretos mesmo em endereços com várias pastas. -->
+    <base href="/site-guarani/" />
+    <script>
+      if (!location.hostname.endsWith(".github.io")) {
+        document.querySelector("base").href = "/";
+      }
+    </script>
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
+    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
+    <link rel="stylesheet" href="css/404.css?v=65342ef789" />
+  </head>
+  <body class="pagina-erro">
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <div class="marca">
+          <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
+            <img src="assets/otimizadas/escudo.webp" width="320" height="480" alt="Escudo do Esporte Clube Guarani" />
+          </a>
+          <div>
+            <strong>Esporte Clube Guarani</strong>
+            <span>Venâncio Aires • RS</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container erro-conteudo">
+      <p class="erro-codigo" aria-label="Erro 404">404</p>
+      <h1>Página não encontrada</h1>
+      <p class="erro-descricao">O endereço pode estar incorreto ou a página pode ter sido removida.</p>
+      <a href="index.html" class="erro-botao">Voltar ao início <span aria-hidden="true">→</span></a>
+      <nav class="erro-links" aria-label="Outras páginas do site">
+        <a href="noticias.html">Notícias</a>
+        <a href="jogos.html">Jogos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </main>
+  </body>
+</html>

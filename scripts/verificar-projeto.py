@@ -39,7 +39,8 @@ class Pagina(HTMLParser):
             if identificador in self.ids:
                 self.erros.append(f"{self.caminho.name}: ID duplicado ({identificador})")
             self.ids.add(identificador)
-        for chave in ("src", "href", "poster"):
+        # <base> aponta para a raiz publicada, não para um arquivo local.
+        for chave in (() if tag == "base" else ("src", "href", "poster")):
             if atributos.get(chave):
                 verificar_referencia(self.caminho, atributos[chave], self.erros)
         for chave in ("srcset", "imagesrcset"):
@@ -83,8 +84,6 @@ def main():
         for endereco in re.findall(r'url\(\s*["\']?([^"\')]+)["\']?\s*\)', caminho.read_text(encoding="utf-8")):
             verificar_referencia(caminho, endereco.strip(), erros)
     for caminho in sorted((ROOT / "dados").glob("*.json")):
-        if caminho.name == "elenco-profissional-2026-parcial.json":
-            continue  # Entrada privada do scraper; não é publicada.
         try:
             referencias_json(json.loads(caminho.read_text(encoding="utf-8-sig")), erros)
         except (ValueError, OSError) as erro:
