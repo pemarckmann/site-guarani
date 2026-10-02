@@ -3,6 +3,7 @@
 const fontesDados = {
   noticias: "dados/noticias.json",
   desempenho: "dados/desempenho.json",
+  elenco: "dados/elenco.json",
 };
 
 async function carregarDados(url) {

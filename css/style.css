@@ -1631,178 +1631,27 @@ main {
   }
 }
 
-/* =====================================================
-   ELENCO
-===================================================== */
 
-.elenco {
-  padding: 60px 0;
 
-  background-color: #f4f4f4;
-}
 
-.elenco-card {
-  display: grid;
 
-  grid-template-columns: 1.6fr 1fr;
 
-  overflow: hidden;
 
-  background-color: #181818;
 
-  border-radius: 8px;
 
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
-}
 
-.elenco-imagem {
-  min-height: 420px;
-}
 
-.elenco-imagem img {
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
-}
 
-.elenco-conteudo {
-  padding: 45px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
-  color: white;
-}
 
-.elenco-conteudo h2 {
-  margin: 5px 0 15px;
 
-  font-size: 32px;
-}
 
-.elenco-conteudo p {
-  margin: 0 0 25px;
 
-  color: #bbb;
 
-  font-size: 15px;
-  line-height: 1.6;
-}
 
-.elenco-botao {
-  width: fit-content;
 
-  padding: 13px 20px;
-
-  background-color: #b30018;
-  color: white;
-
-  text-decoration: none;
-  font-weight: bold;
-
-  border-radius: 4px;
-}
-
-/* =====================================================
-   O CLUBE - HOME
-===================================================== */
-
-.clube {
-  padding: 80px 0 0;
-}
-
-.clube-card {
-  display: grid;
-
-  grid-template-columns: 320px minmax(0, 1fr);
-
-  overflow: hidden;
-
-  background-color: white;
-
-  border-radius: 8px;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.clube-escudo {
-  min-height: 390px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #111;
-}
-
-.clube-escudo img {
-  width: 135px;
-}
-
-.clube-conteudo {
-  min-width: 0;
-  padding: 45px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.clube-conteudo h2 {
-  margin: 5px 0 15px;
-
-  font-size: 32px;
-}
-
-.clube-descricao {
-  margin: 0 0 30px;
-
-  color: #666;
-
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.clube-infos {
-  margin-bottom: 30px;
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 15px;
-}
-
-.clube-info {
-  padding-left: 15px;
-
-  border-left: 3px solid #b30018;
-}
-
-.clube-info strong {
-  display: block;
-
-  margin-bottom: 4px;
-}
-
-.clube-info span {
-  color: #777;
-
-  font-size: 12px;
-}
-
-.clube-botao {
-  width: fit-content;
-
-  color: #b30018;
-
-  text-decoration: none;
-
-  font-size: 13px;
-  font-weight: bold;
-}
 
 /* =====================================================
    PATROCINADORES
@@ -3192,13 +3041,7 @@ main {
 
   /* HOME */
 
-  .clube-card {
-    grid-template-columns: 240px minmax(0, 1fr);
-  }
 
-  .clube-conteudo {
-    padding: 32px;
-  }
 
   .hero {
     min-height: 560px;
@@ -3756,79 +3599,25 @@ main {
      ELENCO
   =================================================== */
 
-  .elenco {
-    padding: 45px 0;
-  }
 
-  .elenco-card {
-    grid-template-columns: 1fr;
-  }
 
-  .elenco-imagem {
-    min-height: 0;
-  }
 
-  .elenco-imagem img {
-    height: auto;
-  }
 
-  .elenco-conteudo {
-    padding: 30px 25px;
-  }
 
-  .elenco-conteudo h2 {
-    font-size: 27px;
-  }
 
-  .elenco-conteudo p {
-    font-size: 14px;
-  }
 
-  .elenco-botao {
-    padding: 12px 18px;
-
-    font-size: 13px;
-  }
 
   /* ===================================================
      O CLUBE - HOME
   =================================================== */
 
-  .clube {
-    padding: 45px 0 0;
-  }
 
-  .clube-card {
-    grid-template-columns: 1fr;
-  }
 
-  .clube-escudo {
-    min-height: 260px;
-  }
 
-  .clube-escudo img {
-    width: 110px;
-  }
 
-  .clube-conteudo {
-    padding: 30px 25px;
-  }
 
-  .clube-conteudo h2 {
-    font-size: 27px;
-  }
 
-  .clube-descricao {
-    margin-bottom: 24px;
 
-    font-size: 14px;
-  }
-
-  .clube-infos {
-    grid-template-columns: 1fr;
-
-    margin-bottom: 24px;
-  }
 
   /* ===================================================
      PATROCINADORES
@@ -4235,13 +4024,7 @@ main {
     padding-right: 9px;
   }
 
-  .clube-escudo {
-    min-height: 230px;
-  }
 
-  .clube-escudo img {
-    width: 100px;
-  }
 
   .patrocinadores-master-grid,
   .patrocinadores-grid {

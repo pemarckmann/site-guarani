@@ -19,13 +19,15 @@
     <title>Esporte Clube Guarani | Venâncio Aires</title>
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/elenco.css?v=548e305742" />
     <noscript>
       <link rel="stylesheet" href="css/sem-js.css" />
     </noscript>
     <script src="js/script.js" defer></script>
-    <script src="js/dados.js" defer></script>
+    <script src="js/dados.js?v=0a29699a0d" defer></script>
     <script src="js/desempenho.js" defer></script>
     <script src="js/noticias.js" defer></script>
+    <script src="js/elenco.js?v=06a31ebd3d" defer></script>
   </head>
 
   <body id="top">
@@ -75,7 +77,7 @@
 
           <a href="noticias.html">Notícias</a>
           <a href="jogos.html">Jogos</a>
-          <a href="index.html#elenco" class="nav-em-breve"> Elenco </a>
+          <a href="elenco.html">Elenco</a>
           <a href="clube.html">O Clube</a>
           <a href="contato.html">Contato</a>
 
@@ -295,91 +297,19 @@
         </div>
       </section>
 
-      <!-- =================================================
-           ELENCO
-      ================================================== -->
-
-      <section class="elenco" id="elenco">
+      <section class="elenco-home" aria-labelledby="elenco-home-titulo">
         <div class="container">
-          <div class="elenco-card">
-            <div class="elenco-imagem">
-              <img
-                src="assets/elenco.jpg"
-                width="1600"
-                height="1203"
-                alt="Elenco do Esporte Clube Guarani"
-                loading="lazy"
-              />
+          <div class="noticias-topo">
+            <div>
+              <span class="secao-tag">TIME ÍNDIO</span>
+              <h2 id="elenco-home-titulo">Elenco do Guarani</h2>
             </div>
-
-            <div class="elenco-conteudo">
-              <span class="secao-tag"> TIME ÍNDIO </span>
-
-              <h2>Nosso Elenco</h2>
-
-              <p>
-                Conheça os atletas e a comissão técnica que representam o
-                Esporte Clube Guarani na temporada.
-              </p>
-
-              <a href="#" class="elenco-botao"> Ver elenco completo → </a>
-            </div>
+            <a href="elenco.html" class="ver-todas">Ver elenco completo <span aria-hidden="true">→</span></a>
           </div>
-        </div>
-      </section>
-
-      <!-- =================================================
-           O CLUBE
-      ================================================== -->
-
-      <section class="clube" id="clube">
-        <div class="container">
-          <div class="clube-card">
-            <div class="clube-escudo">
-              <img
-                src="assets/otimizadas/escudo.webp"
-                width="320"
-                height="480"
-                alt="Escudo do Esporte Clube Guarani"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="clube-conteudo">
-              <span class="secao-tag"> NOSSA HISTÓRIA </span>
-
-              <h2>Esporte Clube Guarani</h2>
-
-              <p class="clube-descricao">
-                Futebol, tradição e paixão fazem parte da história do Time Índio
-                em Venâncio Aires.
-              </p>
-
-              <div class="clube-infos">
-                <div class="clube-info">
-                  <strong>Venâncio Aires</strong>
-
-                  <span>Rio Grande do Sul</span>
-                </div>
-
-                <div class="clube-info">
-                  <strong>Edmundo Feix</strong>
-
-                  <span>Nossa casa</span>
-                </div>
-
-                <div class="clube-info">
-                  <strong>Time Índio</strong>
-
-                  <span>Nossa identidade</span>
-                </div>
-              </div>
-
-              <a href="clube.html" class="clube-botao">
-                Conheça nossa história →
-              </a>
-            </div>
+          <div id="elenco-lista" data-modo="resumo" aria-busy="true">
+            <p class="desempenho-aviso" id="elenco-carregando" role="status">Carregando elenco...</p>
           </div>
+          <noscript><style>#elenco-carregando { display: none; }</style><p><a href="elenco.html">Conheça o elenco e a comissão técnica.</a></p></noscript>
         </div>
       </section>
     </main>
@@ -527,10 +457,7 @@
 
           <a href="jogos.html">Jogos</a>
 
-          <a href="index.html#elenco">
-            Elenco
-            <span class="link-status">· seção em desenvolvimento</span>
-          </a>
+          <a href="elenco.html">Elenco</a>
 
           <a href="clube.html">O Clube</a>
 

@@ -7,22 +7,26 @@
 
     <meta
       name="description"
-      content="Leia as notícias do Esporte Clube Guarani de Venâncio Aires."
+      content="Conheça os atletas do profissional do Guarani identificados nas súmulas da temporada de 2026."
     />
 
     <meta name="theme-color" content="#111111" />
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <title>Notícia | Esporte Clube Guarani</title>
+    <title>Elenco | Esporte Clube Guarani</title>
+    <link rel="preload" href="dados/elenco.json" as="fetch" type="application/json" crossorigin="anonymous" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/elenco.webp" imagesrcset="assets/otimizadas/heroes/elenco-mobile.webp 640w, assets/otimizadas/heroes/elenco.webp 1280w" imagesizes="100vw" fetchpriority="high" />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/heroes.css?v=f43b311513" />
+    <link rel="stylesheet" href="css/elenco.css?v=548e305742" />
     <noscript>
       <link rel="stylesheet" href="css/sem-js.css" />
     </noscript>
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js?v=6195a1381c" defer></script>
     <script src="js/dados.js?v=0a29699a0d" defer></script>
-    <script src="js/noticias.js" defer></script>
+    <script src="js/elenco.js?v=06a31ebd3d" defer></script>
   </head>
 
   <body id="top">
@@ -66,9 +70,9 @@
           aria-label="Menu principal"
         >
           <a href="index.html">Início</a>
-          <a href="noticias.html" aria-current="page">Notícias</a>
+          <a href="noticias.html">Notícias</a>
           <a href="jogos.html">Jogos</a>
-          <a href="elenco.html">Elenco</a>
+          <a href="elenco.html" aria-current="page">Elenco</a>
           <a href="clube.html">O Clube</a>
           <a href="contato.html">Contato</a>
 
@@ -115,17 +119,36 @@
          CONTEÚDO
     ====================================================== -->
 
-    <main class="pagina-noticia">
-      <div class="container noticia-pagina">
-        <a class="noticia-voltar" href="noticias.html">← Todas as notícias</a>
-        <article id="noticia-completa"></article>
-        <noscript>
-          <h1>Notícias do Guarani</h1>
-          <p class="noticias-estado">Ative o JavaScript para ler esta notícia ou acompanhe o
-            <a href="https://www.instagram.com/ecguaranirs/" target="_blank" rel="noopener noreferrer">Instagram do Guarani</a>.
-          </p>
-        </noscript>
-      </div>
+    <main class="pagina-elenco">
+      <section class="elenco-hero" aria-labelledby="elenco-titulo">
+        <img class="elenco-hero-imagem" src="assets/otimizadas/heroes/elenco.webp"
+          srcset="assets/otimizadas/heroes/elenco-mobile.webp 640w, assets/otimizadas/heroes/elenco.webp 1280w"
+          sizes="100vw" width="1280" height="962" alt="Atletas e comissão do Guarani reunidos no estádio"
+          fetchpriority="high" decoding="async" />
+        <div class="container">
+          <span class="secao-tag" id="elenco-temporada">PROFISSIONAL &bull; 2026</span>
+          <h1 id="elenco-titulo">Elenco do Guarani</h1>
+          <p>Conhe&ccedil;a os atletas relacionados nas s&uacute;mulas do profissional.
+            Uma primeira apresenta&ccedil;&atilde;o do grupo que veste as cores do Time &Iacute;ndio.</p>
+        </div>
+      </section>
+      <section class="elenco-arquivo" aria-label="Atletas do profissional">
+        <div class="container">
+          <p class="elenco-aviso" id="elenco-aviso">Rela&ccedil;&atilde;o parcial, baseada nas s&uacute;mulas consultadas.
+            A organiza&ccedil;&atilde;o por setores foi complementada para a apresenta&ccedil;&atilde;o do elenco.
+            Fotos e algumas identifica&ccedil;&otilde;es ainda est&atilde;o em confer&ecirc;ncia.</p>
+          <div class="noticias-ferramentas elenco-filtros" id="elenco-filtros" hidden>
+            <label for="elenco-busca">Buscar integrante <input id="elenco-busca" type="search" placeholder="Nome, apelido ou cargo" maxlength="120" /></label>
+            <label for="elenco-posicao">Grupo <select id="elenco-posicao"><option value="">Todos</option></select></label>
+            <p id="elenco-contagem" role="status" aria-live="polite"></p>
+          </div>
+          <div class="elenco-grupos" id="elenco-lista" aria-busy="true">
+            <p class="desempenho-aviso" id="elenco-carregando" role="status">Carregando elenco...</p>
+          </div>
+          <p id="elenco-fonte" class="classificacao-legenda"></p>
+          <noscript><style>#elenco-carregando { display: none; }</style><p class="desempenho-aviso">Ative o JavaScript para ver os atletas.</p></noscript>
+        </div>
+      </section>
     </main>
 
     <!-- =====================================================

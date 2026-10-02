@@ -92,6 +92,64 @@ para que as próximas exportações e a Lambda usem a mesma versão.
 
 ## Testar localmente
 
+### Elenco profissional
+
+A Home apresenta atletas e comissão técnica em uma única fileira circular,
+com nome e posição ou cargo sobre a foto. O link “Ver elenco completo” abre a
+página organizada por grupos. Ambas leem o mesmo `elenco.json` e compartilham
+o carrossel; atletas sem setor identificado ficam fora da apresentação.
+
+`elenco.html` mostra a relação parcial de atletas da temporada, com busca por nome,
+filtro por setor e fileiras de Goleiros, Defensores, Meio-campistas e Atacantes.
+Cada fileira tem setas independentes, rolagem por toque e navegação por teclado.
+Os cards usam fotos em retrato, na proporção 2:3. Sem foto, mostram a silhueta
+compartilhada em `assets/otimizadas/atleta-silhueta.webp`, com aproximadamente 28 KB.
+As fileiras visíveis avançam a cada 4,5 segundos e param ao receber interação
+por mouse, toque ou teclado. O carrossel mantém a mesma direção: depois do último
+atleta, o primeiro aparece em seguida, sem animar um retorno para trás. Cópias
+visuais completam o ciclo, sem duplicar IDs ou atletas para leitores de tela.
+As setas também percorrem o ciclo nos dois sentidos. A preferência por movimento reduzido
+do dispositivo desativa o avanço automático. As setas aparecem ao passar o mouse
+ou navegar pelo teclado; em telas de toque, permanecem visíveis.
+A fonte fica em
+`fontesDados.elenco` (`js/dados.js`) e recebe o envelope público de `dados/elenco.json`.
+Os cards mostram nome e o último número registrado, preparados para receber fotos.
+Posição não é deduzida pelo número da camisa. Registros sem setor identificado ficam
+preservados no JSON, mas não aparecem na página nem na contagem do elenco.
+A comissão técnica aparece depois dos atacantes, com nome, cargo e a mesma
+silhueta enquanto não houver foto. A busca inclui cargos, e o filtro permite
+selecionar apenas a comissão.
+
+`dados/elenco-complementos.json` guarda nomes de exibição, setores e ordem fornecidos
+pelo responsável pelo site. Cada complemento é associado pelo registro CBF, com a
+categoria e temporada conferidas pelo exportador. Esses dados são editoriais, não
+posições extraídas automaticamente das súmulas. O exportador os reaplica ao regenerar
+`elenco.json`, preservando a organização após atualizações do scraper. O campo
+`pendentes` registra as identificações ainda incompletas. Mulita foi associado a
+Mateus de Britto Pereira (CBF 805805), conforme o complemento enviado.
+Os complementos também guardam `nome_completo`, `idade`, `posicao` e
+`numero_referencia`, sem substituir o histórico de números das súmulas.
+O card prioriza esse número de referência e usa o último registro quando ele falta.
+`atletas_adicionais` permite incluir atletas editoriais sem registro CBF, com um
+`id` estável começando por `editorial-` (Diogo Cruz, por exemplo), sem inventar um
+registro. `comissao_tecnica` guarda os profissionais exibidos na página.
+
+Para atualizar a partir da saída do scraper, execute na raiz do site:
+
+```powershell
+python scripts/preparar-elenco.py
+```
+
+Por padrão, lê `dados/elenco-profissional-2026-parcial.json` e gera `dados/elenco.json`.
+Para outro arquivo, use `--entrada caminho/arquivo.json`. O original é mantido local
+e está no `.gitignore`, pois contém caminhos de PDFs do computador. A versão pública
+preserva os dados usados na página e remove os históricos com esses caminhos.
+O script mantém os registros CBF como identificadores e rejeita duplicatas.
+Fotos futuras usam `foto_local` começando por `assets/` ou `foto_original_url` HTTP(S).
+Sem foto ou se ela falhar, o card exibe a silhueta. Nomes completos aparecem quando
+informados no complemento (`nome_completo`) ou confirmados pela fonte
+(`nome_completo_fgf: true` ou `nome_cbf` preenchido).
+
 O hero de Notícias usa a notícia mais recente; `destaque: true` permite escolher
 uma matéria. Se houver mais de um destaque, usa o mais recente. A foto respeita
 `imagem.foco`, e o botão “Ler notícia” abre a matéria completa. Sem notícias válidas,

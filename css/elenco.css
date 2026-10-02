@@ -1,0 +1,62 @@
+.elenco-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 420px; display: flex; align-items: flex-end; padding: 65px 0; background: #111; color: white; border-bottom: 3px solid #b30018; }
+.elenco-hero-imagem { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; z-index: 0; }
+.elenco-hero::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #080808df, #08080890 48%, #08080820), linear-gradient(0deg, #08080880, transparent 65%); pointer-events: none; }
+.elenco-hero .container { position: relative; z-index: 2; }
+.elenco-hero .secao-tag { color: #ff6b80; }
+.elenco-hero h1 { margin: 10px 0 16px; font-size: clamp(30px, 4vw, 42px); }
+.elenco-hero p { max-width: 650px; color: #ddd; line-height: 1.65; }
+.elenco-arquivo { padding: 32px 0 55px; }
+.elenco-aviso { margin: 0 0 24px; padding: 16px 20px; border-left: 3px solid #b30018; background: white; font-size: 13px; color: #555; line-height: 1.65; }
+.elenco-filtros { justify-content: flex-start; }
+.elenco-filtros input { width: 230px; max-width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+.elenco-filtros p { margin-left: auto; }
+.elenco-grupos { display: grid; gap: 38px; }
+.elenco-grupo { min-width: 0; }
+.elenco-grupo-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.elenco-grupo-titulo { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.elenco-grupo-titulo h2 { margin: 0; font-size: 25px; }
+.elenco-grupo-titulo > span { color: #777; font-size: 12px; }
+.elenco-fileira-moldura { position: relative; }
+.elenco-setas button { position: absolute; z-index: 2; top: 42%; transform: translateY(-50%); width: 36px; height: 54px; border: 1px solid #ffffff35; background: #111b; color: white; font-size: 22px; border-radius: 4px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s, background .2s; }
+.elenco-setas button:first-child { left: 6px; }
+.elenco-setas button:last-child { right: 6px; }
+.elenco-fileira-moldura:hover .elenco-setas button:enabled, .elenco-fileira-moldura:focus-within .elenco-setas button:enabled { opacity: .9; pointer-events: auto; }
+.elenco-setas button:hover:enabled { background: #b30018d9; }
+.elenco-setas button:disabled { visibility: hidden; }
+.atleta-linha { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 80px) / 5); gap: 20px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.atleta-linha::-webkit-scrollbar { display: none; }
+.atleta-linha { overflow-anchor: none; }
+.atleta-linha.elenco-reposicionando { scroll-snap-type: none; }
+.atleta-linha:focus-visible { outline: 2px solid #b30018; outline-offset: 3px; }
+.atleta-card { overflow: hidden; border: 1px solid #e5e5e5; border-radius: 8px; background: white; }
+.atleta-card { scroll-snap-align: start; min-width: 0; }
+.atleta-foto { aspect-ratio: 2 / 3; display: flex; align-items: center; justify-content: center; position: relative; background: linear-gradient(140deg, #201417, #4b1821); overflow: hidden; }
+.atleta-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.atleta-foto .atleta-silhueta { object-fit: contain; opacity: .6; }
+.atleta-conteudo { padding: 18px; }
+.atleta-conteudo h3 { margin: 0; font-size: 20px; overflow-wrap: anywhere; }
+.atleta-nome { margin: 8px 0 0; color: #777; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.comissao-cargo { margin: 8px 0 0; color: #b30018; font-size: 13px; font-weight: bold; line-height: 1.5; }
+.atleta-posicao { color: #b30018; font-size: 12px; font-weight: bold; }
+.atleta-registros { display: flex; align-items: center; gap: 10px; padding-top: 14px; margin-top: 14px; border-top: 1px solid #eee; font-size: 11px; color: #777; }
+.atleta-numero { position: absolute; top: 12px; right: 14px; color: #ffadb9; font-size: 30px; font-weight: bold; }
+.atleta-sumulas { margin: 12px 0 0; font-size: 12px; color: #777; }
+.elenco-grid > .desempenho-aviso { grid-column: 1 / -1; }
+.pagina-elenco #elenco-fonte { margin-top: 24px; color: #777; font-size: 12px; line-height: 1.6; }
+.pagina-elenco [hidden] { display: none; }
+.elenco-filtros input:focus-visible, .elenco-filtros select:focus-visible { outline: 2px solid #b30018; outline-offset: 3px; }
+@media (max-width: 1100px) { .atleta-linha { grid-auto-columns: calc((100% - 60px) / 4); } }
+@media (max-width: 1000px) { .atleta-linha { grid-auto-columns: calc((100% - 40px) / 3); } .elenco-filtros p { width: 100%; margin-left: 0; } }
+@media (max-width: 700px) { .atleta-linha { grid-auto-columns: calc((100% - 14px) / 2); gap: 14px; } .elenco-hero { padding: 40px 0; } .atleta-conteudo { padding: 14px; } .atleta-conteudo h3 { font-size: 18px; } .elenco-filtros label { width: 100%; justify-content: space-between; } .elenco-filtros input, .elenco-filtros select { width: 65%; max-width: none; } }
+@media (max-width: 480px) { .atleta-linha { grid-auto-columns: 65%; } .elenco-grupo-titulo h2 { font-size: 21px; } }
+@media (max-width: 700px) { .elenco-hero { min-height: 360px; } .elenco-hero::after { background: linear-gradient(0deg, #080808ee, #08080855); } }
+@media (hover: none), (pointer: coarse) { .elenco-setas button:enabled { opacity: .65; pointer-events: auto; } }
+@media (prefers-reduced-motion: reduce) { .elenco-setas button { transition: none; } }
+.elenco-home { padding: 42px 0 55px; background: white; }
+.elenco-home .elenco-grupo-cabecalho { display: none; }
+.elenco-home .atleta-card { position: relative; border: 0; border-radius: 4px; }
+.elenco-home .atleta-conteudo { position: absolute; inset: auto 0 0; padding: 60px 20px 22px; background: linear-gradient(0deg, #080808f2, #08080899 65%, transparent); color: white; }
+.elenco-home .atleta-conteudo h3 { font-size: 20px; }
+.elenco-home .atleta-setor, .elenco-home .comissao-cargo { margin: 8px 0 0; color: #ddd; font-size: 13px; line-height: 1.4; font-weight: normal; }
+.elenco-home .atleta-nome { display: none; }
+@media (max-width: 700px) { .elenco-home { padding: 32px 0 40px; } .elenco-home .atleta-conteudo { padding: 50px 16px 18px; } .elenco-home .atleta-conteudo h3 { font-size: 18px; } }
