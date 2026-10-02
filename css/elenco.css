@@ -152,8 +152,10 @@
   pointer-events: auto;
 }
 
-.elenco-setas button:hover:enabled {
-  background: #b30018d9;
+@media (hover: hover) and (pointer: fine) {
+  .elenco-setas button:hover:enabled {
+    background: #b30018d9;
+  }
 }
 
 .elenco-setas button:disabled {
@@ -324,13 +326,23 @@
 
 @media (max-width: 480px) {
   .atleta-linha {
-    --largura-card: min(74vw, 300px);
+    --largura-card: min(64vw, 280px);
     grid-auto-columns: var(--largura-card);
     padding-inline: calc((100% - var(--largura-card)) / 2);
   }
 
   .atleta-card {
     scroll-snap-align: center;
+  }
+
+  .atleta-card .atleta-conteudo,
+  .atleta-card .atleta-numero {
+    transition: opacity .15s;
+  }
+
+  .atleta-card:not(.atleta-atual) .atleta-conteudo,
+  .atleta-card:not(.atleta-atual) .atleta-numero {
+    opacity: 0;
   }
 
   .elenco-grupo-titulo h2 {
@@ -350,7 +362,8 @@
 
 @media (hover: none), (pointer: coarse) {
   .elenco-setas button:enabled {
-    opacity: .65;
+    opacity: .85;
+    background: #111b;
     pointer-events: auto;
   }
 }

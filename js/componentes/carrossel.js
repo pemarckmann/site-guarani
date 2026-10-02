@@ -9,6 +9,8 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
   let fimRolagem;
   let frame;
   let frameReposicao;
+  let frameDestaque;
+  let cardAtual;
 
   function passoCard() {
     const espaco = parseFloat(getComputedStyle(linha).columnGap) || 0;
@@ -19,11 +21,21 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
     reposicionando = true;
     linha.classList.add("elenco-reposicionando");
     linha.scrollTo({ left: destino, behavior: "instant" });
+    atualizarDestaque();
     cancelAnimationFrame(frameReposicao);
     frameReposicao = requestAnimationFrame(() => {
       linha.classList.remove("elenco-reposicionando");
       reposicionando = false;
     });
+  }
+
+  function atualizarDestaque() {
+    const largura = passoCard().largura;
+    const atual = linha.children[Math.round(linha.scrollLeft / largura)] || originais[0];
+    if (atual === cardAtual) return;
+    cardAtual?.classList.remove("atleta-atual");
+    atual.classList.add("atleta-atual");
+    cardAtual = atual;
   }
 
   function normalizarCiclo() {
@@ -53,6 +65,7 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
       reposicionar(progresso * ciclo);
     }
     anterior.disabled = proxima.disabled = !precisaCircular;
+    atualizarDestaque();
   }
 
   function avancar(direcao) {
@@ -70,6 +83,10 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
   anterior.addEventListener("click", () => avancar(-1), { signal: eventos.signal });
   proxima.addEventListener("click", () => avancar(1), { signal: eventos.signal });
   linha.addEventListener("scroll", () => {
+    if (!frameDestaque) frameDestaque = requestAnimationFrame(() => {
+      frameDestaque = null;
+      atualizarDestaque();
+    });
     clearTimeout(fimRolagem);
     fimRolagem = setTimeout(normalizarCiclo, 180);
   }, { passive: true, signal: eventos.signal });
@@ -94,6 +111,7 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
       clearTimeout(fimRolagem);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(frameReposicao);
+      cancelAnimationFrame(frameDestaque);
     },
   };
 }
