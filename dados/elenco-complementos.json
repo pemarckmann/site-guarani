@@ -283,6 +283,18 @@
       "nome": "José Antonio Pires Lummertz",
       "nome_exibicao": "Zé Lummertz",
       "cargo": "Preparador físico"
+    },
+    {
+      "nome": "Sandro Roberto Hansel",
+      "cargo": "Médico"
+    },
+    {
+      "nome": "Jair Fernandes Capilheira",
+      "cargo": "Massagista"
+    },
+    {
+      "nome": "Tiago Schmidt",
+      "cargo": "Treinador de goleiros"
     }
   ]
 }
