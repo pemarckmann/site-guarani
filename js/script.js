@@ -1,285 +1,231 @@
-/* =====================================================
-   ELEMENTOS GERAIS
-===================================================== */
+/* Menu, cabecalho e formulario compartilhados entre as paginas. */
+(() => {
+  /* ELEMENTOS GERAIS */
 
-const topo = document.querySelector(".topo");
+  const topo = document.querySelector(".topo");
 
-const formContato = document.querySelector("#form-contato");
-const assuntoContato = document.querySelector("#assunto");
+  const formContato = document.querySelector("#form-contato");
+  const assuntoContato = document.querySelector("#assunto");
 
-const botaoMenu = document.querySelector(".menu-toggle");
-const menuPrincipal = document.querySelector(".menu-principal");
-const larguraMenuCompacto = 1200;
+  const botaoMenu = document.querySelector(".menu-toggle");
+  const menuPrincipal = document.querySelector(".menu-principal");
+  const larguraMenuCompacto = 1200;
 
+  /* ASSUNTO DO FORMULÁRIO */
 
-/* =====================================================
-   ASSUNTO DO FORMULÁRIO
-===================================================== */
+  if (assuntoContato) {
+    const parametros = new URLSearchParams(window.location.search);
+    const assunto = parametros.get("assunto");
 
-if (assuntoContato) {
-  const parametros = new URLSearchParams(window.location.search);
-  const assunto = parametros.get("assunto");
-
-  if (assunto) {
-    assuntoContato.value = assunto;
-  }
-}
-
-
-/* =====================================================
-   FORMULÁRIO DE CONTATO
-===================================================== */
-
-if (formContato) {
-  formContato.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    alert("O formulário de contato estará disponível em breve.");
-  });
-}
-
-
-/* =====================================================
-   MENU MOBILE
-===================================================== */
-
-if (topo && botaoMenu && menuPrincipal) {
-  /* ===============================================
-     FUNÇÃO PARA FECHAR O MENU
-  =============================================== */
-
-  function fecharMenu() {
-    topo.classList.remove("menu-aberto");
-
-    botaoMenu.setAttribute("aria-expanded", "false");
-    botaoMenu.setAttribute("aria-label", "Abrir menu");
-
-    if (
-      window.innerWidth <= larguraMenuCompacto &&
-      menuPrincipal.contains(document.activeElement)
-    ) {
-      botaoMenu.focus({ preventScroll: true });
+    if (assunto && [...assuntoContato.options].some(opcao => opcao.value === assunto)) {
+      assuntoContato.value = assunto;
     }
   }
 
+  /* FORMULÁRIO DE CONTATO */
 
-  /* ===============================================
-     ABRIR / FECHAR PELO BOTÃO
-  =============================================== */
+  if (formContato) {
+    formContato.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-  botaoMenu.addEventListener("click", () => {
-    const menuEstaAberto = topo.classList.toggle("menu-aberto");
+      alert("O formulário de contato estará disponível em breve.");
+    });
+  }
 
-    botaoMenu.setAttribute(
-      "aria-expanded",
-      String(menuEstaAberto),
-    );
+  /* MENU MOBILE */
 
-    botaoMenu.setAttribute(
-      "aria-label",
-      menuEstaAberto
-        ? "Fechar menu"
-        : "Abrir menu",
-    );
+  if (topo && botaoMenu && menuPrincipal) {
+    /* FUNÇÃO PARA FECHAR O MENU */
 
-    /*
-      Se o cabeçalho estiver oculto pelo scroll,
-      força sua exibição ao abrir o menu.
-    */
+    function fecharMenu() {
+      topo.classList.remove("menu-aberto");
 
-    if (menuEstaAberto) {
-      topo.classList.remove("topo-oculto");
+      botaoMenu.setAttribute("aria-expanded", "false");
+      botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+      if (
+        window.innerWidth <= larguraMenuCompacto &&
+        menuPrincipal.contains(document.activeElement)
+      ) {
+        botaoMenu.focus({ preventScroll: true });
+      }
     }
-  });
 
+    /* ABRIR / FECHAR PELO BOTÃO */
 
-  /* ===============================================
-     FECHAR AO ESCOLHER UMA OPÇÃO
-  =============================================== */
+    botaoMenu.addEventListener("click", () => {
+      const menuEstaAberto = topo.classList.toggle("menu-aberto");
 
-  menuPrincipal
-    .querySelectorAll("a")
-    .forEach((link) => {
-      link.addEventListener("click", fecharMenu);
+      botaoMenu.setAttribute(
+        "aria-expanded",
+        String(menuEstaAberto),
+      );
+
+      botaoMenu.setAttribute(
+        "aria-label",
+        menuEstaAberto
+          ? "Fechar menu"
+          : "Abrir menu",
+      );
+
+      /*
+        Se o cabeçalho estiver oculto pelo scroll,
+        força sua exibição ao abrir o menu.
+      */
+
+      if (menuEstaAberto) {
+        topo.classList.remove("topo-oculto");
+      }
     });
 
+    /* FECHAR AO ESCOLHER UMA OPÇÃO */
 
-  /* ===============================================
-     FECHAR COM ESC
-  =============================================== */
+    menuPrincipal
+      .querySelectorAll("a")
+      .forEach((link) => {
+        link.addEventListener("click", fecharMenu);
+      });
 
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      topo.classList.contains("menu-aberto")
-    ) {
-      fecharMenu();
-      botaoMenu.focus({ preventScroll: true });
-    }
-  });
+    /* FECHAR COM ESC */
 
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        topo.classList.contains("menu-aberto")
+      ) {
+        fecharMenu();
+        botaoMenu.focus({ preventScroll: true });
+      }
+    });
 
-  /* ===============================================
-     FECHAR AO CLICAR FORA
-  =============================================== */
+    /* FECHAR AO CLICAR FORA */
 
-  document.addEventListener("click", (event) => {
-    const menuEstaAberto =
-      topo.classList.contains("menu-aberto");
+    document.addEventListener("click", (event) => {
+      const menuEstaAberto =
+        topo.classList.contains("menu-aberto");
 
-    if (!menuEstaAberto) {
-      return;
-    }
+      if (!menuEstaAberto) {
+        return;
+      }
 
-    const clicouNoTopo = topo.contains(event.target);
+      const clicouNoTopo = topo.contains(event.target);
 
-    if (!clicouNoTopo) {
-      fecharMenu();
-    }
-  });
+      if (!clicouNoTopo) {
+        fecharMenu();
+      }
+    });
 
+    /* VOLTAR AO DESKTOP */
 
-  /* ===============================================
-     VOLTAR AO DESKTOP
-  =============================================== */
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > larguraMenuCompacto) {
-      fecharMenu();
-    }
-  });
-}
-
-
-/* =====================================================
-   CABEÇALHO INTELIGENTE
-===================================================== */
-
-if (topo) {
-  let ultimaPosicao = window.scrollY;
-  let aguardandoFrame = false;
-
-  /*
-    Evita que movimentos muito pequenos do scroll
-    façam o cabeçalho aparecer e desaparecer.
-  */
-
-  const tolerancia = 5;
-
-  /*
-    Perto do início da página,
-    o cabeçalho permanece sempre visível.
-  */
-
-  const inicioScroll = 100;
-
-  topo.addEventListener("focusin", () => {
-    topo.classList.remove("topo-oculto");
-  });
-
-
-  function controlarTopo() {
-    const posicaoAtual = window.scrollY;
-
-
-    /* ===============================================
-       MENU MOBILE ABERTO
-    =============================================== */
-
-    if (
-      topo.classList.contains("menu-aberto") ||
-      topo.contains(document.activeElement)
-    ) {
-      topo.classList.remove("topo-oculto");
-
-      ultimaPosicao = posicaoAtual;
-      aguardandoFrame = false;
-
-      return;
-    }
-
-
-    /* ===============================================
-       PERTO DO TOPO
-    =============================================== */
-
-    if (posicaoAtual <= inicioScroll) {
-      topo.classList.remove("topo-oculto");
-      topo.classList.remove("topo-scroll");
-
-      ultimaPosicao = posicaoAtual;
-      aguardandoFrame = false;
-
-      return;
-    }
-
-
-    /* ===============================================
-       CABEÇALHO FLUTUANDO
-    =============================================== */
-
-    topo.classList.add("topo-scroll");
-
-
-    /* ===============================================
-       DIFERENÇA DO SCROLL
-    =============================================== */
-
-    const diferenca =
-      posicaoAtual - ultimaPosicao;
-
-
-    /* ===============================================
-       IGNORA MOVIMENTOS PEQUENOS
-    =============================================== */
-
-    if (Math.abs(diferenca) < tolerancia) {
-      aguardandoFrame = false;
-
-      return;
-    }
-
-
-    /* ===============================================
-       DESCENDO
-    =============================================== */
-
-    if (diferenca > 0) {
-      topo.classList.add("topo-oculto");
-    }
-
-
-    /* ===============================================
-       SUBINDO
-    =============================================== */
-
-    else {
-      topo.classList.remove("topo-oculto");
-    }
-
-
-    ultimaPosicao = posicaoAtual;
-    aguardandoFrame = false;
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > larguraMenuCompacto) {
+        fecharMenu();
+      }
+    });
   }
 
+  /* CABEÇALHO INTELIGENTE */
 
-  /* ===============================================
-     EVENTO DE SCROLL
-  =============================================== */
+  if (topo) {
+    let ultimaPosicao = window.scrollY;
+    let aguardandoFrame = false;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!aguardandoFrame) {
-        window.requestAnimationFrame(
-          controlarTopo,
-        );
+    /*
+      Evita que movimentos muito pequenos do scroll
+      façam o cabeçalho aparecer e desaparecer.
+    */
 
-        aguardandoFrame = true;
+    const tolerancia = 5;
+
+    /*
+      Perto do início da página,
+      o cabeçalho permanece sempre visível.
+    */
+
+    const inicioScroll = 100;
+
+    topo.addEventListener("focusin", () => {
+      topo.classList.remove("topo-oculto");
+    });
+
+    function controlarTopo() {
+      const posicaoAtual = window.scrollY;
+
+      /* MENU MOBILE ABERTO */
+
+      if (
+        topo.classList.contains("menu-aberto") ||
+        topo.contains(document.activeElement)
+      ) {
+        topo.classList.remove("topo-oculto");
+
+        ultimaPosicao = posicaoAtual;
+        aguardandoFrame = false;
+
+        return;
       }
-    },
-    {
-      passive: true,
-    },
-  );
-}
+
+      /* PERTO DO TOPO */
+
+      if (posicaoAtual <= inicioScroll) {
+        topo.classList.remove("topo-oculto");
+        topo.classList.remove("topo-scroll");
+
+        ultimaPosicao = posicaoAtual;
+        aguardandoFrame = false;
+
+        return;
+      }
+
+      /* CABEÇALHO FLUTUANDO */
+
+      topo.classList.add("topo-scroll");
+
+      /* DIFERENÇA DO SCROLL */
+
+      const diferenca =
+        posicaoAtual - ultimaPosicao;
+
+      /* IGNORA MOVIMENTOS PEQUENOS */
+
+      if (Math.abs(diferenca) < tolerancia) {
+        aguardandoFrame = false;
+
+        return;
+      }
+
+      /* DESCENDO */
+
+      if (diferenca > 0) {
+        topo.classList.add("topo-oculto");
+      }
+
+      /* SUBINDO */
+
+      else {
+        topo.classList.remove("topo-oculto");
+      }
+
+      ultimaPosicao = posicaoAtual;
+      aguardandoFrame = false;
+    }
+
+    /* EVENTO DE SCROLL */
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!aguardandoFrame) {
+          window.requestAnimationFrame(
+            controlarTopo,
+          );
+
+          aguardandoFrame = true;
+        }
+      },
+      {
+        passive: true,
+      },
+    );
+  }
+})();

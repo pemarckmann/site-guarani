@@ -6,6 +6,18 @@ const fontesDados = {
   elenco: "dados/elenco.json",
 };
 
+function criarElemento(tag, classe, texto) {
+  const node = document.createElement(tag);
+  if (classe) node.className = classe;
+  if (texto !== undefined) node.textContent = texto;
+  return node;
+}
+
+function paginaDaURL(parametros) {
+  const numero = Number(parametros.get("pagina") || 1);
+  return Number.isSafeInteger(numero) && numero > 0 ? numero : 1;
+}
+
 async function carregarDados(url) {
   if (window.location.protocol === "file:") {
     throw new Error("Abra o site por um servidor local para carregar os dados JSON.");

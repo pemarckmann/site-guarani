@@ -4,6 +4,8 @@ Edite o conteúdo nestes arquivos JSON, sem alterar os scripts de apresentação
 
 - `noticias.json`: lista de notícias usada na Home, na lista e na leitura completa.
 - `desempenho.json`: jogos e classificação gerados pelo scraper, separados por categoria.
+- `elenco.json`: relação pública de atletas e comissão técnica, preparada pelo exportador.
+- `elenco-complementos.json`: nomes, setores e outros dados editoriais preservados entre exportações.
 
 As notícias atuais são demonstrativas. O desempenho é lido do arquivo produzido pelo
 scraper; sua coleta e publicação ainda não estão integradas à AWS.
@@ -90,9 +92,7 @@ As imagens preferidas ficam em `escudos-locais/assets/otimizadas/` e também ent
 no pacote da Lambda. Ao substituir um escudo do site, atualize essa cópia no scraper
 para que as próximas exportações e a Lambda usem a mesma versão.
 
-## Testar localmente
-
-### Elenco profissional
+## Elenco profissional
 
 A Home apresenta atletas e comissão técnica em uma única fileira circular,
 com nome e posição ou cargo sobre a foto. O link “Ver elenco completo” abre a
@@ -129,6 +129,8 @@ posições extraídas automaticamente das súmulas. O exportador os reaplica ao 
 Mateus de Britto Pereira (CBF 805805), conforme o complemento enviado.
 Os complementos também guardam `nome_completo`, `idade`, `posicao` e
 `numero_referencia`, sem substituir o histórico de números das súmulas.
+`foto` pode apontar para um arquivo em `assets/` ou uma URL HTTP(S); quando informado
+no complemento, tem prioridade sobre a foto do scraper e sobrevive à próxima exportação.
 O card prioriza esse número de referência e usa o último registro quando ele falta.
 `atletas_adicionais` permite incluir atletas editoriais sem registro CBF, com um
 `id` estável começando por `editorial-` (Diogo Cruz, por exemplo), sem inventar um
@@ -145,10 +147,13 @@ Para outro arquivo, use `--entrada caminho/arquivo.json`. O original é mantido 
 e está no `.gitignore`, pois contém caminhos de PDFs do computador. A versão pública
 preserva os dados usados na página e remove os históricos com esses caminhos.
 O script mantém os registros CBF como identificadores e rejeita duplicatas.
+Complementos com campos inválidos são rejeitados antes de substituir o arquivo público.
 Fotos futuras usam `foto_local` começando por `assets/` ou `foto_original_url` HTTP(S).
 Sem foto ou se ela falhar, o card exibe a silhueta. Nomes completos aparecem quando
 informados no complemento (`nome_completo`) ou confirmados pela fonte
 (`nome_completo_fgf: true` ou `nome_cbf` preenchido).
+
+## Heroes e carregamento
 
 O hero de Notícias usa a notícia mais recente; `destaque: true` permite escolher
 uma matéria. Se houver mais de um destaque, usa o mais recente. A foto respeita
@@ -162,10 +167,10 @@ atuais, sem uma segunda fonte de dados.
 Notícias e Jogos antecipam o JSON com `preload` no HTML. Ao trocar a URL da fonte
 em `js/dados.js` pela API, atualize também esse link no HTML.
 O carregamento dos JSONs tem limite de 15 segundos; em caso de falha, Notícias e
-Jogos oferecem “Tentar novamente”. Os scripts dessas páginas e `css/heroes.css`
-usam uma versão na URL (`?v=...`) para evitar arquivos antigos em cache. Ao alterar
-esses arquivos, atualize a versão nas duas páginas (o valor atual é parte do SHA-256
-do arquivo), especialmente antes de publicar.
+Jogos oferecem “Tentar novamente”. CSS e JavaScript usam uma versão na URL
+(`?v=...`) para evitar arquivos antigos em cache. Após alterar esses arquivos,
+execute `python scripts/atualizar-versoes.py` na raiz do projeto. O comando
+atualiza todas as páginas com parte do SHA-256 dos arquivos.
 As notícias podem fornecer `imagem.hero` com `src`, `largura`, `altura` e uma
 variante `mobile` com os mesmos campos. O hero escolhe a versão conforme a tela;
 sem variante, usa `imagem.src`. Os cards e a leitura conservam a imagem original.
@@ -174,6 +179,8 @@ gere suas variantes novamente ou remova `imagem.hero` para usar a nova original.
 Os logos conhecidos da FGF têm cópias pequenas cadastradas em
 `logosCompeticoesOtimizados` no frontend. A correspondência usa a URL de origem,
 e uma falha na cópia pequena tenta o caminho original recebido no JSON.
+
+## Página de jogos
 
 A página `jogos.html` usa o mesmo `desempenho.json` da Home, sem duplicar os dados.
 Ela oferece filtros por categoria e status e paginação de oito partidas. Agendadas
@@ -185,6 +192,8 @@ pontos, jogos, vitórias, empates, derrotas e saldo de gols. A fase e o grupo
 identificam a tabela, mesmo durante o mata-mata. Estatísticas ausentes aparecem
 como “—”. No celular, a tabela permite rolagem horizontal dentro do próprio quadro.
 A aba selecionada também fica na URL (`aba=classificacao`).
+
+## Testar localmente
 
 O carregamento usa `fetch`, então abra o site por um servidor HTTP local.
 No terminal, dentro da pasta do projeto, execute:

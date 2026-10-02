@@ -1,3 +1,6 @@
 # Entrada do scraper com caminhos locais de PDFs. O site usa dados/elenco.json.
 /dados/elenco-profissional-2026-parcial.json
 __pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db

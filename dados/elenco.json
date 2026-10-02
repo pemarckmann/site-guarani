@@ -757,16 +757,16 @@
     },
     {
       "id": "editorial-diogo-cruz",
-      "nome_exibicao": "Diogo Cruz",
-      "nome_completo": "Diogo Cruz",
-      "grupo": "defensores",
-      "ordem": 11,
-      "idade": 20,
-      "posicao": "Lateral",
-      "numero_referencia": 16,
       "registro_cbf": null,
       "nome": "Diogo Cruz",
       "foto": null,
+      "nome_exibicao": "Diogo Cruz",
+      "grupo": "defensores",
+      "ordem": 11,
+      "nome_completo": "Diogo Cruz",
+      "idade": 20,
+      "posicao": "Lateral",
+      "numero_referencia": 16,
       "fonte_grupo": "editorial",
       "fonte_complemento": "editorial"
     }

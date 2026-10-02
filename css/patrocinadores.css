@@ -1,0 +1,156 @@
+/* Marcas dos apoiadores do clube. */
+.patrocinadores {
+  padding: 75px 0 80px;
+  background-color: #181818;
+  color: white;
+  border-top: 3px solid #b30018;
+}
+
+.patrocinadores-topo {
+  margin-bottom: 55px;
+}
+
+.patrocinadores-topo h2 {
+  margin: 5px 0 0;
+  font-size: 34px;
+}
+
+.patrocinadores-grupo {
+  text-align: center;
+}
+
+.patrocinadores-grupo-titulo {
+  margin: 0 0 35px;
+  color: #e31b36;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.patrocinadores-master-grid {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+}
+
+.patrocinador-master-logo {
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patrocinador-master-logo img {
+  width: auto;
+  max-height: 115px;
+  object-fit: contain;
+}
+
+.patrocinadores-divisor {
+  height: 1px;
+  margin: 55px 0;
+  background-color: #303030;
+}
+
+.patrocinadores-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 65px;
+}
+
+.patrocinador-logo {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patrocinador-logo img {
+  width: auto;
+  max-height: 78px;
+  object-fit: contain;
+}
+
+.patrocinador-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+  transform 0.2s ease,
+  opacity 0.2s ease;
+}
+
+.patrocinador-link img {
+  transition:
+  transform 0.2s ease,
+  opacity 0.2s ease;
+}
+
+.patrocinador-link:hover {
+  transform: translateY(-5px);
+}
+
+.patrocinador-link:hover img {
+  transform: scale(1.03);
+  opacity: 0.82;
+}
+
+.patrocinador-link:focus-visible {
+  outline: 2px solid #e31b36;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+@media (max-width: 700px) {
+.patrocinadores {
+  padding: 55px 0 60px;
+}
+
+.patrocinadores-topo {
+  margin-bottom: 40px;
+}
+
+.patrocinadores-topo h2 {
+  font-size: 29px;
+}
+
+.patrocinadores-grupo-titulo {
+  margin-bottom: 25px;
+}
+
+.patrocinadores-master-grid,
+.patrocinadores-grid {
+  max-width: 280px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.patrocinador-master-logo {
+  height: 110px;
+}
+
+.patrocinador-master-logo img {
+  max-height: 90px;
+}
+
+.patrocinadores-divisor {
+  margin: 40px 0;
+}
+
+.patrocinador-logo {
+  height: 80px;
+}
+
+.patrocinador-logo img {
+  max-height: 65px;
+}
+}
+
+@media (max-width: 450px) {
+.patrocinadores-master-grid,
+.patrocinadores-grid {
+  max-width: 240px;
+}
+}

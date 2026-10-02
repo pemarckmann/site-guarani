@@ -1,0 +1,778 @@
+/* Partidas e resumo de classificacao. */
+.proximo-jogo {
+  position: relative;
+  z-index: 5;
+  margin-top: -55px;
+  padding: 0 0 40px;
+  background-color: transparent;
+}
+
+.jogo-card {
+  display: grid;
+  grid-template-columns:
+  190px
+  minmax(0, 1fr)
+  180px;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.jogo-titulo {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #111;
+  color: white;
+}
+
+.logo-competicao {
+  width: 115px;
+  height: auto;
+  margin: 0 auto 18px;
+  align-self: center;
+  object-fit: contain;
+}
+
+.jogo-titulo span {
+  margin-bottom: 6px;
+  color: #e31b36;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.jogo-titulo strong {
+  font-size: 16px;
+}
+
+.jogo-titulo small {
+  margin-top: 3px;
+  color: #ddd;
+  font-size: 12px;
+}
+
+.jogo-times {
+  min-width: 0;
+  padding: 48px 28px 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 38px;
+}
+
+.time {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.time img {
+  width: 90px;
+  height: 90px;
+  margin: 0 0 10px;
+  object-fit: contain;
+}
+
+.time strong {
+  display: block;
+  max-width: 150px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.time-categoria {
+  margin-top: 5px;
+  color: #b30018;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.versus {
+  width: 46px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #666;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.jogo-info {
+  min-width: 0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fafafa;
+  border-left: 1px solid #eee;
+}
+
+.jogo-info strong {
+  margin-bottom: 8px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.jogo-info .data-jogo {
+  display: block;
+  margin-top: 3px;
+  color: #b30018;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.jogo-info > span {
+  margin-top: 3px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.detalhes-jogo {
+  width: fit-content;
+  margin-top: 12px;
+  color: #b30018;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.detalhes-jogo:hover {
+  color: #e00020;
+}
+
+.desempenho {
+  padding: 20px 0 70px;
+  background-color: #f4f4f4;
+}
+
+.desempenho-topo {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.desempenho-topo h2 {
+  margin: 5px 0 0;
+  color: #111;
+  font-size: 30px;
+}
+
+.desempenho-categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.desempenho-categoria label {
+  color: #777;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.desempenho-categoria select {
+  min-width: 170px;
+  padding: 11px 38px 11px 15px;
+  background-color: white;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.desempenho-categoria select:focus {
+  border-color: #b30018;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(179, 0, 24, 0.1);
+}
+
+.desempenho-grid {
+  display: grid;
+  grid-template-columns:
+  minmax(0, 1.1fr)
+  minmax(380px, 0.9fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.painel-esportivo {
+  min-width: 0;
+  height: 100%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.painel-esportivo-topo {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.painel-esportivo-topo h3 {
+  margin: 5px 0 0;
+  color: #111;
+  font-size: 24px;
+}
+
+.painel-link {
+  flex-shrink: 0;
+  color: #b30018;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.painel-link:hover {
+  color: #e00020;
+}
+
+.ultimos-jogos-lista {
+  overflow: hidden;
+  border: 1px solid #eee;
+  border-radius: 7px;
+}
+
+.ultimo-jogo {
+  min-height: 125px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns:
+  120px
+  minmax(0, 1fr)
+  90px;
+  gap: 18px;
+  align-items: center;
+}
+
+.ultimo-jogo + .ultimo-jogo {
+  border-top: 1px solid #eee;
+}
+
+.ultimo-jogo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ultimo-jogo-info strong {
+  font-size: 14px;
+}
+
+.ultimo-jogo-info span,
+.ultimo-jogo-info small {
+  color: #777;
+  font-size: 11px;
+}
+
+.ultimo-jogo-confronto {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.ultimo-jogo-time {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.ultimo-jogo-time img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ultimo-jogo-time span {
+  min-height: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.ultimo-jogo-placar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.ultimo-jogo-placar strong {
+  color: #111;
+  font-size: 27px;
+}
+
+.ultimo-jogo-placar span {
+  color: #777;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.resultado {
+  padding: 7px 10px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.resultado-agendado {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.resultado-vitoria {
+  background-color: #e6f6eb;
+  color: #16883d;
+}
+
+.resultado-empate {
+  background-color: #eee;
+  color: #666;
+}
+
+.resultado-derrota {
+  background-color: #fde8ea;
+  color: #b30018;
+}
+
+.classificacao-cabecalho,
+.classificacao-linha {
+  display: grid;
+  grid-template-columns:
+  50px
+  minmax(0, 1fr)
+  45px;
+  gap: 12px;
+  align-items: center;
+}
+
+.classificacao-cabecalho {
+  flex-shrink: 0;
+  padding: 0 13px 10px;
+  color: #888;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.classificacao-cabecalho span:last-child {
+  text-align: right;
+}
+
+.classificacao-lista {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.classificacao-linha {
+  flex: 1 1 0;
+  min-height: 45px;
+  padding: 9px 13px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+}
+
+.classificacao-linha > strong:last-child {
+  text-align: right;
+}
+
+.classificacao-guarani {
+  margin: 3px 0;
+  background-color: #fff1f3;
+  color: #b30018;
+  border: 1px solid #e31b36;
+  border-radius: 5px;
+}
+
+.classificacao-time-guarani {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.classificacao-time-guarani img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
+.desempenho-fonte {
+  margin: 16px 0 0;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.classificacao-contexto,
+.classificacao-resumo {
+  margin: 8px 0 0;
+  color: #555;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.classificacao-resumo {
+  margin-top: 15px;
+}
+
+.ultimo-jogo-info .partida-confronto {
+  color: #555;
+  font-weight: bold;
+}
+
+.jogo-card > .desempenho-aviso,
+.jogo-card > noscript {
+  grid-column: 1 / -1;
+}
+
+.ultimo-jogo-marcador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 5px;
+}
+
+.ultimo-jogo-penaltis {
+  color: #555;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.escudo-indisponivel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #eee;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.time .escudo-indisponivel {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.classificacao-time-guarani .escudo-indisponivel {
+  width: 27px;
+  height: 27px;
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+.jogo-card {
+  grid-template-columns:
+  170px
+  minmax(0, 1fr)
+  170px;
+}
+
+.jogo-times {
+  padding: 50px 10px 30px;
+  gap: 14px;
+}
+
+.time {
+  width: 110px;
+}
+
+.time img {
+  width: 65px;
+  height: 65px;
+}
+
+.versus {
+  width: 32px;
+  height: 65px;
+  font-size: 25px;
+}
+
+.desempenho-grid {
+  grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 700px) {
+.proximo-jogo {
+  margin-top: -30px;
+  padding-bottom: 35px;
+}
+
+.jogo-card {
+  grid-template-columns: 1fr;
+}
+
+.jogo-titulo {
+  padding: 20px 18px;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-competicao {
+  width: 85px;
+  margin-bottom: 14px;
+}
+
+.jogo-titulo strong {
+  font-size: 15px;
+}
+
+.jogo-times {
+  padding: 24px 10px;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.time {
+  width: 100px;
+}
+
+.time img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.time strong {
+  font-size: 13px;
+}
+
+.time-categoria {
+  font-size: 10px;
+}
+
+.versus {
+  width: 30px;
+  height: 60px;
+  font-size: 24px;
+}
+
+.jogo-info {
+  padding: 20px;
+  align-items: center;
+  border-left: 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.desempenho {
+  padding: 15px 0 55px;
+}
+
+.desempenho-topo {
+  margin-bottom: 20px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.desempenho-topo h2 {
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.desempenho-categoria {
+  width: 100%;
+  gap: 5px;
+}
+
+.desempenho-categoria select {
+  width: 100%;
+  min-height: 44px;
+}
+
+.painel-esportivo {
+  padding: 22px 18px;
+}
+
+.painel-esportivo-topo {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.painel-esportivo-topo h3 {
+  font-size: 22px;
+}
+
+.ultimo-jogo {
+  min-height: 0;
+  padding: 18px 12px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.ultimo-jogo-info {
+  align-items: center;
+  text-align: center;
+}
+
+.ultimo-jogo-info strong {
+  font-size: 13px;
+}
+
+.ultimo-jogo-info span,
+.ultimo-jogo-info small {
+  font-size: 11px;
+}
+
+.ultimo-jogo-confronto {
+  gap: 12px;
+}
+
+.ultimo-jogo-time {
+  width: 95px;
+}
+
+.ultimo-jogo-time img {
+  width: 52px;
+  height: 52px;
+}
+
+.ultimo-jogo-time span {
+  min-height: 28px;
+  font-size: 12px;
+}
+
+.ultimo-jogo-placar {
+  gap: 7px;
+}
+
+.ultimo-jogo-placar strong {
+  font-size: 25px;
+}
+
+.resultado {
+  width: 100px;
+  justify-self: center;
+}
+
+.classificacao-cabecalho,
+.classificacao-linha {
+  grid-template-columns:
+  46px
+  minmax(0, 1fr)
+  40px;
+  gap: 10px;
+}
+
+.classificacao-linha {
+  min-height: 48px;
+  padding: 9px 11px;
+  font-size: 12px;
+}
+
+.classificacao-time-guarani {
+  gap: 7px;
+}
+
+.classificacao-time-guarani img {
+  width: 24px;
+  height: 24px;
+}
+}
+
+@media (max-width: 450px) {
+.proximo-jogo {
+  margin-top: -22px;
+}
+
+.logo-competicao {
+  width: 78px;
+}
+
+.jogo-times {
+  gap: 4px;
+}
+
+.time {
+  width: 88px;
+}
+
+.time img {
+  width: 54px;
+  height: 54px;
+}
+
+.versus {
+  width: 26px;
+  height: 54px;
+}
+
+.desempenho-topo h2 {
+  font-size: 24px;
+}
+
+.painel-esportivo {
+  padding: 20px 15px;
+}
+
+.ultimo-jogo-confronto {
+  gap: 6px;
+}
+
+.ultimo-jogo-time {
+  width: 85px;
+}
+
+.ultimo-jogo-time img {
+  width: 48px;
+  height: 48px;
+}
+
+.classificacao-cabecalho,
+.classificacao-linha {
+  grid-template-columns:
+  42px
+  minmax(0, 1fr)
+  38px;
+  gap: 8px;
+}
+
+.classificacao-linha {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+}

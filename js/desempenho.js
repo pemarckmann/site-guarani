@@ -1,6 +1,4 @@
-/* =====================================================
-   DESEMPENHO POR CATEGORIA
-===================================================== */
+/* DESEMPENHO POR CATEGORIA */
 
 const seletorCategoria =
   document.querySelector(
@@ -161,12 +159,7 @@ function penaltisValidos(jogo) {
     jogo.mandantePenaltis !== jogo.visitantePenaltis;
 }
 
-
-
-
-/* =====================================================
-   CRIAR JOGO
-===================================================== */
+/* CRIAR JOGO */
 
 function escaparHTML(valor) {
   const entidades = {
@@ -242,7 +235,6 @@ function criarJogo(jogo) {
 
       </div>
 
-
       <div class="ultimo-jogo-confronto">
 
         <div class="ultimo-jogo-time">
@@ -259,7 +251,6 @@ function criarJogo(jogo) {
           </span>
 
         </div>
-
 
         <div class="ultimo-jogo-marcador">
           <div class="ultimo-jogo-placar">
@@ -280,7 +271,6 @@ function criarJogo(jogo) {
           ${penaltis ? `<small class="ultimo-jogo-penaltis">Pênaltis: ${jogo.mandantePenaltis} × ${jogo.visitantePenaltis}</small>` : ""}
         </div>
 
-
         <div class="ultimo-jogo-time">
 
           <img
@@ -298,7 +288,6 @@ function criarJogo(jogo) {
 
       </div>
 
-
       <span
         class="resultado ${classeResultado}"
       >
@@ -309,10 +298,7 @@ function criarJogo(jogo) {
   `;
 }
 
-
-/* =====================================================
-   CRIAR LINHA DA CLASSIFICAÇÃO
-===================================================== */
+/* CRIAR LINHA DA CLASSIFICAÇÃO */
 
 function criarLinhaClassificacao(time) {
   /*
@@ -329,7 +315,6 @@ function criarLinhaClassificacao(time) {
           ${escaparHTML(time.posicao)}
         </strong>
 
-
         <div class="classificacao-time-guarani">
 
           <img
@@ -345,7 +330,6 @@ function criarLinhaClassificacao(time) {
 
         </div>
 
-
         <strong>
           ${escaparHTML(time.pontos)}
         </strong>
@@ -353,7 +337,6 @@ function criarLinhaClassificacao(time) {
       </div>
     `;
   }
-
 
   /*
     Demais clubes.
@@ -528,10 +511,7 @@ function atualizarMetadados(dados) {
   }
 }
 
-
-/* =====================================================
-   ATUALIZAR DESEMPENHO
-===================================================== */
+/* ATUALIZAR DESEMPENHO */
 
 function atualizarDesempenho(dados, chaveCategoria) {
   if (!dados) {
@@ -541,10 +521,7 @@ function atualizarDesempenho(dados, chaveCategoria) {
   const jogos = jogosEmDestaque(dados.jogos);
   const classificacao = classificacaoEmDestaque(dados.classificacao);
 
-
-  /* ===============================================
-     TÍTULOS
-  =============================================== */
+  /* TÍTULOS */
 
   categoriaJogos.textContent =
     dados.categoria;
@@ -556,20 +533,14 @@ function atualizarDesempenho(dados, chaveCategoria) {
     tituloJogos.textContent = "Últimos jogos";
   }
 
-
-  /* ===============================================
-     JOGOS
-  =============================================== */
+  /* JOGOS */
 
   listaUltimosJogos.innerHTML =
     jogos
       .map(criarJogo)
       .join("") || '<p class="desempenho-aviso">Nenhum resultado disponível no momento.</p>';
 
-
-  /* ===============================================
-     CLASSIFICAÇÃO
-  =============================================== */
+  /* CLASSIFICAÇÃO */
 
   listaClassificacao.innerHTML =
     classificacao
@@ -583,10 +554,7 @@ function atualizarDesempenho(dados, chaveCategoria) {
   prepararEscudos(listaUltimosJogos);
   prepararEscudos(listaClassificacao);
 
-
-  /* ===============================================
-     LINKS
-  =============================================== */
+  /* LINKS */
 
   if (linkTabelaCompleta) {
     linkTabelaCompleta.href =
@@ -599,10 +567,7 @@ function atualizarDesempenho(dados, chaveCategoria) {
   }
 }
 
-
-/* =====================================================
-   EVENTO DA COMBOBOX
-===================================================== */
+/* EVENTO DA COMBOBOX */
 
 if (
   seletorCategoria &&

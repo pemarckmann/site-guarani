@@ -5,8 +5,49 @@ import os
 from pathlib import Path
 import re
 import tempfile
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
+GRUPOS = {"goleiros", "defensores", "meio-campistas", "atacantes"}
+
+
+def texto_valido(valor):
+    return isinstance(valor, str) and bool(valor.strip())
+
+
+def inteiro_valido(valor, minimo):
+    return type(valor) is int and valor >= minimo
+
+
+def foto_publica(valor):
+    if not texto_valido(valor) or "\\" in valor:
+        return None
+    if valor.startswith("assets/") and ".." not in valor.split("/"):
+        return valor
+    url = urlsplit(valor)
+    return valor if url.scheme in {"http", "https"} and url.netloc else None
+
+
+def validar_complemento(extra):
+    if not isinstance(extra, dict) or extra.get("grupo") not in GRUPOS or not texto_valido(extra.get("nome_exibicao")):
+        raise ValueError("Complemento de atleta inválido.")
+    for chave, minimo in (("ordem", 0), ("idade", 1), ("numero_referencia", 1)):
+        if extra.get(chave) is not None and not inteiro_valido(extra[chave], minimo):
+            raise ValueError(f"Campo {chave} inválido no complemento.")
+    for chave in ("nome_completo", "posicao"):
+        if extra.get(chave) is not None and not texto_valido(extra[chave]):
+            raise ValueError(f"Campo {chave} inválido no complemento.")
+    if extra.get("foto") is not None and not foto_publica(extra["foto"]):
+        raise ValueError("A foto do complemento precisa de um endereço público.")
+
+
+def aplicar_complemento(atleta, extra):
+    validar_complemento(extra)
+    campos = ("nome_exibicao", "grupo", "ordem", "nome_completo", "idade", "posicao", "numero_referencia")
+    atleta.update({chave: extra[chave] for chave in campos if chave in extra})
+    if extra.get("foto") is not None:
+        atleta["foto"] = foto_publica(extra["foto"])
+    atleta.update({"fonte_grupo": "editorial", "fonte_complemento": "editorial"})
 
 
 def main():
@@ -24,6 +65,8 @@ def main():
               "identidade_conflitante", "posicao", "numero_recente", "numeros_usados",
               "aparicoes_sumulas")
     for atleta in origem:
+        if not isinstance(atleta, dict):
+            raise ValueError("Cada atleta da entrada deve ser um objeto.")
         registro = atleta.get("registro_cbf")
         if not isinstance(registro, str) or not re.fullmatch(r"\d+", registro) or registro in registros:
             raise ValueError("Registro de atleta inválido ou duplicado.")
@@ -35,42 +78,49 @@ def main():
         # Fotos precisam de um endereço público, não de caminhos do computador.
         local = atleta.get("foto_local")
         remoto = atleta.get("foto_original_url")
-        resumo["foto"] = local if isinstance(local, str) and local.startswith("assets/") and ".." not in local.split("/") else (
-            remoto if isinstance(remoto, str) and remoto.startswith(("https://", "http://")) else None)
+        resumo["foto"] = foto_publica(local) or foto_publica(remoto)
         atletas.append(resumo)
     temporadas = {atleta.get("temporada") for atleta in origem}
     categorias = {atleta.get("categoria") for atleta in origem}
     if len(temporadas) != 1 or len(categorias) != 1:
         raise ValueError("A entrada deve conter uma única categoria e temporada.")
-    dados = {"categoria": categorias.pop(), "temporada": temporadas.pop(),
+    temporada, categoria = temporadas.pop(), categorias.pop()
+    if not inteiro_valido(temporada, 1900) or not texto_valido(categoria):
+        raise ValueError("Categoria ou temporada inválida.")
+    dados = {"categoria": categoria, "temporada": temporada,
              "parcial": any(atleta.get("coleta_completa") is not True for atleta in origem),
              "fonte": "FGF", "atletas": atletas}
     if args.complementos.exists():
         complemento = json.loads(args.complementos.read_text(encoding="utf-8-sig"))
+        if not isinstance(complemento, dict) or not isinstance(complemento.get("atletas", {}), dict):
+            raise ValueError("Os complementos devem conter um objeto de atletas.")
         if complemento.get("categoria") != dados["categoria"] or complemento.get("temporada") != dados["temporada"]:
             raise ValueError("Os complementos devem corresponder à categoria e temporada da entrada.")
-        grupos = {"goleiros", "defensores", "meio-campistas", "atacantes"}
+        for extra in complemento.get("atletas", {}).values():
+            validar_complemento(extra)
         for atleta in atletas:
             extra = complemento.get("atletas", {}).get(atleta["registro_cbf"])
             if extra:
-                if extra.get("grupo") not in grupos or not isinstance(extra.get("nome_exibicao"), str) or not extra["nome_exibicao"].strip():
-                    raise ValueError("Complemento de atleta inválido.")
-                atleta.update({chave: extra[chave] for chave in ("nome_exibicao", "grupo", "ordem", "nome_completo", "idade", "posicao", "numero_referencia") if chave in extra})
-                atleta["fonte_grupo"] = "editorial"
-                atleta["fonte_complemento"] = "editorial"
-        for extra in complemento.get("atletas_adicionais", []):
+                aplicar_complemento(atleta, extra)
+        adicionais = complemento.get("atletas_adicionais", [])
+        if not isinstance(adicionais, list):
+            raise ValueError("Atletas adicionais devem ser uma lista.")
+        for extra in adicionais:
+            validar_complemento(extra)
             identificador = extra.get("id")
             if not isinstance(identificador, str) or not re.fullmatch(r"editorial-[a-z0-9-]+", identificador):
                 raise ValueError("Identificador editorial inválido.")
             if identificador in registros or extra.get("registro_cbf") is not None:
                 raise ValueError("Atleta editorial duplicado ou com registro CBF não associado.")
-            if extra.get("grupo") not in grupos or not isinstance(extra.get("nome_exibicao"), str) or not extra["nome_exibicao"].strip():
-                raise ValueError("Complemento de atleta adicional inválido.")
             registros.add(identificador)
-            resumo = {chave: extra[chave] for chave in ("id", "nome_exibicao", "nome_completo", "grupo", "ordem", "idade", "posicao", "numero_referencia") if chave in extra}
-            resumo.update({"registro_cbf": None, "nome": extra.get("nome_completo") or extra["nome_exibicao"],
-                           "foto": None, "fonte_grupo": "editorial", "fonte_complemento": "editorial"})
+            resumo = {"id": identificador, "registro_cbf": None,
+                      "nome": extra.get("nome_completo") or extra["nome_exibicao"], "foto": None}
+            aplicar_complemento(resumo, extra)
             atletas.append(resumo)
+        comissao = complemento.get("comissao_tecnica", [])
+        if not isinstance(comissao, list) or any(not isinstance(pessoa, dict) or
+                not texto_valido(pessoa.get("nome")) or not texto_valido(pessoa.get("cargo")) for pessoa in comissao):
+            raise ValueError("A comissão deve conter nomes e cargos válidos.")
         dados["clube"] = complemento.get("clube")
         dados["comissao_tecnica"] = complemento.get("comissao_tecnica", [])
         dados["complemento_fonte"] = complemento.get("fonte")
@@ -89,4 +139,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (ValueError, OSError) as erro:
+        raise SystemExit(f"Não foi possível exportar o elenco: {erro}") from erro

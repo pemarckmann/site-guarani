@@ -9,13 +9,6 @@
 
   const formatador = new Intl.DateTimeFormat("pt-BR");
 
-  function elemento(tag, classe, texto) {
-    const node = document.createElement(tag);
-    if (classe) node.className = classe;
-    if (texto !== undefined) node.textContent = texto;
-    return node;
-  }
-
   function endereco(noticia) {
     const parametros = new URLSearchParams({ id: noticia.id });
     if (lista) {
@@ -40,11 +33,6 @@
       noticia.paragrafos.every(textoValido);
   }
 
-  function paginaDaURL(parametros) {
-    const numero = Number(parametros.get("pagina") || 1);
-    return Number.isSafeInteger(numero) && numero > 0 ? numero : 1;
-  }
-
   if (leitura) {
     const voltar = document.querySelector(".noticia-voltar");
     const origem = new URLSearchParams(window.location.search);
@@ -56,7 +44,7 @@
   }
 
   function imagem(noticia, prioridade = false, usarHero = false) {
-    const moldura = elemento("div", "noticia-imagem");
+    const moldura = criarElemento("div", "noticia-imagem");
     const img = document.createElement("img");
     if (prioridade) img.fetchPriority = "high";
     if (!usarHero) img.src = noticia.imagem.src;
@@ -73,10 +61,10 @@
   }
 
   function metadados(noticia) {
-    const meta = elemento("div", "noticia-meta");
-    const data = elemento("time", "", formatador.format(new Date(`${noticia.data}T12:00:00`)));
+    const meta = criarElemento("div", "noticia-meta");
+    const data = criarElemento("time", "", formatador.format(new Date(`${noticia.data}T12:00:00`)));
     data.dateTime = noticia.data;
-    meta.append(elemento("span", "noticia-categoria", noticia.categoria), data);
+    meta.append(criarElemento("span", "noticia-categoria", noticia.categoria), data);
     return meta;
   }
 
@@ -84,19 +72,19 @@
     const principal = formato === "principal";
     const arquivo = formato === "arquivo";
     const classe = arquivo ? "noticia-arquivo-card" : principal ? "noticia-principal" : "noticia-menor";
-    const article = elemento("article", `noticia-card ${classe}`);
+    const article = criarElemento("article", `noticia-card ${classe}`);
     const prefixo = arquivo ? "arquivo" : "home";
-    const titulo = elemento(arquivo ? "h2" : "h3");
+    const titulo = criarElemento(arquivo ? "h2" : "h3");
     titulo.id = `${prefixo}-${noticia.id}-titulo`;
     article.setAttribute("aria-labelledby", titulo.id);
-    const link = elemento("a", "noticia-card-link");
+    const link = criarElemento("a", "noticia-card-link");
     link.href = endereco(noticia);
     link.setAttribute("aria-labelledby", titulo.id);
     titulo.textContent = noticia.titulo;
-    const conteudo = elemento("div", "noticia-conteudo");
+    const conteudo = criarElemento("div", "noticia-conteudo");
     conteudo.append(metadados(noticia), titulo);
     if (principal || arquivo) {
-      conteudo.append(elemento("p", "noticia-resumo", noticia.resumo));
+      conteudo.append(criarElemento("p", "noticia-resumo", noticia.resumo));
     }
     link.append(imagem(noticia), conteudo);
     article.append(link);
@@ -108,12 +96,12 @@
     home.classList.remove("noticias-grid-unica");
     const recentes = noticias.slice(0, LIMITE_HOME);
     if (!recentes.length) {
-      home.append(elemento("p", "noticias-estado", "Novas notícias em breve."));
+      home.append(criarElemento("p", "noticias-estado", "Novas notícias em breve."));
       return;
     }
     home.append(card(recentes[0], "principal"));
     if (recentes.length > 1) {
-      const laterais = elemento("div", "noticias-laterais");
+      const laterais = criarElemento("div", "noticias-laterais");
       recentes.slice(1).forEach(noticia => laterais.append(card(noticia, "menor")));
       home.append(laterais);
     } else {
@@ -166,7 +154,7 @@
       contagem.textContent = filtradas.length
         ? `${inicio + 1}–${inicio + visiveis.length} de ${filtradas.length} ${filtradas.length === 1 ? "notícia" : "notícias"}`
         : "Nenhuma notícia disponível.";
-      if (!visiveis.length) lista.append(elemento("p", "noticias-estado", "Novas notícias em breve."));
+      if (!visiveis.length) lista.append(criarElemento("p", "noticias-estado", "Novas notícias em breve."));
       paginacao.hidden = paginas <= 1;
       anterior.disabled = pagina === 1;
       proxima.disabled = pagina === paginas;
@@ -223,15 +211,15 @@
     }
     img.fetchPriority = "high";
     if (noticia.imagem.foco) img.style.objectPosition = noticia.imagem.foco;
-    const container = elemento("div", "container");
-    const conteudo = elemento("div", "noticia-hero-conteudo");
-    const tituloPagina = elemento("h1", "", "Notícias do Guarani");
+    const container = criarElemento("div", "container");
+    const conteudo = criarElemento("div", "noticia-hero-conteudo");
+    const tituloPagina = criarElemento("h1", "", "Notícias do Guarani");
     tituloPagina.id = "noticias-titulo";
-    const titulo = elemento("h2", "", noticia.titulo);
+    const titulo = criarElemento("h2", "", noticia.titulo);
     titulo.id = "noticia-hero-titulo";
-    const link = elemento("a", "hero-botao", "Ler notícia");
+    const link = criarElemento("a", "hero-botao", "Ler notícia");
     link.href = endereco(noticia);
-    conteudo.append(elemento("span", "secao-tag", "FIQUE POR DENTRO"), tituloPagina, metadados(noticia), titulo, elemento("p", "", noticia.resumo), link);
+    conteudo.append(criarElemento("span", "secao-tag", "FIQUE POR DENTRO"), tituloPagina, metadados(noticia), titulo, criarElemento("p", "", noticia.resumo), link);
     container.append(conteudo);
     hero.replaceChildren(foto, container);
     hero.setAttribute("aria-labelledby", tituloPagina.id);
@@ -242,21 +230,21 @@
     const id = new URLSearchParams(window.location.search).get("id");
     const noticia = noticias.find(item => item.id === id);
     if (!noticia) {
-      leitura.append(elemento("h1", "", "Notícia não encontrada"));
-      leitura.append(elemento("p", "noticias-estado", "Use o link acima para escolher uma notícia disponível."));
+      leitura.append(criarElemento("h1", "", "Notícia não encontrada"));
+      leitura.append(criarElemento("p", "noticias-estado", "Use o link acima para escolher uma notícia disponível."));
       return;
     }
     document.title = `${noticia.titulo} | Esporte Clube Guarani`;
-    const titulo = elemento("h1", "", noticia.titulo);
+    const titulo = criarElemento("h1", "", noticia.titulo);
     titulo.id = "noticia-titulo";
     leitura.setAttribute("aria-labelledby", titulo.id);
-    leitura.append(metadados(noticia), titulo, elemento("p", "noticia-introducao", noticia.resumo));
+    leitura.append(metadados(noticia), titulo, criarElemento("p", "noticia-introducao", noticia.resumo));
     if (noticia.demonstrativa) {
-      leitura.append(elemento("p", "noticias-aviso", "Conteúdo demonstrativo para apresentação do site."));
+      leitura.append(criarElemento("p", "noticias-aviso", "Conteúdo demonstrativo para apresentação do site."));
     }
     leitura.append(imagem(noticia, true));
-    const texto = elemento("div", "noticia-texto");
-    noticia.paragrafos.forEach(paragrafo => texto.append(elemento("p", "", paragrafo)));
+    const texto = criarElemento("div", "noticia-texto");
+    noticia.paragrafos.forEach(paragrafo => texto.append(criarElemento("p", "", paragrafo)));
     leitura.append(texto);
   }
 
@@ -267,7 +255,7 @@
   }
 
   const destino = home || lista || leitura;
-  const estado = elemento("p", "noticias-estado", "Carregando notícias…");
+  const estado = criarElemento("p", "noticias-estado", "Carregando notícias…");
   estado.setAttribute("role", "status");
   destino.replaceChildren(estado);
 

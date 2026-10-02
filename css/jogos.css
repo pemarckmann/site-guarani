@@ -1,48 +1,250 @@
-.jogos-filtros { justify-content: flex-start; }
-.jogos-filtros p { margin-left: auto; }
-.jogos-contexto { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; }
-.jogos-contexto h2 { font-size: 20px; }
-.jogos-contexto a { color: #b30018; font-size: 13px; font-weight: bold; white-space: nowrap; }
-.jogos-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.jogos-lista .ultimo-jogo { grid-template-columns: minmax(0, 1fr) auto; padding: 20px; gap: 16px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; }
-.jogos-lista .ultimo-jogo-info { grid-column: 1; grid-row: 1; }
-.jogos-lista .ultimo-jogo-info strong { font-size: 15px; }
-.jogos-lista .ultimo-jogo-info span, .jogos-lista .ultimo-jogo-info small { font-size: 12px; }
-.jogos-lista .resultado { grid-column: 2; grid-row: 1; max-width: 120px; }
-.jogos-lista .ultimo-jogo-confronto { grid-column: 1 / -1; grid-row: 2; gap: 20px; }
-.jogos-lista .ultimo-jogo-time { width: 120px; max-width: 35%; }
-.jogos-lista .ultimo-jogo-time img { width: 52px; height: 52px; }
-.jogos-lista .ultimo-jogo-time span { font-size: 13px; overflow-wrap: anywhere; }
-.jogos-lista .desempenho-aviso { grid-column: 1 / -1; }
-.jogos-atualizacao { color: #777; font-size: 12px; margin-top: 24px; }
-.jogos-filtros select:focus-visible, .pagina-jogos button:focus-visible { outline: 2px solid #b30018; outline-offset: 3px; }
-.jogos-abas { display: flex; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid #ddd; }
-.jogos-abas button { padding: 12px 0; background: transparent; border: 0; border-bottom: 3px solid transparent; color: #666; font: inherit; font-weight: bold; cursor: pointer; }
-.jogos-abas button[aria-selected="true"] { color: #b30018; border-bottom-color: #b30018; }
-.classificacao-rolagem { overflow-x: auto; border: 1px solid #ddd; border-radius: 8px; background: white; }
-.classificacao-rolagem:focus-visible { outline: 2px solid #b30018; outline-offset: 3px; }
-.classificacao-completa { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 14px; }
-.classificacao-completa caption { padding: 14px 16px; text-align: left; font-weight: bold; }
-.classificacao-completa th, .classificacao-completa td { padding: 12px 14px; text-align: center; border-top: 1px solid #eee; }
-.classificacao-completa thead th { background: #f5f5f5; color: #555; font-size: 12px; }
-.classificacao-completa th:nth-child(2) { text-align: left; }
-.classificacao-completa tbody th { font-weight: normal; }
-.classificacao-completa tbody tr:nth-child(even) { background: #fafafa; }
-.classificacao-completa tbody tr.classificacao-destaque { background: #fff0f2; border-left: 3px solid #b30018; }
-.classificacao-completa .classificacao-destaque th, .classificacao-completa td:nth-child(3) { font-weight: bold; }
-.classificacao-clube { display: flex; align-items: center; gap: 10px; min-width: 165px; }
-.classificacao-clube img, .classificacao-clube .escudo-indisponivel { width: 28px; height: 32px; object-fit: contain; flex-shrink: 0; }
-.classificacao-legenda { margin-top: 12px; font-size: 12px; color: #666; line-height: 1.7; }
-.pagina-jogos [hidden] { display: none; }
-@media (max-width: 800px) {
-  .jogos-lista { grid-template-columns: minmax(0, 1fr); }
-  .jogos-filtros p { width: 100%; margin-left: 0; }
+/* Estilos da pagina. */
+.jogos-filtros {
+  justify-content: flex-start;
 }
+
+.jogos-filtros p {
+  margin-left: auto;
+}
+
+.jogos-contexto {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.jogos-contexto h2 {
+  font-size: 20px;
+}
+
+.jogos-contexto a {
+  color: #b30018;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.jogos-lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.jogos-lista .ultimo-jogo {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 20px;
+  gap: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.jogos-lista .ultimo-jogo-info {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.jogos-lista .ultimo-jogo-info strong {
+  font-size: 15px;
+}
+
+.jogos-lista .ultimo-jogo-info span,
+.jogos-lista .ultimo-jogo-info small {
+  font-size: 12px;
+}
+
+.jogos-lista .resultado {
+  grid-column: 2;
+  grid-row: 1;
+  max-width: 120px;
+}
+
+.jogos-lista .ultimo-jogo-confronto {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  gap: 20px;
+}
+
+.jogos-lista .ultimo-jogo-time {
+  width: 120px;
+  max-width: 35%;
+}
+
+.jogos-lista .ultimo-jogo-time img {
+  width: 52px;
+  height: 52px;
+}
+
+.jogos-lista .ultimo-jogo-time span {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.jogos-lista .desempenho-aviso {
+  grid-column: 1 / -1;
+}
+
+.jogos-atualizacao {
+  color: #777;
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+.jogos-filtros select:focus-visible,
+.pagina-jogos button:focus-visible {
+  outline: 2px solid #b30018;
+  outline-offset: 3px;
+}
+
+.jogos-abas {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.jogos-abas button {
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: #666;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.jogos-abas button[aria-selected="true"] {
+  color: #b30018;
+  border-bottom-color: #b30018;
+}
+
+.classificacao-rolagem {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.classificacao-rolagem:focus-visible {
+  outline: 2px solid #b30018;
+  outline-offset: 3px;
+}
+
+.classificacao-completa {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.classificacao-completa caption {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.classificacao-completa th,
+.classificacao-completa td {
+  padding: 12px 14px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.classificacao-completa thead th {
+  background: #f5f5f5;
+  color: #555;
+  font-size: 12px;
+}
+
+.classificacao-completa th:nth-child(2) {
+  text-align: left;
+}
+
+.classificacao-completa tbody th {
+  font-weight: normal;
+}
+
+.classificacao-completa tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.classificacao-completa tbody tr.classificacao-destaque {
+  background: #fff0f2;
+  border-left: 3px solid #b30018;
+}
+
+.classificacao-completa .classificacao-destaque th,
+.classificacao-completa td:nth-child(3) {
+  font-weight: bold;
+}
+
+.classificacao-clube {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 165px;
+}
+
+.classificacao-clube img,
+.classificacao-clube .escudo-indisponivel {
+  width: 28px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.classificacao-legenda {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.pagina-jogos [hidden] {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .jogos-lista {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .jogos-filtros p {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 480px) {
-  .jogos-filtros label { width: 100%; justify-content: space-between; }
-  .jogos-filtros select { width: 65%; max-width: none; }
-  .jogos-contexto { flex-direction: column; gap: 8px; }
-  .jogos-lista .ultimo-jogo { padding: 16px; gap: 14px 8px; }
-  .jogos-lista .resultado { max-width: 95px; padding: 6px 8px; }
-  .jogos-lista .ultimo-jogo-confronto { gap: 12px; }
+  .jogos-filtros label {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .jogos-filtros select {
+    width: 65%;
+    max-width: none;
+  }
+
+  .jogos-contexto {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .jogos-lista .ultimo-jogo {
+    padding: 16px;
+    gap: 14px 8px;
+  }
+
+  .jogos-lista .resultado {
+    max-width: 95px;
+    padding: 6px 8px;
+  }
+
+  .jogos-lista .ultimo-jogo-confronto {
+    gap: 12px;
+  }
 }

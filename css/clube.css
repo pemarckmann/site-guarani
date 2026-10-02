@@ -1,0 +1,552 @@
+/* Historia, estadio e informacoes institucionais. */
+.pagina-clube {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.clube-pagina-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.clube-pagina-hero-fundo {
+  position: absolute;
+  inset: 0;
+  background:
+  linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.76) 0%,
+  rgba(0, 0, 0, 0.48) 42%,
+  rgba(0, 0, 0, 0.14) 72%,
+  rgba(0, 0, 0, 0.04) 100%
+  ),
+  url("../assets/otimizadas/heroes/hero-clube-comissao.webp");
+  background-size: cover;
+  background-position: center 32%;
+}
+
+.clube-pagina-hero-conteudo {
+  position: relative;
+  z-index: 2;
+  padding: 120px 0 75px;
+  color: white;
+}
+
+.clube-pagina-hero h1 {
+  margin: 8px 0 15px;
+  font-size: 46px;
+}
+
+.clube-pagina-hero p {
+  max-width: 620px;
+  margin: 0;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.titulos .titulo-secao {
+  margin-bottom: 45px;
+}
+
+.clube-historia {
+  padding: 90px 0;
+  background-color: white;
+}
+
+.historia-grid {
+  display: grid;
+  grid-template-columns:
+  minmax(0, 1.55fr)
+  minmax(280px, 0.65fr);
+  gap: 85px;
+  align-items: center;
+}
+
+.historia-texto p {
+  margin: 0 0 22px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+}
+
+.historia-texto .destaque-vermelho {
+  color: #b30018;
+  font-weight: bold;
+}
+
+.historia-destaque {
+  min-height: 360px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  border-radius: 8px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.15);
+}
+
+.historia-destaque img {
+  width: 130px;
+  margin-bottom: 30px;
+}
+
+.historia-destaque strong {
+  color: white;
+  font-size: 48px;
+}
+
+.historia-destaque span {
+  margin-top: 8px;
+  color: #999;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.linha-tempo {
+  padding: 90px 0;
+  background-color: #181818;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.timeline-item {
+  min-height: 230px;
+  padding: 30px;
+  background-color: #212121;
+  border-top: 3px solid #b30018;
+  border-radius: 6px;
+}
+
+.timeline-ano {
+  display: block;
+  margin-bottom: 25px;
+  color: #e31b36;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.timeline-item h3 {
+  margin: 0 0 10px;
+  color: white;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.estadio {
+  padding: 90px 0;
+}
+
+.estadio-card {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+}
+
+.estadio-imagem {
+  min-height: 420px;
+}
+
+.estadio-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.estadio-conteudo {
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.estadio-conteudo h3 {
+  margin: 5px 0 15px;
+  font-size: 30px;
+}
+
+.estadio-conteudo > p {
+  margin: 0 0 30px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.estadio-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.estadio-infos > div {
+  padding-left: 15px;
+  border-left: 3px solid #b30018;
+}
+
+.estadio-infos strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.estadio-infos span {
+  color: #888;
+  font-size: 12px;
+}
+
+.titulos {
+  padding: 90px 0;
+  background-color: white;
+}
+
+.titulos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.titulo-card {
+  position: relative;
+  min-height: 220px;
+  padding: 35px;
+  overflow: hidden;
+  background-color: #111;
+  border-radius: 8px;
+  transition:
+  transform 0.2s,
+  box-shadow 0.2s,
+  background-color 0.2s;
+}
+
+.titulo-card:hover {
+  background-color: #171717;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.titulo-ano {
+  display: block;
+  margin-bottom: 25px;
+  color: #e31b36;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.titulo-trofeu {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  color: #d6ae2d;
+  font-size: 42px;
+}
+
+.titulo-card h3 {
+  max-width: 440px;
+  margin: 0 0 12px;
+  color: white;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.titulo-card h3 small {
+  display: block;
+  margin-top: 5px;
+  color: #bbb;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.titulo-card p {
+  margin: 0;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.clube-institucional {
+  padding: 0 0 100px;
+  background-color: white;
+}
+
+.institucional-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.institucional-card {
+  min-height: 300px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.institucional-card h2 {
+  margin: 5px 0 15px;
+  font-size: 28px;
+}
+
+.institucional-card > p {
+  margin: 0 0 25px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.diretoria-lista {
+  margin: 10px 0 0;
+}
+
+.diretoria-lista > div {
+  padding: 12px 0;
+  display: grid;
+  grid-template-columns:
+  minmax(180px, 0.9fr)
+  minmax(0, 1.1fr);
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.diretoria-lista > div:last-child {
+  border-bottom: 0;
+}
+
+.diretoria-lista dt {
+  color: #777;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.diretoria-lista dd {
+  margin: 0;
+  color: #222;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.institucional-card-escuro {
+  background-color: #181818;
+}
+
+.institucional-card-escuro h2 {
+  color: white;
+}
+
+.institucional-card-escuro > p {
+  color: #aaa;
+}
+
+.hino-player {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.hino-player iframe {
+  display: block;
+  width: 100%;
+  height: 166px;
+  border: 0;
+}
+
+.hino-soundcloud-link {
+  width: fit-content;
+  margin-top: 15px;
+  color: #e31b36;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hino-soundcloud-link:hover {
+  color: white;
+}
+
+.hino-letra {
+  width: 100%;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #333;
+}
+
+.hino-letra-cabecalho {
+  margin-bottom: 20px;
+}
+
+.hino-letra-cabecalho h3 {
+  margin: 5px 0 0;
+  color: white;
+  font-size: 20px;
+}
+
+.hino-letra-conteudo {
+  padding-left: 18px;
+  border-left: 3px solid #b30018;
+}
+
+.hino-letra-conteudo p {
+  margin: 0 0 18px;
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.hino-letra-conteudo p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+.clube-pagina-hero h1 {
+  font-size: 40px;
+}
+
+.historia-grid {
+  gap: 40px;
+}
+
+.timeline {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.estadio-card {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.diretoria-lista > div {
+  grid-template-columns: 150px 1fr;
+}
+}
+
+@media (max-width: 700px) {
+.clube-pagina-hero {
+  min-height: 350px;
+}
+
+.clube-pagina-hero-fundo {
+  background-position: 56% center;
+}
+
+.clube-pagina-hero-conteudo {
+  padding: 90px 0 55px;
+}
+
+.clube-pagina-hero h1 {
+  font-size: 32px;
+}
+
+.clube-pagina-hero p {
+  font-size: 15px;
+}
+
+.clube-historia,
+.linha-tempo,
+.estadio,
+.titulos {
+  padding: 65px 0;
+}
+
+.historia-grid,
+.timeline,
+.estadio-card,
+.titulos-grid,
+.institucional-grid {
+  grid-template-columns: 1fr;
+}
+
+.historia-grid {
+  gap: 35px;
+}
+
+.historia-texto p {
+  font-size: 15px;
+}
+
+.historia-destaque {
+  min-height: 280px;
+}
+
+.timeline-item {
+  min-height: 0;
+}
+
+.estadio-imagem {
+  min-height: 260px;
+}
+
+.estadio-conteudo {
+  padding: 30px 25px;
+}
+
+.titulo-card {
+  min-height: 200px;
+}
+
+.diretoria-lista > div {
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.clube-institucional {
+  padding-bottom: 70px;
+}
+}
+
+@media (max-width: 450px) {
+.clube-pagina-hero h1 {
+  font-size: 28px;
+}
+
+.historia-destaque img {
+  width: 110px;
+}
+
+.historia-destaque strong {
+  font-size: 40px;
+}
+
+.timeline-item,
+.titulo-card {
+  padding: 25px;
+}
+
+.titulo-trofeu {
+  top: 22px;
+  right: 22px;
+  font-size: 34px;
+}
+
+.titulo-card h3 {
+  font-size: 20px;
+}
+
+.institucional-card {
+  padding: 30px 25px;
+}
+}

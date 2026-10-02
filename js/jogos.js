@@ -23,8 +23,7 @@
       : Object.hasOwn(dados, "profissional") ? "profissional" : Object.keys(dados)[0];
     status.value = ["agendado", "encerrado"].includes(parametros.get("status"))
       ? parametros.get("status") : "todos";
-    const numero = Number(parametros.get("pagina") || 1);
-    pagina = Number.isSafeInteger(numero) && numero > 0 ? numero : 1;
+    pagina = paginaDaURL(parametros);
     aba = parametros.get("aba") === "classificacao" ? "classificacao" : "partidas";
   }
 
@@ -107,8 +106,7 @@
     else url.searchParams.set("status", status.value);
     if (pagina === 1) url.searchParams.delete("pagina");
     else url.searchParams.set("pagina", pagina);
-    if (navegacao) history.pushState(null, "", url);
-    else history.replaceState(null, "", url);
+    if (url.href !== location.href) history[navegacao ? "pushState" : "replaceState"](null, "", url);
   }
 
   async function iniciar() {
