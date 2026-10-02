@@ -41,7 +41,7 @@
         1
       ],
       "aparicoes_sumulas": 8,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/guilherme-prezzi.webp",
       "nome_exibicao": "Prezzi",
       "grupo": "goleiros",
       "ordem": 0,
@@ -67,7 +67,7 @@
         18
       ],
       "aparicoes_sumulas": 9,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/matheus-nolasco-de-oliveira-silva.webp",
       "nome_exibicao": "Matheus Nolasco",
       "grupo": "meio-campistas",
       "ordem": 4,
@@ -91,7 +91,7 @@
       ],
       "aparicoes_sumulas": 6,
       "foto": null,
-      "nome_exibicao": "Gabriel Nereia",
+      "nome_exibicao": "Nereia",
       "grupo": "defensores",
       "ordem": 0,
       "nome_completo": null,
@@ -114,7 +114,7 @@
         17
       ],
       "aparicoes_sumulas": 9,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/lissandro-carlotto-schultz.webp",
       "nome_exibicao": "Lissandro",
       "grupo": "meio-campistas",
       "ordem": 1,
@@ -187,7 +187,7 @@
         18
       ],
       "aparicoes_sumulas": 9,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/jonathan-rafael-batista-floriano.webp",
       "nome_exibicao": "Noninha",
       "grupo": "atacantes",
       "ordem": 0,
@@ -212,7 +212,7 @@
         15
       ],
       "aparicoes_sumulas": 7,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/yuri-kevem-dos-santos-pereira-cruz.webp",
       "nome_exibicao": "Yuri Kevem",
       "grupo": "meio-campistas",
       "ordem": 0,
@@ -261,7 +261,7 @@
         12
       ],
       "aparicoes_sumulas": 8,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/joao-vitor-stein-braga.webp",
       "nome_exibicao": "João Braga",
       "grupo": "goleiros",
       "ordem": 1,
@@ -334,7 +334,7 @@
         3
       ],
       "aparicoes_sumulas": 8,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/vinicius-henrique-benedito-da-silva.webp",
       "nome_exibicao": "Vinícius Silva",
       "grupo": "defensores",
       "ordem": 1,
@@ -483,7 +483,7 @@
         17
       ],
       "aparicoes_sumulas": 7,
-      "foto": null,
+      "foto": "assets/otimizadas/elenco/mateus-lourenco-de-souza-soler.webp",
       "nome_exibicao": "Mateus Soler",
       "grupo": "meio-campistas",
       "ordem": 3,
@@ -758,12 +758,12 @@
     {
       "id": "editorial-diogo-cruz",
       "registro_cbf": null,
-      "nome": "Diogo Cruz",
-      "foto": null,
+      "nome": "Diogo Sack da Cruz",
+      "foto": "assets/otimizadas/elenco/diogo-sack-da-cruz.webp",
       "nome_exibicao": "Diogo Cruz",
       "grupo": "defensores",
       "ordem": 11,
-      "nome_completo": "Diogo Cruz",
+      "nome_completo": "Diogo Sack da Cruz",
       "idade": 20,
       "posicao": "Lateral",
       "numero_referencia": 16,

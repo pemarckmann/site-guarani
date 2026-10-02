@@ -6,6 +6,7 @@
     "304356": {
       "nome_exibicao": "Prezzi",
       "nome_completo": "Guilherme Prezzi",
+      "foto": "assets/otimizadas/elenco/guilherme-prezzi.webp",
       "idade": 30,
       "posicao": "Goleiro",
       "numero_referencia": 1,
@@ -15,6 +16,7 @@
     "555420": {
       "nome_exibicao": "João Braga",
       "nome_completo": "João Vitor Stein Braga",
+      "foto": "assets/otimizadas/elenco/joao-vitor-stein-braga.webp",
       "idade": 24,
       "posicao": "Goleiro",
       "numero_referencia": 12,
@@ -40,7 +42,7 @@
       "ordem": 3
     },
     "330571": {
-      "nome_exibicao": "Gabriel Nereia",
+      "nome_exibicao": "Nereia",
       "nome_completo": null,
       "idade": 29,
       "posicao": "Defensor",
@@ -51,6 +53,7 @@
     "599053": {
       "nome_exibicao": "Vinícius Silva",
       "nome_completo": "Vinicius Henrique Benedito da Silva",
+      "foto": "assets/otimizadas/elenco/vinicius-henrique-benedito-da-silva.webp",
       "idade": 27,
       "posicao": "Zagueiro",
       "numero_referencia": 3,
@@ -123,6 +126,7 @@
     "548958": {
       "nome_exibicao": "Yuri Kevem",
       "nome_completo": "Yuri Kevem dos Santos Pereira Cruz",
+      "foto": "assets/otimizadas/elenco/yuri-kevem-dos-santos-pereira-cruz.webp",
       "idade": 21,
       "posicao": "Meio-campista",
       "numero_referencia": 5,
@@ -132,6 +136,7 @@
     "436067": {
       "nome_exibicao": "Lissandro",
       "nome_completo": "Lissandro Carlotto Schultz",
+      "foto": "assets/otimizadas/elenco/lissandro-carlotto-schultz.webp",
       "idade": 27,
       "posicao": "Meio-campista",
       "numero_referencia": 8,
@@ -150,6 +155,7 @@
     "650309": {
       "nome_exibicao": "Mateus Soler",
       "nome_completo": "Mateus Lourenço de Souza Soler",
+      "foto": "assets/otimizadas/elenco/mateus-lourenco-de-souza-soler.webp",
       "idade": 21,
       "posicao": "Volante / Meio-campista",
       "numero_referencia": 17,
@@ -159,6 +165,7 @@
     "311794": {
       "nome_exibicao": "Matheus Nolasco",
       "nome_completo": "Matheus Nolasco de Oliveira Silva",
+      "foto": "assets/otimizadas/elenco/matheus-nolasco-de-oliveira-silva.webp",
       "idade": 31,
       "posicao": "Meia-atacante",
       "numero_referencia": 18,
@@ -177,6 +184,7 @@
     "533165": {
       "nome_exibicao": "Noninha",
       "nome_completo": "Jonathan Rafael Batista Floriano",
+      "foto": "assets/otimizadas/elenco/jonathan-rafael-batista-floriano.webp",
       "idade": 26,
       "posicao": "Atacante",
       "numero_referencia": 7,
@@ -255,7 +263,8 @@
       "id": "editorial-diogo-cruz",
       "registro_cbf": null,
       "nome_exibicao": "Diogo Cruz",
-      "nome_completo": "Diogo Cruz",
+      "nome_completo": "Diogo Sack da Cruz",
+      "foto": "assets/otimizadas/elenco/diogo-sack-da-cruz.webp",
       "idade": 20,
       "posicao": "Lateral",
       "numero_referencia": 16,

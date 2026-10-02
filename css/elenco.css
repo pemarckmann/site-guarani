@@ -255,9 +255,19 @@
   position: absolute;
   top: 12px;
   right: 14px;
-  color: #ffadb9;
-  font-size: 30px;
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #990014;
+  color: #fff;
+  box-shadow: 0 2px 8px #0003;
+  font-size: 26px;
   font-weight: bold;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .pagina-elenco #elenco-fonte {
