@@ -558,12 +558,12 @@ function atualizarDesempenho(dados, chaveCategoria) {
 
   if (linkTabelaCompleta) {
     linkTabelaCompleta.href =
-      `jogos.html?categoria=${encodeURIComponent(chaveCategoria)}&aba=classificacao`;
+      `jogos.html?categoria=${encodeURIComponent(chaveCategoria)}&aba=classificacao#painel-classificacao`;
   }
 
   if (linkVerTodosJogos) {
     linkVerTodosJogos.href =
-      `jogos.html?categoria=${encodeURIComponent(chaveCategoria)}&status=encerrado`;
+      `jogos.html?categoria=${encodeURIComponent(chaveCategoria)}&status=encerrado#painel-partidas`;
   }
 }
 

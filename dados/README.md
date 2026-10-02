@@ -77,6 +77,8 @@ do Guarani, em ordem de posição. O trecho se ajusta quando o clube está perto
 do fim da tabela; sem o Guarani, aparecem os primeiros seis clubes. O aviso de resumo
 informa o total de clubes, e “Tabela completa” abre a aba Classificação da página Jogos
 na categoria selecionada.
+O endereço inclui `#painel-classificacao`: a página posiciona a tabela após
+carregar os dados, com espaço para o cabeçalho.
 A identificação da fonte e a data de atualização aparecem discretamente abaixo dos painéis.
 Estatísticas adicionais do scraper, como jogos, vitórias e saldo de gols, permanecem no
 JSON, mas não são colunas desse resumo. Escudos podem usar caminhos locais ou URLs HTTP(S).

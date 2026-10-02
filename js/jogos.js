@@ -24,7 +24,18 @@
     status.value = ["agendado", "encerrado"].includes(parametros.get("status"))
       ? parametros.get("status") : "todos";
     pagina = paginaDaURL(parametros);
-    aba = parametros.get("aba") === "classificacao" ? "classificacao" : "partidas";
+    aba = parametros.get("aba") === "classificacao" ||
+      (!parametros.has("aba") && location.hash === "#painel-classificacao") ? "classificacao" : "partidas";
+  }
+
+  function posicionarPainel() {
+    const seletor = `#painel-${aba}`;
+    if (location.hash !== seletor) return;
+    requestAnimationFrame(() => {
+      const painel = document.querySelector(seletor);
+      painel.scrollIntoView({ block: "start", behavior: "instant" });
+      painel.focus({ preventScroll: true });
+    });
   }
 
   function renderizarClassificacao(selecionada) {
@@ -102,6 +113,8 @@
     url.searchParams.set("categoria", categoria.value);
     if (classificacao) url.searchParams.set("aba", "classificacao");
     else url.searchParams.delete("aba");
+    if (["#painel-partidas", "#painel-classificacao"].includes(url.hash) &&
+      url.hash !== `#painel-${aba}`) url.hash = "";
     if (status.value === "todos") url.searchParams.delete("status");
     else url.searchParams.set("status", status.value);
     if (pagina === 1) url.searchParams.delete("pagina");
@@ -121,6 +134,7 @@
       }));
       lerURL();
       renderizar();
+      posicionarPainel();
       categoria.disabled = status.disabled = false;
       document.querySelector(".jogos-abas").hidden = false;
       abas.forEach((botao, indice) => {
@@ -150,7 +164,7 @@
       }
       anterior.addEventListener("click", () => mudarPagina(-1));
       proxima.addEventListener("click", () => mudarPagina(1));
-      window.addEventListener("popstate", () => { lerURL(); renderizar(); });
+      window.addEventListener("popstate", () => { lerURL(); renderizar(); posicionarPainel(); });
     } catch (erro) {
       const aviso = criarAvisoFalhaDados();
       lista.replaceChildren(aviso);

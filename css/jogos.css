@@ -1,4 +1,13 @@
 /* Estilos da pagina. */
+#painel-classificacao,
+#painel-partidas {
+  scroll-margin-top: 100px;
+}
+
+#painel-classificacao:focus,
+#painel-partidas:focus {
+  outline: none;
+}
 .jogos-filtros {
   justify-content: flex-start;
 }
