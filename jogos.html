@@ -36,17 +36,17 @@
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
     <link rel="preload" href="dados/desempenho.json" as="fetch" type="application/json" crossorigin="anonymous" fetchpriority="high" />
 
-    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
-    <link rel="stylesheet" href="css/desempenho.css?v=77c93312eb" />
-    <link rel="stylesheet" href="css/heroes.css?v=3d85c9bf6b" />
-    <link rel="stylesheet" href="css/jogos.css?v=5a7dfbd8ea" />
+    <link rel="stylesheet" href="css/style.css?v=6b9833e33c" />
+    <link rel="stylesheet" href="css/desempenho.css?v=727a6ce83d" />
+    <link rel="stylesheet" href="css/heroes.css?v=bcf7400906" />
+    <link rel="stylesheet" href="css/jogos.css?v=c3924b4cda" />
     <noscript>
-      <link rel="stylesheet" href="css/sem-js.css?v=7213ea1d48" />
+      <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
     <script src="js/script.js?v=830744ca94" defer></script>
     <script src="js/dados.js?v=16e7970543" defer></script>
-    <script src="js/desempenho.js?v=9f2b9f3d80" defer></script>
-    <script src="js/jogos.js?v=5f50a4acc0" defer></script>
+    <script src="js/desempenho.js?v=1ca5485bd3" defer></script>
+    <script src="js/jogos.js?v=3525b911cc" defer></script>
   </head>
 
   <body id="top">
@@ -60,6 +60,7 @@
           <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
             <img
               src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
               width="320"
               height="480"
               alt="Escudo do Esporte Clube Guarani"
@@ -151,9 +152,9 @@
       </section>
       <section class="noticias-arquivo" aria-label="Agenda e resultados">
         <div class="container">
-          <div class="jogos-abas" role="tablist" aria-label="Conteúdo dos jogos" hidden>
-            <button type="button" id="aba-partidas" role="tab" aria-controls="painel-partidas" aria-selected="true">Partidas</button>
-            <button type="button" id="aba-classificacao" role="tab" aria-controls="painel-classificacao" aria-selected="false" tabindex="-1">Classificação</button>
+          <div class="jogos-abas" role="tablist" aria-label="Conteúdo dos jogos">
+            <button type="button" disabled id="aba-partidas" role="tab" aria-controls="painel-partidas" aria-selected="true">Partidas</button>
+            <button type="button" disabled id="aba-classificacao" role="tab" aria-controls="painel-classificacao" aria-selected="false" tabindex="-1">Classificação</button>
           </div>
           <div class="noticias-ferramentas jogos-filtros" id="jogos-filtros">
             <label for="jogos-categoria">Categoria
@@ -206,10 +207,11 @@
         <div class="rodape-marca">
           <img
             src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
             width="320"
             height="480"
             alt="Escudo do Esporte Clube Guarani"
-          />
+          loading="lazy" decoding="async" />
 
           <div>
             <strong> Esporte Clube Guarani </strong>
@@ -257,7 +259,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Instagram </span>
           </a>
@@ -275,7 +277,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Facebook </span>
           </a>
@@ -293,7 +295,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> X </span>
           </a>

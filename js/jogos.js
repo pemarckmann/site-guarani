@@ -137,6 +137,7 @@
       posicionarPainel();
       categoria.disabled = status.disabled = false;
       document.querySelector(".jogos-abas").hidden = false;
+      abas.forEach(botao => { botao.disabled = false; });
       abas.forEach((botao, indice) => {
         botao.addEventListener("click", () => {
           aba = botao.id.replace("aba-", "");
@@ -169,7 +170,10 @@
       const aviso = criarAvisoFalhaDados();
       lista.replaceChildren(aviso);
       lista.setAttribute("aria-busy", "false");
-      if (destaqueProximoJogo) destaqueProximoJogo.replaceChildren(criarAvisoFalhaDados());
+      if (destaqueProximoJogo) {
+        destaqueProximoJogo.classList.add("jogo-card-sem-dados");
+        destaqueProximoJogo.replaceChildren(criarAvisoFalhaDados());
+      }
       console.error(erro);
     }
   }

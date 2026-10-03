@@ -40,7 +40,7 @@
 .jogo-titulo span {
   margin-bottom: 6px;
   color: #e31b36;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -89,7 +89,7 @@
 .time-categoria {
   margin-top: 5px;
   color: #b30018;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -177,7 +177,7 @@
 
 .desempenho-categoria label {
   color: #777;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -283,7 +283,7 @@
 .ultimo-jogo-info span,
 .ultimo-jogo-info small {
   color: #777;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .ultimo-jogo-confronto {
@@ -343,7 +343,7 @@
   padding: 7px 10px;
   text-align: center;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -383,7 +383,7 @@
   flex-shrink: 0;
   padding: 0 13px 10px;
   color: #888;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -442,7 +442,7 @@
 .classificacao-resumo {
   margin: 8px 0 0;
   color: #555;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -470,7 +470,7 @@
 
 .ultimo-jogo-penaltis {
   color: #555;
-  font-size: 10px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
@@ -498,7 +498,7 @@
 .classificacao-time-guarani .escudo-indisponivel {
   width: 27px;
   height: 27px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 @media (max-width: 900px) {
@@ -580,7 +580,7 @@
 }
 
 .time-categoria {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .versus {
@@ -655,7 +655,7 @@
 
 .ultimo-jogo-info span,
 .ultimo-jogo-info small {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .ultimo-jogo-confronto {
@@ -776,3 +776,11 @@
   padding-right: 9px;
 }
 }
+
+.proximo-jogo .jogo-card { min-height: 280px; }
+@media (max-width: 700px) {
+  .proximo-jogo .jogo-card { min-height: 485px; }
+}
+
+.proximo-jogo .jogo-card.jogo-card-sem-dados,
+.jogos-hero.jogo-card.jogo-card-sem-dados { min-height: 0; display: block; }

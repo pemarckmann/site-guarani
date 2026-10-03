@@ -37,7 +37,7 @@
 }
 
 .elenco-hero .secao-tag {
-  color: #ff6b80;
+  color: #b30018;
 }
 
 .elenco-hero h1 {
@@ -455,3 +455,7 @@
     text-decoration: underline;
   }
 }
+
+#elenco-carregando { position: absolute; }
+.reserva-elenco .carregamento-bloco { height: 100%; }
+.reserva-elenco .atleta-card { aspect-ratio: 2 / 3; }

@@ -88,7 +88,7 @@
   background-color: #fff1f3;
   color: #b30018;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   line-height: 1.3;
   letter-spacing: 0.4px;
@@ -181,7 +181,7 @@
   padding: 5px 9px;
   background-color: #b30018;
   color: white;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .noticia-principal time,
@@ -494,4 +494,16 @@
 .noticia-texto p {
   font-size: 16px;
 }
+}
+
+.noticia-reserva { min-height: 300px; border-radius: 6px; background: white; }
+.noticia-reserva .carregamento-bloco { height: 170px; }
+@media (max-width: 600px) {
+  .noticia-reserva { min-height: 132px; }
+  .noticia-reserva .carregamento-bloco { width: 96px; height: 132px; }
+}
+
+.noticias-ferramentas > p { min-height: 1.6em; min-width: 180px; }
+@media (max-width: 600px) {
+  .noticias-ferramentas > p { flex-basis: 100%; margin-left: 0; }
 }

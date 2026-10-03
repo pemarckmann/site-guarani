@@ -28,3 +28,8 @@
 .desempenho-categoria {
   display: none;
 }
+
+.reserva-elenco, .noticia-reserva, .hero-reserva-meta,
+.hero-reserva-titulo, #elenco-filtros,
+#noticias-ferramentas, .jogos-abas { display: none; }
+.proximo-jogo .jogo-card { min-height: 0; }

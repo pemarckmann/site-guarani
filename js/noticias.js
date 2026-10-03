@@ -43,18 +43,44 @@
     if (voltar && retorno.size) voltar.href = `noticias.html?${retorno}`;
   }
 
-  function imagem(noticia, prioridade = false, usarHero = false) {
+  function varianteValida(variante) {
+    return variante && urlDadosValida(variante.src) &&
+      [variante.largura, variante.altura].every(valor => Number.isInteger(valor) && valor > 0);
+  }
+
+  function imagem(noticia, prioridade = false, usarHero = false, tamanhos = "100vw") {
     const moldura = criarElemento("div", "noticia-imagem");
     const img = document.createElement("img");
     if (prioridade) img.fetchPriority = "high";
-    if (!usarHero) img.src = noticia.imagem.src;
     img.width = noticia.imagem.largura;
     img.height = noticia.imagem.altura;
     img.alt = noticia.imagem.alt;
     img.loading = prioridade ? "eager" : "lazy";
     img.decoding = "async";
-    if (!prioridade && noticia.imagem.foco) {
+    if ((!prioridade || usarHero) && noticia.imagem.foco) {
       img.style.objectPosition = noticia.imagem.foco;
+    }
+    const otimizada = usarHero ? noticia.imagem.hero : !prioridade ? noticia.imagem.miniatura : null;
+    if (varianteValida(otimizada)) {
+      img.width = otimizada.largura;
+      img.height = otimizada.altura;
+      const mobile = otimizada.mobile;
+      if (varianteValida(mobile) && mobile.largura < otimizada.largura) {
+        img.sizes = tamanhos;
+        img.srcset = `${mobile.src} ${mobile.largura}w, ${otimizada.src} ${otimizada.largura}w`;
+      }
+      img.addEventListener("error", () => {
+        img.removeAttribute("srcset");
+        img.removeAttribute("sizes");
+        img.width = noticia.imagem.largura;
+        img.height = noticia.imagem.altura;
+        if (usarHero) img.addEventListener("error", () => moldura.remove(), { once: true });
+        img.src = noticia.imagem.src;
+      }, { once: true });
+      img.src = otimizada.src;
+    } else {
+      if (usarHero) img.addEventListener("error", () => moldura.remove(), { once: true });
+      img.src = noticia.imagem.src;
     }
     moldura.append(img);
     return moldura;
@@ -86,7 +112,12 @@
     if (principal || arquivo) {
       conteudo.append(criarElemento("p", "noticia-resumo", noticia.resumo));
     }
-    link.append(imagem(noticia), conteudo);
+    const tamanhos = arquivo
+      ? "(max-width: 600px) 96px, (max-width: 1000px) 44vw, (max-width: 1333px) 29vw, 390px"
+      : principal
+        ? "(max-width: 450px) 92vw, (max-width: 900px) 90vw, (max-width: 1333px) 58vw, 763px"
+        : "(max-width: 450px) 92vw, (max-width: 600px) 90vw, (max-width: 900px) 44vw, (max-width: 1333px) 32vw, 424px";
+    link.append(imagem(noticia, false, false, tamanhos), conteudo);
     article.append(link);
     return article;
   }
@@ -125,6 +156,7 @@
     categorias.sort((a, b) => a.localeCompare(b, "pt-BR"));
     categorias.forEach(nome => categoria.add(new Option(nome, nome)));
     ferramentas.hidden = false;
+    categoria.disabled = false;
 
     function lerURL() {
       const parametros = new URLSearchParams(window.location.search);
@@ -181,45 +213,28 @@
     atualizar();
   }
 
+  function limparReservasHero() {
+    const hero = document.querySelector("#noticias-hero");
+    hero?.querySelectorAll(".hero-reserva-meta, .hero-reserva-titulo").forEach(node => node.remove());
+  }
+
   function mostrarHero(noticias) {
     const hero = document.querySelector("#noticias-hero");
     if (!hero) return;
     // As notícias já estão em ordem de data: o destaque mais recente tem prioridade.
     const noticia = noticias.find(item => item.destaque === true) || noticias[0];
-    if (!noticia) return;
+    if (!noticia) { limparReservasHero(); return; }
     const foto = imagem(noticia, true, true);
-    const img = foto.querySelector("img");
-    const otimizada = noticia.imagem.hero;
-    if (otimizada && urlDadosValida(otimizada.src) &&
-        [otimizada.largura, otimizada.altura].every(valor => Number.isInteger(valor) && valor > 0)) {
-      img.width = otimizada.largura;
-      img.height = otimizada.altura;
-      const mobile = otimizada.mobile;
-      if (mobile && urlDadosValida(mobile.src) && Number.isInteger(mobile.largura) && mobile.largura > 0) {
-        img.sizes = "100vw";
-        img.srcset = `${mobile.src} ${mobile.largura}w, ${otimizada.src} ${otimizada.largura}w`;
-      }
-      img.src = otimizada.src;
-      img.addEventListener("error", () => {
-        img.removeAttribute("srcset");
-        img.src = noticia.imagem.src;
-        img.addEventListener("error", () => foto.remove(), { once: true });
-      }, { once: true });
-    } else {
-      img.src = noticia.imagem.src;
-      img.addEventListener("error", () => foto.remove(), { once: true });
-    }
-    img.fetchPriority = "high";
-    if (noticia.imagem.foco) img.style.objectPosition = noticia.imagem.foco;
     const container = criarElemento("div", "container");
     const conteudo = criarElemento("div", "noticia-hero-conteudo");
     const tituloPagina = criarElemento("h1", "", "Notícias do Guarani");
     tituloPagina.id = "noticias-titulo";
-    const titulo = criarElemento("h2", "", noticia.titulo);
+    const titulo = criarElemento("h2");
     titulo.id = "noticia-hero-titulo";
-    const link = criarElemento("a", "hero-botao", "Ler notícia");
+    const link = criarElemento("a", "noticia-hero-link", noticia.titulo);
     link.href = endereco(noticia);
-    conteudo.append(criarElemento("span", "secao-tag", "FIQUE POR DENTRO"), tituloPagina, metadados(noticia), titulo, criarElemento("p", "", noticia.resumo), link);
+    titulo.append(link);
+    conteudo.append(criarElemento("span", "secao-tag", "FIQUE POR DENTRO"), tituloPagina, metadados(noticia), titulo, criarElemento("p", "", noticia.resumo));
     container.append(conteudo);
     hero.replaceChildren(foto, container);
     hero.setAttribute("aria-labelledby", tituloPagina.id);
@@ -305,14 +320,17 @@
   const destino = home || lista || leitura;
   const estado = criarElemento("p", "noticias-estado", "Carregando notícias…");
   estado.setAttribute("role", "status");
-  destino.replaceChildren(estado);
+  if (lista) { estado.classList.add("sr-only"); destino.append(estado); }
+  else destino.replaceChildren(estado);
 
   carregarNoticias().then(noticias => {
     if (home) mostrarHome(noticias);
-    if (lista) mostrarArquivo(noticias);
+    if (lista) { mostrarArquivo(noticias); lista.setAttribute("aria-busy", "false"); }
     if (leitura) mostrarLeitura(noticias);
   }).catch(erro => {
+    limparReservasHero();
     destino.replaceChildren(criarAvisoFalhaDados());
+    destino.setAttribute("aria-busy", "false");
     console.error(erro);
   });
 })();

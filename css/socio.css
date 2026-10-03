@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-image: url("../assets/otimizadas/heroes/hero-socio-torcida.webp");
+  background-image: url("../assets/otimizadas/heroes/hero-socio-torcida-desktop.webp");
   background-size: cover;
   background-position: 44% 30%;
   color: white;
@@ -101,7 +101,7 @@
   background-color: rgba(125, 216, 255, 0.12);
   color: #7dd8ff;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -435,4 +435,8 @@
 .socio-chamada h2 {
   font-size: 25px;
 }
+}
+
+@media (max-width: 700px) {
+  .socio-hero { background-image: url("../assets/otimizadas/heroes/hero-socio-torcida-mobile.webp"); }
 }

@@ -17,6 +17,12 @@ Cada notícia contém:
 - `titulo`, `resumo`, `categoria` e `data`: data no formato `YYYY-MM-DD`.
 - `imagem`: `src`, `largura`, `altura`, `alt` e `foco`.
 - `foco`: enquadramento da miniatura, por exemplo `50% 15%`; a leitura preserva a imagem inteira.
+- `imagem.miniatura` e `imagem.hero`: versões WebP opcionais para os cards e o destaque.
+  Cada uma tem `src`, `largura`, `altura` e uma variante menor em `mobile`, com os
+  mesmos campos. O navegador escolhe conforme o tamanho exibido e a densidade da tela.
+  Os cards atuais usam imagens de 480 e 960 pixels em `assets/otimizadas/noticias/`.
+  Ao trocar a foto, atualize ou remova essas variantes para não mostrar a imagem antiga.
+  Sem variantes, ou se elas falharem, o site usa `imagem.src`.
 - `paragrafos`: lista de textos da matéria.
 - `demonstrativa`: `true` para exemplos; use `false` em notícias oficiais revisadas.
 
@@ -204,6 +210,13 @@ Abra `http://127.0.0.1:8000/`. Para encerrar o servidor, pressione `Ctrl + C` no
 O Live Server do VS Code também serve para testar. Abrir o HTML por `file://` não carrega os JSONs.
 
 ## Integração futura com a AWS
+
+Os escudos revisados manualmente continuam tendo prioridade. As imagens
+coletadas que já foram otimizadas têm um mapa `escudosOtimizados` em
+`js/desempenho.js`, apontando para `assets/otimizadas/escudos/`. Uma coleta nova
+com outro caminho funciona diretamente; para reduzir seu peso, gere uma variante
+WebP sem ampliar a imagem e inclua o caminho no mapa. Preserve o original como
+alternativa. Não é necessário modificar a saída do scraper para usar esse recurso.
 
 `js/dados.js` concentra as URLs e a leitura das respostas JSON. Uma API poderá fornecer
 os mesmos formatos, substituindo os arquivos locais como fonte para o site.

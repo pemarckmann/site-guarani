@@ -14,7 +14,8 @@
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida.webp" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-mobile.webp" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-desktop.webp" media="(min-width: 701px)" fetchpriority="high" />
 
     <title>Seja Sócio | Esporte Clube Guarani</title>
 
@@ -37,11 +38,11 @@
     <meta name="twitter:image" content="https://pemarckmann.github.io/site-guarani/assets/otimizadas/compartilhamento.png" />
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
 
-    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
-    <link rel="stylesheet" href="css/socio.css?v=2cd0d3c74f" />
+    <link rel="stylesheet" href="css/style.css?v=6b9833e33c" />
+    <link rel="stylesheet" href="css/socio.css?v=09ac6d552a" />
     <link rel="stylesheet" href="css/patrocinadores.css?v=b4fde27880" />
     <noscript>
-      <link rel="stylesheet" href="css/sem-js.css?v=7213ea1d48" />
+      <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
     <script src="js/script.js?v=830744ca94" defer></script>
   </head>
@@ -57,6 +58,7 @@
           <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
             <img
               src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
               width="320"
               height="480"
               alt="Escudo do Esporte Clube Guarani"
@@ -319,6 +321,7 @@
               >
                 <img
                   src="assets/otimizadas/patrocinador-simpay.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-simpay-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-simpay-480.webp 480w, assets/otimizadas/patrocinador-simpay.webp 768w" sizes="(max-width: 700px) 240px, 360px"
                   width="768"
                   height="256"
                   alt="Simpay"
@@ -335,6 +338,7 @@
               >
                 <img
                   src="assets/otimizadas/patrocinador-alm.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-alm-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-alm-480.webp 384w" sizes="(max-width: 700px) 240px, 360px"
                   width="384"
                   height="384"
                   alt="ALM Engenharia"
@@ -363,6 +367,7 @@
               >
                 <img
                   src="assets/otimizadas/patrocinador-sbe.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-sbe-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-sbe-480.webp 480w, assets/otimizadas/patrocinador-sbe.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                   width="768"
                   height="256"
                   alt="SBE Sports"
@@ -379,6 +384,7 @@
               >
                 <img
                   src="assets/otimizadas/patrocinador-lehmen.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-lehmen-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-lehmen-480.webp 480w, assets/otimizadas/patrocinador-lehmen.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                   width="768"
                   height="256"
                   alt="Lehmen Veículos"
@@ -395,6 +401,7 @@
               >
                 <img
                   src="assets/otimizadas/patrocinador-unisc.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-unisc-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-unisc-480.webp 480w, assets/otimizadas/patrocinador-unisc.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                   width="768"
                   height="256"
                   alt="UNISC - Universidade de Santa Cruz do Sul"
@@ -418,6 +425,7 @@
         <div class="rodape-marca">
           <img
             src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
             width="320"
             height="480"
             alt="Escudo do Esporte Clube Guarani"
@@ -468,7 +476,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>Instagram</span>
           </a>
@@ -484,7 +492,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>Facebook</span>
           </a>
@@ -500,7 +508,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>X</span>
           </a>

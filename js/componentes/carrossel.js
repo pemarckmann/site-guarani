@@ -4,6 +4,12 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
   const reduzirMovimento = matchMedia("(prefers-reduced-motion: reduce)");
   const eventos = new AbortController();
   let ciclo = 0;
+  let inicio = 0;
+  let passo = 0;
+  let replicas = 0;
+  let indiceSelecionado = 0;
+  let redimensionando = false;
+  let fimRedimensionamento;
   let interagiu = false;
   let reposicionando = false;
   let fimRolagem;
@@ -30,40 +36,43 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
   }
 
   function atualizarDestaque() {
-    const largura = passoCard().largura;
+    const largura = passo;
+    if (!largura || redimensionando) return;
     const atual = linha.children[Math.round(linha.scrollLeft / largura)] || originais[0];
     if (atual === cardAtual) return;
     cardAtual?.classList.remove("atleta-atual");
     atual.classList.add("atleta-atual");
     cardAtual = atual;
+    indiceSelecionado = ((Math.round(linha.scrollLeft / passo) - replicas) % originais.length + originais.length) % originais.length;
   }
 
   function normalizarCiclo() {
     if (!ciclo || reposicionando || !linha.isConnected) return;
-    if (linha.scrollLeft < ciclo - 1 || linha.scrollLeft >= ciclo * 2 - 1) {
+    if (linha.scrollLeft < inicio - 1 || linha.scrollLeft >= inicio + ciclo - 1) {
       // Mantém a mesma imagem na tela, inclusive após arrastos de vários cards.
-      const progresso = ((linha.scrollLeft - ciclo) % ciclo + ciclo) % ciclo;
-      reposicionar(ciclo + progresso);
+      const progresso = ((linha.scrollLeft - inicio) % ciclo + ciclo) % ciclo;
+      reposicionar(inicio + progresso);
     }
   }
 
   function atualizar() {
     const { largura, espaco } = passoCard();
+    const progresso = indiceSelecionado;
     const precisaCircular = originais.length * largura - espaco > linha.clientWidth + 2;
-    if (precisaCircular && !ciclo) {
-      linha.prepend(...originais.map((_, indice) => criarReplica(indice)));
-      linha.append(...originais.map((_, indice) => criarReplica(indice)));
-      ciclo = originais.length * largura;
-      reposicionar(ciclo);
-    } else if (!precisaCircular && ciclo) {
+    const quantidade = precisaCircular ? Math.min(originais.length, Math.ceil(linha.clientWidth / largura) + 1) : 0;
+    const mudou = quantidade !== replicas || Math.abs(passo - largura) > 1;
+    if (quantidade !== replicas) {
       linha.querySelectorAll(".atleta-replica").forEach(node => node.remove());
-      ciclo = 0;
-      reposicionar(0);
-    } else if (ciclo && Math.abs(ciclo - originais.length * largura) > 1) {
-      const progresso = linha.scrollLeft / ciclo;
-      ciclo = originais.length * largura;
-      reposicionar(progresso * ciclo);
+      if (quantidade) {
+        linha.prepend(...Array.from({ length: quantidade }, (_, i) => criarReplica(originais.length - quantidade + i)));
+        linha.append(...Array.from({ length: quantidade }, (_, i) => criarReplica(i)));
+      }
+      replicas = quantidade;
     }
+    passo = largura;
+    inicio = replicas * passo;
+    ciclo = precisaCircular ? originais.length * passo : 0;
+    if (mudou) reposicionar(ciclo ? inicio + ((progresso % originais.length + originais.length) % originais.length) * passo : 0);
     anterior.disabled = proxima.disabled = !precisaCircular;
     atualizarDestaque();
   }
@@ -71,7 +80,7 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
   function avancar(direcao) {
     if (!ciclo) return;
     linha.scrollBy({
-      left: direcao * passoCard().largura,
+      left: direcao * passo,
       behavior: reduzirMovimento.matches ? "instant" : "smooth",
     });
   }
@@ -97,6 +106,18 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
     avancar(evento.key === "ArrowRight" ? 1 : -1);
   }, { signal: eventos.signal });
 
+  // A rolagem nativa pode mudar durante a troca de orientação.
+  // Mantém o integrante selecionado até a largura se estabilizar.
+  window.addEventListener("resize", () => {
+    redimensionando = true;
+    clearTimeout(fimRedimensionamento);
+    fimRedimensionamento = setTimeout(() => {
+      atualizar();
+      redimensionando = false;
+      reposicionar(ciclo ? inicio + indiceSelecionado * passo : 0);
+    }, 100);
+  }, { signal: eventos.signal });
+
   const observador = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(atualizar);
   observador?.observe(linha);
   frame = requestAnimationFrame(atualizar);
@@ -109,6 +130,7 @@ function criarCarrosselCircular(linha, anterior, proxima, criarReplica) {
       eventos.abort();
       observador?.disconnect();
       clearTimeout(fimRolagem);
+      clearTimeout(fimRedimensionamento);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(frameReposicao);
       cancelAnimationFrame(frameDestaque);

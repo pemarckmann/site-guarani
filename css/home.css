@@ -13,7 +13,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../assets/otimizadas/heroes/hero-campeao-2025.webp");
+  background-image: url("../assets/otimizadas/heroes/hero-campeao-2025-desktop.webp");
   background-size: cover;
   background-position: center 45%;
   z-index: 0;
@@ -82,6 +82,7 @@
 }
 
 .hero::before {
+  background-image: url("../assets/otimizadas/heroes/hero-campeao-2025-mobile.webp");
   background-position: 52% center;
 }
 

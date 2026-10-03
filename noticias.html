@@ -36,15 +36,15 @@
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
     <link rel="preload" href="dados/noticias.json" as="fetch" type="application/json" crossorigin="anonymous" fetchpriority="high" />
 
-    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
-    <link rel="stylesheet" href="css/noticias.css?v=a94fd7698f" />
-    <link rel="stylesheet" href="css/heroes.css?v=3d85c9bf6b" />
+    <link rel="stylesheet" href="css/style.css?v=6b9833e33c" />
+    <link rel="stylesheet" href="css/noticias.css?v=09dc21b7ce" />
+    <link rel="stylesheet" href="css/heroes.css?v=bcf7400906" />
     <noscript>
-      <link rel="stylesheet" href="css/sem-js.css?v=7213ea1d48" />
+      <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
     <script src="js/script.js?v=830744ca94" defer></script>
     <script src="js/dados.js?v=16e7970543" defer></script>
-    <script src="js/noticias.js?v=77b5d54cbd" defer></script>
+    <script src="js/noticias.js?v=1a62cbf7f1" defer></script>
   </head>
 
   <body id="top">
@@ -58,6 +58,7 @@
           <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
             <img
               src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
               width="320"
               height="480"
               alt="Escudo do Esporte Clube Guarani"
@@ -140,24 +141,32 @@
     <main class="pagina-noticias">
       <section id="noticias-hero" class="noticias-hero" aria-labelledby="noticias-titulo">
         <div class="container">
-          <span class="secao-tag">FIQUE POR DENTRO</span>
-          <h1 id="noticias-titulo">Notícias do Guarani</h1>
-          <p>
-            As últimas notícias, os jogos e as novidades do Time Índio, dentro e fora de campo.
-          </p>
+          <div class="noticia-hero-conteudo">
+            <span class="secao-tag">FIQUE POR DENTRO</span>
+            <h1 id="noticias-titulo">Notícias do Guarani</h1>
+            <div class="noticia-meta hero-reserva-meta" aria-hidden="true"></div>
+            <div class="hero-reserva-titulo" aria-hidden="true"></div>
+            <p class="hero-reserva-resumo">As últimas notícias, os jogos e as novidades do Time Índio, dentro e fora de campo.</p>
+          </div>
         </div>
       </section>
 
       <section class="noticias-arquivo" aria-label="Todas as notícias">
         <div class="container">
-          <p class="noticias-aviso" id="noticias-aviso" hidden>Esta página contém notícias de exemplo para apresentação do site.</p>
-          <div class="noticias-ferramentas" id="noticias-ferramentas" hidden>
+          <p class="noticias-aviso" id="noticias-aviso">Esta página contém notícias de exemplo para apresentação do site.</p>
+          <div class="noticias-ferramentas" id="noticias-ferramentas">
             <label for="noticias-categoria">Categoria
-              <select id="noticias-categoria"><option value="">Todas</option></select>
+              <select id="noticias-categoria" disabled><option value="">Todas</option></select>
             </label>
             <p id="noticias-contagem" role="status"></p>
           </div>
-          <div class="noticias-arquivo-grid" id="noticias-lista"></div>
+          <div class="noticias-arquivo-grid" id="noticias-lista" aria-busy="true">
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div>
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div>
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div>
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div>
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div>
+            <div class="noticia-reserva" aria-hidden="true"><div class="carregamento-bloco"></div></div></div>
           <nav class="noticias-paginacao" id="noticias-paginacao" aria-label="Páginas de notícias" hidden>
             <button type="button" id="noticias-anterior">Anterior</button>
             <span id="noticias-pagina"></span>
@@ -183,10 +192,11 @@
         <div class="rodape-marca">
           <img
             src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
             width="320"
             height="480"
             alt="Escudo do Esporte Clube Guarani"
-          />
+          loading="lazy" decoding="async" />
 
           <div>
             <strong> Esporte Clube Guarani </strong>
@@ -234,7 +244,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Instagram </span>
           </a>
@@ -252,7 +262,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Facebook </span>
           </a>
@@ -270,7 +280,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> X </span>
           </a>

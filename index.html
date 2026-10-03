@@ -14,7 +14,8 @@
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025.webp" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-mobile.webp" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-desktop.webp" media="(min-width: 701px)" fetchpriority="high" />
 
     <title>Esporte Clube Guarani | Venâncio Aires</title>
 
@@ -37,21 +38,21 @@
     <meta name="twitter:image" content="https://pemarckmann.github.io/site-guarani/assets/otimizadas/compartilhamento.png" />
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
 
-    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
-    <link rel="stylesheet" href="css/home.css?v=af26c5d0fc" />
-    <link rel="stylesheet" href="css/desempenho.css?v=77c93312eb" />
-    <link rel="stylesheet" href="css/noticias.css?v=a94fd7698f" />
+    <link rel="stylesheet" href="css/style.css?v=6b9833e33c" />
+    <link rel="stylesheet" href="css/home.css?v=86e52eca0f" />
+    <link rel="stylesheet" href="css/desempenho.css?v=727a6ce83d" />
+    <link rel="stylesheet" href="css/noticias.css?v=09dc21b7ce" />
     <link rel="stylesheet" href="css/patrocinadores.css?v=b4fde27880" />
-    <link rel="stylesheet" href="css/elenco.css?v=4ed5482859" />
+    <link rel="stylesheet" href="css/elenco.css?v=b422233846" />
     <noscript>
-      <link rel="stylesheet" href="css/sem-js.css?v=7213ea1d48" />
+      <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
     <script src="js/script.js?v=830744ca94" defer></script>
     <script src="js/dados.js?v=16e7970543" defer></script>
-    <script src="js/desempenho.js?v=9f2b9f3d80" defer></script>
-    <script src="js/noticias.js?v=77b5d54cbd" defer></script>
-    <script src="js/componentes/carrossel.js?v=5aec7119f9" defer></script>
-    <script src="js/elenco.js?v=19f5c8a4c6" defer></script>
+    <script src="js/desempenho.js?v=1ca5485bd3" defer></script>
+    <script src="js/noticias.js?v=1a62cbf7f1" defer></script>
+    <script src="js/componentes/carrossel.js?v=abfe952aad" defer></script>
+    <script src="js/elenco.js?v=64c788319d" defer></script>
   </head>
 
   <body id="top">
@@ -65,6 +66,7 @@
           <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
             <img
               src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
               width="320"
               height="480"
               alt="Escudo do Esporte Clube Guarani"
@@ -365,6 +367,7 @@
             >
               <img
                 src="assets/otimizadas/patrocinador-simpay.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-simpay-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-simpay-480.webp 480w, assets/otimizadas/patrocinador-simpay.webp 768w" sizes="(max-width: 700px) 240px, 360px"
                 width="768"
                 height="256"
                 alt="Simpay"
@@ -381,6 +384,7 @@
             >
               <img
                 src="assets/otimizadas/patrocinador-alm.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-alm-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-alm-480.webp 384w" sizes="(max-width: 700px) 240px, 360px"
                 width="384"
                 height="384"
                 alt="ALM Engenharia"
@@ -407,6 +411,7 @@
             >
               <img
                 src="assets/otimizadas/patrocinador-sbe.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-sbe-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-sbe-480.webp 480w, assets/otimizadas/patrocinador-sbe.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                 width="768"
                 height="256"
                 alt="SBE Sports"
@@ -423,6 +428,7 @@
             >
               <img
                 src="assets/otimizadas/patrocinador-lehmen.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-lehmen-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-lehmen-480.webp 480w, assets/otimizadas/patrocinador-lehmen.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                 width="768"
                 height="256"
                 alt="Lehmen Veículos"
@@ -439,6 +445,7 @@
             >
               <img
                 src="assets/otimizadas/patrocinador-unisc.webp"
+                srcset="assets/otimizadas/patrocinadores/patrocinador-unisc-240.webp 240w, assets/otimizadas/patrocinadores/patrocinador-unisc-480.webp 480w, assets/otimizadas/patrocinador-unisc.webp 768w" sizes="(max-width: 700px) 136px, 160px"
                 width="768"
                 height="256"
                 alt="UNISC - Universidade de Santa Cruz do Sul"
@@ -459,6 +466,7 @@
         <div class="rodape-marca">
           <img
             src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
             width="320"
             height="480"
             alt="Escudo do Esporte Clube Guarani"
@@ -506,7 +514,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>Instagram</span>
           </a>
@@ -522,7 +530,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>Facebook</span>
           </a>
@@ -538,7 +546,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span>X</span>
           </a>

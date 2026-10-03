@@ -38,6 +38,17 @@ HTTP: abrir um HTML diretamente por `file://` não carrega os dados.
 Cada página carrega seus estilos específicos e os componentes que usa. Evite
 colocar regras de uma página em `style.css` ou duplicar dados no HTML.
 
+O hero da Home tem versões WebP para celular e computador, com preloads que usam
+as mesmas condições do CSS para baixar apenas a imagem da tela atual. A imagem
+anterior permanece em `assets/originais/hero-campeao-2025.webp`. Os cards de notícias
+usam miniaturas responsivas; a leitura completa mantém a imagem principal do JSON.
+
+Sócio e Clube também usam heroes responsivos. Escudos e patrocinadores têm
+variantes menores; os carrosséis repetem apenas os cards necessários nas bordas.
+Os blocos carregados por JSON reservam espaço para reduzir saltos durante a
+leitura. Consulte [a revisão e os testes](docs/melhorias-implementadas.md), incluindo
+as configurações de cache que ficam para a AWS.
+
 ## Editar e verificar
 
 Consulte [dados/README.md](dados/README.md) para os formatos, campos opcionais e

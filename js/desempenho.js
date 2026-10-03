@@ -90,6 +90,37 @@ const logosCompeticoes = {
 };
 
 // Escudos escolhidos pelo clube têm prioridade sobre os coletados da FGF.
+// Variantes locais; caminhos novos do scraper continuam usando a imagem coletada.
+const escudosOtimizados = {
+  "assets/coletadas/equipes/aimore-f8a7baca9f369b68.png": "assets/otimizadas/escudos/aimore-f8a7baca9f369b68.webp",
+  "assets/coletadas/equipes/apafut-1e5d2ef8e2750b39.png": "assets/otimizadas/escudos/apafut-1e5d2ef8e2750b39.webp",
+  "assets/coletadas/equipes/as-mina-de-candiota-c21ca2518d5be9b4.png": "assets/otimizadas/escudos/as-mina-de-candiota-c21ca2518d5be9b4.webp",
+  "assets/coletadas/equipes/bage-7e53d2b229040748.png": "assets/otimizadas/escudos/bage-7e53d2b229040748.webp",
+  "assets/coletadas/equipes/brasil-de-farroupilha-ed0ae104d6421d52.jpg": "assets/otimizadas/escudos/brasil-de-farroupilha-ed0ae104d6421d52.webp",
+  "assets/coletadas/equipes/ceramica-9fa88e98fce94255.jpg": "assets/otimizadas/escudos/ceramica-9fa88e98fce94255.webp",
+  "assets/coletadas/equipes/clube-riograndense-89782e79d91cba76.png": "assets/otimizadas/escudos/clube-riograndense-89782e79d91cba76.webp",
+  "assets/coletadas/equipes/esportivo-b606df4c15039879.jpg": "assets/otimizadas/escudos/esportivo-b606df4c15039879.webp",
+  "assets/coletadas/equipes/gaucho-811f0d797c727cf6.png": "assets/otimizadas/escudos/gaucho-811f0d797c727cf6.webp",
+  "assets/coletadas/equipes/gloria-754f90913b817edc.png": "assets/otimizadas/escudos/gloria-754f90913b817edc.webp",
+  "assets/coletadas/equipes/gramadense-404fd7c6d98613a3.jpg": "assets/otimizadas/escudos/gramadense-404fd7c6d98613a3.webp",
+  "assets/coletadas/equipes/gremio-352814188180671b.png": "assets/otimizadas/escudos/gremio-352814188180671b.webp",
+  "assets/coletadas/equipes/guarani-6ef3ddc4323a8019.jpg": "assets/otimizadas/escudos/guarani-6ef3ddc4323a8019.webp",
+  "assets/coletadas/equipes/guarany-1e65406fc0dc2d70.jpg": "assets/otimizadas/escudos/guarany-1e65406fc0dc2d70.webp",
+  "assets/coletadas/equipes/internacional-756c8d326aa960aa.png": "assets/otimizadas/escudos/internacional-756c8d326aa960aa.webp",
+  "assets/coletadas/equipes/lajeadense-408dc17dd111ed18.jpg": "assets/otimizadas/escudos/lajeadense-408dc17dd111ed18.webp",
+  "assets/coletadas/equipes/novo-hamburgo-22f9685ef322e805.png": "assets/otimizadas/escudos/novo-hamburgo-22f9685ef322e805.webp",
+  "assets/coletadas/equipes/osoriense-98bc9f14ffe21d94.jpg": "assets/otimizadas/escudos/osoriense-98bc9f14ffe21d94.webp",
+  "assets/coletadas/equipes/passo-fundo-7830535aaea48a43.jpg": "assets/otimizadas/escudos/passo-fundo-7830535aaea48a43.webp",
+  "assets/coletadas/equipes/pelotas-a0bb0f4561b38d98.jpg": "assets/otimizadas/escudos/pelotas-a0bb0f4561b38d98.webp",
+  "assets/coletadas/equipes/pinheiros-7c392135a6fe2ea9.jpg": "assets/otimizadas/escudos/pinheiros-7c392135a6fe2ea9.webp",
+  "assets/coletadas/equipes/progresso-e836a0509c48abf0.jpg": "assets/otimizadas/escudos/progresso-e836a0509c48abf0.webp",
+  "assets/coletadas/equipes/santa-cruz-e8cd576d84e93603.jpg": "assets/otimizadas/escudos/santa-cruz-e8cd576d84e93603.webp",
+  "assets/coletadas/equipes/soledade-fc-1b289a15334c8976.png": "assets/otimizadas/escudos/soledade-fc-1b289a15334c8976.webp",
+  "assets/coletadas/equipes/tamoio-44e86df293e485ed.png": "assets/otimizadas/escudos/tamoio-44e86df293e485ed.webp",
+  "assets/coletadas/equipes/uniao-frederiquense-8f5ab8d1168c0405.jpg": "assets/otimizadas/escudos/uniao-frederiquense-8f5ab8d1168c0405.webp",
+  "assets/coletadas/equipes/veranopolis-50348719c6f8a094.png": "assets/otimizadas/escudos/veranopolis-50348719c6f8a094.webp"
+};
+
 const escudosLocais = {
   "guarani": "assets/otimizadas/escudo.webp",
   "osoriense": "assets/otimizadas/osoriense.webp",
@@ -103,7 +134,7 @@ const escudosLocais = {
 
 function atributosEscudo(clube, coletado, fonte) {
   const caminhos = [...new Set([
-    escudosLocais[normalizarNome(clube)], coletado, fonte,
+    escudosLocais[normalizarNome(clube)], escudosOtimizados[coletado], coletado, fonte,
   ].filter(urlDadosValida))];
   return `src="${escaparHTML(caminhos[0] || "")}" data-escudos-alternativos="${escaparHTML(JSON.stringify(caminhos.slice(1)))}"`;
 }
@@ -436,6 +467,7 @@ function atualizarProximoJogo(categorias) {
     categoria.jogos.filter(jogo => jogo.status === "agendado")
       .map(jogo => ({ jogo, categoria: categoria.categoria, logo: categoria.logoCompeticao }))
   ).sort((a, b) => ordenarJogos(a.jogo, b.jogo))[0];
+  destaqueProximoJogo.classList.toggle("jogo-card-sem-dados", !proximo);
   if (!proximo) {
     destaqueProximoJogo.innerHTML = '<p class="desempenho-aviso">Próximas partidas em breve.</p>';
     return;
@@ -463,7 +495,7 @@ function atualizarProximoJogo(categorias) {
     </div>
     <div class="jogo-times">
       ${criarTime(jogo.mandante, jogo.mandanteEscudo, jogo.mandanteEscudoFonte)}
-      <div class="versus" aria-label="contra">X</div>
+      <div class="versus"><span aria-hidden="true">X</span><span class="sr-only">contra</span></div>
       ${criarTime(jogo.visitante, jogo.visitanteEscudo, jogo.visitanteEscudoFonte)}
     </div>
     <div class="jogo-info">
@@ -614,6 +646,7 @@ if (
         const aviso = document.createElement("p");
         aviso.className = "desempenho-aviso";
         aviso.textContent = mensagemFalhaDados();
+        destaqueProximoJogo.classList.add("jogo-card-sem-dados");
         destaqueProximoJogo.replaceChildren(aviso);
       }
       console.error(erro);

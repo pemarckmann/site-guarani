@@ -27,7 +27,7 @@
   rgba(0, 0, 0, 0.14) 72%,
   rgba(0, 0, 0, 0.04) 100%
   ),
-  url("../assets/otimizadas/heroes/hero-clube-comissao.webp");
+  var(--clube-hero, url("../assets/otimizadas/heroes/hero-clube-comissao-desktop.webp"));
   background-size: cover;
   background-position: center 32%;
 }
@@ -549,4 +549,8 @@
 .institucional-card {
   padding: 30px 25px;
 }
+}
+
+@media (max-width: 700px) {
+  .clube-pagina-hero-fundo { --clube-hero: url("../assets/otimizadas/heroes/hero-clube-comissao-mobile.webp"); }
 }

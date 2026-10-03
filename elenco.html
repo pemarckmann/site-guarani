@@ -37,16 +37,16 @@
     <link rel="preload" href="dados/elenco.json" as="fetch" type="application/json" crossorigin="anonymous" fetchpriority="high" />
     <link rel="preload" as="image" href="assets/otimizadas/heroes/elenco.webp" imagesrcset="assets/otimizadas/heroes/elenco-mobile.webp 640w, assets/otimizadas/heroes/elenco.webp 1280w" imagesizes="100vw" fetchpriority="high" />
 
-    <link rel="stylesheet" href="css/style.css?v=8316d29e11" />
-    <link rel="stylesheet" href="css/heroes.css?v=3d85c9bf6b" />
-    <link rel="stylesheet" href="css/elenco.css?v=4ed5482859" />
+    <link rel="stylesheet" href="css/style.css?v=6b9833e33c" />
+    <link rel="stylesheet" href="css/heroes.css?v=bcf7400906" />
+    <link rel="stylesheet" href="css/elenco.css?v=b422233846" />
     <noscript>
-      <link rel="stylesheet" href="css/sem-js.css?v=7213ea1d48" />
+      <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
     <script src="js/script.js?v=830744ca94" defer></script>
     <script src="js/dados.js?v=16e7970543" defer></script>
-    <script src="js/componentes/carrossel.js?v=5aec7119f9" defer></script>
-    <script src="js/elenco.js?v=19f5c8a4c6" defer></script>
+    <script src="js/componentes/carrossel.js?v=abfe952aad" defer></script>
+    <script src="js/elenco.js?v=64c788319d" defer></script>
   </head>
 
   <body id="top">
@@ -60,6 +60,7 @@
           <a href="index.html" class="marca-link" aria-label="Ir para a página inicial">
             <img
               src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
               width="320"
               height="480"
               alt="Escudo do Esporte Clube Guarani"
@@ -157,13 +158,18 @@
           <p class="elenco-aviso" id="elenco-aviso">Rela&ccedil;&atilde;o parcial, baseada nas s&uacute;mulas consultadas.
             A organiza&ccedil;&atilde;o por setores foi complementada para a apresenta&ccedil;&atilde;o do elenco.
             Fotos e algumas identifica&ccedil;&otilde;es ainda est&atilde;o em confer&ecirc;ncia.</p>
-          <div class="noticias-ferramentas elenco-filtros" id="elenco-filtros" hidden>
-            <label for="elenco-busca">Buscar integrante <input id="elenco-busca" type="search" placeholder="Nome, apelido ou cargo" maxlength="120" /></label>
-            <label for="elenco-posicao">Grupo <select id="elenco-posicao"><option value="">Todos</option></select></label>
+          <div class="noticias-ferramentas elenco-filtros" id="elenco-filtros">
+            <label for="elenco-busca">Buscar integrante <input id="elenco-busca" disabled type="search" placeholder="Nome, apelido ou cargo" maxlength="120" /></label>
+            <label for="elenco-posicao">Grupo <select id="elenco-posicao" disabled><option value="">Todos</option></select></label>
             <p id="elenco-contagem" role="status" aria-live="polite"></p>
           </div>
           <div class="elenco-grupos" id="elenco-lista" aria-busy="true">
-            <p class="desempenho-aviso" id="elenco-carregando" role="status">Carregando elenco...</p>
+            <p class="sr-only" id="elenco-carregando" role="status">Carregando elenco...</p>
+            <section class="elenco-grupo reserva-elenco" aria-hidden="true"><div class="elenco-grupo-cabecalho"><div class="elenco-grupo-titulo"><h2>Goleiros</h2></div></div><div class="atleta-linha"><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div></div></section>
+            <section class="elenco-grupo reserva-elenco" aria-hidden="true"><div class="elenco-grupo-cabecalho"><div class="elenco-grupo-titulo"><h2>Defensores</h2></div></div><div class="atleta-linha"><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div></div></section>
+            <section class="elenco-grupo reserva-elenco" aria-hidden="true"><div class="elenco-grupo-cabecalho"><div class="elenco-grupo-titulo"><h2>Meio-campistas</h2></div></div><div class="atleta-linha"><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div></div></section>
+            <section class="elenco-grupo reserva-elenco" aria-hidden="true"><div class="elenco-grupo-cabecalho"><div class="elenco-grupo-titulo"><h2>Atacantes</h2></div></div><div class="atleta-linha"><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div></div></section>
+            <section class="elenco-grupo reserva-elenco" aria-hidden="true"><div class="elenco-grupo-cabecalho"><div class="elenco-grupo-titulo"><h2>Comissão técnica</h2></div></div><div class="atleta-linha"><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div><div class="atleta-card"><div class="atleta-foto carregamento-bloco"></div></div></div></section>
           </div>
           <p id="elenco-fonte" class="classificacao-legenda"></p>
           <noscript><style>#elenco-carregando { display: none; }</style><p class="desempenho-aviso">Ative o JavaScript para ver os atletas.</p></noscript>
@@ -182,10 +188,11 @@
         <div class="rodape-marca">
           <img
             src="assets/otimizadas/escudo.webp"
+              srcset="assets/otimizadas/escudo-96.webp 96w, assets/otimizadas/escudo-192.webp 192w, assets/otimizadas/escudo.webp 320w" sizes="60px"
             width="320"
             height="480"
             alt="Escudo do Esporte Clube Guarani"
-          />
+          loading="lazy" decoding="async" />
 
           <div>
             <strong> Esporte Clube Guarani </strong>
@@ -233,7 +240,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Instagram </span>
           </a>
@@ -251,7 +258,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> Facebook </span>
           </a>
@@ -269,7 +276,7 @@
               width="96"
               height="96"
               alt=""
-            />
+            loading="lazy" decoding="async" />
 
             <span> X </span>
           </a>

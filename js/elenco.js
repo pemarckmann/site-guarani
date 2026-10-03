@@ -84,7 +84,7 @@
     if (Number.isInteger(numeroExibido) && numeroExibido > 0) {
       const numero = criarElemento("span", "atleta-numero", numeroExibido);
       numero.title = "Número de referência informado para o elenco";
-      numero.setAttribute("aria-label", `Número de referência: ${numeroExibido}`);
+      numero.prepend(criarElemento("span", "sr-only", "Número de referência: "));
       foto.append(numero);
     }
     article.setAttribute("role", "listitem");
@@ -104,7 +104,7 @@
     secao.setAttribute("aria-labelledby", titulo.id);
     const cabecalho = criarElemento("div", "elenco-grupo-cabecalho");
     const identificacao = criarElemento("div", "elenco-grupo-titulo");
-    const unidade = chave === "comissao-tecnica" ? ["profissional", "profissionais"] : ["atleta", "atletas"];
+    const unidade = chave === "todos" ? ["integrante", "integrantes"] : chave === "comissao-tecnica" ? ["profissional", "profissionais"] : ["atleta", "atletas"];
     identificacao.append(titulo, criarElemento("span", "", `${jogadores.length} ${unidade[jogadores.length === 1 ? 0 : 1]}`));
     const controles = criarElemento("div", "elenco-setas");
     const moldura = criarElemento("div", "elenco-fileira-moldura");
@@ -204,6 +204,7 @@
       lerURL(); renderizar();
       lista.setAttribute("aria-busy", "false");
       document.querySelector("#elenco-filtros").hidden = false;
+      busca.disabled = posicao.disabled = false;
       busca.addEventListener("input", () => renderizar());
       posicao.addEventListener("change", () => renderizar(true));
       window.addEventListener("popstate", () => { lerURL(); renderizar(); });

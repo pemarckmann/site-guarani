@@ -257,3 +257,7 @@
     gap: 12px;
   }
 }
+
+.jogos-contexto h2 { min-height: 24px; margin: 0; }
+#jogos-contagem { min-width: 200px; }
+#jogos-lista[aria-busy="true"] { min-height: 450px; }
