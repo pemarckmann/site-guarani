@@ -310,6 +310,72 @@
   line-height: 1.65;
 }
 
+.noticia-compartilhar {
+  margin-top: 18px;
+  text-align: right;
+}
+
+.noticia-compartilhar-botao {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: #b30018;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.noticia-compartilhar-botao:hover {
+  color: #b30018;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.noticia-compartilhar-botao:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.noticia-compartilhar-estado {
+  margin: 8px 0 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.noticia-compartilhar-estado:empty {
+  display: none;
+}
+
+.noticia-compartilhar-manual {
+  display: block;
+  margin-top: 12px;
+  color: #555;
+  font-size: 13px;
+}
+
+.noticia-compartilhar-manual[hidden] {
+  display: none;
+}
+
+.noticia-compartilhar-manual input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.noticia-compartilhar-manual input:focus-visible {
+  outline: 2px solid #b30018;
+  outline-offset: 3px;
+}
+
 .noticia-pagina .noticia-imagem {
   margin: 24px 0;
   border-radius: 8px;

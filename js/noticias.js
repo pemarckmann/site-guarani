@@ -225,6 +225,54 @@
     hero.setAttribute("aria-labelledby", tituloPagina.id);
   }
 
+  function compartilhamento(noticia) {
+    const area = criarElemento("div", "noticia-compartilhar");
+    const nativo = typeof navigator.share === "function";
+    const botao = criarElemento("button", "noticia-compartilhar-botao", "Compartilhar link");
+    botao.type = "button";
+    const estado = criarElemento("p", "noticia-compartilhar-estado");
+    estado.setAttribute("role", "status");
+    const manual = criarElemento("label", "noticia-compartilhar-manual", "Link da notícia");
+    const campo = criarElemento("input");
+    campo.type = "text";
+    campo.readOnly = true;
+    const url = new URL("noticia.html", location.href);
+    url.searchParams.set("id", noticia.id);
+    campo.value = url.href;
+    manual.append(campo);
+    manual.hidden = true;
+    async function copiar() {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error("Cópia automática indisponível");
+        await navigator.clipboard.writeText(url.href);
+        estado.textContent = "Link copiado!";
+      } catch {
+        manual.hidden = false;
+        estado.textContent = "Selecione o link abaixo para copiar.";
+        campo.focus();
+        campo.select();
+      }
+    }
+    botao.addEventListener("click", async () => {
+      botao.disabled = true;
+      estado.textContent = "";
+      manual.hidden = true;
+      try {
+        if (nativo) {
+          try {
+            await navigator.share({ title: noticia.titulo, text: noticia.resumo, url: url.href });
+          } catch (erro) {
+            if (erro.name !== "AbortError") await copiar();
+          }
+        } else await copiar();
+      } finally {
+        botao.disabled = false;
+      }
+    });
+    area.append(botao, estado, manual);
+    return area;
+  }
+
   function mostrarLeitura(noticias) {
     leitura.replaceChildren();
     const id = new URLSearchParams(window.location.search).get("id");
@@ -245,7 +293,7 @@
     leitura.append(imagem(noticia, true));
     const texto = criarElemento("div", "noticia-texto");
     noticia.paragrafos.forEach(paragrafo => texto.append(criarElemento("p", "", paragrafo)));
-    leitura.append(texto);
+    leitura.append(texto, compartilhamento(noticia));
   }
 
   async function carregarNoticias() {

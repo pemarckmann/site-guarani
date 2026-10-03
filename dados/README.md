@@ -24,6 +24,12 @@ O site ordena as notícias pela data, mostra três na Home e seis por página na
 Registros incompletos, datas impossíveis e IDs duplicados são ignorados, preservando as
 notícias válidas. A categoria e a página ficam na URL e são mantidas ao voltar da matéria.
 
+No fim da matéria, Compartilhar link usa o menu do aparelho quando disponível.
+Nos demais navegadores, oferece Copiar link; se a cópia for bloqueada, mostra
+o endereço para seleção manual. O link contém apenas o identificador da matéria,
+sem filtros ou página da listagem. As prévias individuais ficam para o backend;
+por enquanto, o compartilhamento usa a prévia geral de `noticia.html`.
+
 ## Desempenho
 
 Cada categoria contém `categoria`, `competicao`, `urlCompeticao`, `jogos` e `classificacao`.
