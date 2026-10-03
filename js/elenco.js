@@ -64,7 +64,22 @@
       img.height = 720;
       img.loading = "lazy";
       img.decoding = "async";
-      img.addEventListener("error", semFoto, { once: true });
+      if (urlDadosValida(atleta.foto_800)) {
+        img.srcset = `${atleta.foto} 480w, ${atleta.foto_800} 800w`;
+        img.sizes = "(max-width: 437px) 64vw, (max-width: 480px) 280px, " +
+          "(max-width: 700px) calc((90vw - 14px) / 2), " +
+          "(max-width: 1000px) calc((90vw - 40px) / 3), " +
+          "(max-width: 1100px) calc((90vw - 60px) / 4), " +
+          "(max-width: 1333px) calc((90vw - 80px) / 5), 224px";
+      }
+      img.addEventListener("error", () => {
+        if (img.hasAttribute("srcset")) {
+          img.removeAttribute("srcset");
+          img.removeAttribute("sizes");
+          img.addEventListener("error", semFoto, { once: true });
+          img.src = atleta.foto;
+        } else semFoto();
+      }, { once: true });
       img.src = atleta.foto;
       foto.append(img);
     } else semFoto();

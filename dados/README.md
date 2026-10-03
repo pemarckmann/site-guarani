@@ -149,13 +149,44 @@ Cada item de `atletas` contém:
   Um atleta com `grupo: null` fica guardado, mas não aparece nas fileiras.
 - `ordem`: ordem dentro do grupo, começando em zero.
 - `foto`: caminho público em `assets/` ou URL HTTP(S). Use `null` para a silhueta.
+- `foto_800`: variante opcional de 800 × 1200 pixels. Quando informada, `foto`
+  deve ter 480 × 720 pixels. O navegador escolhe pela largura do card e densidade
+  da tela; uma falha na variante tenta `foto` antes de exibir a silhueta.
 
-`comissao_tecnica` contém nome, cargo e, opcionalmente, `nome_exibicao` e `foto`.
+`comissao_tecnica` contém nome, cargo e, opcionalmente, `nome_exibicao`, `foto`
+e `foto_800`, seguindo o mesmo padrão de imagens dos atletas.
 Os cinco profissionais atuais ficam nesse mesmo arquivo.
 `categoria`, `temporada`, `clube`, `fonte` e `parcial` descrevem o elenco;
 `identificacoes_pendentes` guarda as informações ainda não confirmadas.
 Os dados detalhados de coleta devem ficar no projeto do scraper. Uma integração
 futura precisa preservar os nomes, fotos e demais informações revisadas deste JSON.
+
+### Fotos de apresentação do Facebook
+
+Os arquivos fornecidos ficam em `assets/originais/elenco/`, com um
+`catalogo.json` que associa o nome do arquivo original ao ID do elenco. Um ID
+`null` indica que a associação ainda precisa ser confirmada. Esse catálogo é
+usado apenas para preparar as fotos; o site continua lendo somente `elenco.json`.
+
+`scripts/preparar-fotos-elenco.py` usa segmentação local de retratos para remover
+o fundo, os textos de apresentação e as decorações. Não gera novos rostos ou
+uniformes. O RGB da foto original é conservado durante o recorte, seguido de
+redimensionamento e compressão WebP. A transparência permite usar o fundo dos
+cards do site. As saídas têm proporção 2:3 e larguras de 480 e 800 pixels.
+
+Para preparar novas fotos, instale `rembg[cpu]` em um ambiente Python separado
+e execute o script. O modelo é baixado na primeira execução; ferramentas e
+modelo são usados apenas na preparação, sem carregar nada no navegador.
+Confira cada recorte antes de preencher `foto` e `foto_800` no elenco.
+
+```powershell
+python scripts/preparar-fotos-elenco.py --nomes prezzi diogo-cruz
+```
+
+Sem `--nomes`, prepara todo o catálogo. Fotos existentes são preservadas; use
+`--sobrescrever` para refazê-las. O campo opcional `corte_inferior` no catálogo
+limita o recorte na coordenada vertical indicada, para artes com informações
+sobre o fim do uniforme. Não altera os dados dos jogadores automaticamente.
 
 ## Heroes e carregamento
 
