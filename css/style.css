@@ -678,6 +678,7 @@ main {
   .rodape-conteudo {
     padding: 38px 0 32px;
     grid-template-columns: max-content max-content;
+    align-items: start;
     justify-content: center;
     column-gap: 65px;
     row-gap: 26px;
@@ -701,6 +702,10 @@ main {
 
   .rodape-links a,
   .rede-social {
+    display: flex;
+    align-items: center;
+    min-height: 27px;
+    line-height: 1.4;
     font-size: 12px;
   }
 
