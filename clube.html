@@ -13,8 +13,8 @@
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-clube-comissao-mobile.webp" media="(max-width: 700px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-clube-comissao-desktop.webp" media="(min-width: 701px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-clube-comissao-960.webp" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-clube-comissao-1920.webp" imagesrcset="assets/otimizadas/heroes/hero-clube-comissao-960.webp 960w, assets/otimizadas/heroes/hero-clube-comissao-1600.webp 1600w, assets/otimizadas/heroes/hero-clube-comissao-1920.webp 1920w, assets/otimizadas/heroes/hero-clube-comissao-2560.webp 2560w, assets/otimizadas/heroes/hero-clube-comissao-3840.webp 3840w" imagesizes="100vw" media="(min-width: 701px)" fetchpriority="high" />
 
     <title>O Clube | Esporte Clube Guarani</title>
 
@@ -38,7 +38,7 @@
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
 
     <link rel="stylesheet" href="css/style.css?v=85ff35ee3a" />
-    <link rel="stylesheet" href="css/clube.css?v=a3ba2e3465" />
+    <link rel="stylesheet" href="css/clube.css?v=37dfbab7dd" />
     <noscript>
       <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
     </noscript>
@@ -145,7 +145,12 @@
         class="clube-pagina-hero"
         aria-label="História do Esporte Clube Guarani"
       >
-        <div class="clube-pagina-hero-fundo"></div>
+        <picture class="clube-pagina-hero-fundo">
+          <source media="(max-width: 700px)" srcset="assets/otimizadas/heroes/hero-clube-comissao-960.webp" />
+          <img class="clube-pagina-hero-fundo-imagem" src="assets/otimizadas/heroes/hero-clube-comissao-1920.webp"
+            srcset="assets/otimizadas/heroes/hero-clube-comissao-960.webp 960w, assets/otimizadas/heroes/hero-clube-comissao-1600.webp 1600w, assets/otimizadas/heroes/hero-clube-comissao-1920.webp 1920w, assets/otimizadas/heroes/hero-clube-comissao-2560.webp 2560w, assets/otimizadas/heroes/hero-clube-comissao-3840.webp 3840w" sizes="100vw"
+            width="3840" height="2560" alt="" fetchpriority="high" decoding="async" />
+        </picture>
 
         <div class="container clube-pagina-hero-conteudo">
           <span class="secao-tag"> DESDE 1929 </span>

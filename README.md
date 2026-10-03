@@ -38,12 +38,20 @@ HTTP: abrir um HTML diretamente por `file://` não carrega os dados.
 Cada página carrega seus estilos específicos e os componentes que usa. Evite
 colocar regras de uma página em `style.css` ou duplicar dados no HTML.
 
-O hero da Home tem versões WebP para celular e computador, com preloads que usam
-as mesmas condições do CSS para baixar apenas a imagem da tela atual. A imagem
-anterior permanece em `assets/originais/hero-campeao-2025.webp`. Os cards de notícias
-usam miniaturas responsivas; a leitura completa mantém a imagem principal do JSON.
+O hero da Home usa `<picture>`: celular recebe uma versão WebP de 960 pixels e
+desktop escolhe entre 960, 1600, 1920, 2560 e 3840 pixels, conforme largura e
+densidade da tela. O preload usa as mesmas opções da imagem para evitar downloads
+duplicados. A foto original de 5104 × 3403 pixels permanece em
+`assets/originais/hero-campeao-2025-original.jpg`; ela não é carregada pelo site.
+Os cards de notícias usam miniaturas responsivas; a leitura completa mantém a
+imagem principal do JSON.
 
-Sócio e Clube também usam heroes responsivos. Escudos e patrocinadores têm
+Sócio e Clube seguem o mesmo padrão da Home, com versões até 3840 pixels geradas
+das fotos originais de 5388 × 3592 pixels. Elenco usa versões até 1600 pixels e
+o destaque Guarani–União de Notícias até 1350 pixels, limites das suas originais.
+Os preloads de Clube, Sócio e Elenco acompanham o `<picture>`; Notícias escolhe
+a foto pelo JSON e não fixa no HTML uma imagem que pode deixar de ser destaque.
+Escudos e patrocinadores têm
 variantes menores; os carrosséis repetem apenas os cards necessários nas bordas.
 Os blocos carregados por JSON reservam espaço para reduzir saltos durante a
 leitura. Consulte [a revisão e os testes](docs/melhorias-implementadas.md), incluindo

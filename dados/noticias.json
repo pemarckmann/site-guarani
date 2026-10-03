@@ -14,11 +14,11 @@
       "alt": "Guarani enfrenta o União Frederiquense",
       "foco": "50% 5%",
       "hero": {
-        "src": "assets/otimizadas/heroes/noticia-principal-desktop.webp",
-        "largura": 1280,
-        "altura": 1600,
+        "src": "assets/otimizadas/heroes/noticia-principal-1350.webp",
+        "largura": 1350,
+        "altura": 1688,
         "mobile": {
-          "src": "assets/otimizadas/heroes/noticia-principal-mobile.webp",
+          "src": "assets/otimizadas/heroes/noticia-principal-640.webp",
           "largura": 640,
           "altura": 800
         }

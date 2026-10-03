@@ -14,8 +14,8 @@
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-mobile.webp" media="(max-width: 700px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-desktop.webp" media="(min-width: 701px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-960.webp" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-socio-torcida-1920.webp" imagesrcset="assets/otimizadas/heroes/hero-socio-torcida-960.webp 960w, assets/otimizadas/heroes/hero-socio-torcida-1600.webp 1600w, assets/otimizadas/heroes/hero-socio-torcida-1920.webp 1920w, assets/otimizadas/heroes/hero-socio-torcida-2560.webp 2560w, assets/otimizadas/heroes/hero-socio-torcida-3840.webp 3840w" imagesizes="100vw" media="(min-width: 701px)" fetchpriority="high" />
 
     <title>Seja Sócio | Esporte Clube Guarani</title>
 
@@ -39,7 +39,7 @@
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
 
     <link rel="stylesheet" href="css/style.css?v=85ff35ee3a" />
-    <link rel="stylesheet" href="css/socio.css?v=09ac6d552a" />
+    <link rel="stylesheet" href="css/socio.css?v=474e24f86e" />
     <link rel="stylesheet" href="css/patrocinadores.css?v=b4fde27880" />
     <noscript>
       <link rel="stylesheet" href="css/sem-js.css?v=5f34b49d6e" />
@@ -152,6 +152,12 @@
       ================================================== -->
 
       <section class="socio-hero">
+        <picture class="socio-hero-foto">
+          <source media="(max-width: 700px)" srcset="assets/otimizadas/heroes/hero-socio-torcida-960.webp" />
+          <img class="socio-hero-foto-imagem" src="assets/otimizadas/heroes/hero-socio-torcida-1920.webp"
+            srcset="assets/otimizadas/heroes/hero-socio-torcida-960.webp 960w, assets/otimizadas/heroes/hero-socio-torcida-1600.webp 1600w, assets/otimizadas/heroes/hero-socio-torcida-1920.webp 1920w, assets/otimizadas/heroes/hero-socio-torcida-2560.webp 2560w, assets/otimizadas/heroes/hero-socio-torcida-3840.webp 3840w" sizes="100vw"
+            width="3840" height="2560" alt="" fetchpriority="high" decoding="async" />
+        </picture>
         <div class="container socio-hero-conteudo">
           <span class="secao-tag"> FAÇA PARTE DO TIME ÍNDIO </span>
 

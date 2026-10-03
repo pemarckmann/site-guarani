@@ -14,8 +14,8 @@
 
     <link rel="icon" type="image/png" sizes="64x64" href="assets/otimizadas/favicon.png" />
 
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-mobile.webp" media="(max-width: 700px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-desktop.webp" media="(min-width: 701px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-960.webp" media="(max-width: 700px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/otimizadas/heroes/hero-campeao-2025-1920.webp" imagesrcset="assets/otimizadas/heroes/hero-campeao-2025-960.webp 960w, assets/otimizadas/heroes/hero-campeao-2025-1600.webp 1600w, assets/otimizadas/heroes/hero-campeao-2025-1920.webp 1920w, assets/otimizadas/heroes/hero-campeao-2025-2560.webp 2560w, assets/otimizadas/heroes/hero-campeao-2025-3840.webp 3840w" imagesizes="100vw" media="(min-width: 701px)" fetchpriority="high" />
 
     <title>Esporte Clube Guarani | Venâncio Aires</title>
 
@@ -39,7 +39,7 @@
     <meta name="twitter:image:alt" content="Escudo do Esporte Clube Guarani de Venâncio Aires, com o nome do clube e a frase Notícias, jogos e elenco." />
 
     <link rel="stylesheet" href="css/style.css?v=85ff35ee3a" />
-    <link rel="stylesheet" href="css/home.css?v=86e52eca0f" />
+    <link rel="stylesheet" href="css/home.css?v=9cf3e31696" />
     <link rel="stylesheet" href="css/desempenho.css?v=727a6ce83d" />
     <link rel="stylesheet" href="css/noticias.css?v=09dc21b7ce" />
     <link rel="stylesheet" href="css/patrocinadores.css?v=b4fde27880" />
@@ -156,6 +156,14 @@
       ================================================== -->
 
       <section class="hero" aria-label="Apresentação do Esporte Clube Guarani">
+        <picture class="hero-foto">
+          <source media="(max-width: 700px)" srcset="assets/otimizadas/heroes/hero-campeao-2025-960.webp" />
+          <img class="hero-imagem"
+            src="assets/otimizadas/heroes/hero-campeao-2025-1920.webp"
+            srcset="assets/otimizadas/heroes/hero-campeao-2025-960.webp 960w, assets/otimizadas/heroes/hero-campeao-2025-1600.webp 1600w, assets/otimizadas/heroes/hero-campeao-2025-1920.webp 1920w, assets/otimizadas/heroes/hero-campeao-2025-2560.webp 2560w, assets/otimizadas/heroes/hero-campeao-2025-3840.webp 3840w"
+            sizes="100vw" width="3840" height="2560" alt=""
+            fetchpriority="high" decoding="async" />
+        </picture>
         <div class="container hero-conteudo">
           <span class="hero-tag">O Time Índio</span>
 

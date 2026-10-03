@@ -40,13 +40,42 @@ tela também influencia o `srcset`.
 
 | Imagem | Antes | Celular | Computador |
 | --- | ---: | ---: | ---: |
-| Hero da Home | 309 KB | 92 KB | 186 KB |
-| Hero de Sócio | 253 KB | 84 KB | 155 KB |
-| Hero de Clube | 150 KB | 50 KB | 92 KB |
+| Hero da Home, revisão inicial | 309 KB | 92 KB | 186 KB |
+| Hero de Sócio, revisão inicial | 253 KB | 84 KB | 155 KB |
+| Hero de Clube, revisão inicial | 150 KB | 50 KB | 92 KB |
 | Escudo do Guarani | 70 KB | Variantes de 5 e 10 KB | Variante maior de 19 KB |
 
 Patrocinadores têm variantes com até 240 e 480 pixels, respeitando a largura
 original. Fotos pequenas dos atletas não foram ampliadas nem recomprimidas.
+
+### Hero da Home em telas grandes — 03/10/2026
+
+A foto original fornecida tem 5104 × 3403 pixels. Foram geradas novas versões
+diretamente dela, evitando ampliar ou recomprimir as versões reduzidas anteriores.
+O hero usa `<picture>` e preload compatível: celular recebe 960 pixels (108 KB),
+e desktop pode selecionar 960, 1600 (306 KB), 1920 (422 KB), 2560 (804 KB) ou
+3840 pixels (1,53 MB), conforme largura e densidade da tela. A imagem é escolhida
+desde o início, sem baixar uma versão leve e substituí-la depois. O arquivo
+original de 11,3 MB é preservado, sem participar do carregamento da página.
+
+### Demais heroes com as originais — 03/10/2026
+
+Clube e Sócio passaram a usar `<picture>`, com preload nas mesmas condições e
+versões de 960, 1600, 1920, 2560 e 3840 pixels. As fotos de 5388 × 3592 pixels
+ficam preservadas em `assets/originais/`; não são baixadas pelo visitante.
+No celular, as versões de 960 pixels têm 58 KB (Clube) e 97 KB (Sócio).
+Em 4K, as versões de 3840 pixels têm 768 KB e 1,05 MB, respectivamente.
+
+Elenco usa versões de 640, 960, 1280 e 1600 pixels, com 960 pixels no celular
+(150 KB). O destaque Guarani–União de Notícias usa versões de 640 e 1350 pixels
+(38 KB e 159 KB), selecionadas pelo `srcset` de acordo com largura e densidade.
+Essas duas fotos não foram ampliadas além das dimensões originais. As versões
+anteriores substituídas foram removidas, mantendo os originais para novas edições.
+
+Validação em navegador local: quatro páginas nas larguras 393, 1440, 1920 e
+3840 pixels, com densidade 2,75 no celular. Todos os 16 casos baixaram uma única
+imagem para o hero, sem erro JavaScript, rolagem horizontal ou deslocamento de
+layout durante o carregamento observado (CLS 0). Recortes e gradientes mantidos.
 
 ## Verificação local
 
