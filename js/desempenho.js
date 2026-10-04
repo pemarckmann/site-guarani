@@ -462,19 +462,77 @@ function prepararEscudos(container) {
 }
 
 let navegarProximoJogoPorArrasto = null;
+const reduzirMovimentoProximoJogo = matchMedia("(prefers-reduced-motion: reduce)");
+let trocandoProximoJogo = false;
+
+function conteudosProximoJogo() {
+  return [...destaqueProximoJogo.querySelectorAll(
+    ".jogo-titulo > *, .jogo-times > .time, .jogo-times > .versus, .jogo-info > *"
+  )];
+}
+
+async function trocarProximoJogoComEfeito(direcao, atualizar) {
+  if (trocandoProximoJogo) return;
+  if (reduzirMovimentoProximoJogo.matches) {
+    atualizar();
+    return;
+  }
+  trocandoProximoJogo = true;
+  const animacoes = [];
+  try {
+    const distancia = Math.min(destaqueProximoJogo.clientWidth * 0.12, 48);
+    const saidas = conteudosProximoJogo().map(elemento => elemento.animate([
+      { transform: elemento.style.transform || "translateX(0)", opacity: 1 },
+      { transform: `translateX(${-direcao * distancia}px)`, opacity: 0 },
+    ], { duration: 130, easing: "ease-out", fill: "forwards" }));
+    animacoes.push(...saidas);
+    await Promise.all(saidas.map(animacao => animacao.finished));
+    atualizar();
+    const entradas = conteudosProximoJogo().map(elemento => elemento.animate([
+      { transform: `translateX(${direcao * distancia}px)`, opacity: 0 },
+      { transform: "translateX(0)", opacity: 1 },
+    ], { duration: 220, easing: "cubic-bezier(.22, 1, .36, 1)" }));
+    animacoes.push(...entradas);
+    saidas.forEach(animacao => animacao.cancel());
+    await Promise.all(entradas.map(animacao => animacao.finished));
+  } catch (erro) {
+    if (erro.name !== "AbortError") console.error(erro);
+  } finally {
+    animacoes.forEach(animacao => animacao.cancel());
+    conteudosProximoJogo().forEach(elemento => { elemento.style.transform = ""; });
+    trocandoProximoJogo = false;
+  }
+}
 
 if (destaqueProximoJogo) {
   let inicioArrasto = null;
   let ignorarCliqueAte = 0;
+  let retornos = [];
+
+  function restaurarCard() {
+    inicioArrasto = null;
+    retornos.forEach(animacao => animacao.cancel());
+    retornos = [];
+    conteudosProximoJogo().forEach(elemento => {
+      const origem = elemento.style.transform;
+      elemento.style.transform = "";
+      if (origem && !reduzirMovimentoProximoJogo.matches) {
+        retornos.push(elemento.animate([
+          { transform: origem }, { transform: "translateX(0)" },
+        ], { duration: 180, easing: "ease-out" }));
+      }
+    });
+  }
 
   destaqueProximoJogo.addEventListener("pointerdown", evento => {
     // Mouse continua usando as setas; dois dedos ficam disponíveis para zoom.
     if (!evento.isPrimary) {
-      inicioArrasto = null;
+      restaurarCard();
       return;
     }
-    if (!navegarProximoJogoPorArrasto || evento.pointerType !== "touch" ||
+    if (trocandoProximoJogo || !navegarProximoJogoPorArrasto || evento.pointerType !== "touch" ||
         evento.target.closest("button")) return;
+    retornos.forEach(animacao => animacao.cancel());
     inicioArrasto = { id: evento.pointerId, x: evento.clientX, y: evento.clientY };
   });
 
@@ -483,9 +541,16 @@ if (destaqueProximoJogo) {
     const horizontal = Math.abs(evento.clientX - inicioArrasto.x);
     const vertical = Math.abs(evento.clientY - inicioArrasto.y);
     if (vertical > 12 && vertical >= horizontal) {
-      inicioArrasto = null;
+      restaurarCard();
     } else if (horizontal > 12 && horizontal > vertical * 1.5) {
       destaqueProximoJogo.setPointerCapture(evento.pointerId);
+      if (!reduzirMovimentoProximoJogo.matches) {
+        const limite = Math.min(destaqueProximoJogo.clientWidth * 0.12, 48);
+        const deslocamento = Math.max(-limite, Math.min(limite, evento.clientX - inicioArrasto.x));
+        conteudosProximoJogo().forEach(elemento => {
+          elemento.style.transform = `translateX(${deslocamento}px)`;
+        });
+      }
     }
   });
 
@@ -494,17 +559,20 @@ if (destaqueProximoJogo) {
     const horizontal = evento.clientX - inicioArrasto.x;
     const vertical = evento.clientY - inicioArrasto.y;
     inicioArrasto = null;
-    if (Math.abs(horizontal) < 45 || Math.abs(horizontal) <= Math.abs(vertical) * 1.5) return;
+    if (Math.abs(horizontal) < 45 || Math.abs(horizontal) <= Math.abs(vertical) * 1.5) {
+      restaurarCard();
+      return;
+    }
     // Um arrasto iniciado sobre o link não deve abrir a FGF ao soltar o dedo.
     ignorarCliqueAte = Date.now() + 500;
     navegarProximoJogoPorArrasto?.(horizontal < 0 ? 1 : -1);
   });
 
-  destaqueProximoJogo.addEventListener("pointercancel", () => { inicioArrasto = null; });
+  destaqueProximoJogo.addEventListener("pointercancel", restaurarCard);
   destaqueProximoJogo.addEventListener("lostpointercapture", evento => {
     // Transferir a captura de um escudo ou texto para o card também dispara
     // esse evento no filho; somente a perda da captura do card cancela o gesto.
-    if (evento.target === destaqueProximoJogo) inicioArrasto = null;
+    if (evento.target === destaqueProximoJogo && inicioArrasto) restaurarCard();
   });
   destaqueProximoJogo.addEventListener("click", evento => {
     if (evento.detail > 0 && Date.now() < ignorarCliqueAte) {
@@ -524,7 +592,7 @@ function atualizarProximoJogo(categorias, indice = 0) {
     ? ((indice % agendados.length) + agendados.length) % agendados.length : 0;
   const proximo = agendados[selecionado];
   navegarProximoJogoPorArrasto = agendados.length > 1
-    ? direcao => atualizarProximoJogo(categorias, selecionado + direcao) : null;
+    ? direcao => trocarProximoJogoComEfeito(direcao, () => atualizarProximoJogo(categorias, selecionado + direcao)) : null;
   destaqueProximoJogo.classList.toggle("jogo-card-arrastavel", agendados.length > 1);
   if (agendados.length > 1 && !destaqueProximoJogo.parentElement.classList.contains("jogo-destaque")) {
     const destaque = document.createElement("div");
@@ -545,8 +613,8 @@ function atualizarProximoJogo(categorias, indice = 0) {
   if (navegacao) {
     navegacao.hidden = agendados.length <= 1;
     // Mantém os mesmos botões ao trocar a partida, preservando o foco do teclado.
-    navegacao.querySelector(".jogo-anterior").onclick = () => atualizarProximoJogo(categorias, selecionado - 1);
-    navegacao.querySelector(".jogo-seguinte").onclick = () => atualizarProximoJogo(categorias, selecionado + 1);
+    navegacao.querySelector(".jogo-anterior").onclick = () => navegarProximoJogoPorArrasto?.(-1);
+    navegacao.querySelector(".jogo-seguinte").onclick = () => navegarProximoJogoPorArrasto?.(1);
   }
   destaqueProximoJogo.dataset.jogoId = proximo?.jogo.id || "";
   destaqueProximoJogo.classList.toggle("jogo-card-sem-dados", !proximo);
