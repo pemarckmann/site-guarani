@@ -67,10 +67,9 @@
   function renderizar(navegacao = false) {
     const selecionada = dados[categoria.value];
     const jogos = selecionada.jogos.filter(jogo => status.value === "todos" || jogo.status === status.value)
-      .sort((a, b) => {
-        if (a.status !== b.status) return a.status === "agendado" ? -1 : 1;
-        return a.status === "agendado" ? ordenarJogos(a, b) : ordenarJogos(b, a);
-      });
+      // A lista completa segue uma unica ordem; a agenda prioriza o jogo mais proximo.
+      .sort((a, b) => status.value === "agendado"
+        ? ordenarJogos(a, b) : ordenarJogos(b, a));
     const paginas = Math.max(1, Math.ceil(jogos.length / limite));
     pagina = Math.min(pagina, paginas);
     const inicio = (pagina - 1) * limite;
