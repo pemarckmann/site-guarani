@@ -787,6 +787,8 @@
 
 .jogo-destaque { position: relative; display: flow-root; }
 
+.jogo-card-arrastavel { touch-action: pan-y pinch-zoom; }
+
 .jogo-navegacao {
   position: absolute;
   inset: 0;

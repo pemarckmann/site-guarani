@@ -461,6 +461,59 @@ function prepararEscudos(container) {
   });
 }
 
+let navegarProximoJogoPorArrasto = null;
+
+if (destaqueProximoJogo) {
+  let inicioArrasto = null;
+  let ignorarCliqueAte = 0;
+
+  destaqueProximoJogo.addEventListener("pointerdown", evento => {
+    // Mouse continua usando as setas; dois dedos ficam disponíveis para zoom.
+    if (!evento.isPrimary) {
+      inicioArrasto = null;
+      return;
+    }
+    if (!navegarProximoJogoPorArrasto || evento.pointerType !== "touch" ||
+        evento.target.closest("button")) return;
+    inicioArrasto = { id: evento.pointerId, x: evento.clientX, y: evento.clientY };
+  });
+
+  destaqueProximoJogo.addEventListener("pointermove", evento => {
+    if (!inicioArrasto || evento.pointerId !== inicioArrasto.id) return;
+    const horizontal = Math.abs(evento.clientX - inicioArrasto.x);
+    const vertical = Math.abs(evento.clientY - inicioArrasto.y);
+    if (vertical > 12 && vertical >= horizontal) {
+      inicioArrasto = null;
+    } else if (horizontal > 12 && horizontal > vertical * 1.5) {
+      destaqueProximoJogo.setPointerCapture(evento.pointerId);
+    }
+  });
+
+  destaqueProximoJogo.addEventListener("pointerup", evento => {
+    if (!inicioArrasto || evento.pointerId !== inicioArrasto.id) return;
+    const horizontal = evento.clientX - inicioArrasto.x;
+    const vertical = evento.clientY - inicioArrasto.y;
+    inicioArrasto = null;
+    if (Math.abs(horizontal) < 45 || Math.abs(horizontal) <= Math.abs(vertical) * 1.5) return;
+    // Um arrasto iniciado sobre o link não deve abrir a FGF ao soltar o dedo.
+    ignorarCliqueAte = Date.now() + 500;
+    navegarProximoJogoPorArrasto?.(horizontal < 0 ? 1 : -1);
+  });
+
+  destaqueProximoJogo.addEventListener("pointercancel", () => { inicioArrasto = null; });
+  destaqueProximoJogo.addEventListener("lostpointercapture", evento => {
+    // Transferir a captura de um escudo ou texto para o card também dispara
+    // esse evento no filho; somente a perda da captura do card cancela o gesto.
+    if (evento.target === destaqueProximoJogo) inicioArrasto = null;
+  });
+  destaqueProximoJogo.addEventListener("click", evento => {
+    if (evento.detail > 0 && Date.now() < ignorarCliqueAte) {
+      evento.preventDefault();
+      evento.stopPropagation();
+    }
+  }, true);
+}
+
 function atualizarProximoJogo(categorias, indice = 0) {
   if (!destaqueProximoJogo) return;
   const agendados = Object.values(categorias).flatMap(categoria =>
@@ -470,6 +523,9 @@ function atualizarProximoJogo(categorias, indice = 0) {
   const selecionado = agendados.length
     ? ((indice % agendados.length) + agendados.length) % agendados.length : 0;
   const proximo = agendados[selecionado];
+  navegarProximoJogoPorArrasto = agendados.length > 1
+    ? direcao => atualizarProximoJogo(categorias, selecionado + direcao) : null;
+  destaqueProximoJogo.classList.toggle("jogo-card-arrastavel", agendados.length > 1);
   if (agendados.length > 1 && !destaqueProximoJogo.parentElement.classList.contains("jogo-destaque")) {
     const destaque = document.createElement("div");
     destaque.className = "jogo-destaque";
