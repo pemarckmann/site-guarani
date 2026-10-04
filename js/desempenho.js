@@ -461,12 +461,38 @@ function prepararEscudos(container) {
   });
 }
 
-function atualizarProximoJogo(categorias) {
+function atualizarProximoJogo(categorias, indice = 0) {
   if (!destaqueProximoJogo) return;
-  const proximo = Object.values(categorias).flatMap(categoria =>
+  const agendados = Object.values(categorias).flatMap(categoria =>
     categoria.jogos.filter(jogo => jogo.status === "agendado")
       .map(jogo => ({ jogo, categoria: categoria.categoria, logo: categoria.logoCompeticao }))
-  ).sort((a, b) => ordenarJogos(a.jogo, b.jogo))[0];
+  ).sort((a, b) => ordenarJogos(a.jogo, b.jogo));
+  const selecionado = agendados.length
+    ? ((indice % agendados.length) + agendados.length) % agendados.length : 0;
+  const proximo = agendados[selecionado];
+  if (agendados.length > 1 && !destaqueProximoJogo.parentElement.classList.contains("jogo-destaque")) {
+    const destaque = document.createElement("div");
+    destaque.className = "jogo-destaque";
+    destaqueProximoJogo.before(destaque);
+    destaque.append(destaqueProximoJogo);
+  }
+  let navegacao = destaqueProximoJogo.parentElement.querySelector(".jogo-navegacao");
+  if (agendados.length > 1 && !navegacao) {
+    navegacao = document.createElement("nav");
+    navegacao.className = "jogo-navegacao";
+    navegacao.setAttribute("aria-label", "Consultar próximas partidas");
+    navegacao.innerHTML = `
+      <button type="button" class="jogo-anterior" aria-label="Ver partida agendada anterior" aria-controls="proximo-jogo-card"><span class="jogo-seta" aria-hidden="true"></span></button>
+      <button type="button" class="jogo-seguinte" aria-label="Ver próxima partida agendada" aria-controls="proximo-jogo-card"><span class="jogo-seta" aria-hidden="true"></span></button>`;
+    destaqueProximoJogo.after(navegacao);
+  }
+  if (navegacao) {
+    navegacao.hidden = agendados.length <= 1;
+    // Mantém os mesmos botões ao trocar a partida, preservando o foco do teclado.
+    navegacao.querySelector(".jogo-anterior").onclick = () => atualizarProximoJogo(categorias, selecionado - 1);
+    navegacao.querySelector(".jogo-seguinte").onclick = () => atualizarProximoJogo(categorias, selecionado + 1);
+  }
+  destaqueProximoJogo.dataset.jogoId = proximo?.jogo.id || "";
   destaqueProximoJogo.classList.toggle("jogo-card-sem-dados", !proximo);
   if (!proximo) {
     destaqueProximoJogo.innerHTML = '<p class="desempenho-aviso">Próximas partidas em breve.</p>';
@@ -488,7 +514,7 @@ function atualizarProximoJogo(categorias) {
   destaqueProximoJogo.innerHTML = `
     <div class="jogo-titulo">
       ${logoCompeticaoValido(logo) ? `<img src="${escaparHTML(logo.src)}" width="${logo.largura}" height="${logo.altura}" alt="${escaparHTML(jogo.competicao)}" class="logo-competicao" fetchpriority="high"${logo !== logoOriginal ? ` data-logo-original="${escaparHTML(logoOriginal.src)}"` : ""} />` : ""}
-      <span>PRÓXIMA PARTIDA</span>
+      <span>${selecionado === 0 ? "PRÓXIMA PARTIDA" : "PARTIDA AGENDADA"}</span>
       <strong>${escaparHTML(jogo.competicao)}</strong>
       ${textoValido(jogo.fase) ? `<small>${escaparHTML(jogo.fase)}</small>` : ""}
       ${numeroPartidaValido(jogo) ? `<small>Partida ${jogo.partida} de ${jogo.totalPartidas}</small>` : ""}

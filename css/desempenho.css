@@ -784,3 +784,67 @@
 
 .proximo-jogo .jogo-card.jogo-card-sem-dados,
 .jogos-hero.jogo-card.jogo-card-sem-dados { min-height: 0; display: block; }
+
+.jogo-destaque { position: relative; display: flow-root; }
+
+.jogo-navegacao {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.jogo-navegacao[hidden] { display: none; }
+
+.jogo-navegacao button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #777;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.jogo-navegacao .jogo-anterior { left: 2px; }
+.jogo-navegacao .jogo-seguinte { right: 2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .jogo-navegacao button { opacity: 0; pointer-events: none; }
+  .jogo-destaque:hover .jogo-navegacao button,
+  .jogo-destaque:focus-within .jogo-navegacao button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .jogo-navegacao button { width: 32px; }
+}
+
+@media (min-width: 701px) {
+  .jogo-navegacao .jogo-anterior { color: #ccc; }
+}
+
+.jogo-navegacao button:hover { color: #b30018; }
+.jogo-navegacao button:focus-visible {
+  outline: 2px solid #b30018;
+  outline-offset: 3px;
+}
+
+.jogo-seta {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.jogo-anterior .jogo-seta { transform: rotate(135deg); }
+.cabecalho-jogos .jogo-navegacao button { color: #ccc; }
+.cabecalho-jogos .jogo-navegacao button:hover { color: #fff; }
+.cabecalho-jogos .jogo-navegacao button:focus-visible { outline-color: #fff; }
